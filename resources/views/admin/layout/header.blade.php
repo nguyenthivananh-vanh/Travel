@@ -2,7 +2,7 @@
 <nav class="blue darken-2">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Admin</a>
+        <a href="admin/adminHome" class="brand-logo">Admin</a>
         <a href="#" data-activates="side-nav" class="button-collapse show-on-large right">
           <i class="material-icons">menu</i>
         </a>
@@ -11,10 +11,10 @@
             <a href="index.html">Dashboard</a>
           </li> -->
           <li>
-            <a href="posts.html">Posts</a>
+            <a href="admin/diadiem/list">Địa điểm</a>
           </li>
           <li>
-            <a href="comments.html">Comments</a>
+            <a href="admin/comment/list">Comments</a>
           </li>
           <li>
             <a href="admin/user/list">Users</a>

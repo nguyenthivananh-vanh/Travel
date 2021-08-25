@@ -18,13 +18,12 @@ class CreateDiadiemTable extends Migration
             $table->string('TieuDe');
             $table->string('TieuDeKhongDau');
             $table->text('TomTat');
-            $table->longText('NoiDung');
             $table->string('HinhAnh');
+            $table->longText('NoiDung');          
             $table->integer('NoiBat')->default(0);
             $table->string('TacGia');
             $table->integer('SoLuotXem')->default(0);
             $table->integer('idDacDiem')->unsigned();
-            
             $table->timestamps();
         });
     }
