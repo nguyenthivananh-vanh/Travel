@@ -15,7 +15,7 @@
                       <th>Nội dung</th>
                       <th>Hình ảnh</th>                  
                       <th>Ngày đăng</th>                 
-                      <th></th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                 <tbody>

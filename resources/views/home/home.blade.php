@@ -28,7 +28,7 @@
       </div>
     </nav>
   </div> 
-  <ul class="sideNav" id="mobileNav" *ngIf="!showFiller" >
+  <ul class="sideNav" id="mobileNav" if="!showFiller" >
     <li class="nav-li">
       <p>Trang chủ</p>
     </li>

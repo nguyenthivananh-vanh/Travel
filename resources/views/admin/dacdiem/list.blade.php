@@ -15,7 +15,7 @@
                     <th>Tên</th>
                     <th>Tên Không Dấu</th>                
                     <th>Vùng Miền</th>                
-                    <th></th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
