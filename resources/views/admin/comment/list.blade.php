@@ -19,83 +19,23 @@
                     </tr>
                   </thead>
                 <tbody>
+                  @foreach ($comment as $cmt)                 
                   <tr>
-                      <td>1</td>
-                      <td>Vanh Vanh</td>
-                      <td>Bạn ơi cho mình hỏi cách book quán....</td>
+                      <td>{{$cmt->id}}</td>
+                      <td>{{$cmt->user->Ten}}</td>
+                      <td>{{$cmt->NoiDung}}</td>
+                      
                       <td width="70">
-                        <img src="upload/home/NhaTrang2.jpg" alt=""  style="width: 40px; margin-left: 10px;">
+                        <img src="upload/comment/{{$cmt->HinhAnh}}" alt=""  style="width: 40px; margin-left: 10px;">
                       </td> 
+                      <td>{{$cmt->created_at}}</td>
                       <td>                   
                         <a href="#" class="red-text">
                             <i class="material-icons">close</i>
                         </a>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Gà Tây</td>
-                    <td>Quán Nắng có mở cửa vào ....</td>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt=""  style="width: 40px; margin-left: 10px;">
-                    </td> 
-                    <td>                  
-                        <a href="#" class="red-text">
-                            <i class="material-icons">close</i>
-                        </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Gà Tây</td>
-                    <td>Quán Nắng có mở cửa vào ....</td>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt=""  style="width: 40px; margin-left: 10px;">
-                    </td>
-                    <td>                   
-                        <a href="#" class="red-text">
-                            <i class="material-icons">close</i>
-                        </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Gà Tây</td>
-                    <td>Quán Nắng có mở cửa vào ....</td>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt=""  style="width: 40px; margin-left: 10px;">
-                    </td>
-                    <td>                   
-                        <a href="#" class="red-text">
-                            <i class="material-icons">close</i>
-                        </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Gà Tây</td>
-                    <td>Quán Nắng có mở cửa vào ....</td>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt=""  style="width: 40px; margin-left: 10px;">
-                    </td>  
-                    <td>                 
-                        <a href="#" class="red-text">
-                            <i class="material-icons">close</i>
-                        </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Gà Tây</td>
-                    <td>Quán Nắng có mở cửa vào ....</td>
-                    <td></td>
-                      <td>               
-                        <a href="#" class="red-text">
-                            <i class="material-icons">close</i>
-                        </a>
-                    </td>
-                    </td>
-                  </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>

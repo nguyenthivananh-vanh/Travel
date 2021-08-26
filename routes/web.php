@@ -16,11 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/test', function () {
-//     return view('admin.user.list');
-// });
+Route::get('/test', function () {
+    return view('login');
+});
 Route::group(['prefix'=>'admin'],function(){
     Route::get('adminHome','App\Http\Controllers\DiaDiemController@getList');
+    Route::group(['prefix'=>'vungmien'],function(){
+        Route::get('list','App\Http\Controllers\VungMienController@getList');
+        
+    });
+    Route::group(['prefix'=>'dacdiem'],function(){
+        Route::get('list','App\Http\Controllers\DacDiemController@getList');
+        
+    });
     Route::group(['prefix'=>'user'],function(){
         Route::get('list','App\Http\Controllers\UserController@getList');
         

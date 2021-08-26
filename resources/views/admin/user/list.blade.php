@@ -21,76 +21,22 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($user as $user)
+                   
                   <tr>
-                    <td>1</td>
+                    <td>{{$user->id}}</td>
                     <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
+                      <img src="upload/users/{{$user->Avatar}}" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
                     </td>
-                    <td>Vanh</td>
-                    <td>Vanh@gmail.com</td>
-                    <td>1</td>
+                    <td>{{$user->Ten}}</td>
+                    <td>{{$user->Email}}</td>
+                    <td>{{$user->PhanQuyen}}</td>
                     <td>
                       <a href="details.html" class="btn blue lighten-2">Details</a>
                     </td>
                   </tr>
-                    <td>1</td>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                    </td>
-                    <td>Vanh</td>
-                    <td>Vanh@gmail.com</td>
-                    <td>1</td>
-                    <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                      <td width="70">
-                        <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                      </td>
-                      <td>Vanh</td>
-                      <td>Vanh@gmail.com</td>
-                      <td>1</td>
-                      <td>
-                        <a href="details.html" class="btn blue lighten-2">Details</a>
-                      </td>
-                  <tr>
-                    <td>1</td>
-                      <td width="70">
-                        <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                      </td>
-                      <td>Vanh</td>
-                      <td>Vanh@gmail.com</td>
-                      <td>1</td>
-                      <td>
-                        <a href="details.html" class="btn blue lighten-2">Details</a>
-                      </td>
-                  <tr>
-                    <td>1</td>
-                      <td width="70">
-                        <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                      </td>
-                      <td>Vanh</td>
-                      <td>Vanh@gmail.com</td>
-                      <td>1</td>
-                      <td>
-                        <a href="details.html" class="btn blue lighten-2">Details</a>
-                      </td>
-                  <tr>
-                    <td>1</td>
-                      <td width="70">
-                        <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                      </td>
-                      <td>Vanh</td>
-                      <td>Vanh@gmail.com</td>
-                      <td>1</td>
-                      <td>
-                        <a href="details.html" class="btn blue lighten-2">Details</a>
-                      </td>
-                  </tr>
-                  
-
+                      
+                  @endforeach 
                 </tbody>
               </table>
             </div>

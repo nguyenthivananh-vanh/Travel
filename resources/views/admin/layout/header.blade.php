@@ -11,6 +11,12 @@
             <a href="index.html">Dashboard</a>
           </li> -->
           <li>
+            <a href="admin/vungmien/list">Vùng miền</a>
+          </li>
+          <li>
+            <a href="admin/dacdiem/list">Đặc điểm</a>
+          </li>
+          <li>
             <a href="admin/diadiem/list">Địa điểm</a>
           </li>
           <li>
