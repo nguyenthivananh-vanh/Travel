@@ -1,8 +1,5 @@
 @extends('admin.layout.index')
-{{-- @section('css')
-    <link type="text/css" rel="stylesheet" href="admin/user/admin_asset/css/materialize.min.css" media="screen,projection" />
-    <link href="admin_asset/css/main.css" rel="stylesheet">
-@endsection --}}
+
 @section('content')
 
 <section class="section section-users grey lighten-4">
@@ -15,79 +12,82 @@
               <table class="striped">
                 <thead>
                   <tr>
-                    <th></th>
+                    <th>ID</th>
+                    <th>Avatar</th>
                     <th>Họ tên</th>
-                    <th>Email</th>
-                    <th>Ngày tạo tài khoản</th>
+                    <th>Email</th>                  
+                    <th>Phân quyền</th>                 
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
+                    <td>1</td>
                     <td width="70">
                       <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
                     </td>
-                    <td>Green D</td>
-                    <td>green@gmail.com</td>
-                    <td>1/1/2021<td>
+                    <td>Vanh</td>
+                    <td>Vanh@gmail.com</td>
+                    <td>1</td>
+                    <td>
+                      <a href="details.html" class="btn blue lighten-2">Details</a>
+                    </td>
+                  </tr>
+                    <td>1</td>
+                    <td width="70">
+                      <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
+                    </td>
+                    <td>Vanh</td>
+                    <td>Vanh@gmail.com</td>
+                    <td>1</td>
                     <td>
                       <a href="details.html" class="btn blue lighten-2">Details</a>
                     </td>
                   </tr>
                   <tr>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                    </td>
-                    <td>Green D</td>
-                    <td>green@gmail.com</td>
-                    <td>1/1/2021<td>
-                    <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
-                    </td>
-                  </tr>
+                    <td>1</td>
+                      <td width="70">
+                        <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
+                      </td>
+                      <td>Vanh</td>
+                      <td>Vanh@gmail.com</td>
+                      <td>1</td>
+                      <td>
+                        <a href="details.html" class="btn blue lighten-2">Details</a>
+                      </td>
                   <tr>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                    </td>
-                    <td>Green D</td>
-                    <td>green@gmail.com</td>
-                    <td>1/1/2021<td>
-                    <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
-                    </td>
-                  </tr>
+                    <td>1</td>
+                      <td width="70">
+                        <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
+                      </td>
+                      <td>Vanh</td>
+                      <td>Vanh@gmail.com</td>
+                      <td>1</td>
+                      <td>
+                        <a href="details.html" class="btn blue lighten-2">Details</a>
+                      </td>
                   <tr>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                    </td>
-                    <td>Green D</td>
-                    <td>green@gmail.com</td>
-                    <td>1/1/2021<td>
-                    <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
-                    </td>
-                  </tr>
+                    <td>1</td>
+                      <td width="70">
+                        <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
+                      </td>
+                      <td>Vanh</td>
+                      <td>Vanh@gmail.com</td>
+                      <td>1</td>
+                      <td>
+                        <a href="details.html" class="btn blue lighten-2">Details</a>
+                      </td>
                   <tr>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                    </td>
-                    <td>Green D</td>
-                    <td>green@gmail.com</td>
-                    <td>1/1/2021<td>
-                    <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td width="70">
-                      <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
-                    </td>
-                    <td>Green D</td>
-                    <td>green@gmail.com</td>
-                    <td>1/1/2021<td>
-                    <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
-                    </td>
+                    <td>1</td>
+                      <td width="70">
+                        <img src="upload/home/NhaTrang2.jpg" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
+                      </td>
+                      <td>Vanh</td>
+                      <td>Vanh@gmail.com</td>
+                      <td>1</td>
+                      <td>
+                        <a href="details.html" class="btn blue lighten-2">Details</a>
+                      </td>
                   </tr>
                   
 
