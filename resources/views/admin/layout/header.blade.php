@@ -3,7 +3,7 @@
     <div class="container">
       <div class="nav-wrapper">
         <a href="admin/adminHome" class="brand-logo">Admin</a>
-        <a  data-activates="side-nav" class="button-collapse show-on-large right" (click)="showSidebar()">
+        <a  data-activates="side-nav" class="button-collapse show-on-large right" onclick="showSidebar()">
           <i class="material-icons">menu</i>
         </a>
         <ul class="right hide-on-med-and-down">
@@ -68,11 +68,13 @@
               <a href="login.html" class="waves-effect">Đăng xuất</a>
             </li>
           </ul>
-    
+          
         
       </div>
     </div>
   </nav>
+ 
+  
   
   
   

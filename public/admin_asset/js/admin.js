@@ -1,11 +1,9 @@
+function showSidebar() {
+    alert("ho")
+}
 
-    // function showSidebar(){
-    //   alert("ho")
-    // }
-    // this.showSidebar();
-    
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     var elems = document.querySelectorAll('.sidenav');
-    //     var instances = M.Sidenav.init(elems, options);
-    //   });
-    
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+});
