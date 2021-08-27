@@ -3,7 +3,7 @@
     <div class="container">
       <div class="nav-wrapper">
         <a href="admin/adminHome" class="brand-logo">Admin</a>
-        <a href="#" data-activates="side-nav" class="button-collapse show-on-large right">
+        <a  data-activates="side-nav" class="button-collapse show-on-large right" (click)="showSidebar()">
           <i class="material-icons">menu</i>
         </a>
         <ul class="right hide-on-med-and-down">
@@ -25,9 +25,16 @@
           <li>
             <a href="admin/user/list">Users</a>
           </li>
+          <!-- <li>
+            <a href="#" data-activates="mobile-nav" class="button-collapse" (click)="showNav()">
+              <i class="material-icons">menu</i>
+            </a>
+          </li> -->
+
         </ul>
         <!-- Side-nav -->
-        <ul id="side-nav" class="side-nav">
+
+          <ul id="side-nav" class="side-nav" >
             <li>
               <div class="user-view">
                 <div class="background">
@@ -61,10 +68,13 @@
               <a href="login.html" class="waves-effect">Đăng xuất</a>
             </li>
           </ul>
+    
         
       </div>
     </div>
   </nav>
+  
+  
   
   
 
