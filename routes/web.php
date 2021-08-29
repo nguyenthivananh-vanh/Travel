@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('admin.vungmien.add');
 });
+Route::get('/register', function () {
+    return view('signup');
+});
 Route::group(['prefix'=>'admin'],function(){
     Route::get('adminHome','App\Http\Controllers\DiaDiemController@getList');
     Route::group(['prefix'=>'vungmien'],function(){
