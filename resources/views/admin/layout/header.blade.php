@@ -67,9 +67,7 @@
             <li>
               <a href="login.html" class="waves-effect">Đăng xuất</a>
             </li>
-          </ul>
-          
-        
+          </ul>       
       </div>
     </div>
   </nav>

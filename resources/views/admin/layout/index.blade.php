@@ -10,6 +10,9 @@
     
     <link href="admin_asset/css/main.css" rel="stylesheet">
     <link href="admin_asset/css/admin.css" rel="stylesheet">
+    {{-- pagination --}}
+    <link rel="stylesheet" href="admin_asset/css/pagination.css">
+    
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
@@ -19,6 +22,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">  
     <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
 
+    <link href="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+    {{-- <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
 
 </head>
@@ -55,7 +60,10 @@
     <!-- DataTables JavaScript -->
     <script src="admin_asset/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
     <script src="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-    
+    <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('ckeditor');
+    </script>
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
         <script>

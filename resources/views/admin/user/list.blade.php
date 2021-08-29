@@ -1,7 +1,7 @@
 @extends('admin.layout.index')
 
 @section('content')
-
+<link rel="stylesheet" href="admin_asset/css/pagination.css">
 <section class="section section-users grey lighten-4">
     <div class="container">
       <div class="row">
@@ -9,6 +9,12 @@
           <div class="card">
             <div class="card-content">
               <span class="card-title">Users</span>
+              <button class="btn-add"><a href="admin/user/add">Thêm</a></button>
+              @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}<br>
+                    </div>
+                @endif
               <table class="striped">
                 <thead>
                   <tr>
@@ -17,11 +23,11 @@
                     <th>Họ tên</th>
                     <th>Email</th>                  
                     <th>Phân quyền</th>                 
-                    <th></th>
+                    <th>Tác vụ</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($user as $user)
+                  @foreach ($User as $user)
                    
                   <tr>
                     <td>{{$user->id}}</td>
@@ -29,45 +35,31 @@
                       <img src="upload/users/{{$user->Avatar}}" alt="" class="responsive-img circle" style="width: 40px; margin-left: 10px;">
                     </td>
                     <td>{{$user->Ten}}</td>
-                    <td>{{$user->Email}}</td>
-                    <td>{{$user->PhanQuyen}}</td>
+                    <td>{{$user->email}}</td>
                     <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
+                      @if($user->PhanQuyen==1)
+                      {{"admin"}}
+                      @else
+                      {{"user"}}
+                      @endif
+                      </td>
+                    <td>
+                      <a href="admin/user/level/{{$user->id}}" class="green-text">
+                        <i class="fas fa-user-shield"></i>
+                      </a>
+                      <a href="admin/user/delete/{{$user->id}}" class="red-text">
+                        <i class="material-icons">close</i>
+                      </a>
                     </td>
+
                   </tr>
                       
                   @endforeach 
                 </tbody>
               </table>
             </div>
-            <div class="card-action">
-              <ul class="pagination">
-                <li class="dsabled">
-                  <a href="#!" class="blue-text">
-                    <i class="material-icons">chevron_left</i>
-                  </a>
-                </li>
-                <li class="active blue lighten-2">
-                  <a href="#!" class="white-text">1</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">2</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">3</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">4</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">5</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-                </li>
-              </ul>
+            <div class="page">
+              {{$User->links("pagination::bootstrap-4")}}
             </div>
           </div>
         </div>

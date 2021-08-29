@@ -1,5 +1,6 @@
 @extends('admin.layout.index')
 @section('content')
+<link rel="stylesheet" href="admin_asset/css/pagination.css">
 <section class="section section-comments grey lighten-4">
     <div class="container">
       <div class="row">
@@ -15,7 +16,7 @@
                       <th>Nội dung</th>
                       <th>Hình ảnh</th>                  
                       <th>Ngày đăng</th>                 
-                      <th>Actions</th>
+                      <th>Tác vụ</th>
                     </tr>
                   </thead>
                 <tbody>
@@ -30,7 +31,7 @@
                       </td> 
                       <td>{{$cmt->created_at}}</td>
                       <td>                   
-                        <a href="#" class="red-text">
+                        <a href="admin/comment/delete/{{$cmt->id}}" class="red-text">
                             <i class="material-icons">close</i>
                         </a>
                     </td>
@@ -39,34 +40,8 @@
                 </tbody>
               </table>
             </div>
-            <div class="card-action">
-              <ul class="pagination">
-                <li class="dsabled">
-                  <a href="#!" class="blue-text">
-                    <i class="material-icons">chevron_left</i>
-                  </a>
-                </li>
-                <li class="active blue lighten-2">
-                  <a href="#!" class="white-text">1</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">2</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">3</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">4</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">5</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-                </li>
-              </ul>
+            <div class="page">
+              {{$comment->links("pagination::bootstrap-4")}}
             </div>
           </div>
         </div>

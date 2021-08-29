@@ -1,15 +1,22 @@
 @extends('admin.layout.index')
 @section('content')
+<link rel="stylesheet" href="admin_asset/css/pagination.css">
 <section class="section section-posts grey lighten-4"  >
     <div class="container" style="min-width:1200px; padding:0">
       <div class="row">
         <div class="col s12">
           <div class="card">
             <div class="card-content">
-              <span class="card-title">Posts</span>
+              <span class="card-title">Địa điểm</span>
+              <button class="btn-add"><a href="admin/diadiem/add">Thêm</a></button>
+              @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}<br>
+                    </div>
+                @endif
+                <br><br>
               <table style="border-collapse: collapse;" class="striped">
-                <thead>
-                  
+                <thead>                
                   <tr>
                     <th style=" border: 1px solid #ddd;">Id</th>
                     <th style=" border: 1px solid #ddd;">Tiêu đề</th>
@@ -21,10 +28,11 @@
                     <th style=" border: 1px solid #ddd;">Tác giả</th>
                     <th style=" border: 1px solid #ddd;">Số lượt xem</th>
                     <th style=" border: 1px solid #ddd;">Id đặc điểm</th>
+                    <th style=" border: 1px solid #ddd;">Tác vụ</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($diadiem as $diadiem)
+                  @foreach ($DiaDiem as $diadiem)
                   
                   <tr>
                     <td style=" border: 1px solid #ddd;">{{$diadiem->id}}</td>
@@ -68,9 +76,14 @@
                     <td style=" border: 1px solid #ddd;">{{$diadiem->TacGia}}</td>
                     <td style=" border: 1px solid #ddd;">{{$diadiem->SoLuotXem}}</td>
                     <td style=" border: 1px solid #ddd;">{{$diadiem->dacdiem->Ten}}</td>
-                    <!-- <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
-                    </td> -->
+                    <td style=" border: 1px solid #ddd;">
+                      <a href="admin/diadiem/update/{{$diadiem->id}}" class="green-text">
+                        <i class="material-icons">done</i>
+                      </a>
+                      <a href="admin/diadiem/delete/{{$diadiem->id}}" class="red-text">
+                        <i class="material-icons">close</i>
+                      </a>
+                    </td>
                   </tr>
                      
                   @endforeach
@@ -78,34 +91,8 @@
                 </tbody>
               </table>
             </div>
-            <div class="card-action">
-              <ul class="pagination">
-                <li class="dsabled">
-                  <a href="#!" class="blue-text">
-                    <i class="material-icons">chevron_left</i>
-                  </a>
-                </li>
-                <li class="active blue lighten-2">
-                  <a href="#!" class="white-text">1</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">2</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">3</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">4</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">5</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-                </li>
-              </ul>
+            <div class="page">
+              {{$DiaDiem->links("pagination::bootstrap-4")}}
             </div>
           </div>
         </div>
