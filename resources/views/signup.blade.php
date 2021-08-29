@@ -1,5 +1,6 @@
 @include('layout.index')
-<nav class="blue darken-2">
+<!-- include nay la gi nhi -->
+<!-- <nav class="blue darken-2">
     <div class="container">
       <div class="nav-wrapper">
         <a href="index.html" class="brand-logo">Admin</a>
@@ -46,7 +47,41 @@
   </section>
   
   
-  <!-- Footer -->
+
   <footer class="section blue darken-2 white-text center" style="position: absolute;bottom: 0;left: 0; right: 0;">
     <p>My Vietnam Copyright &copy; 2021</p>
-  </footer>
+  </footer> -->
+
+  <div class="login-page">
+  
+    <div class="form">
+    <h3>Sign up</h3>
+      <form>
+        <div class="form-group row">
+        <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name" required>
+        </div>
+        <div class="form-group row">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" require>
+        </div>
+        <div class="form-group row">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" require>
+        </div>
+        <div class="form-group row">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repeat Password" require>
+        </div>
+        <!-- <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Remember me!</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <label class="form-check-label" for="inlineRadio2">2</label>
+        </div> -->
+        <button type="submit" >Submit</button>
+      </form>
+    </div>
+</div>

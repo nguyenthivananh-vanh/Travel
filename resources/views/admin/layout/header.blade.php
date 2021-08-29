@@ -3,7 +3,7 @@
     <div class="container">
       <div class="nav-wrapper">
         <a href="admin/adminHome" class="brand-logo">Admin</a>
-        <a  data-activates="side-nav" class="button-collapse show-on-large right" onclick="showSidebar()">
+        <a  data-activates="side-nav" class="button-collapse show-on-large right"id="btnShowSideNav" onclick="showSidebar()">
           <i class="material-icons">menu</i>
         </a>
         <ul class="right hide-on-med-and-down">
@@ -34,19 +34,20 @@
         </ul>
         <!-- Side-nav -->
 
-          <ul id="side-nav" class="side-nav" >
+          <ul id="side-nav-admin" class="side-nav-admin" >
             <li>
-              <div class="user-view">
+              <div class="user-view" >
+              <a href="javascript:void(0)" class="admin-btnClose-sidenav" onclick="closeNav()"><i class="fas fa-times"></i></a>
                 <div class="background">
-                  <img src="upload/home/DaNang.jpg" alt="ocean-background">
+                  <img src="upload/users/background-admin.jpg" alt="ocean-background">
                 </div>
-                <a href="#">
-                  <img src="upload/home/NhaTrang2.jpg" alt="person1.jpg" class="circle">
+                <a href="#" class="admin-img-sidenav">
+                  <img src="upload/users/ava-admin.jpg" alt="person1.jpg" class="circle" style='width:50px; height:50px'>
                 </a>
-                <a href="#" class="name white-text">
+                <a href="#" class="admin-name-sidenav white-text">
                   <span>Admin My VietNam</span>
                 </a>
-                <a href="#" class="email white-text">
+                <a href="#" class="admin-email-sidenav white-text">
                   <span>myvietnam@gmail.com</span>
                 </a>
               </div>

@@ -1,9 +1,24 @@
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     var elems = document.querySelectorAll('.sidenav');
+//     var instances = M.Sidenav.init(elems, options);
+// });
+var sideNavAdmin= document.getElementById('side-nav-admin');
+var check=false;
 function showSidebar() {
-    alert("ho")
+ 
+    if(check){
+        sideNavAdmin.style.display='block'
+
+        check=!check;
+    }else{        
+        sideNavAdmin.style.display='none';
+        check=!check;
+    }
 }
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-});
+function closeNav(){
+    sideNavAdmin.style.display='none';
+    this.check=!this.check;
+}
