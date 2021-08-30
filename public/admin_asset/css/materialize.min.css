@@ -981,11 +981,11 @@
 }
 
 .teal {
-    background-color: #009688 !important
+    background-color: #1976d2 !important
 }
 
 .teal-text {
-    color: #009688 !important
+    color: #1976d2 !important
 }
 
 .teal.lighten-5 {
@@ -1037,7 +1037,7 @@
 }
 
 .teal.darken-2 {
-    background-color: #00796b !important
+    background-color: #1976d2 !important
 }
 
 .teal-text.text-darken-2 {
@@ -3206,7 +3206,11 @@ nav ul a span.badge {
     -moz-font-feature-settings: 'liga';
     font-feature-settings: 'liga'
 }
-
+.container-admin{
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%
+}
 .container {
     margin: 0 auto;
     max-width: 1280px;
@@ -3217,17 +3221,27 @@ nav ul a span.badge {
     .container {
         width: 85%
     }
+    .container-admin{
+        width: 85%;
+    }
 }
 
 @media only screen and (min-width: 993px) {
     .container {
         width: 70%
     }
+    .container-admin{
+        width: 70%;
+    }
 }
 
 .container .row {
     margin-left: -.75rem;
     margin-right: -.75rem
+}
+.container-admin .row{
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
 }
 
 .section {
@@ -5864,7 +5878,7 @@ select:focus {
 
 button:focus {
     outline: none;
-    background-color: #2ab7a9
+    background-color: #0561bd
 }
 
 label {

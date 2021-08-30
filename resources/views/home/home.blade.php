@@ -48,16 +48,17 @@
         
   </ul>
   <section class="slider">
+    
     <ul class="slides">
       <li>
-        <img src="img/resort1.jpg" alt="resort1.jpg">
+        <img src="upload/home/resort1.jpg" alt="resort1.jpg">
         <div class="caption center-align">
           <h2>Take Your Dream Vacation</h2>
           <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni est id nam. Animi, asperiores quam!</h5>
           <a href="#" class="btn btn-large">Learn More</a>
         </div>
       </li>
-      {{-- <li>
+      <!-- <li>
         <img src="img/resort2.jpg" alt="resort2.jpg">
         <div class="caption left-align">
           <h2>We Work With All Budgets</h2>
@@ -72,11 +73,11 @@
           <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni est id nam. Animi, asperiores quam!</h5>
           <a href="#" class="btn btn-large">Learn More</a>
         </div>
-      </li> --}}
+      </li> -->
     </ul>
   </section>
 
-  <section id="search" class="section section-search teal darken-1 white-text center scrollspy">
+  <section id="search" class="section section-search teal darken-2 white-text center scrollspy">
     <div class="container">
       <div class="row">
         <div class="col s12">
@@ -96,7 +97,7 @@
         <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src="assets/img/resort1.jpg" alt="resort1.jpg">
+              <img src="upload/home/resort1.jpg" alt="resort1.jpg">
               <span class="card-title">Nha Trang</span>
             </div>
             <div class="card-content">
@@ -107,7 +108,7 @@
         <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src="assets/img/resort2.jpg" alt="resort2.jpg">
+              <img src="upload/home/resort2.jpg" alt="resort2.jpg">
               <span class="card-title">Phú Quốc</span>
             </div>
             <div class="card-content">
@@ -118,7 +119,7 @@
         <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src="assets/img/resort3.jpg" alt="resort3.jpg">
+              <img src="upload/home/resort3.jpg" alt="resort3.jpg">
               <span class="card-title">Hội An</span>
             </div>
             <div class="card-content">
@@ -142,52 +143,106 @@
   
   <section id="gallery" class="section section-gallery scrollspy">
     <div class="container">
-      <h4 class="center">
-        <span class="teal-text">Photo</span> Gallery
-      </h4>
       <div class="row">
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
+        <div class="col-2">
+          <div>
+          <h5><a href="">Miền Bắc</a></h5>
+          <ul style="margin-left:32px">
+            <li class="side-li">
+              <p><a href="">Du lịch sinh thái</a></p>
+            </li>
+            <li  class="side-li">
+              <p><a href="">Du lịch tâm linh</a></p>
+            </li>
+            <li  class="side-li">
+              <p><a href="">Du lịch biển hồ</a></p>
+            </li>
+            
+            </ul>
+          </div>
+          <div>
+
+          <h5><a href="">Miền Trung</a></h5>
+          <ul style="margin-left:32px">
+           <li class="side-li">
+              <p><a href="">Du lịch sinh thái</a></p>
+            </li>
+            <li  class="side-li">
+              <p><a href="">Du lịch tâm linh</a></p>
+            </li>
+            <li  class="side-li">
+              <p><a href="">Du lịch biển hồ</a></p>
+            </li>
+            </ul>
+          </div>
+
+          
+          <div>
+          <h5><a href="">Miền Nam</a></h5>
+          <ul style="margin-left:32px">
+          <li class="side-li">
+              <p><a href="">Du lịch sinh thái</a></p>
+            </li>
+            <li  class="side-li">
+              <p><a href="">Du lịch tâm linh</a></p>
+            </li>
+            <li  class="side-li">
+              <p><a href="">Du lịch biển hồ</a></p>
+            </li>
+          </ul>
+          </div>
+
         </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?travel" alt="">
+        <div class="col-10">
+        <h4 class="center">
+            <span class="teal-text">Photo</span> Gallery
+          </h4>
+          <div class="row">
+            <div class="col-4">
+              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
+            </div>
+            <div class="col-4">
+              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?travel" alt="">
+            </div>
+            <div class="col-4">
+              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?nature" alt="">
+            </div>
+            <!-- <div class="col s12 m3">
+              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach,travel" alt="">
+            </div> -->
+          </div>
+        <div class="row">
+          <div class="col-4">
+            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?water" alt="">
+          </div>
+          <div class="col-4">
+            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?building" alt="">
+          </div>
+          <div class="col-4">
+            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?trees" alt="">
+          </div>
+          <!-- <div class="col s12 m3">
+            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?cruise" alt="">
+          </div> -->
         </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?nature" alt="">
-        </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach,travel" alt="">
+        <div class="row">
+          <div class="col-4">
+            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beaches" alt="">
+          </div>
+          <div class="col-4">
+            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?traveling" alt="">
+          </div>
+          <div class="col-4">
+            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?bridge" alt="">
+          </div>
+          <!-- <div class="col s12 m3">
+            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?boat,travel" alt="">
+          </div> -->
+            
         </div>
       </div>
-      <div class="row">
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?water" alt="">
-        </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?building" alt="">
-        </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?trees" alt="">
-        </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?cruise" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beaches" alt="">
-        </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?traveling" alt="">
-        </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?bridge" alt="">
-        </div>
-        <div class="col s12 m3">
-          <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?boat,travel" alt="">
-        </div>
-      </div>
-    </div>
+     
+      
   </section>
   <section id="contact" class="section-contact scrollspy">
     <div class="container">
@@ -232,7 +287,7 @@
               <textarea class="materialize-textarea" placeholder="Lời nhắn của bạn" id="message"></textarea>
               <label for="message">Lời nhắn</label>
             </div>
-            <input type="submit" value="Submit" class="btn">
+            <input style="background-color:#1976d2" type="submit" value="Submit" class="btn">
           </div>
         </div>
       </div>
@@ -251,38 +306,6 @@
   function showNavbar(){
     this.showFiller =!this.showFiller;
   }
-
-  
-    // $(document).ready(function () {
-    //   // INIT SIDENAV
-    //   $(".button-collapse").sideNav();
-
-    //   //INIT SLIDER
-    //   $(".slider").slider({
-    //     indicators: false,
-    //     height: 500,
-    //     transition: 500,
-    //     interval: 6000
-    //   });
-
-    //   //AUTOCOMPLETE
-    //   $(".autocomplete").autocomplete({
-    //     data: {
-    //       "Aruba": null,
-    //       "Cancun Mexico": null,
-    //       "Hawaii": null,
-    //       "Florida": null,
-    //       "California": null,
-    //       "Jamaica": null,
-    //       "Europe": null,
-    //       "The Bahamas": null
-    //     }
-    //   });
-
-    //   //INIT SCROLLSPY
-    //   $(".scrollspy").scrollSpy();
-
-    // });
   </script>
       
   @endsection

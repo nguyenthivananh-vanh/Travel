@@ -29,6 +29,9 @@ Route::get('/login', function () {
 });
 Route::post('/login','App\Http\Controllers\UserController@postdangnhap');
 
+Route::get('/homepage', function () {
+    return view('home.home');
+});
 Route::group(['prefix'=>'admin'],function(){
     Route::get('adminHome','App\Http\Controllers\DiaDiemController@getList');
     Route::group(['prefix'=>'vungmien'],function(){
