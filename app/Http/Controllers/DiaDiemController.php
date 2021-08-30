@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class DiaDiemController extends Controller
 {
-    public function getList(){       
+    public function getList(){
         $diadiem = DiaDiem::paginate(3);
         return view('admin.diadiem.list',['DiaDiem'=>$diadiem]);
     }
@@ -18,15 +18,15 @@ class DiaDiemController extends Controller
         $dacdiem = DacDiem::all();
         return view('admin.diadiem.add',['vungmien'=>$vungmien],['dacdiem'=>$dacdiem]);
     }
-    
-    public function postAdd(Request $request){     
+
+    public function postAdd(Request $request){
         $this->validate($request,
         [
             'DacDiem'=>'required',
             'tieude'=>'required|unique:DiaDiem,TieuDe|min:3',
             'tomtat'=>'required',
             'hinhanh'=>'required',
-            'noidung'=>'required',          
+            'noidung'=>'required',
         ],
         [
             'DacDiem.required'=>'Bạn chưa chọn đặc điểm',
@@ -37,14 +37,14 @@ class DiaDiemController extends Controller
             'hinhanh.required'=>'Bạn cần nhập ảnh chính cho bài viết',
             'noidung.required'=>'Bạn chưa nhập nội dung',
         ]);
-        
+
         $diadiem = new DiaDiem;
         $diadiem->TieuDe = $request->tieude;
-        $diadiem->TieuDeKhongDau = changeTitle($request->tieude);     
+        $diadiem->TieuDeKhongDau = changeTitle($request->tieude);
         $diadiem->TomTat = $request->tomtat;
-        $diadiem->NoiDung = $request->noidung;     
-        $diadiem->TacGia = $request->tacgia;     
-       
+        $diadiem->NoiDung = $request->noidung;
+        $diadiem->TacGia = $request->tacgia;
+
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
         if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
@@ -57,7 +57,7 @@ class DiaDiemController extends Controller
         }
         $file->move("upload/diadiem",$hinh);
         $diadiem->HinhAnh = $hinh;
-        
+
         $diadiem->NoiBat =  0;
         $diadiem->SoLuotXem = 0;
         $diadiem->idDacDiem = $request->DacDiem;
@@ -70,15 +70,15 @@ class DiaDiemController extends Controller
         $diadiem = DiaDiem::find($id);
         return view('admin.diadiem.update',['diadiem'=>$diadiem,'vungmien'=>$vungmien,'dacdiem'=>$dacdiem]);
     }
-    
-    public function postUpdate(Request $request,$id){     
+
+    public function postUpdate(Request $request,$id){
         $this->validate($request,
         [
             'DacDiem'=>'required',
             'tieude'=>'required|min:3',
             'tomtat'=>'required',
             'hinhanh'=>'required',
-            'noidung'=>'required',          
+            'noidung'=>'required',
         ],
         [
             'DacDiem.required'=>'Bạn chưa chọn đặc điểm',
@@ -88,14 +88,14 @@ class DiaDiemController extends Controller
             'hinhanh.required'=>'Bạn cần nhập ảnh chính cho bài viết',
             'noidung.required'=>'Bạn chưa nhập nội dung',
         ]);
-        
+
         $diadiem = DiaDiem::find($id);
         $diadiem->TieuDe = $request->tieude;
-        $diadiem->TieuDeKhongDau = changeTitle($request->tieude);     
+        $diadiem->TieuDeKhongDau = changeTitle($request->tieude);
         $diadiem->TomTat = $request->tomtat;
-        $diadiem->NoiDung = $request->noidung;     
-        $diadiem->TacGia = $request->tacgia;     
-       
+        $diadiem->NoiDung = $request->noidung;
+        $diadiem->TacGia = $request->tacgia;
+
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
         if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
@@ -109,8 +109,8 @@ class DiaDiemController extends Controller
         $file->move("upload/diadiem",$hinh);
         unlink("upload/diadiem/".$diadiem->HinhAnh);
         $diadiem->HinhAnh = $hinh;
-       
-        
+
+
         $diadiem->NoiBat =  0;
         $diadiem->SoLuotXem = 0;
         $diadiem->idDacDiem = $request->DacDiem;

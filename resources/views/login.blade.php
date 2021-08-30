@@ -8,7 +8,7 @@
   </nav>
 
   <section class="section section-login"  style="margin:120px auto;">
-  
+
     <div class="container" style="margin-top: 100px;margin:0 auto; width: 700px;">
       <div class="row" style="margin-left: 0;">
           <div class="card-panel login blue darken-2 white-text center">
@@ -57,24 +57,29 @@
       </div>
     </div>
   </section> -->
-  
-  
+
+
   <!-- Footer -->
   <!-- <footer class="section blue darken-2 white-text center" style="position: absolute;bottom: 0;left: 0; right: 0;">
     <p>My Vietnam Copyright &copy; 2021</p>
   </footer> -->
 
   <div class="login-page">
-    
-  
+      @if(session('thongbao'))
+          <div class="alert alert-success">
+              {{session('thongbao')}}<br>
+          </div>
+      @endif
+
   <div class="form">
   <h2>Login</h2>
-    <form>
+      <form action="{{URL('login')}}" method="POST">
+          <input type="hidden" name="_token" value="{{csrf_token()}}"/>
       <div class="form-group row">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" require>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" require>
       </div>
       <div class="form-group row">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" require>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" require>
       </div>
       <!-- <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -92,6 +97,24 @@
     </form>
   </div>
 </div>
+<script type="text/javascript">
+    function validateForm(){
+        var email = document.getElementById('email').value;
+        var pw = document.getElementById('password').value;
+
+        if (email == null || email == ""){
+            alert("Bạn chưa nhập Email");
+            return false;
+        }else if (pw == null || pw == "") {
+            alert("Bạn chưa nhập Password");
+            return false;
+        }
+        if (pw.length < 3 || pw.length > 32){
+            alert("Password phải lớn hơn 3 kí tự và nhỏ hơn 32 kí tự")
+            return false;
+        }
+    }
+</script>
 <!-- <form>
               <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label" style="color: white;">Email</label>
@@ -113,5 +136,5 @@
             </form> -->
 
 
-    
-  
+
+

@@ -16,7 +16,7 @@
                 @endif
                 <br><br>
               <table style="border-collapse: collapse;" class="striped">
-                <thead>                
+                <thead>
                   <tr>
                     <th style=" border: 1px solid #ddd;">Id</th>
                     <th style=" border: 1px solid #ddd;">Tiêu đề</th>
@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>
                   @foreach ($DiaDiem as $diadiem)
-                  
+
                   <tr>
                     <td style=" border: 1px solid #ddd;">{{$diadiem->id}}</td>
                     <td style=" border: 1px solid #ddd;">{{$diadiem->TieuDe}}</td>
@@ -69,9 +69,9 @@
                           overflow: hidden;
                           text-overflow: ellipsis;
                           border: 1px solid #ddd;
-                    "> 
+                    ">
                       {{$diadiem->NoiDung}}</td>
-                    
+
                     <td style=" border: 1px solid #ddd;">{{$diadiem->NoiBat}}</td>
                     <td style=" border: 1px solid #ddd;">{{$diadiem->TacGia}}</td>
                     <td style=" border: 1px solid #ddd;">{{$diadiem->SoLuotXem}}</td>
@@ -85,9 +85,9 @@
                       </a>
                     </td>
                   </tr>
-                     
+
                   @endforeach
-                  
+
                 </tbody>
               </table>
             </div>
@@ -99,5 +99,5 @@
       </div>
     </div>
   </section>
-    
+
 @endsection
