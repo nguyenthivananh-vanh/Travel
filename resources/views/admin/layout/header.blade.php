@@ -2,7 +2,7 @@
 <nav class="blue darken-2">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="admin/adminHome" class="brand-logo">Admin</a>
+        <a href="admin/adminHome" class="brand-logo" id="adminH">Admin</a>
         <a  data-activates="side-nav" class="button-collapse show-on-large right"id="btnShowSideNav" onclick="showSidebar()">
           <i class="material-icons">menu</i>
         </a>
@@ -37,7 +37,7 @@
           <ul id="side-nav-admin" class="side-nav-admin" >
             <li>
               <div class="user-view" >
-              <a href="javascript:void(0)" class="admin-btnClose-sidenav" onclick="closeNav()"><i class="fas fa-times"></i></a>
+              <a href="javascript:void(0)" class="admin-btnClose-sidenav" onclick="showSidebar()"><i class="fas fa-times"></i></a>
                 <div class="background">
                   <img src="upload/users/background-admin.jpg" alt="ocean-background">
                 </div>

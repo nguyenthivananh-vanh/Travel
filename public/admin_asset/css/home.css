@@ -1,5 +1,4 @@
 /* HOME */
-
 .nav-li {
     padding: 12px 0;
     padding-left: 20px;
@@ -3243,18 +3242,21 @@ nav ul a span.badge {
     .container {
         width: 85%;
     }
+   
 }
 
 @media only screen and (min-width: 993px) {
     .container {
         width: 70%;
     }
+    
 }
 
 .container .row {
     margin-left: -0.75rem;
     margin-right: -0.75rem;
 }
+
 
 .section {
     padding-top: 1rem;
@@ -4841,7 +4843,7 @@ small {
 #toast-container {
     display: block;
     position: fixed;
-    z-index: 10000;
+    /* z-index: 10000; */
 }
 
 @media only screen and (max-width: 600px) {
@@ -5024,7 +5026,7 @@ small {
 .material-tooltip {
     padding: 10px 8px;
     font-size: 1rem;
-    z-index: 2000;
+    /* z-index: 2000; */
     background-color: transparent;
     border-radius: 2px;
     color: #fff;
@@ -5875,7 +5877,7 @@ button.btn-floating {
     bottom: 0;
     left: 0;
     background-color: #292929;
-    z-index: 1000;
+    /* z-index: 1000; */
     will-change: opacity;
 }
 
@@ -5890,7 +5892,7 @@ button.btn-floating {
     text-align: center;
     padding: 0% 15%;
     height: 50px;
-    z-index: 1000;
+    /* z-index: 1000; */
     -webkit-font-smoothing: antialiased;
 }
 

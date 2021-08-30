@@ -2,7 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="admin_asset/css/pagination.css">
 <section class="section section-comments grey lighten-4">
-    <div class="container">
+    <div class="container-admin">
       <div class="row">
         <div class="col s12">
           <div class="card">

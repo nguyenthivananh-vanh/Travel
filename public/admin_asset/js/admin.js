@@ -8,17 +8,9 @@
 var sideNavAdmin= document.getElementById('side-nav-admin');
 var check=false;
 function showSidebar() {
- 
-    if(check){
-        sideNavAdmin.style.display='block'
-
-        check=!check;
-    }else{        
-        sideNavAdmin.style.display='none';
-        check=!check;
-    }
+    // sideNavAdmin.style.display="block"
+    sideNavAdmin.classList.toggle("display-block");
 }
-function closeNav(){
-    sideNavAdmin.style.display='none';
-    this.check=!this.check;
-}
+// function closeNav(){
+//     sideNavAdmin.classList.toggle("display-block");
+// }

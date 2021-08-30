@@ -1,14 +1,22 @@
 @extends('admin.layout.index')
 @section('content')
 <link rel="stylesheet" href="admin_asset/css/pagination.css">
-<section class="section section-users grey lighten-4">
-    <div class="container">
+<section class="section section-users grey lighten-4 content">
+    <div class="container-admin">
       <div class="row">
         <div class="col s12">
           <div class="card">
             <div class="card-content">
-              <span class="card-title">Đặc Điểm</span>
-              <button class="btn-add"><a href="admin/dacdiem/add">Thêm</a></button>
+            <div class="row">
+                <div class="col-6">
+                  <span class="card-title">Đặc Điểm</span>
+                </div>
+                <div class="col-6 text-right" style="text-align: right;">
+                <button class="btn-add"><a href="admin/dacdiem/add">Thêm</a></button>
+                </div>
+              </div>
+              
+              
               @if(session('thongbao'))
                     <div class="alert alert-success">
                         {{session('thongbao')}}<br>

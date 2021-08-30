@@ -1,22 +1,29 @@
 @extends('admin.layout.index')
 @section('content')
 <link rel="stylesheet" href="admin_asset/css/pagination.css">
-<section class="section section-posts grey lighten-4"  >
-    <div class="container" style="min-width:1200px; padding:0">
+<section class="section section-posts grey lighten-4 content">
+    <div class="container-admin">
       <div class="row">
-        <div class="col s12">
+        <div >
           <div class="card">
-            <div class="card-content">
-              <span class="card-title">Địa điểm</span>
-              <button class="btn-add"><a href="admin/diadiem/add">Thêm</a></button>
+            <div class="card-content pb-0">
+              <div class="row">
+                <div class="col-6">
+                <span class="card-title">Địa điểm</span>
+                </div>
+                <div class="col-6 text-right" style="text-align: right;">
+                <button class="btn-add"><a href="admin/diadiem/add">Thêm</a></button>
+                </div>
+              </div>
               @if(session('thongbao'))
                     <div class="alert alert-success">
                         {{session('thongbao')}}<br>
                     </div>
                 @endif
                 <br><br>
-              <table style="border-collapse: collapse;" class="striped">
-                <thead>
+              <div class="table table-responsive">
+              <table style="border-collapse: collapse;" class="table striped">
+                <thead>                
                   <tr>
                     <th style=" border: 1px solid #ddd;">Id</th>
                     <th style=" border: 1px solid #ddd;">Tiêu đề</th>
@@ -90,6 +97,7 @@
 
                 </tbody>
               </table>
+              </div>
             </div>
             <div class="page">
               {{$DiaDiem->links("pagination::bootstrap-4")}}
