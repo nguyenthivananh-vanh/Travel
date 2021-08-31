@@ -57,6 +57,8 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('level/{id}','App\Http\Controllers\UserController@getLevel');
         Route::post('level/{id}','App\Http\Controllers\UserController@postLevel');
         Route::get('delete/{id}','App\Http\Controllers\UserController@getDelete');
+        Route::get('update/{id}','App\Http\Controllers\UserController@getUpdate');
+        Route::post('update/{id}','App\Http\Controllers\UserController@postUpdate');
 
     });
     Route::group(['prefix'=>'diadiem'],function(){

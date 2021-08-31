@@ -114,4 +114,36 @@ class UserController extends Controller
         $user->save();
         return redirect('login')->with('thongbao','Đăng kí thành công');
     }
+
+    public function getUpdate($id){
+        $user = User::find($id);
+        return view('admin.user.update',['user'=>$user]);
+    }
+
+    public function postUpdate(Request $request,$id){
+        $user = User::find($id);
+        $user->Ten =$request->name;
+        $user->email =$request->email;
+        $user->password = bcrypt($request->password);
+        $user->PhanQuyen = defined('0');
+        if($request->hasFile('hinhanh')){
+            $file = $request->file('hinhanh');
+            $tail = $file->getClientOriginalExtension();
+            if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
+                return redirect('admin/user/update')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+            }
+            $name = $file->getClientOriginalName();
+            $hinh = Str::random(4)."_".$name;
+            while(file_exists("upload/user/".$hinh)){
+                $hinh = Str::random(4)."_".$name;
+            }
+
+            $file->move("upload/user",$hinh);
+            $user->Avatar = $hinh;
+        }else{
+            $user->Avatar = "";
+        }
+        $user->save();
+        return redirect('login')->with('thongbao','Cập nhật thành công');
+    }
 }
