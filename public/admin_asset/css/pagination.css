@@ -1,3 +1,7 @@
+.page {
+    margin-bottom: 30px;
+}
+
 nav {
     display: flex;
     color: #fff;
@@ -51,7 +55,7 @@ nav,
 }
 
 .page-item.active .page-link {
-    z-index: 3;
+    z-index: 0;
     color: #fff;
     background-color: #0d6efd;
     border-color: #0d6efd;

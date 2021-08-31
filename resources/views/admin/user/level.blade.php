@@ -25,14 +25,14 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                 <label for="">Phân quyền</label>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0">
+                  <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio1" value="0">
                   <label class="form-check-label" for="inlineRadio1">User</label>
                 </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1">
-                <label class="form-check-label" for="inlineRadio2">Admin</label>
-              </div> 
-              </div>    
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio2" value="1">
+                  <label class="form-check-label" for="inlineRadio2">Admin</label>
+                </div> 
+                
                 <div class="card-action">
                   <button class="btn green">Save</button>
                   <button class="btn red">Reset</button>

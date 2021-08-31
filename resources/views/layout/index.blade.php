@@ -10,7 +10,9 @@
     <link href="admin_asset/css/main.css" rel="stylesheet">
     <link href="admin_asset/css/home.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+    <link href="admin_asset/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin_asset/css/my.css">
+    {{-- <link rel="stylesheet" href="admin_asset/css/shop-homepage.css"> --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
@@ -23,7 +25,7 @@
     
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
-    
+    {{-- <link href="css/bootstrap.min.css" rel="stylesheet"> --}}
 
 
 

@@ -51,15 +51,21 @@
                 </div>
                 <div class="input-field">
                   <label for="hinhanh">Avatar</label><br><br>
-                  <input type="file" id="hinhanh" name="hinhanh" class="form-control" />                
+                  <input type="file" id="hinhanh" name="hinhanh" class="form-control" />     
                 </div>
-                <div class="form-group">
-                  <label>Phân Quyền</label><br><br>
-                  {{-- <select class="form-control" name="phanquyen">
-                      <option value="0">User</option>
-                      <option value="1">Admin</option>
-                </select> --}}
-                <input type="text" id="phanquyen" name="phanquyen" placeholder="1: Admin / 0:User"/> 
+                <div class="input-field">
+                  <label for="">Phân quyền</label><br><br>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio1" value="0">
+                    <label class="form-check-label" for="inlineRadio1">User</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio2" value="1">
+                    <label class="form-check-label" for="inlineRadio2">Admin</label>
+                  </div> 
+              </div>
+              <div class="input-field">
+                
               </div>
               
                 

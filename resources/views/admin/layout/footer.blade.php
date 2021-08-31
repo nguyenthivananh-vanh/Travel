@@ -1,4 +1,4 @@
-<footer style="position:fixed;
+<footer style="z-index:10;position:fixed;
     bottom:0;
     left: 0;
     right: 0;

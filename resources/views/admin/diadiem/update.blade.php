@@ -1,9 +1,8 @@
 @extends('admin.layout.index')
 @section('content')
- 
   <!-- Section: Details -->
   <section class="section section-Details grey lighten-4">
-    <div class="">
+    <div class="container">
       <div class="row">
         <div class="col s12">
           <div class="card">
@@ -70,7 +69,7 @@
                 </div>
                 <div class="input-field">
                   <label for="ckeditor">Nội dung</label><br><br>
-                  <textarea class="textarea" id="ckeditor" name="noidung" style="width: 700px; height: 200px; ">{{$diadiem->NoiDung}}</textarea>              
+                  <textarea class="textarea" id="ckeditor" name="noidung" style="width: 700px height:1000px; ">{{$diadiem->NoiDung}}</textarea>              
                 </div>
                 <div class="input-field">
                   <label for="tacgia">Tác giả</label><br>

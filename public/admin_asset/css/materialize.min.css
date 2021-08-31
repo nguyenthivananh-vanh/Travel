@@ -981,7 +981,7 @@
 }
 
 .teal {
-    background-color: #1976d2 !important
+    background-color: #1976d2 !important;
 }
 
 .teal-text {
@@ -2149,8 +2149,13 @@ html {
     -webkit-text-size-adjust: 100%
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    margin: 0
+    margin: 0;
+    box-sizing: inherit;
 }
 
 article,
@@ -3206,11 +3211,13 @@ nav ul a span.badge {
     -moz-font-feature-settings: 'liga';
     font-feature-settings: 'liga'
 }
-.container-admin{
+
+.container-admin {
     margin: 0 auto;
     max-width: 1280px;
     width: 90%
 }
+
 .container {
     margin: 0 auto;
     max-width: 1280px;
@@ -3221,7 +3228,7 @@ nav ul a span.badge {
     .container {
         width: 85%
     }
-    .container-admin{
+    .container-admin {
         width: 85%;
     }
 }
@@ -3230,7 +3237,7 @@ nav ul a span.badge {
     .container {
         width: 70%
     }
-    .container-admin{
+    .container-admin {
         width: 70%;
     }
 }
@@ -3239,7 +3246,8 @@ nav ul a span.badge {
     margin-left: -.75rem;
     margin-right: -.75rem
 }
-.container-admin .row{
+
+.container-admin .row {
     margin-left: -0.75rem;
     margin-right: -0.75rem;
 }
@@ -4335,7 +4343,8 @@ html {
     line-height: 1.5;
     font-family: "Roboto", sans-serif;
     font-weight: normal;
-    color: rgba(0, 0, 0, 0.87)
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
 }
 
 @media only screen and (min-width: 0) {
@@ -9132,3 +9141,8 @@ button.picker__close:focus {
     border-radius: 2px;
     padding: 5px 0;
 }
+
+
+/* #search {
+    margin-top: 200px;
+} */

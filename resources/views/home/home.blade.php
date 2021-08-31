@@ -1,25 +1,26 @@
 @extends('layout.index')
 @section('content')
+<link href="admin_asset/css/home.css" rel="stylesheet">
 <div class="navbar-fixed">
     <nav class="teal">
       <div class="container">
-        <a href="#home" class="brand-logo">My VietNam</a>
+        <a href="home" class="brand-logo">My VietNam</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse" (click)=" showNavbar()">
           <i class="material-icons">menu</i>
         </a>
   
         <ul class="right hide-on-med-and-down" >
           <li>
-            <a href="#home">Trang chủ</a>
+            <a href="home">Trang chủ</a>
+          </li>
+          {{-- <li>
+            <a >Tìm kiếm</a>
+          </li> --}}
+          <li>
+            <a href="login">Đăng nhập</a>
           </li>
           <li>
-            <a>Tìm kiếm</a>
-          </li>
-          <li>
-            <a>Đăng nhập</a>
-          </li>
-          <li>
-            <a>Đăng kí</a>
+            <a href="register">Đăng kí</a>
           </li>
           <li>
             <a>Contact</a>
@@ -47,18 +48,45 @@
       
         
   </ul>
-  <section class="slider">
-    
-    <ul class="slides">
+  <div class="slider">
+    {{-- <div class="row carousel-holder">
+      <div class="col-md-12">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                  <div class="item active">
+                      <img class="slide-image" style="width: 100%" src="upload/home/DaNang.jpg" alt="">
+                  </div>
+                  <div class="item">
+                      <img class="slide-image" style="width: 100%" src="upload/home/HoiAn.jpg" alt="">
+                  </div>
+                  <div class="item">
+                      <img class="slide-image" style="width: 100%" src="upload/home/HaLong.jpg" alt="">
+                  </div>
+              </div>
+              <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+          </div>
+      </div>
+  </div> --}}
+    {{-- <ul class="slides">
       <li>
         <img src="upload/home/resort1.jpg" alt="resort1.jpg">
         <div class="caption center-align">
           <h2>Take Your Dream Vacation</h2>
           <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni est id nam. Animi, asperiores quam!</h5>
           <a href="#" class="btn btn-large">Learn More</a>
-        </div>
+        </div>s
       </li>
-      <!-- <li>
+      <li>
         <img src="img/resort2.jpg" alt="resort2.jpg">
         <div class="caption left-align">
           <h2>We Work With All Budgets</h2>
@@ -73,11 +101,12 @@
           <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni est id nam. Animi, asperiores quam!</h5>
           <a href="#" class="btn btn-large">Learn More</a>
         </div>
-      </li> -->
+      </li> 
     </ul>
-  </section>
+     --}}
+  </div>
 
-  <section id="search" class="section section-search teal darken-2 white-text center scrollspy">
+  <div id="search" class="section section-search teal darken-2 white-text center scrollspy">
     <div class="container">
       <div class="row">
         <div class="col s12">
@@ -88,162 +117,141 @@
         </div>
       </div>
     </div>
-  </section>
-  <section id="popular" class="section section-popular scrollspy">
-    <div class="container">
-      <div class="row">
-        <h4 class="center">
-          <span class="teal-text">Popular</span> Places</h4>
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="upload/home/resort1.jpg" alt="resort1.jpg">
-              <span class="card-title">Nha Trang</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="upload/home/resort2.jpg" alt="resort2.jpg">
-              <span class="card-title">Phú Quốc</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="upload/home/resort3.jpg" alt="resort3.jpg">
-              <span class="card-title">Hội An</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="row">
-        <div class="col s12 center">
-          <a href="#contact" class="btn btn-large grey darken-3">
-            <i class="material-icons left">send</i>Contact for Booking
-          </a>
-        </div>
-      </div> -->
-    </div>
-  </section>
+  </div>
 
-
-  <!-- Section: Gallery -->
-  
-  <section id="gallery" class="section section-gallery scrollspy">
-    <div class="container">
-      <div class="row">
-        <div class="col-2">
-          <div>
-          <h5><a href="">Miền Bắc</a></h5>
-          <ul style="margin-left:32px">
-            <li class="side-li">
-              <p><a href="">Du lịch sinh thái</a></p>
+  <div class="container-fuild">
+    <div class="row">
+      <div class="col-2">
+        <ul class="list-group" id="menu">
+          <h4 class="menu__title">Vùng Miền</h4>
+          @foreach ($vungmien as $vm)            
+          <li href="#" class="list-group-item menu1">
+            {{$vm->Ten}}
+          </li>             
+          <ul>
+            @foreach ($vm->dacdiem as $dacdiem)         
+            <li class="list-group-item list-group-item-dd">
+              <a href="#">{{$dacdiem->Ten}}</a>
             </li>
-            <li  class="side-li">
-              <p><a href="">Du lịch tâm linh</a></p>
-            </li>
-            <li  class="side-li">
-              <p><a href="">Du lịch biển hồ</a></p>
-            </li>
-            
-            </ul>
-          </div>
-          <div>
-
-          <h5><a href="">Miền Trung</a></h5>
-          <ul style="margin-left:32px">
-           <li class="side-li">
-              <p><a href="">Du lịch sinh thái</a></p>
-            </li>
-            <li  class="side-li">
-              <p><a href="">Du lịch tâm linh</a></p>
-            </li>
-            <li  class="side-li">
-              <p><a href="">Du lịch biển hồ</a></p>
-            </li>
-            </ul>
-          </div>
-
-          
-          <div>
-          <h5><a href="">Miền Nam</a></h5>
-          <ul style="margin-left:32px">
-          <li class="side-li">
-              <p><a href="">Du lịch sinh thái</a></p>
-            </li>
-            <li  class="side-li">
-              <p><a href="">Du lịch tâm linh</a></p>
-            </li>
-            <li  class="side-li">
-              <p><a href="">Du lịch biển hồ</a></p>
-            </li>
+            @endforeach
           </ul>
-          </div>
-
-        </div>
-        <div class="col-10">
-        <h4 class="center">
-            <span class="teal-text">Photo</span> Gallery
-          </h4>
-          <div class="row">
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
+            @endforeach
+        </ul>
+      </div>
+      <div class="col-8">
+        <section id="popular" class="section section-popular scrollspy">
+          <div class="container-fuild">
+            <div class="row">
+                
+              <div class="col-12">
+                <h4 class="center">
+                  <span class="teal-text">Popular</span> Places</h4>
+                <div class="col s12 m4">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="upload/home/resort1.jpg" alt="resort1.jpg">
+                      <span class="card-title">Nha Trang</span>
+                    </div>
+                    <div class="card-content">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s12 m4">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="upload/home/resort2.jpg" alt="resort2.jpg">
+                      <span class="card-title">Phú Quốc</span>
+                    </div>
+                    <div class="card-content">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s12 m4">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="upload/home/resort3.jpg" alt="resort3.jpg">
+                      <span class="card-title">Hội An</span>
+                    </div>
+                    <div class="card-content">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?travel" alt="">
-            </div>
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?nature" alt="">
-            </div>
-            <!-- <div class="col s12 m3">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach,travel" alt="">
+            <!-- <div class="row">
+              <div class="col s12 center">
+                <a href="#contact" class="btn btn-large grey darken-3">
+                  <i class="material-icons left">send</i>Contact for Booking
+                </a>
+              </div>
             </div> -->
           </div>
-        <div class="row">
-          <div class="col-4">
-            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?water" alt="">
-          </div>
-          <div class="col-4">
-            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?building" alt="">
-          </div>
-          <div class="col-4">
-            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?trees" alt="">
-          </div>
-          <!-- <div class="col s12 m3">
-            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?cruise" alt="">
-          </div> -->
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beaches" alt="">
-          </div>
-          <div class="col-4">
-            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?traveling" alt="">
-          </div>
-          <div class="col-4">
-            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?bridge" alt="">
-          </div>
-          <!-- <div class="col s12 m3">
-            <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?boat,travel" alt="">
-          </div> -->
-            
-        </div>
-      </div>
-     
+        </section>
       
-  </section>
+      
+        <!-- Section: Gallery -->
+        
+        <section id="gallery" class="section section-gallery scrollspy">
+          <div class="container-fuild">
+            
+              <div class="col-12">
+              <h4 class="center">
+                  <span class="teal-text">Photo</span> Gallery
+                </h4>
+                <div class="row">
+                  <div class="col-4">
+                    <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
+                  </div>
+                  <div class="col-4">
+                    <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?travel" alt="">
+                  </div>
+                  <div class="col-4">
+                    <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?nature" alt="">
+                  </div>
+                  <!-- <div class="col s12 m3">
+                    <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach,travel" alt="">
+                  </div> -->
+                </div>
+              <div class="row">
+                <div class="col-4">
+                  <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?water" alt="">
+                </div>
+                <div class="col-4">
+                  <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?building" alt="">
+                </div>
+                <div class="col-4">
+                  <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?trees" alt="">
+                </div>
+                <!-- <div class="col s12 m3">
+                  <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?cruise" alt="">
+                </div> -->
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beaches" alt="">
+                </div>
+                <div class="col-4">
+                  <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?traveling" alt="">
+                </div>
+                <div class="col-4">
+                  <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?bridge" alt="">
+                </div>
+                <!-- <div class="col s12 m3">
+                  <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?boat,travel" alt="">
+                </div> -->
+                  
+              </div>
+            </div>
+           
+            
+        </section>
+      </div>
+    </div>
+  </div>
+  
   <section id="contact" class="section-contact scrollspy">
     <div class="container">
       <div class="row">
@@ -306,6 +314,10 @@
   function showNavbar(){
     this.showFiller =!this.showFiller;
   }
+  <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/my.js"></script>
   </script>
       
   @endsection

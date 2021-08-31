@@ -3,7 +3,7 @@
  
   <!-- Section: Details -->
   <section class="section section-Details grey lighten-4">
-    <div class="">
+    <div class="container">
       <div class="row">
         <div class="col s12">
           <div class="card">
@@ -26,25 +26,25 @@
                         {{session('thongbao')}}<br>
                     </div>
                 @endif
-              <form action="admin/dacdiem/add" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                <div class="form-group">
-                  <label>Vùng miền</label>
-                  <select class="form-control" name="VungMien" id="vungmien">
-                      @foreach ($vungmien as $vm)
-                          <option value="{{$vm->id}}">{{$vm->Ten}}</option>
-                      @endforeach
-                  </select>
-              </div>
-                <div class="input-field">
-                    <label for="title">Ten</label><br>
-                  <input type="text" id="title" value="" name="ten">                
+                <form action="admin/dacdiem/add" method="POST" enctype="multipart/form-data">
+                  <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                  <div class="form-group">
+                    <label>Vùng miền</label>
+                    <select class="form-control" name="VungMien" id="vungmien">
+                        @foreach ($vungmien as $vm)
+                            <option value="{{$vm->id}}">{{$vm->Ten}}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <div class="card-action">
-                  <button class="btn green">Add</button>
-                  <button class="btn red">Reset</button>
-                </div>
-              </form>
+                  <div class="input-field">
+                      <label for="title">Ten</label><br>
+                    <input type="text" id="title" value="" name="ten">                
+                  </div>
+                  <div class="card-action">
+                    <button class="btn green">Add</button>
+                    <button class="btn red">Reset</button>
+                  </div>
+                </form>
               
             </div>
             
@@ -54,6 +54,9 @@
     </div>
   </section>
   @endsection
+
+
+  
 
 
   
