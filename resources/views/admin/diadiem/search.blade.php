@@ -39,7 +39,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($DiaDiem as $diadiem)
+                                    @foreach ($Diadiem as $diadiem)
 
                                         <tr>
                                             <td style=" border: 1px solid #ddd;">{{$diadiem->id}}</td>
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="page">
-                            {{$DiaDiem->links("pagination::bootstrap-4")}}
+                            {{$Diadiem->links("pagination::bootstrap-4")}}
                         </div>
                     </div>
                 </div>

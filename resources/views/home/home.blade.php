@@ -3,7 +3,7 @@
 <section id="popular" class="section section-popular scrollspy">
   <div class="container-fuild">
     <div class="row">
-        
+
       <div class="col-12">
         <h4 class="center">
           <span class="teal-text">Popular</span> Places</h4>
@@ -57,7 +57,7 @@
 
 <section id="gallery" class="section section-gallery scrollspy">
   <div class="container-fuild">
-    
+
       <div class="col-12">
       <h4 class="center">
           <span class="teal-text">Photo</span> Gallery
@@ -103,17 +103,17 @@
         <!-- <div class="col s12 m3">
           <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?boat,travel" alt="">
         </div> -->
-          
+
       </div>
     </div>
-    
-    
+
+
 </section>
-    
-  
-  
+
+
+
   @endsection
-      
+
   @section('script')
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -127,6 +127,5 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/my.js"></script>
   </script>
-      
+
   @endsection
-  

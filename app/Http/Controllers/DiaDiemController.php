@@ -123,4 +123,16 @@ class DiaDiemController extends Controller
         $diadiem->delete();
         return redirect('admin/diadiem/list')->with('thongbao','Xoá thành công');
     }
+
+    // Tìm kiếm
+    function search(Request $request)
+    {
+        $key = $request->search;
+        $diadiem = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")->orwhere('TomTat', 'like', "%$key%")->take(30)->paginate(5);
+        if ($diadiem == null) {
+            return view('admin.diadiem.search', ['Diadiem' => $diadiem]);
+        } else {
+            return view('admin.diadiem.search', ['Diadiem' => $diadiem]);
+        }
+    }
 }
