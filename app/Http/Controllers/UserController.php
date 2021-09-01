@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\DiaDiem;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -56,7 +57,7 @@ class UserController extends Controller
             }
             $name = $file->getClientOriginalName();
             $hinh = Str::random(4)."_".$name;
-            while(file_exists("upload/user/".$hinh)){
+            while(file_exists("upload/users/".$hinh)){
                 $hinh = Str::random(4)."_".$name;
             }
 
@@ -121,6 +122,24 @@ class UserController extends Controller
     }
 
     public function postUpdate(Request $request,$id){
+        $this->validate($request,
+        [
+            'ten'=>'required|min:3',
+            'email'=>'required|email',
+            'pass'=>'required|min:6|max:20',
+            'confirm'=>'required|same:pass',
+        ],
+        [
+            'ten.required'=>'Bạn chưa nhập tên người dùng',
+            'ten.min'=>'Tên người dùng phải có ít nhất 3 kí tự',
+            'email.required'=>'Bạn chưa nhập email',
+            'email.email'=> 'Bạn phải nhập đúng định dạng email',
+            'pass.required'=>'Bạn chưa nhập mật khẩu',
+            'pass.min'=>'Mật khẩu phải có ít nhất 6 kí tự',
+            'pass.max'=>'Mật khẩu chỉ được tối đa 20 kí tự',
+            'confirm.required'=>'Bạn chưa nhập lại mật khẩu',
+            'confirm.same'=>'Mật khẩu nhập lại chưa khớp'
+        ]);
         $user = User::find($id);
         $user->Ten =$request->name;
         $user->email =$request->email;
@@ -134,16 +153,16 @@ class UserController extends Controller
             }
             $name = $file->getClientOriginalName();
             $hinh = Str::random(4)."_".$name;
-            while(file_exists("upload/user/".$hinh)){
+            while(file_exists("upload/users/".$hinh)){
                 $hinh = Str::random(4)."_".$name;
             }
 
-            $file->move("upload/user",$hinh);
+            $file->move("upload/users",$hinh);
             $user->Avatar = $hinh;
         }else{
             $user->Avatar = "";
         }
         $user->save();
-        return redirect('login')->with('thongbao','Cập nhật thành công');
+        return redirect('admin/user/update/'.$id)->with('thongbao','Cập nhật thành công');
     }
 }

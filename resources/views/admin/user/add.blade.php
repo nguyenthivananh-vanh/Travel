@@ -1,6 +1,11 @@
 @extends('admin.layout.index')
 @section('content')
- 
+ <style>
+   #level{
+     margin-top: 20px;
+     font-size: 1.1rem;
+   }
+ </style>
   <!-- Section: Details -->
   <section class="section section-Details grey lighten-4">
     <div class="container">
@@ -53,23 +58,23 @@
                   <label for="hinhanh">Avatar</label><br><br>
                   <input type="file" id="hinhanh" name="hinhanh" class="form-control" />     
                 </div>
-                <div class="input-field">
-                  <label for="">Phân quyền</label><br><br>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio1" value="0">
-                    <label class="form-check-label" for="inlineRadio1">User</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio2" value="1">
-                    <label class="form-check-label" for="inlineRadio2">Admin</label>
-                  </div> 
-              </div>
-              <div class="input-field">
-                
+                <div>
+                  <label for="" id="level">Phân quyền</label><br><br>
+                  <section class="section section-Details grey lighten-4">
+                     <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio1" value="0">
+                      <label class="form-check-label" for="inlineRadio1">User</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio2" value="1">
+                      <label class="form-check-label" for="inlineRadio2">Admin</label>
+                    </div>               
+                  </section>
               </div>
               
                 
-                <div class="card-action">
+              </div>
+              <div class="card-action">
                   <button class="btn green">Add</button>
                   <button class="btn red">Reset</button>
                 </div>

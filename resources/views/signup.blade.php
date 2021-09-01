@@ -1,4 +1,4 @@
-@include('layout.index')
+@include('index')
 <!-- include nay la gi nhi -->
 <!-- <nav class="blue darken-2">
     <div class="container">
