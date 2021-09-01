@@ -119,7 +119,7 @@ class UserController extends Controller
     }
 
     // Đăng ký
-    public function getRegiste(){
+    public function getRegister(){
         return view('signup');
     }
     public function postRegister(Request $request){

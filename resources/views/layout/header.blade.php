@@ -74,7 +74,7 @@
           </div>
       </div>
   </div> --}}
-    {{-- <ul class="slides">
+    <ul class="slides">
       <li>
         <img src="upload/home/resort1.jpg" alt="resort1.jpg">
         <div class="caption center-align">
@@ -100,7 +100,7 @@
         </div>
       </li> 
     </ul>
-     --}}
+    
   </div>
 
   <div id="search" class="section section-search teal darken-2 white-text center scrollspy">
@@ -122,3 +122,5 @@
       </div>
     </div>
   </div>
+  <script src="admin_asset/js/admin.js"></script>
+  <script src="admin_asset/js/homepage.js"></script>

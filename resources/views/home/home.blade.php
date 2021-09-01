@@ -1,11 +1,11 @@
 @extends('layout.index')
 @section('content')
-<<<<<<< Updated upstream
-<section id="popular" class="section section-popular scrollspy">
+
+{{-- <section id="popular" class="section section-popular scrollspy">
   <div class="container-fuild">
-    <div class="row">
-=======
-<div class="navbar-fixed">
+    <div class="row"> --}}
+
+{{-- <div class="navbar-fixed">
     <nav class="teal">
       <div class="container">
         <a href="#home" class="brand-logo">My VietNam</a>
@@ -32,8 +32,8 @@
         </ul>
       </div>
     </nav>
-  </div> 
-  <ul class="sideNavHome" id="mobileNav" style="display:none" >
+  </div>  --}}
+  {{-- <ul class="sideNavHome" id="mobileNav" style="display:none" >
   <!-- <a href="javascript:void(0)" class="admin-btnClose-sidenav" onclick="showNav()"><i class="fas fa-times"></i></a> -->
     <li class="nav-li">
       <p>Trang chủ</p>
@@ -51,7 +51,7 @@
       <p>Contact</p>
     </li>
       
->>>>>>> Stashed changes
+
         
       <div class="col-12">
         <h4 class="center">
@@ -100,35 +100,11 @@
     </div> -->
   </div>
 </section>
-
+ --}}
 
 <!-- Section: Gallery -->
 
 <section id="gallery" class="section section-gallery scrollspy">
-  <div class="container-fuild">
-    
-      <div class="col-12">
-      <h4 class="center">
-          <span class="teal-text">Photo</span> Gallery
-        </h4>
-          
-          <div>
-          <h5><a href="">Miền Nam</a></h5>
-          <ul style="margin-left:32px">
-          <li class="side-li">
-              <p><a href="">Du lịch sinh thái</a></p>
-            </li>
-            <li  class="side-li">
-              <p><a href="">Du lịch tâm linh</a></p>
-            </li>
-            <li  class="side-li">
-              <p><a href="">Du lịch biển hồ</a></p>
-            </li>
-          </ul>
-          </div>
-
-        </div>
-        <div class="col-10">
         <h4 class="center">
             <span class="teal-text">Photo</span> Gallery
           </h4>
