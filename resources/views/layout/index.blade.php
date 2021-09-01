@@ -29,12 +29,20 @@
 
 
 
-
 </head>
 <body>
     <div id="wrapper">
-     
-        @yield('content')
+        @include('layout.header')
+        {{-- content --}}
+        <div class="container-fuild">
+            <div class="row">
+              @include('layout.menu')
+              <div class="col-8">
+                @yield('content')
+              </div>
+            </div>
+        </div>
+        @include('layout.footer')
         
     </div>
     <script src="admin_asset/bower_components/jquery/dist/jquery.min.js"></script>

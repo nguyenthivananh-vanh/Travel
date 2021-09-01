@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home','App\Http\Controllers\HomeController@home');
+
 Route::get('/register', function () {
     return view('signup');
 });
@@ -27,8 +27,9 @@ Route::get('/login', function () {
 });
 Route::post('/login','App\Http\Controllers\UserController@postdangnhap');
 
-Route::get('/homepage', function () {
-    return view('home.home');
+Route::group(['prefix'=>'home'],function(){
+    Route::get('/home','App\Http\Controllers\HomeController@home');
+    Route::post('/search','App\Http\Controllers\HomeController@search');
 });
 Route::group(['prefix'=>'admin'],function(){
     Route::get('adminHome','App\Http\Controllers\DiaDiemController@getList');

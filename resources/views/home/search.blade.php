@@ -8,17 +8,20 @@
         <h4 class="center">
           <span class="teal-text">Popular</span> Places</h4>
         <div class="col s12 m4">
+           
           <div class="card">
+            @foreach ($diadiem as $ddiem)
             <div class="card-image">
-              <img src="upload/home/resort1.jpg" alt="resort1.jpg">
-              <span class="card-title">Nha Trang</span>
+              <img src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+              <span class="card-title">{{$ddiem->TieuDe}}</span>
             </div>
             <div class="card-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
+              <p>{{$ddiem->TomTat}}</p>
             </div>
+            @endforeach
           </div>
         </div>
-        <div class="col s12 m4">
+        {{-- <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
               <img src="upload/home/resort2.jpg" alt="resort2.jpg">
@@ -28,8 +31,8 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
             </div>
           </div>
-        </div>
-        <div class="col s12 m4">
+        </div> --}}
+        {{-- <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
               <img src="upload/home/resort3.jpg" alt="resort3.jpg">
@@ -39,23 +42,17 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col s12 center">
-        <a href="#contact" class="btn btn-large grey darken-3">
-          <i class="material-icons left">send</i>Contact for Booking
-        </a>
-      </div>
-    </div> -->
+    
   </div>
 </section>
 
 
 <!-- Section: Gallery -->
 
-<section id="gallery" class="section section-gallery scrollspy">
+{{-- <section id="gallery" class="section section-gallery scrollspy">
   <div class="container-fuild">
     
       <div class="col-12">
@@ -109,7 +106,7 @@
     
     
 </section>
-    
+     --}}
   
   
   @endsection
