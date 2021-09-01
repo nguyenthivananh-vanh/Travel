@@ -65,16 +65,24 @@
   </footer> -->
 
   <div class="login-page">
-      @if(session('thongbao'))
-          <div class="alert alert-success">
-              {{session('thongbao')}}<br>
-          </div>
-      @endif
+
 
   <div class="form">
-  <h2>Login</h2>
-      <form action="{{URL('login')}}" method="POST">
-          <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+    <h2>Đăng nhập</h2>
+    @if(count($errors)>0)
+      <div class="alert alert-danger">
+          @foreach ($errors->all() as $err)
+              {{$err}}<br>
+          @endforeach
+      </div>
+    @endif
+    @if(session('thongbao'))
+      <div class="alert alert-success">
+          {{session('thongbao')}}
+      </div>
+    @endif
+    <form action="login" method="POST" enctype="multipart/form-data"> 
+        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
       <div class="form-group row">
         <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" require>
       </div>
@@ -93,7 +101,7 @@
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
         <label class="form-check-label" for="inlineRadio2">2</label>
       </div> -->
-      <button type="submit" >Log In</button>
+      <button type="submit" >Đăng nhập</button>
     </form>
   </div>
 </div>

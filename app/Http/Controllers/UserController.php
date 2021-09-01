@@ -85,37 +85,72 @@ class UserController extends Controller
         return redirect('admin/user/list')->with('thongbao','Xoá thành công');
     }
 
-
-    public function postdangnhap(Request $request){
-
-        $phanquyen = DB::table('users')->where('email',$request->email)->value('PhanQuyen');
+    // dăng nhập
+    public function getLogin(){
+        return view('login');
+    }
+    public function postLogin(Request $request){
+        $this->validate($request,
+        [
+            'email'=>'required',
+            'password'=>'required|min:6|max:20',
+        ],
+        [
+            'email.required'=>'Bạn chưa nhập email',
+            'password.required'=>'Bạn chưa nhập mật khẩu',
+            'password.min'=>'Mật khẩu phải có ít nhất 6 kí tự',
+            'password.max'=>'Mật khẩu chỉ được tối đa 20 kí tự',
+        ]);
+        $phanquyen = User::where('email',$request->email)->value("PhanQuyen");
         if (strcasecmp($phanquyen,'1')==0){
             if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-                $diadiem = DiaDiem::paginate(3);
-                return view('admin.diadiem.list',['DiaDiem'=>$diadiem])->with('thongbao','Đăng nhập thành công');;
+                return redirect('admin/adminHome')->with('thongbao','Đăng nhập thành công');;
             }else{
-                return view('login')->with('thongbao','Đăng nhập thất bại');
+                return redirect('login')->with('thongbao','Mật khẩu hoặc tên tài khoản không đúng');
             }
         }else{
             if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
                 return "Trang chủ của user";
             }else{
-                return view('login')->with('thongbao','Đăng nhập thất bại');
+                return redirect('login')->with('thongbao','Mật khẩu hoặc tên tài khoản không đúng');
             }
         }
-
+        
     }
 
-    public function postdangky(Request $request){
+    // Đăng ký
+    public function getRegiste(){
+        return view('signup');
+    }
+    public function postRegister(Request $request){
+        $this->validate($request,
+        [
+            'ten'=>'required|min:3',
+            'email'=>'required|email|unique:users,email',
+            'pass'=>'required|min:6|max:20',
+            'confirm'=>'required|same:pass',
+        ],
+        [
+            'ten.required'=>'Bạn chưa nhập tên người dùng',
+            'ten.min'=>'Ten người dùng phải có ít nhất 3 kí tự',
+            'email.required'=>'Bạn chưa nhập email',
+            'email.email'=> 'Bạn phải nhập đúng định dạng email',
+            'email.unique'=> 'Email đã tồn tại',
+            'pass.required'=>'Bạn chưa nhập mật khẩu',
+            'pass.min'=>'Mật khẩu phải có ít nhất 6 kí tự',
+            'pass.max'=>'Mật khẩu chỉ được tối đa 20 kí tự',
+            'confirm.required'=>'Bạn chưa nhập lại mật khẩu',
+            'confirm.same'=>'Mật khẩu nhập lại chưa khớp'
+        ]);
         $user = new User();
-        $user->Ten =$request->name;
+        $user->Ten =$request->ten;
         $user->email =$request->email;
-        $user->password = bcrypt($request->password);
+        $user->password = bcrypt($request->pass);
         $user->PhanQuyen = defined('0');
         $user->save();
         return redirect('login')->with('thongbao','Đăng kí thành công');
     }
-
+    // Quản lý tài khoản
     public function getUpdate($id){
         $user = User::find($id);
         return view('admin.user.update',['user'=>$user]);
@@ -141,9 +176,9 @@ class UserController extends Controller
             'confirm.same'=>'Mật khẩu nhập lại chưa khớp'
         ]);
         $user = User::find($id);
-        $user->Ten =$request->name;
+        $user->Ten =$request->ten;
         $user->email =$request->email;
-        $user->password = bcrypt($request->password);
+        $user->password = bcrypt($request->pass);
         $user->PhanQuyen = defined('0');
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');

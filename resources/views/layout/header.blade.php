@@ -1,14 +1,14 @@
 <div class="navbar-fixed">
     <nav class="teal">
       <div class="container">
-        <a href="home" class="brand-logo">My VietNam</a>
+        <a href="home/home" class="brand-logo">My VietNam</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse" (click)=" showNavbar()">
           <i class="material-icons">menu</i>
         </a>
   
         <ul class="right hide-on-med-and-down" >
           <li>
-            <a href="home">Trang chủ</a>
+            <a href="home/home">Trang chủ</a>
           </li>
           {{-- <li>
             <a >Tìm kiếm</a>

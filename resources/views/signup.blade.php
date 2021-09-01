@@ -53,22 +53,34 @@
   </footer> -->
 
   <div class="login-page">
-
+    
     <div class="form">
-    <h3>Sign up</h3>
-      <form action="{{URL('register')}}" method="POST" onsubmit="return processdata()">
-      @csrf <!-- {{ csrf_field() }} -->
+    <h3>Đăng ký</h3>
+    @if(count($errors)>0)
+      <div class="alert alert-danger">
+          @foreach ($errors->all() as $err)
+              {{$err}}<br>
+          @endforeach
+      </div>
+    @endif
+    @if(session('thongbao'))
+      <div class="alert alert-success">
+          {{session('thongbao')}}
+      </div>
+    @endif
+    <form action="register" method="POST" enctype="multipart/form-data">   
+        <input type="hidden" name="_token" value="{{csrf_token()}}" />
         <div class="form-group row">
-        <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Enter name" required>
+        <input type="text" class="form-control" id="name" name="ten" aria-describedby="nameHelp" placeholder="Enter name" required>
         </div>
         <div class="form-group row">
           <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" require>
         </div>
         <div class="form-group row">
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" require>
+          <input type="password" class="form-control" id="password" name="pass" placeholder="Password" require>
         </div>
         <div class="form-group row">
-          <input type="password" class="form-control" id="password_rp" name="password_rp" placeholder="Repeat Password" require>
+          <input type="password" class="form-control" id="password_rp" name="confirm" placeholder="Repeat Password" require>
         </div>
         <!-- <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -82,11 +94,11 @@
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
           <label class="form-check-label" for="inlineRadio2">2</label>
         </div> -->
-        <button type="submit" >Submit</button>
+        <button type="submit" >Đăng ký</button>
       </form>
     </div>
 </div>
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     function processdata(){
         var name = document.getElementById('name').value;
         var pass = document.getElementById('password').value;
@@ -103,4 +115,4 @@
             alert("Không chứa kí tự đặc biệt trong tên");
         }
     }
-</script>
+</script> --}}

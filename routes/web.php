@@ -17,15 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', function () {
-    return view('signup');
-});
-Route::post('/register','App\Http\Controllers\UserController@postdangky');
-
-Route::get('/login', function () {
-    return view('login');
-});
-Route::post('/login','App\Http\Controllers\UserController@postdangnhap');
+Route::get('/register','App\Http\Controllers\UserController@getRegister');
+Route::post('/register','App\Http\Controllers\UserController@postRegister');
+Route::get('/login','App\Http\Controllers\UserController@getLogin');
+Route::post('/login','App\Http\Controllers\UserController@postLogin');
 
 Route::group(['prefix'=>'home'],function(){
     Route::get('/home','App\Http\Controllers\HomeController@home');
