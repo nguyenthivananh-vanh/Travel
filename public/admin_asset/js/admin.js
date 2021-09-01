@@ -11,6 +11,8 @@ function showSidebar() {
     // sideNavAdmin.style.display="block"
     sideNavAdmin.classList.toggle("display-block");
 }
-// function closeNav(){
-//     sideNavAdmin.classList.toggle("display-block");
-// }
+function showNavbar(){
+    alert("hi")
+  document.getElementById('sideNavHome').classList.toggle('displayBlock');
+  
+}

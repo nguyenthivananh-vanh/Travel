@@ -1,8 +1,57 @@
 @extends('layout.index')
 @section('content')
+<<<<<<< Updated upstream
 <section id="popular" class="section section-popular scrollspy">
   <div class="container-fuild">
     <div class="row">
+=======
+<div class="navbar-fixed">
+    <nav class="teal">
+      <div class="container">
+        <a href="#home" class="brand-logo">My VietNam</a>
+        <a data-activates="mobile-nav" class="button-collapse" (click)=" showNavbar()">
+          <i class="material-icons">menu</i>
+        </a>
+  
+        <ul class="right hide-on-med-and-down" >
+          <li>
+            <a href="#home">Trang chủ</a>
+          </li>
+          <li>
+            <a>Tìm kiếm</a>
+          </li>
+          <li>
+            <a>Đăng nhập</a>
+          </li>
+          <li>
+            <a>Đăng kí</a>
+          </li>
+          <li>
+            <a>Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div> 
+  <ul class="sideNavHome" id="mobileNav" style="display:none" >
+  <!-- <a href="javascript:void(0)" class="admin-btnClose-sidenav" onclick="showNav()"><i class="fas fa-times"></i></a> -->
+    <li class="nav-li">
+      <p>Trang chủ</p>
+    </li>
+    <li  class="nav-li">
+      <p>Tìm kiếm</p>
+    </li>
+    <li  class="nav-li">
+      <p>Đăng kí</p>
+    </li>
+    <li  class="nav-li">
+      <p>Đăng nhập</p>
+    </li>
+    <li  class="nav-li">
+      <p>Contact</p>
+    </li>
+      
+>>>>>>> Stashed changes
         
       <div class="col-12">
         <h4 class="center">
@@ -62,6 +111,43 @@
       <h4 class="center">
           <span class="teal-text">Photo</span> Gallery
         </h4>
+          
+          <div>
+          <h5><a href="">Miền Nam</a></h5>
+          <ul style="margin-left:32px">
+          <li class="side-li">
+              <p><a href="">Du lịch sinh thái</a></p>
+            </li>
+            <li  class="side-li">
+              <p><a href="">Du lịch tâm linh</a></p>
+            </li>
+            <li  class="side-li">
+              <p><a href="">Du lịch biển hồ</a></p>
+            </li>
+          </ul>
+          </div>
+
+        </div>
+        <div class="col-10">
+        <h4 class="center">
+            <span class="teal-text">Photo</span> Gallery
+          </h4>
+          <div class="row">
+            <div class="col-4">
+              <a href="">
+              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
+              </a>
+            </div>
+            <div class="col-4">
+              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?travel" alt="">
+            </div>
+            <div class="col-4">
+              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?nature" alt="">
+            </div>
+            <!-- <div class="col s12 m3">
+              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach,travel" alt="">
+            </div> -->
+          </div>
         <div class="row">
           <div class="col-4">
             <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
@@ -117,6 +203,7 @@
   @section('script')
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
   <script>
   var showFiller=true;
   function showNavbar(){
