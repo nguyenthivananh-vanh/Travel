@@ -109,22 +109,34 @@
             <span class="teal-text">Photo</span> Gallery
           </h4>
           <div class="row">
+            @foreach ($DiaDiem as $ddiem)
             <div class="col-4">
-              <a href="">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
-              </a>
+              <div class="card">
+                
+                <a href="#">
+                  <div class="card-image">
+                    <img src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                    <span class="card-title">{{$ddiem->TieuDe}}</span>
+                  </div>
+                </a>
+                  <div class="card-content">
+                    <p>{{$ddiem->TomTat}}</p>
+                  </div>
+           
+              </div>
             </div>
-            <div class="col-4">
+            @endforeach
+            {{-- <div class="col-4">
               <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?travel" alt="">
             </div>
             <div class="col-4">
               <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?nature" alt="">
-            </div>
+            </div> --}}
             <!-- <div class="col s12 m3">
               <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach,travel" alt="">
             </div> -->
           </div>
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-4">
             <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
           </div>
@@ -151,8 +163,8 @@
         <!-- <div class="col s12 m3">
           <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?cruise" alt="">
         </div> -->
-      </div>
-      <div class="row">
+      </div> --}}
+      {{-- <div class="row">
         <div class="col-4">
           <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beaches" alt="">
         </div>
@@ -166,7 +178,7 @@
           <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?boat,travel" alt="">
         </div> -->
           
-      </div>
+      </div> --}}
     </div>
     
     

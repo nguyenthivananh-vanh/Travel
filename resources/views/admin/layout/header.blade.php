@@ -20,11 +20,15 @@
             <a href="admin/diadiem/list">Địa điểm</a>
           </li>
           <li>
+            <a href="admin/user/list">Users</a>
+          </li>
+          <li>
             <a href="admin/comment/list">Comments</a>
           </li>
           <li>
-            <a href="admin/user/list">Users</a>
+            <a href="admin/thongke/list">Thống kê</a>
           </li>
+         
           <!-- <li>
             <a href="#" data-activates="mobile-nav" class="button-collapse" (click)="showNav()">
               <i class="material-icons">menu</i>

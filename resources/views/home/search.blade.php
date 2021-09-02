@@ -11,13 +11,17 @@
            
           <div class="card">
             @foreach ($diadiem as $ddiem)
-            <div class="card-image">
-              <img src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
-              <span class="card-title">{{$ddiem->TieuDe}}</span>
-            </div>
-            <div class="card-content">
-              <p>{{$ddiem->TomTat}}</p>
-            </div>
+            <a href="#">
+              <div class="card-image">
+                <img src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                <span class="card-title">{{$ddiem->TieuDe}}</span>
+              </div>
+            </a>
+              <div class="card-content">
+                <p>{{$ddiem->TomTat}}</p>
+              </div>
+            
+            
             @endforeach
           </div>
         </div>

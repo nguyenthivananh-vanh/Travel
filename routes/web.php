@@ -25,6 +25,7 @@ Route::post('/login','App\Http\Controllers\UserController@postLogin');
 Route::group(['prefix'=>'home'],function(){
     Route::get('/home','App\Http\Controllers\HomeController@home');
     Route::post('/search','App\Http\Controllers\HomeController@search');
+    Route::get('/view/{id}','App\Http\Controllers\HomeController@view');
 });
 Route::group(['prefix'=>'admin'],function(){
     Route::get('adminHome','App\Http\Controllers\DiaDiemController@getList');
@@ -68,6 +69,10 @@ Route::group(['prefix'=>'admin'],function(){
     Route::group(['prefix'=>'comment'],function(){
         Route::get('list','App\Http\Controllers\CommentController@getList');
         Route::get('delete/{id}','App\Http\Controllers\CommentController@getDelete');
+    });
+    Route::group(['prefix'=>'thongke'],function(){
+        Route::get('list','App\Http\Controllers\ThongKeController@getList');
+      
     });
 
     Route::group(['prefix'=>'ajax'],function(){
