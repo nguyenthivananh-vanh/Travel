@@ -7,7 +7,7 @@ use App\Models\VungMien;
 class HomeController extends Controller
 {
     function home(){
-        $diadiem = DiaDiem::orderBy('SoLuotXem','DESC')->get();
+        $diadiem = DiaDiem::orderBy('SoLuotXem','DESC')->take(3)->get();
         $vungmien = VungMien::all();
         return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem]);
     }
