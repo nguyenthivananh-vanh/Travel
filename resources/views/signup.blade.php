@@ -80,7 +80,7 @@
           <input type="password" class="form-control" id="password" name="pass" placeholder="Password" require>
         </div>
         <div class="form-group row">
-          <input type="password" class="form-control" id="password_rp" name="confirm" placeholder="Repeat Password" require>
+          <input type="password" class="form-control" id="password_rp" name="confirm" placeholder="Confirm Password" require>
         </div>
         <!-- <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -94,6 +94,13 @@
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
           <label class="form-check-label" for="inlineRadio2">2</label>
         </div> -->
+        <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+        <br/>
+        @if($errors->has('g-recaptcha-response'))
+        <span class="invalid-feedback" style="display:block">
+          <strong>{{$errors->first('g-recaptcha-response')}}</strong>
+        </span>
+        @endif
         <button type="submit" >Đăng ký</button>
       </form>
     </div>

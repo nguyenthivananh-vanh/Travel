@@ -18,15 +18,16 @@ class HomeController extends Controller
         return view('home.search',['diadiem'=>$diadiem,'key'=>$key,'vungmien'=>$vungmien]);
     }
     function view($id){
+        $vungmien = VungMien::all();
         $diadiem = DiaDiem::find($id);
         $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
         $diadiem->save();
-        return view('home.view',['DiaDiem'=>$diadiem]);
+        return view('home.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien]);
     }
     function DacDiemSearch($id){  
         $vungmien = VungMien::all(); 
         $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(3)->get();
-        $diadiem = DiaDiem::where('idDacDiem',$id)->take(9)->get();
+        $diadiem = DiaDiem::where('idDacDiem',$id)->paginate(3);
         
         return view('home.dacdiem.search',['noibat'=>$noibat,'vungmien'=>$vungmien,'diadiem'=>$diadiem]);
     }

@@ -101,6 +101,14 @@
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
         <label class="form-check-label" for="inlineRadio2">2</label>
       </div> -->
+      <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+      <br/>
+      @if($errors->has('g-recaptcha-response'))
+      <span class="invalid-feedback" style="display:block">
+        <strong>{{$errors->first('g-recaptcha-response')}}</strong>
+      </span>
+      @endif
+      
       <button type="submit" >Đăng nhập</button>
     </form>
   </div>

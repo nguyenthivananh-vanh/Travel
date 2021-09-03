@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Rules\Captcha; 
 
 class UserController extends Controller
 {
@@ -94,6 +95,7 @@ class UserController extends Controller
         [
             'email'=>'required',
             'password'=>'required|min:6|max:20',
+            'g-recaptcha-response' => new Captcha(), 	
         ],
         [
             'email.required'=>'Bạn chưa nhập email',

@@ -58,8 +58,7 @@
     <script src="admin_asset/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="admin_asset/dist/js/sb-admin-2.js"></script>
-    <script src="admin_asset/dist/js/admin.js"></script>
+
 
     <!-- DataTables JavaScript -->
     <script src="admin_asset/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>

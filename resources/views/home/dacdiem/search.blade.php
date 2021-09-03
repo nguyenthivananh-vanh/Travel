@@ -1,5 +1,6 @@
 @extends('layout.index')
 @section('content')
+<link rel="stylesheet" href="admin_asset/css/pagination.css">
 <section id="popular" class="section section-popular scrollspy">
   <div class="container-fuild">
         <div class="row">
@@ -58,6 +59,11 @@
                   </div>
               </div>
               @endforeach
+          </div>
+          <div class="row">
+            <div class="page">
+                {{$diadiem->links("pagination::bootstrap-4")}}
+            </div>
           </div>
       </div>
   
