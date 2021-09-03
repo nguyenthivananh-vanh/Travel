@@ -65,8 +65,6 @@
                         <div class="page">
                             {{$dacdiem->links("pagination::bootstrap-4")}}
                         </div>
-
-
                     </div>
                 </div>
             </div>

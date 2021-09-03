@@ -115,7 +115,7 @@ class UserController extends Controller
                 return redirect('login')->with('thongbao','Mật khẩu hoặc tên tài khoản không đúng');
             }
         }
-        
+
     }
 
     // Đăng ký
@@ -200,4 +200,12 @@ class UserController extends Controller
         $user->save();
         return redirect('admin/user/update/'.$id)->with('thongbao','Cập nhật thành công');
     }
+
+    //Tìm kiếm
+    public function search(Request $request){
+        $key = $request->search;
+        $user = User::where('Ten','like',"%$key%")->orwhere('email','like',"%$key%")->take(30)->paginate(4);
+        return view('admin.user.search',['User'=>$user]);
+    }
+
 }

@@ -45,6 +45,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('update/{id}','App\Http\Controllers\DacDiemController@getUpdate');
         Route::post('update/{id}','App\Http\Controllers\DacDiemController@postUpdate');
         Route::get('delete/{id}','App\Http\Controllers\DacDiemController@getDelete');
+        Route::post('search','App\Http\Controllers\DacDiemController@search');
 
     });
     Route::group(['prefix'=>'user'],function(){
@@ -56,6 +57,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('delete/{id}','App\Http\Controllers\UserController@getDelete');
         Route::get('update/{id}','App\Http\Controllers\UserController@getUpdate');
         Route::post('update/{id}','App\Http\Controllers\UserController@postUpdate');
+        Route::post('search','App\Http\Controllers\UserController@search');
 
     });
     Route::group(['prefix'=>'diadiem'],function(){
@@ -65,6 +67,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('update/{id}','App\Http\Controllers\DiaDiemController@getUpdate');
         Route::post('update/{id}','App\Http\Controllers\DiaDiemController@postUpdate');
         Route::get('delete/{id}','App\Http\Controllers\DiaDiemController@getDelete');
+        Route::post('search','App\Http\Controllers\DiaDiemController@search');
     });
     Route::group(['prefix'=>'comment'],function(){
         Route::get('list','App\Http\Controllers\CommentController@getList');
@@ -72,7 +75,7 @@ Route::group(['prefix'=>'admin'],function(){
     });
     Route::group(['prefix'=>'thongke'],function(){
         Route::get('list','App\Http\Controllers\ThongKeController@getList');
-      
+
     });
 
     Route::group(['prefix'=>'ajax'],function(){
