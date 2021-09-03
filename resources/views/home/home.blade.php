@@ -1,5 +1,8 @@
 @extends('layout.index')
 @section('slider')
+<style>
+  
+</style>
 <div class="slider">
   <ul class="slides">
     <li>

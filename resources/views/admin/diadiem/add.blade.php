@@ -82,7 +82,20 @@
   </section>
   @endsection
 
-
+  @section('script')
+  <script>
+     
+      $(document).ready(function(){
+          $("#vungmien").change(function(){
+              var idvm = $(this).val();
+              $.get("admin/ajax/dacdiem/"+idvm,function(data){
+                  $("#dacdiem").html(data);
+              });
+          });
+          
+      });
+  </script>
+@endsection
   
 
 

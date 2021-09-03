@@ -9,7 +9,7 @@
       <ul>
         @foreach ($vm->dacdiem as $dacdiem)         
         <li class="list-group-item list-group-item-dd">
-          <a href="#">{{$dacdiem->Ten}}</a>
+          <a href="home/dacdiem/search/{{$dacdiem->id}}">{{$dacdiem->Ten}}</a>
         </li>
         @endforeach
       </ul>

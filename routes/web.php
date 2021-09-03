@@ -26,6 +26,10 @@ Route::group(['prefix'=>'home'],function(){
     Route::get('/home','App\Http\Controllers\HomeController@home');
     Route::post('/search','App\Http\Controllers\HomeController@search');
     Route::get('/view/{id}','App\Http\Controllers\HomeController@view');
+   
+    Route::group(['prefix'=>'dacdiem'],function(){
+        Route::get('/search/{id}','App\Http\Controllers\HomeController@DacDiemSearch');
+    });
 });
 Route::group(['prefix'=>'admin'],function(){
     Route::get('adminHome','App\Http\Controllers\DiaDiemController@getList');

@@ -2,55 +2,32 @@
 @section('content')
 <section id="popular" class="section section-popular scrollspy">
   <div class="container-fuild">
-    <div class="row">
-        
-      <div class="col-12">
-        <h4 class="center">
-          <span class="teal-text">Popular</span> Places</h4>
-        <div class="col s12 m4">
-           
-          <div class="card">
-            @foreach ($diadiem as $ddiem)
-            <a href="#">
-              <div class="card-image">
-                <img src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
-                <span class="card-title">{{$ddiem->TieuDe}}</span>
-              </div>
-            </a>
-              <div class="card-content">
-                <p>{{$ddiem->TomTat}}</p>
-              </div>
+        <div class="row">
             
-            
-            @endforeach
-          </div>
+            <div class="col-12">
+                <h4 class="center">
+                <span class="teal-text"></span> Places</h4>
+            </div>
         </div>
-        {{-- <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="upload/home/resort2.jpg" alt="resort2.jpg">
-              <span class="card-title">Phú Quốc</span>
+        <div class="row">
+            @foreach ($diadiem as $ddiem)
+            <div class="col-4">
+                <div class="card">
+                    <a href="#">
+                    <div class="card-image">
+                        <img src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                        <span class="card-title">{{$ddiem->TieuDe}}</span>
+                    </div>
+                    </a>
+                    <div class="card-content">
+                        <p>{{$ddiem->TomTat}}</p>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
-            </div>
-          </div>
-        </div> --}}
-        {{-- <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="upload/home/resort3.jpg" alt="resort3.jpg">
-              <span class="card-title">Hội An</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi quia illo iure, distinctio perspiciatis.</p>
-            </div>
-          </div>
-        </div> --}}
-      </div>
+            @endforeach
+        </div>
     </div>
-    
-  </div>
+
 </section>
 
 
