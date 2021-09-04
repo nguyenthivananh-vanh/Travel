@@ -1,4 +1,4 @@
-<section id="contact" class="section-contact scrollspy">
+<!-- <section id="contact" class="section-contact scrollspy">
     <div class="container">
       <div class="row">
         <div class="col s12 m6">
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-  </section>
+</section> -->
   <footer class="section teal darken-2 white-text center">
     <p class="flow-text">My Vietnam &copy; 2021</p>
   </footer>

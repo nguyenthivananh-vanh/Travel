@@ -17,6 +17,13 @@ class HomeController extends Controller
         $diadiem = DiaDiem::where('TieuDe','like',"%$key%")->orwhere('TomTat','like',"%$key%")->orwhere('NoiDung','like',"%$key%")->take(30)->paginate(10);
         return view('home.search',['diadiem'=>$diadiem,'key'=>$key,'vungmien'=>$vungmien]);
     }
+    // function view($id){
+    //     $vungmien = VungMien::all();
+    //     $diadiem = DiaDiem::find($id);
+    //     $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
+    //     $diadiem->save();
+    //     return view('home.view',['DiaDiem'=>$diadiem]);
+    // }
     function view($id){
         $vungmien = VungMien::all();
         $diadiem = DiaDiem::find($id);
