@@ -69,12 +69,22 @@
       <div class="card">
         <a href="#">
           <div class="card-image">
-            <img src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+            <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
             <span class="card-title">{{$ddiem->TieuDe}}</span>
           </div>
         </a>
-          <div class="card-content">
-            <p>{{$ddiem->TomTat}}</p>
+          <div class="card-content" >
+            <p style="display: block;
+                          display: -webkit-box;
+                          height: 38px;
+                          margin: 0 auto;
+                          font-size: 14px;
+                          line-height: 1.5;
+                          -webkit-line-clamp: 2;
+                          -webkit-box-orient: vertical;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                    ">{{$ddiem->TomTat}}</p>
           </div>
 
       </div>

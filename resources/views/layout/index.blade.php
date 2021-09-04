@@ -25,14 +25,14 @@
     <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
 </head>
 <body>
-     <div class="container-fuild">
+     <div class="container-fuild" >
         @include('layout.header')
         @yield('slider')
         @yield('search')
             
-        <div class="row">                
+        <div class="row mt-4" >                
             @include('layout.menu')
-            <div class="col-8">
+            <div class="col-8" style="box-shadow: 0 10px 20px rgba(0,0,0,0.23), 0 6px 6px rgba(0,0,0,0.19);margin-left:20px">
                 @yield('content')
             </div>
         </div> 

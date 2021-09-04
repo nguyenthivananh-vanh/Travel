@@ -17,9 +17,34 @@
           <li>
             <a href="register">Đăng kí</a>
           </li>
+        </ul>
+        <ul class="right hide-on-med-and-down"  style="display:none">
           <li>
-            <a>Contact</a>
+            <a href="home/home">Trang chủ</a>
           </li>
+       
+          <li>
+            <a href="login">Viết bài</a>
+          </li>
+          <li>
+            <a href="register">Admin</a>
+          </li>
+          <li>
+            <a href="register">Cài đặt</a>
+          </li>
+
+        </ul>
+        <ul class="right hide-on-med-and-down"  style="display:none">
+          <li>
+            <a href="home/home">Trang chủ</a>
+          </li>
+          <li>
+            <a href="login">Viết bài</a>
+          </li>
+          <li>
+            <a href="register">Cài đặt</a>
+          </li>
+
         </ul>
       </div>
     </nav>

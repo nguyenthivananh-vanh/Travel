@@ -59,15 +59,15 @@
                           display: block;
                           display: -webkit-box;
                           width: 100px;
-                          height: 100px;
+                          height: 116px;
                           margin: 0 auto;
                           font-size: 14px;
                           line-height: 1.5;
-                          -webkit-line-clamp: 4;
+                          -webkit-line-clamp: 5
                           -webkit-box-orient: vertical;
                           overflow: hidden;
                           text-overflow: ellipsis;
-                          border: 1px solid #ddd;
+                          
                     "
                                             >{{$diadiem->TomTat}}</td>
                                             <td style=" border: 1px solid #ddd;">
@@ -77,15 +77,15 @@
                           display: block;
                           display: -webkit-box;
                           width: 300px;
-                          height: 100px;
+                          height: 116px;
                           margin: 0 auto;
                           font-size: 14px;
                           line-height: 1.5;
-                          -webkit-line-clamp: 4;
+                          -webkit-line-clamp: 5;
                           -webkit-box-orient: vertical;
                           overflow: hidden;
                           text-overflow: ellipsis;
-                          border: 1px solid #ddd;
+                     
                     ">
                                                 {{$diadiem->NoiDung}}</td>
 
