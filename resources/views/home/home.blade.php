@@ -1,8 +1,5 @@
 @extends('layout.index')
 @section('slider')
-<style>
-  
-</style>
 <div class="slider">
   <ul class="slides">
     <li>
@@ -28,7 +25,7 @@
         <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni est id nam. Animi, asperiores quam!</h5>
         <a href="#" class="btn btn-large">Learn More</a>
       </div>
-    </li>
+    </li> 
   </ul>
 </div>
 @endsection
@@ -67,7 +64,7 @@
     <div class="col-4">
 
       <div class="card">
-        <a href="#">
+        <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
           <div class="card-image">
             <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
             <span class="card-title">{{$ddiem->TieuDe}}</span>
@@ -90,16 +87,25 @@
       </div>
 
 
+    </div>
+    @endforeach
+<<<<<<< Updated upstream
   </div>
-  @endforeach
 
 </section>
 
+=======
+</section>
+ 
+>>>>>>> Stashed changes
   @endsection
 
   @section('script')
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+<<<<<<< Updated upstream
+=======
+  
+>>>>>>> Stashed changes
   <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
   <script>
   var showFiller=true;
@@ -107,7 +113,10 @@
     this.showFiller =!this.showFiller;
   }
   <script src="js/jquery.js"></script>
-
+<<<<<<< Updated upstream
+=======
+   
+>>>>>>> Stashed changes
     <script src="js/bootstrap.min.js"></script>
     <script src="js/my.js"></script>
   </script>

@@ -25,7 +25,7 @@ Route::post('/login','App\Http\Controllers\UserController@postLogin');
 Route::group(['prefix'=>'home'],function(){
     Route::get('/home','App\Http\Controllers\HomeController@home');
     Route::post('/search','App\Http\Controllers\HomeController@search');
-    Route::get('/view/{id}','App\Http\Controllers\HomeController@view');
+    Route::get('/view/{id}/{tacgia}','App\Http\Controllers\HomeController@view');
    
     Route::group(['prefix'=>'dacdiem'],function(){
         Route::get('/search/{id}','App\Http\Controllers\HomeController@DacDiemSearch');

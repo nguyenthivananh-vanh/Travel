@@ -25,7 +25,7 @@
     <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
 </head>
 <body>
-     <div class="container-fuild" >
+     <div class="container-fuild">
         @include('layout.header')
         @yield('slider')
         @yield('search')
