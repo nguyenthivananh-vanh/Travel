@@ -1,39 +1,6 @@
 @extends('layout.index')
 @section('slider')
 
-<!-- <div class="slider"> -->
-  <!-- <ul class="slides">
-=======
-=======
->>>>>>> d1da7d4b95631a85b5471f2cc7bb2efbe009641e
-<div class="slider">
-  <ul class="slides">
->>>>>>> d1da7d4b95631a85b5471f2cc7bb2efbe009641e
-    <li>
-      <img style="width:100%" src="upload/home/resort1.jpg" alt="resort1.jpg" >
-      <div class="caption center-align">
-        <h2>Take Your Dream Vacation</h2>
-        <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni est id nam. Animi, asperiores quam!</h5>
-        <a href="#" class="btn btn-large">Learn More</a>
-      </div>
-    </li>
-    <li>
-      <img style="width:100%" src="upload/home/resort2.jpg" alt="resort2.jpg">
-      <div class="caption left-align">
-        <h2>We Work With All Budgets</h2>
-        <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni est id nam. Animi, asperiores quam!</h5>
-        <a href="#" class="btn btn-large">Learn More</a>
-      </div>
-    </li>
-    <li>
-      <img style="width:100%" src="upload/home/resort3.jpg" alt="resort3.jpg">
-      <div class="caption right-align">
-        <h2>Group & Individual Gataways</h2>
-        <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni est id nam. Animi, asperiores quam!</h5>
-        <a href="#" class="btn btn-large">Learn More</a>
-      </div>
-    </li>
-  </ul> -->
 
 <div class="slideshow-container">
 
@@ -90,14 +57,48 @@
         </div>
     </div>
 @endsection
+
+
 @section('content')
-
-
-
 <section id="gallery" class="section section-gallery scrollspy">
   <h4 class="center">
     <span class="teal-text">Popular</span> Places
   </h4>
+  @if(isset($user))
+  <div class="row">
+    @foreach ($DiaDiem as $ddiem)
+    <div class="col-4">
+
+      <div class="card">
+        <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}/{{$user->id}}">
+          <div class="card-image">
+            <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+            <span class="card-title">{{$ddiem->TieuDe}}</span>
+          </div>
+        </a>
+          <div class="card-content" >
+            <p style="display: block;
+                          display: -webkit-box;
+                          height: 38px;
+                          margin: 0 auto;
+                          font-size: 14px;
+                          line-height: 1.5;
+                          -webkit-line-clamp: 2;
+                          -webkit-box-orient: vertical;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                    ">{{$ddiem->TomTat}}</p>
+          </div>
+
+      </div>
+
+
+    </div>
+   
+    @endforeach
+
+  </div>
+  @else
   <div class="row">
     @foreach ($DiaDiem as $ddiem)
     <div class="col-4">
@@ -127,12 +128,13 @@
 
 
     </div>
+    
     @endforeach
-
+   
   </div>
-
+  @endif
 </section>
-
+@endsection
   @section('script')
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 

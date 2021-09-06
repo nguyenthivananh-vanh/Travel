@@ -23,13 +23,15 @@ Route::get('/login','App\Http\Controllers\UserController@getLogin');
 Route::post('/login','App\Http\Controllers\UserController@postLogin');
 
 Route::group(['prefix'=>'home'],function(){
+    Route::get('/home/{id}','App\Http\Controllers\HomeController@homeUser');
     Route::get('/home','App\Http\Controllers\HomeController@home');
     Route::post('/search','App\Http\Controllers\HomeController@search');
     Route::get('/view/{id}/{tacgia}','App\Http\Controllers\HomeController@view');
-   
+    Route::get('/view/{id}/{tacgia}/{idUser}','App\Http\Controllers\HomeController@viewUser');
     Route::group(['prefix'=>'dacdiem'],function(){
         Route::get('/search/{id}','App\Http\Controllers\HomeController@DacDiemSearch');
     });
+    Route::post('/comment/{idUser}/{idDiaDiem}','App\Http\Controllers\HomeController@comment');
 });
 Route::group(['prefix'=>'admin'],function(){
     Route::get('adminHome','App\Http\Controllers\DiaDiemController@getList');

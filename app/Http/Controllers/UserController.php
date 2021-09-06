@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\DiaDiem;
+use App\Models\VungMien;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -103,16 +104,19 @@ class UserController extends Controller
             'password.min'=>'Mật khẩu phải có ít nhất 6 kí tự',
             'password.max'=>'Mật khẩu chỉ được tối đa 20 kí tự',
         ]);
+        $user = User::where('email',$request->email)->first();
+        $diadiem = DiaDiem::orderBy('SoLuotXem','DESC')->take(6)->get();
+        $vungmien = VungMien::all();
         $phanquyen = User::where('email',$request->email)->value("PhanQuyen");
         if (strcasecmp($phanquyen,'1')==0){
             if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-                return redirect('admin/adminHome')->with('thongbao','Đăng nhập thành công');;
+                return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem,'user'=>$user])->with('thongbao','Đăng nhập thành công');
             }else{
                 return redirect('login')->with('thongbao','Mật khẩu hoặc tên tài khoản không đúng');
             }
         }else{
             if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-                return "Trang chủ của user";
+                return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem,'user'=>$user])->with('thongbao','Đăng nhập thành công');;
             }else{
                 return redirect('login')->with('thongbao','Mật khẩu hoặc tên tài khoản không đúng');
             }

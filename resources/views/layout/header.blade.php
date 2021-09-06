@@ -6,6 +6,37 @@
           <i class="material-icons">menu</i>
         </a>
   
+        
+        @if (isset($user) && strcasecmp( $user->Ten, 'admin123' ) == 0 )      
+        <ul class="right hide-on-med-and-down" >
+          <li>
+            <a href="home/home/{{$user->id}}">Trang chủ</a>
+          </li>
+       
+          <li>
+            <a href="#">Viết bài</a>
+          </li>
+          <li>
+            <a href="#">Admin</a>
+          </li>
+          <li>
+            <a href="#">Cài đặt</a>
+          </li>
+
+        </ul>
+        @elseif(isset($user))
+        <ul class="right hide-on-med-and-down" >
+          <li>
+            <a href="home/home/{{$user->id}}">Trang chủ</a>
+          </li>
+          <li>
+            <a href="login">Viết bài</a>
+          </li>
+          <li>
+            <a href="register">Cài đặt</a>
+          </li>
+        </ul>
+        @else 
         <ul class="right hide-on-med-and-down" >
           <li>
             <a href="home/home">Trang chủ</a>
@@ -18,38 +49,11 @@
             <a href="register">Đăng kí</a>
           </li>
         </ul>
-        <ul class="right hide-on-med-and-down"  style="display:none">
-          <li>
-            <a href="home/home">Trang chủ</a>
-          </li>
-       
-          <li>
-            <a href="login">Viết bài</a>
-          </li>
-          <li>
-            <a href="register">Admin</a>
-          </li>
-          <li>
-            <a href="register">Cài đặt</a>
-          </li>
-
-        </ul>
-        <ul class="right hide-on-med-and-down"  style="display:none">
-          <li>
-            <a href="home/home">Trang chủ</a>
-          </li>
-          <li>
-            <a href="login">Viết bài</a>
-          </li>
-          <li>
-            <a href="register">Cài đặt</a>
-          </li>
-
-        </ul>
+        @endif
       </div>
     </nav>
   </div> 
-  <ul class="sideNav" id="mobileNav" if="!showFiller" >
+  {{-- <ul class="sideNav" id="mobileNav" if="!showFiller" >
     <li class="nav-li">
       <p>Trang chủ</p>
     </li>
@@ -65,7 +69,7 @@
     </li>
       
         
-  </ul>
+  </ul> --}}
  
   {{-- <script src="admin_asset/js/admin.js"></script>
   <script src="admin_asset/js/homepage.js"></script> --}}
