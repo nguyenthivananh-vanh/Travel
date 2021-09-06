@@ -99,7 +99,7 @@
     <div class="col-4">
 
       <div class="card">
-        <a href="#">
+        <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
           <div class="card-image">
             <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
             <span class="card-title">{{$ddiem->TieuDe}}</span>

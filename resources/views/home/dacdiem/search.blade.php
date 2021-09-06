@@ -16,12 +16,22 @@
                 <div class="card">
                     <a href="#">
                     <div class="card-image">
-                        <img src="upload/diadiem/{{$noibat->HinhAnh}}" alt="img">
+                        <img style="height:200px" src="upload/diadiem/{{$noibat->HinhAnh}}" alt="img">
                         <span class="card-title">{{$noibat->TieuDe}}</span>
                     </div>
                     </a>
                     <div class="card-content">
-                        <p>{{$noibat->TomTat}}</p>
+                        <p style="display: block;
+                        display: -webkit-box;
+                        height: 38px;
+                        margin: 0 auto;
+                        font-size: 14px;
+                        line-height: 1.5;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                  ">{{$noibat->TomTat}}</p>
                     </div>
                 </div>
             </div>
@@ -47,14 +57,24 @@
               @foreach ($diadiem as $ddiem)
               <div class="col-4">
                   <div class="card">
-                      <a href="#">
+                      <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
                       <div class="card-image">
-                          <img src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                          <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
                           <span class="card-title">{{$ddiem->TieuDe}}</span>
                       </div>
                       </a>
                       <div class="card-content">
-                          <p>{{$ddiem->TomTat}}</p>
+                          <p style="display: block;
+                          display: -webkit-box;
+                          height: 38px;
+                          margin: 0 auto;
+                          font-size: 14px;
+                          line-height: 1.5;
+                          -webkit-line-clamp: 2;
+                          -webkit-box-orient: vertical;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                    ">{{$ddiem->TomTat}}</p>
                       </div>
                   </div>
               </div>

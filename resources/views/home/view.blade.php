@@ -6,34 +6,26 @@
             <div class="post-header">
                 <div class="post-tilte  ml-2">
                 <p></p>
-                <h5 style="font-weight:bold">Lời mời gọi của núi rừng Tây Bắc , Việt Nam , đoàn quân Việt Nam đi, chung lòng cứu quốc bước chân rộn vang trên 
-                    đường ngập
+                <h5 style="font-weight:bold">{{$DiaDiem->TieuDe}}
                 </h5>
                 </div>
                 <div class="author row">
                     <div class="col-1">
-                        <img src="upload/users/ava-admin.jpg" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                        <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
                     </div>
                     <div class="col-4">
-                        <b>Green</b>
-                        <p><span><i class="fa fa-clock-o"></i> 14:59</span>
-			 				- 04/01/2015</span></p>
-                    </div>
-                    <div class="col-7 text-right" style="text-align: right">
-                        <i class="fas fa-ellipsis-h"></i>
+                        <b>{{$DiaDiem->TacGia}}</b>
+                        <p>{{$DiaDiem->created_at}}</p>
                     </div>
 
                 </div>
             </div>
-            <div class="post-content">
-                <p>Vùng Tây Bắc hay Tây Bắc Bộ là vùng miền núi phía tây của miền Bắc Việt Nam, 
-                    có chung đường biên giới với Lào và Trung Quốc. Vùng này là một trong 3 tiểu vùng địa lý 
-                    tự nhiên của Bắc Bộ Việt Nam (2 tiểu vùng kia là Vùng Đông Bắc
-                     và Đồng bằng sông Hồng). Vùng có diện tích 50.585,32 Km2</p>
+            <div class="post-content">              
+                     {!! html_entity_decode( $DiaDiem->NoiDung) !!}
             </div>
             <div class="post-footer text-right" style="text-align:right">
                 <span style="padding: 10px"><i class="far fa-heart" style="color:#277fbc"></i> <span style="padding: 8px">110</span></span>
-                <span style="padding: 10px"><i class="fas fa-eye" style="color:#277fbc"></i><span style="padding: 10px">100</span></span>
+                <span style="padding: 10px"><i class="fas fa-eye" style="color:#277fbc"></i><span style="padding: 10px">{{$DiaDiem->SoLuotXem}}</span></span>
             </div>
         </div>
         <div class="comment">
@@ -91,16 +83,22 @@
 		</div>
         <hr>
         <div class="post-related">
-            <div class="row slideshow-container">
-                <h4>Tin lien quan</h4>
-    
-                <div class="col-4">
+        <div class="row">
+            <h4>Tin liên quan</h4>
+            {{-- @foreach ($diadiemList as $item)
+            {{$item}}
+            @endforeach
+            --}}
+        </div>
+        <div class="row">
 
-                    <div class="card mySlides fade">
+            @foreach ($diadiemList as $row)
+                <div class="col-4">
+                    <div class="card">
                         <a href="#">
                         <div class="card-image">
-                            <img style="height:200px" src="upload/users/admin.jpg" alt="img">
-                            <span class="card-title">Tieeu dde</span>
+                            <img style="height:200px" src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
+                            <span class="card-title">{{$row->TieuDe}}</span>
                         </div>
                         </a>
                         <div class="card-content" >
@@ -114,86 +112,14 @@
                                         -webkit-box-orient: vertical;
                                         overflow: hidden;
                                         text-overflow: ellipsis;
-                                    ">Day la mot caitom tasttttttttttttttttttttttttt
-                                    dhdjjhfdjfhhhhhhhhhhhhhhh</p>
+                                    ">{{$row->TomTat}}</p>
                         </div>
-
                     </div>
                 </div>
-                <div class="col-4">
+                
+            @endforeach
 
-                    <div class="card mySlides fade">
-                        <a href="#">
-                        <div class="card-image">
-                            <img style="height:200px" src="upload/users/admin.jpg" alt="img">
-                            <span class="card-title">Tieeu dde</span>
-                        </div>
-                        </a>
-                        <div class="card-content" >
-                            <p style="display: block;
-                                        display: -webkit-box;
-                                        height: 38px;
-                                        margin: 0 auto;
-                                        font-size: 14px;
-                                        line-height: 1.5;
-                                        -webkit-line-clamp: 2;
-                                        -webkit-box-orient: vertical;
-                                        overflow: hidden;
-                                        text-overflow: ellipsis;
-                                    ">Day la mot caitom tasttttttttttttttttttttttttt
-                                    dhdjjhfdjfhhhhhhhhhhhhhhh</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-4">
-
-                    <div class="card mySlides fade">
-                        <a href="#">
-                        <div class="card-image">
-                            <img style="height:200px" src="upload/users/admin.jpg" alt="img">
-                            <span class="card-title">Tieeu dde</span>
-                        </div>
-                        </a>
-                        <div class="card-content" >
-                            <p style="display: block;
-                                        display: -webkit-box;
-                                        height: 38px;
-                                        margin: 0 auto;
-                                        font-size: 14px;
-                                        line-height: 1.5;
-                                        -webkit-line-clamp: 2;
-                                        -webkit-box-orient: vertical;
-                                        overflow: hidden;
-                                        text-overflow: ellipsis;
-                                    ">Day la mot caitom tasttttttttttttttttttttttttt
-                                    dhdjjhfdjfhhhhhhhhhhhhhhh</p>
-                        </div>
-
-                    </div>
-                </div>
-        
-            </div>
-            <!-- <div class="slideshow-container">
-
-            <div class="mySlides fade card"  style="width:100vw">
-            
-            </div>
-
-            <div class="mySlides fade"  style="width:100vw">
-            <div class="numbertext">2 / 3</div>
-            <img src="upload/home/resort2.jpg"  alt="img2">
-            <div class="text">Caption Two</div>
-            </div>
-
-            <div class="mySlides fade"  style="width:100vw">
-            <div class="numbertext">3 / 3</div>
-            <img src="upload/home/resort3.jpg"  alt="img3">
-            <div class="text">Caption Three</div>
-            </div> -->
-
-</div>
-            
+        </div>   
     </div>
 </section>
 
