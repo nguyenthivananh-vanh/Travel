@@ -65,9 +65,7 @@
   </footer> -->
 
   <div class="login-page">
-
-
-  <div class="form">
+  <div class="form form-login">
     <h2>Đăng nhập</h2>
     @if(count($errors)>0)
       <div class="alert alert-danger">

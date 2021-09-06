@@ -3,8 +3,8 @@
 <style>
   
 </style>
-<div class="slider">
-  <ul class="slides">
+<!-- <div class="slider"> -->
+  <!-- <ul class="slides">
     <li>
       <img style="width:100%" src="upload/home/resort1.jpg" alt="resort1.jpg" >
       <div class="caption center-align">
@@ -29,8 +29,40 @@
         <a href="#" class="btn btn-large">Learn More</a>
       </div>
     </li>
-  </ul>
+  </ul> -->
+
+<div class="slideshow-container">
+
+<div class="mySlides fade"  style="width:100vw">
+  <div class="numbertext">1 / 3</div>
+  <img src="upload/home/resort1.jpg" >
+  <div class="text">
+     <h3>Explore Vietnam</h3>
+     <p>Tìm hiểu về những di sản văn hóa quốc gia , những hang động kì bí , đường biển tuyệt đẹp</p>
+  </div>
 </div>
+
+<div class="mySlides fade"  style="width:100vw">
+  <div class="numbertext">2 / 3</div>
+  <img src="upload/home/resort2.jpg"  alt="img2">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade"  style="width:100vw">
+  <div class="numbertext">3 / 3</div>
+  <img src="upload/home/resort3.jpg"  alt="img3">
+  <div class="text">Caption Three</div>
+</div>
+
+</div>
+<!-- <br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div> -->
+
 @endsection
 @section('search')
     <div id="search" class="section section-search teal darken-2 white-text center scrollspy">
@@ -100,16 +132,17 @@
   @section('script')
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-  <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
-  <script>
-  var showFiller=true;
-  function showNavbar(){
-    this.showFiller =!this.showFiller;
-  }
+  <!-- <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
+  <script  href="admin_asset/js/homepage.js"></script> -->
+  <script type="text/javascript" src="admin_asset/js/homepage.js"></script>
+  <!-- <script type="text/javascript" src="admin_asset/js/admin.js"></script> -->
+ 
+
+  
   <script src="js/jquery.js"></script>
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/my.js"></script>
-  </script>
+ 
 
   @endsection
