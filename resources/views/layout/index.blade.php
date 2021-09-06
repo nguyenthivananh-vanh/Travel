@@ -27,7 +27,7 @@
   
 </head>
 <body>
-     <div class="container-fuild" >
+     <div class="container-fuild">
         @include('layout.header')
         @yield('slider')
         @yield('search')

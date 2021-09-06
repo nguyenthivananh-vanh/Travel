@@ -1,10 +1,15 @@
 @extends('layout.index')
 @section('slider')
+<<<<<<< HEAD
 <style>
   
 </style>
 <!-- <div class="slider"> -->
   <!-- <ul class="slides">
+=======
+<div class="slider">
+  <ul class="slides">
+>>>>>>> d1da7d4b95631a85b5471f2cc7bb2efbe009641e
     <li>
       <img style="width:100%" src="upload/home/resort1.jpg" alt="resort1.jpg" >
       <div class="caption center-align">
@@ -122,8 +127,9 @@
       </div>
 
 
+    </div>
+    @endforeach
   </div>
-  @endforeach
 
 </section>
 
@@ -131,6 +137,7 @@
 
   @section('script')
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<<<<<<< HEAD
 
   <!-- <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
   <script  href="admin_asset/js/homepage.js"></script> -->
@@ -139,8 +146,23 @@
  
 
   
+=======
+<<<<<<< Updated upstream
+=======
+  
+>>>>>>> Stashed changes
+  <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
+  <script>
+  var showFiller=true;
+  function showNavbar(){
+    this.showFiller =!this.showFiller;
+  }
+>>>>>>> d1da7d4b95631a85b5471f2cc7bb2efbe009641e
   <script src="js/jquery.js"></script>
-
+<<<<<<< Updated upstream
+=======
+   
+>>>>>>> Stashed changes
     <script src="js/bootstrap.min.js"></script>
     <script src="js/my.js"></script>
  

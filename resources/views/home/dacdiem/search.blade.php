@@ -36,8 +36,8 @@
                 </div>
             </div>
             @endforeach
-        </div>
-    </div>
+          </div>
+        
 
 </section>
 
@@ -77,8 +77,12 @@
                     ">{{$ddiem->TomTat}}</p>
                       </div>
                   </div>
+        
               </div>
-              @endforeach
+        
+        
+            </div>
+            @endforeach
           </div>
           <div class="row">
             <div class="page">
