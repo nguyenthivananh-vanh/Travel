@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Rules\Captcha; 
+use App\Rules\Captcha;
 
 class UserController extends Controller
 {
@@ -95,7 +95,7 @@ class UserController extends Controller
         [
             'email'=>'required',
             'password'=>'required|min:6|max:20',
-            'g-recaptcha-response' => new Captcha(), 	
+            'g-recaptcha-response' => new Captcha(),
         ],
         [
             'email.required'=>'Bạn chưa nhập email',
@@ -163,7 +163,7 @@ class UserController extends Controller
         [
             'ten'=>'required|min:3',
             'email'=>'required|email',
-            'pass'=>'required|min:6|max:20',
+            'pass'=>'required|min:6',
             'confirm'=>'required|same:pass',
         ],
         [
@@ -173,7 +173,6 @@ class UserController extends Controller
             'email.email'=> 'Bạn phải nhập đúng định dạng email',
             'pass.required'=>'Bạn chưa nhập mật khẩu',
             'pass.min'=>'Mật khẩu phải có ít nhất 6 kí tự',
-            'pass.max'=>'Mật khẩu chỉ được tối đa 20 kí tự',
             'confirm.required'=>'Bạn chưa nhập lại mật khẩu',
             'confirm.same'=>'Mật khẩu nhập lại chưa khớp'
         ]);

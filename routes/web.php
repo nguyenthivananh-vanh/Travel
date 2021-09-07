@@ -26,7 +26,7 @@ Route::group(['prefix'=>'home'],function(){
     Route::get('/home','App\Http\Controllers\HomeController@home');
     Route::post('/search','App\Http\Controllers\HomeController@search');
     Route::get('/view/{id}/{tacgia}','App\Http\Controllers\HomeController@view');
-   
+
     Route::group(['prefix'=>'dacdiem'],function(){
         Route::get('/search/{id}','App\Http\Controllers\HomeController@DacDiemSearch');
     });
@@ -66,6 +66,7 @@ Route::group(['prefix'=>'admin'],function(){
     });
     Route::group(['prefix'=>'diadiem'],function(){
         Route::get('list','App\Http\Controllers\DiaDiemController@getList');
+        Route::get('duyetbai','App\Http\Controllers\DiaDiemController@getListDuyet');
         Route::get('add','App\Http\Controllers\DiaDiemController@getAdd');
         Route::post('add','App\Http\Controllers\DiaDiemController@postAdd');
         Route::get('update/{id}','App\Http\Controllers\DiaDiemController@getUpdate');

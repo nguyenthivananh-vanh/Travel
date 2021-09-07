@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-content pb-0">
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-4">
                                     <span class="card-title">Địa điểm</span>
                                 </div>
                                 <div class="col-4">
@@ -22,9 +22,6 @@
                                     </div>
                                 </div>
                                 <div class="col-4 text-right" style="text-align: right;">
-                                    <button class="btn-add"><a href="admin/diadiem/duyetbai">Duyệt bài</a></button>
-                                </div>
-                                <div class="col-2 text-right" style="text-align: right;">
                                     <button class="btn-add"><a href="admin/diadiem/add">Thêm</a></button>
                                 </div>
                             </div>
@@ -55,7 +52,7 @@
                                     <tbody>
                                     @foreach ($DiaDiem as $diadiem)
 
-                                        @if($diadiem->status == 1)
+                                        @if($diadiem->status == 0)
                                             <tr>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->id}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->TieuDe}}</td>

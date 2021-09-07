@@ -16,6 +16,12 @@ class DiaDiemController extends Controller
         return view('admin.diadiem.list', ['DiaDiem' => $diadiem]);
     }
 
+    public function getListDuyet()
+    {
+        $diadiem = DiaDiem::paginate(3);
+        return view('admin.diadiem.listDuyet', ['DiaDiem' => $diadiem]);
+    }
+
     public function getAdd()
     {
         $vungmien = VungMien::all();
@@ -85,7 +91,6 @@ class DiaDiemController extends Controller
                 'DacDiem' => 'required',
                 'tieude' => 'required|min:3',
                 'tomtat' => 'required',
-                'hinhanh' => 'required',
                 'noidung' => 'required',
             ],
             [
@@ -93,7 +98,6 @@ class DiaDiemController extends Controller
                 'tieude.required' => 'Bạn chưa nhập tiêu đề',
                 'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
                 'tomtat.required' => 'Bạn chưa nhập tóm tắt',
-                'hinhanh.required' => 'Bạn cần nhập ảnh chính cho bài viết',
                 'noidung.required' => 'Bạn chưa nhập nội dung',
             ]);
 
@@ -103,27 +107,30 @@ class DiaDiemController extends Controller
         $diadiem->TomTat = $request->tomtat;
         $diadiem->NoiDung = $request->noidung;
         $diadiem->TacGia = $request->tacgia;
+        $diadiem->status = $request->duyet;
+        $diadiem->idDacDiem = $request->DacDiem;
+        $diadiem->status = $request->duyet;
 
         $file = $request->file('hinhanh');
-        $tail = $file->getClientOriginalExtension();
-        if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg') {
-            return redirect('admin/diadiem/add')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
-        }
-        $name = $file->getClientOriginalName();
-        $hinh = Str::random(4) . "_" . $name;
-        while (file_exists("upload/diadiem/" . $hinh)) {
+        if ($file == null) {
+            $diadiem->save();
+            return redirect('admin/diadiem/update/' . $id)->with('thongbao', 'Sửa thành công');
+        } else {
+            $tail = $file->getClientOriginalExtension();
+            if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg') {
+                return redirect('admin/diadiem/add')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+            }
+            $name = $file->getClientOriginalName();
             $hinh = Str::random(4) . "_" . $name;
+            while (file_exists("upload/diadiem/" . $hinh)) {
+                $hinh = Str::random(4) . "_" . $name;
+            }
+            $file->move("upload/diadiem", $hinh);
+            $diadiem->HinhAnh = $hinh;
+
+            $diadiem->save();
+            return redirect('admin/diadiem/update/' . $id)->with('thongbao', 'Sửa thành công');
         }
-        $file->move("upload/diadiem", $hinh);
-        unlink("upload/diadiem/" . $diadiem->HinhAnh);
-        $diadiem->HinhAnh = $hinh;
-
-
-        $diadiem->NoiBat = 0;
-        $diadiem->SoLuotXem = 0;
-        $diadiem->idDacDiem = $request->DacDiem;
-        $diadiem->save();
-        return redirect('admin/diadiem/update/' . $id)->with('thongbao', 'Sửa thành công');
     }
 
     public function getDelete($id)
