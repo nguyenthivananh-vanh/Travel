@@ -1,5 +1,92 @@
 /* HOME */
 
+/* header user */
+
+
+.header__nav-user-menu{
+    position: absolute;
+    z-index: 6;
+    width: 160px;
+    padding-left:0;
+    border-radius: 2px;
+    list-style: none;
+    right: 0;
+    top: 75px;
+    background-color: white;
+    box-shadow: 0 1px 2px #e0e0e0;
+    width: 280px;
+    display: none;
+
+    
+}
+
+.header__nav-user-menu::before{
+    
+    content: "";
+    position: absolute;
+    border-width: 16px;
+    border-style: solid;
+    border-color: transparent transparent  white transparent;
+    top: -30px;
+    right: 30px;
+}
+.header__nav-user-menu::after{
+    
+    content: "";
+    position: absolute;
+    width:80%;
+    height: 12px;
+    background-color: transparent;
+    top: -10px;
+    right: 0;
+}
+.header__nav-user-item{
+    width: 100%;
+    height: 60px;
+
+}
+.header__nav-user-item a:first-child{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.header__nav-user-item a:last-child{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.header__nav-user-item--separate{
+    border-top: 1px solid rgba(0,0,0 ,0.05);
+}
+.header__nav-user-item a{
+    padding:8px 16px;
+    display: block;
+    text-decoration:none;
+    color: black;
+    font-size: 16px;
+    
+}
+.header__nav-user-item a:hover{
+    background-color: #fafafa;
+}
+.header__nav-user-item a i{
+    font-size: 16px;
+    margin-right: 10px;
+    
+}
+
+
+
+
+
+
+
+
+
+/* end header user */
+
+
+
+
+
 
 /* View details */
 .user_avatar {

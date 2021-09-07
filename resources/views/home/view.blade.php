@@ -28,49 +28,67 @@
                 <span style="padding: 10px"><i class="fas fa-eye" style="color:#277fbc"></i><span style="padding: 10px">{{$DiaDiem->SoLuotXem}}</span></span>
             </div>
         </div>
+        
         <div class="comment">
+            @if(isset($userLogin))
+            <form action="home/comment/{{$userLogin->id}}/{{$DiaDiem->id}}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{csrf_token()}}" />
             <div class="user_avatar">
-                <img src="upload/users/ava-admin.jpg" class="circle" style='width:50px; height:50px' alt="Avatar User">
-                    </div><!-- the input field --><div class="input_comment">
-                        <input type="text" placeholder="Join the conversation..">
-                    </div>
-
+                <img src="upload/users/{{$userLogin->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+            </div><!-- the input field -->
+                <div class="input_comment">
+                    <input type="text" placeholder="Bình luận" name="cmt">
+                </div>
+                <div class="input_comment">
+                    <input type="file" name="hinhanh">
+                </div>
             </div>
+            @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}<br>
+                    </div>
+                @endif
+                <button class="btn green">Gửi</button>
+            </form>
+            @endif
             <div class="new_comment" style="background-color:#f4f4f4; padding:20px">
-
+                
 			<!-- build comment -->
+            @foreach ($comment as $cmt)
                 <div class="user_avatar">
-                    <img src="upload/users/ava-admin.jpg" class="circle" style='width:50px; height:50px' alt="Avatar User">
-                    </div><!-- the comment body --><div class="comment_body">
-                        <p><div class="replied_to"><p><b class="user">John Smith:
+                    <img src="upload/users/{{$cmt->user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                </div><!-- the comment body -->
+                <div class="comment_body">
+                    <p><div class="replied_to">
+                        <p><b class="user">{{$cmt->user->Ten}}:
 
-                        </b>Gastropub cardigan jean shorts, kogi Godard PBR&B lo-fi locavore. Organic chillwave vinyl Neutra. Bushwick Helvetica cred freegan, crucifix Godard craft beer deep v mixtape cornhole Truffaut master cleanse pour-over Odd Future beard. Portland polaroid iPhone.</p></div>
+                        </b>{{$cmt->NoiDung}}</p>
+                        @if (isset($cmt->HinhAnh))                                                  
+                            <img style="width:300px" src="upload/comment/{{$cmt->HinhAnh}}" alt="">
+                        @endif
+                    </div></p>
                         <!-- Finally someone who actually gets it!
                         <div class="replied_to"><p><span class="user">Andrew Johnson:</span>That's exactly what I was thinking!</p></div>That's awesome!</p> -->
 
-                </div>
-
+                </div>             
 			 	<!-- comments toolbar -->
 			 	<div class="comment_toolbar" style="margin:0 20px">
-
 			 		<!-- inc. date and time -->
 			 		<div class="comment_details">
-			 			<ul style="margin-left:45px">
-			 				<li><i class="fa fa-clock-o"></i> 14:59</li>
-			 				<li><i class="fa fa-calendar"></i> 04/01/2015</li>
-			 				<li><i class="fa fa-pencil"></i> <span class="user">Simon Gregor</span></li>
+			 			<ul >
+			 				<li><i class="fa fa-calendar"></i> {{$cmt->created_at}}</li>
+			 				{{-- <li><i class="fa fa-pencil"></i> <span class="user">Simon Gregor</span></li> --}}
 			 			</ul>
-			 		</div><!-- inc. share/reply and love --><div class="comment_tools">
+			 		</div><!-- inc. share/reply and love -->
+                     {{-- <div class="comment_tools">
 			 			<ul>
 			 				<!-- <li><i class="fa fa-share-alt"></i></li> -->
 			 				<li><i class="fa fa-reply"></i></li>
 			 				<li><i class="fa fa-heart love"><span class="love_amt"> 4039</span></i></li>
 			 			</ul>
-			 		</div>
-                    
-
+			 		</div> --}}
 			    </div>
-                <div class="comment_body" style="margin:0 50px 0 10%; padding-right:10%">
+                {{-- <div class="comment_body" style="margin:0 50px 0 10%; padding-right:10%">
                             
                             <div class="replied_to">
                                 <p>
@@ -78,9 +96,13 @@
                                     <span>That's exactly what I was thinking!</span>
                                 </p>
                         </div>
-                    </div>
+                    </div> --}}
+                    @endforeach
             </div>
+            
 		</div>
+        
+        
         <hr>
         <div class="post-related">
         <div class="row">
