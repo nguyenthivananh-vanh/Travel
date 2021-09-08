@@ -32,7 +32,7 @@
                             <td>{{$diadiem->TieuDe}}</td>
                             <td>{{$diadiem->TomTat}}</td>                          
                             <td>{{$diadiem->SoLuotXem}}</td>
-                            <td><a href="home/view/{{$diadiem->id}}"><i class="fas fa-eye"></i></a></td>
+                            <td><a href="home/view/{{$diadiem->id}}/{{$diadiem->TacGia}}"><i class="fas fa-eye"></i></a></td>
                         </tr>                      
                     @endforeach
                 </tbody>

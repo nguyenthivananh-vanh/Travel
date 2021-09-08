@@ -31,25 +31,25 @@
         
         <div class="comment">
             @if(isset($user))
-            <form action="home/comment/{{$user->id}}/{{$DiaDiem->id}}" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_token" value="{{csrf_token()}}" />
-            <div class="user_avatar">
-                <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
-            </div><!-- the input field -->
-                <div class="input_comment">
-                    <input type="text" placeholder="Bình luận" name="cmt">
-                </div>
-                <div class="input_comment">
-                    <input type="file" name="hinhanh">
-                </div>
-            </div>
-            @if(session('thongbao'))
-                    <div class="alert alert-success">
-                        {{session('thongbao')}}<br>
+                <form action="home/comment/{{$user->id}}/{{$DiaDiem->id}}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                <div class="user_avatar">
+                    <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                </div><!-- the input field -->
+                    <div class="input_comment">
+                        <input type="text" placeholder="Bình luận" name="cmt">
                     </div>
-                @endif
-                <button class="btn green">Gửi</button>
-            </form>
+                    <div class="input_comment">
+                        <input type="file" name="hinhanh">
+                    </div>
+                </div>
+                @if(session('thongbao'))
+                        <div class="alert alert-success">
+                            {{session('thongbao')}}<br>
+                        </div>
+                    @endif
+                    <button class="btn green">Gửi</button>
+                </form>
             @endif
             <div class="new_comment" style="background-color:#f4f4f4; padding:20px">
                 
@@ -77,8 +77,10 @@
 			 		<div class="comment_details">
 			 			<ul >
 			 				<li><i class="fa fa-calendar"></i> {{$cmt->created_at}}</li>
+                             @if(isset($user))
                              @if($user->id === $cmt->idUser)
 			 				<li><a href="home/deleteCmt/{{$cmt->id}}/{{$cmt->idDiaDiem}}/{{$userAuthor->Ten}}/{{$user->id}}"><i class="far fa-trash-alt"></i> Xoá</a></li>
+                             @endif
                              @endif
 			 				{{-- <li><i class="fa fa-pencil"></i> <span class="user">Simon Gregor</span></li> --}}
 			 			</ul>

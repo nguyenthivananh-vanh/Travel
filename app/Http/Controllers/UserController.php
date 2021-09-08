@@ -63,7 +63,7 @@ class UserController extends Controller
                 $hinh = Str::random(4)."_".$name;
             }
 
-            $file->move("upload/user",$hinh);
+            $file->move("upload/users",$hinh);
             $user->Avatar = $hinh;
         }else{
             $user->Avatar = "";
