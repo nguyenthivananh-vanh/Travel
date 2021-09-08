@@ -7,10 +7,16 @@
         {{$vm->Ten}}
       </li>             
       <ul>
-        @foreach ($vm->dacdiem as $dacdiem)         
+        @foreach ($vm->dacdiem as $dacdiem)       
+        @if(isset($user))
+            <li class="list-group-item list-group-item-dd">
+          <a href="home/dacdiem/search/{{$dacdiem->id}}/{{$user->id}}">{{$dacdiem->Ten}}</a>
+        </li> 
+        @else
         <li class="list-group-item list-group-item-dd">
           <a href="home/dacdiem/search/{{$dacdiem->id}}">{{$dacdiem->Ten}}</a>
         </li>
+        @endif
         @endforeach
       </ul>
         @endforeach

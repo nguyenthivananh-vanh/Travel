@@ -26,12 +26,17 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/home/{id}', 'App\Http\Controllers\HomeController@homeUser');
     Route::get('/home', 'App\Http\Controllers\HomeController@home');
     Route::post('/search', 'App\Http\Controllers\HomeController@search');
+    Route::post('/search/{id}', 'App\Http\Controllers\HomeController@searchUser');
     Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\HomeController@view');
     Route::get('/view/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@viewUser');
     Route::group(['prefix' => 'dacdiem'], function () {
         Route::get('/search/{id}', 'App\Http\Controllers\HomeController@DacDiemSearch');
+        Route::get('/search/{id}/{idUser}', 'App\Http\Controllers\HomeController@DacDiemSearchUser');
     });
     Route::post('/comment/{idUser}/{idDiaDiem}', 'App\Http\Controllers\HomeController@comment');
+    Route::get('/deleteCmt/{idcmt}/{idDiaDiem}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@commentDelete');
+    Route::get('/reply/{id}', 'App\Http\Controllers\HomeController@getReply');
+    Route::post('/reply/{id}', 'App\Http\Controllers\HomeController@postReply');
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::get('adminHome', 'App\Http\Controllers\DiaDiemController@getList');
@@ -75,6 +80,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('update/{id}', 'App\Http\Controllers\DiaDiemController@postUpdate');
         Route::get('delete/{id}', 'App\Http\Controllers\DiaDiemController@getDelete');
         Route::post('search', 'App\Http\Controllers\DiaDiemController@search');
+        Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\DiaDiemController@view');
+        Route::get('/duyet/{id}', 'App\Http\Controllers\DiaDiemController@duyet');
     });
     Route::group(['prefix' => 'comment'], function () {
         Route::get('list', 'App\Http\Controllers\CommentController@getList');

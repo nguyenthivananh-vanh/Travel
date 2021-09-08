@@ -97,12 +97,8 @@
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->SoLuotXem}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->dacdiem->Ten}}</td>
                                                 <td style=" border: 1px solid #ddd;">
-                                                    <a href="admin/diadiem/update/{{$diadiem->id}}" class="green-text">
-                                                        <i class="material-icons">done</i>
-                                                    </a>
-                                                    <a href="admin/diadiem/delete/{{$diadiem->id}}" class="red-text">
-                                                        <i class="material-icons">close</i>
-                                                    </a>
+                                                   
+                                                    <a href="admin/diadiem/view/{{$diadiem->id}}/{{$diadiem->TacGia}}"><i class="fas fa-eye"></i></a>
                                                 </td>
                                                 <td style=" border: 1px solid #ddd;">
                                                     @if($diadiem->status==1)

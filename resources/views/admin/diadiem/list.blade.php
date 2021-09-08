@@ -55,45 +55,37 @@
                                     <tbody>
                                     @foreach ($DiaDiem as $diadiem)
 
-                                        @if($diadiem->status == 1)
+                                        @if($diadiem->TrangThai == 1)
                                             <tr>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->id}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->TieuDe}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->TieuDeKhongDau}}</td>
-                                                <td style="
-                          display: block;
-                          display: -webkit-box;
-                          width: 100px;
-                          height: 116px;
-                          margin: 0 auto;
-                          font-size: 14px;
-                          line-height: 1.5;
-                          -webkit-line-clamp: 5
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-
-                    "
-                                                >{{$diadiem->TomTat}}</td>
+                                                <td style=" display: block;
+                                                            display: -webkit-box;
+                                                            width: 100px;
+                                                            height: 116px;
+                                                            margin: 0 auto;
+                                                            font-size: 14px;
+                                                            line-height: 1.5;
+                                                            -webkit-line-clamp: 5
+                                                            -webkit-box-orient: vertical;
+                                                            overflow: hidden;
+                                                            text-overflow: ellipsis;">{{$diadiem->TomTat}}</td>
                                                 <td style=" border: 1px solid #ddd;">
                                                     <img src="upload/diadiem/{{$diadiem->HinhAnh}}" alt="img"
                                                          width="100px">
                                                 </td>
-                                                <td style="
-                          display: block;
-                          display: -webkit-box;
-                          width: 300px;
-                          height: 116px;
-                          margin: 0 auto;
-                          font-size: 14px;
-                          line-height: 1.5;
-                          -webkit-line-clamp: 5;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-
-                    ">
-                                                    {{$diadiem->NoiDung}}</td>
+                                                <td style="display: block;
+                                                            display: -webkit-box;
+                                                            width: 300px;
+                                                            height: 116px;
+                                                            margin: 0 auto;
+                                                            font-size: 14px;
+                                                            line-height: 1.5;
+                                                            -webkit-line-clamp: 5;
+                                                            -webkit-box-orient: vertical;
+                                                            overflow: hidden;
+                                                            text-overflow: ellipsis; ">{{$diadiem->NoiDung}}</td>
 
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->NoiBat}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->TacGia}}</td>
@@ -108,7 +100,7 @@
                                                     </a>
                                                 </td>
                                                 <td style=" border: 1px solid #ddd;">
-                                                    @if($diadiem->status==1)
+                                                    @if($diadiem->TrangThai==1)
                                                         {{"Đã duyệt"}}
                                                     @else
                                                         {{"Chưa duyệt"}}

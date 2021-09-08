@@ -9,8 +9,8 @@
 
     <link href="admin_asset/css/main.css" rel="stylesheet">
     <link href="admin_asset/css/home.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">  
-    {{-- <link rel="stylesheet" href="admin_asset/css/shop-homepage.css"> --}}
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
@@ -23,8 +23,7 @@
     
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
-    {{-- <link href="css/bootstrap.min.css" rel="stylesheet"> --}}
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 
 </head>
@@ -45,12 +44,18 @@
     <script src="admin_asset/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
     <script src="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+ 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script> 
+    <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('ckeditor');
+    </script>
     @yield('script')
 </body>
 </html>

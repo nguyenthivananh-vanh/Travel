@@ -110,13 +110,13 @@ class UserController extends Controller
         $phanquyen = User::where('email',$request->email)->value("PhanQuyen");
         if (strcasecmp($phanquyen,'1')==0){
             if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-                return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem,'user'=>$user])->with('thongbao','Đăng nhập thành công');
+                return redirect('home/home/'.$user->id);
             }else{
                 return redirect('login')->with('thongbao','Mật khẩu hoặc tên tài khoản không đúng');
             }
         }else{
             if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-                return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem,'user'=>$user])->with('thongbao','Đăng nhập thành công');;
+                return redirect('home/home/'.$user->id);
             }else{
                 return redirect('login')->with('thongbao','Mật khẩu hoặc tên tài khoản không đúng');
             }
@@ -203,7 +203,7 @@ class UserController extends Controller
             $user->Avatar = "";
         }
         $user->save();
-        return redirect('admin/user/update/'.$id)->with('thongbao','Cập nhật thành công');
+        return redirect('home/home/'.$id)->with('thongbao','Cập nhật thành công');
     }
 
     //Tìm kiếm

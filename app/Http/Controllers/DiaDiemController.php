@@ -5,20 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\DiaDiem;
 use App\Models\VungMien;
 use App\Models\DacDiem;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class DiaDiemController extends Controller
 {
+    function __construct(){
+        $userAdmin = User::where('Ten','admin');
+        view()->share('userAdmin',$userAdmin);
+    }
     public function getList()
     {
-        $diadiem = DiaDiem::paginate(3);
+        $diadiem = DiaDiem::where('TrangThai',1)->paginate(3);
         return view('admin.diadiem.list', ['DiaDiem' => $diadiem]);
     }
+    
 
     public function getListDuyet()
     {
-        $diadiem = DiaDiem::paginate(3);
+        $diadiem = DiaDiem::where('TrangThai',0)->paginate(3);
         return view('admin.diadiem.listDuyet', ['DiaDiem' => $diadiem]);
     }
 
@@ -72,6 +78,7 @@ class DiaDiemController extends Controller
         $diadiem->NoiBat = 0;
         $diadiem->SoLuotXem = 0;
         $diadiem->idDacDiem = $request->DacDiem;
+        $diadiem->TrangThai = 1;
         $diadiem->save();
         return redirect('admin/diadiem/add')->with('thongbao', 'Thêm thành công');
     }
@@ -107,9 +114,9 @@ class DiaDiemController extends Controller
         $diadiem->TomTat = $request->tomtat;
         $diadiem->NoiDung = $request->noidung;
         $diadiem->TacGia = $request->tacgia;
-        $diadiem->status = $request->duyet;
+        $diadiem->TrangThai = $request->duyet;
         $diadiem->idDacDiem = $request->DacDiem;
-        $diadiem->status = $request->duyet;
+        $diadiem->TrangThai = $request->duyet;
 
         $file = $request->file('hinhanh');
         if ($file == null) {
@@ -146,5 +153,20 @@ class DiaDiemController extends Controller
         $key = $request->search;
         $dd = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")->orwhere('TomTat', 'like', "%$key%")->take(30)->paginate(5);
         return view('admin.diadiem.search', ['DiaDiem' => $dd]);
+    }
+
+    public function view($id,$tacgia){
+        $vungmien = VungMien::all();
+        $diadiem = DiaDiem::find($id);
+        $user = User::where('Ten','like',$tacgia)->first();
+        $diadiem->save();
+        return view('admin.diadiem.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user]);
+    }
+
+    public function duyet($id){
+        $diadiem = DiaDiem::find($id);
+        $diadiem->TrangThai = 1;
+        $diadiem->save();
+        return redirect('admin/diadiem/duyetbai');
     }
 }

@@ -11,7 +11,7 @@
                 </div>
                 <div class="author row">
                     <div class="col-1">
-                        <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                        <img src="upload/users/{{$userAuthor->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
                     </div>
                     <div class="col-4">
                         <b>{{$DiaDiem->TacGia}}</b>
@@ -30,11 +30,11 @@
         </div>
         
         <div class="comment">
-            @if(isset($userLogin))
-            <form action="home/comment/{{$userLogin->id}}/{{$DiaDiem->id}}" method="POST" enctype="multipart/form-data">
+            @if(isset($user))
+            <form action="home/comment/{{$user->id}}/{{$DiaDiem->id}}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{csrf_token()}}" />
             <div class="user_avatar">
-                <img src="upload/users/{{$userLogin->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
             </div><!-- the input field -->
                 <div class="input_comment">
                     <input type="text" placeholder="Bình luận" name="cmt">
@@ -77,6 +77,9 @@
 			 		<div class="comment_details">
 			 			<ul >
 			 				<li><i class="fa fa-calendar"></i> {{$cmt->created_at}}</li>
+                             @if($user->id === $cmt->idUser)
+			 				<li><a href="home/deleteCmt/{{$cmt->id}}/{{$cmt->idDiaDiem}}/{{$userAuthor->Ten}}/{{$user->id}}"><i class="far fa-trash-alt"></i> Xoá</a></li>
+                             @endif
 			 				{{-- <li><i class="fa fa-pencil"></i> <span class="user">Simon Gregor</span></li> --}}
 			 			</ul>
 			 		</div><!-- inc. share/reply and love -->

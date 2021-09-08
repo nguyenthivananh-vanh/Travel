@@ -1,4 +1,4 @@
-@extends('admin.layout.index')
+@extends('index')
 @section('content')
  
   <!-- Section: Details -->
@@ -10,7 +10,7 @@
             <div class="card-content">
               <div class="row">
                 <div class="col s12 m6">
-                  <span class="card-title">Địa điểm</span>
+                  <span class="card-title">Viết bài</span>
                 </div>
                 
               </div>
@@ -27,7 +27,7 @@
                     </div>
                 @endif
                 
-                <form action="admin/diadiem/add" method="POST" enctype="multipart/form-data">
+                <form action="home/reply/{{$user->id}}" method="POST" enctype="multipart/form-data">
                   <input type="hidden" name="_token" value="{{csrf_token()}}" />
                   <div class="form-group">
                     <label>Vùng miền</label><br>
@@ -63,13 +63,13 @@
                     <textarea class="textarea" id="ckeditor" name="noidung" style="width: 700px; height: 200px; "></textarea>              
                   </div>
                   <div class="input-field">
-                    <label for="tacgia">Tác giả</label><br>
+                    <label for="tacgia">Tên tài khoản người dùng</label><br>
                     <input type="text" id="tacgia" value="" name="tacgia">                
                   </div>
                   
   
                   <div class="card-action">
-                    <button class="btn green">Add</button>
+                    <button class="btn green">Đăng</button>
                     <button class="btn red">Reset</button>
                   </div>
                 </form>

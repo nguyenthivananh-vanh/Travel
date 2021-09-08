@@ -10,6 +10,10 @@
           <!-- <li class="active">
             <a href="index.html">Dashboard</a>
           </li> -->
+          
+          {{-- <li>
+            <a href="home/home">Trang chủ</a>
+          </li> --}}
           <li>
             <a href="admin/vungmien/list">Vùng miền</a>
           </li>
