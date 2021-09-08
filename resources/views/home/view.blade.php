@@ -11,7 +11,7 @@
                 </div>
                 <div class="author row">
                     <div class="col-1">
-                        <img src="upload/users/{{$userAuthor->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                        <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
                     </div>
                     <div class="col-4">
                         <b>{{$DiaDiem->TacGia}}</b>
@@ -30,26 +30,26 @@
         </div>
         
         <div class="comment">
-            @if(isset($user))
-                <form action="home/comment/{{$user->id}}/{{$DiaDiem->id}}" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                <div class="user_avatar">
-                    <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
-                </div><!-- the input field -->
-                    <div class="input_comment">
-                        <input type="text" placeholder="Bình luận" name="cmt">
-                    </div>
-                    <div class="input_comment">
-                        <input type="file" name="hinhanh">
-                    </div>
+            @if(isset($userLogin))
+            <form action="home/comment/{{$userLogin->id}}/{{$DiaDiem->id}}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{csrf_token()}}" />
+            <div class="user_avatar">
+                <img src="upload/users/{{$userLogin->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+            </div><!-- the input field -->
+                <div class="input_comment">
+                    <input type="text" placeholder="Bình luận" name="cmt">
                 </div>
-                @if(session('thongbao'))
-                        <div class="alert alert-success">
-                            {{session('thongbao')}}<br>
-                        </div>
-                    @endif
-                    <button class="btn green">Gửi</button>
-                </form>
+                <div class="input_comment">
+                    <input type="file" name="hinhanh">
+                </div>
+            </div>
+            @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}<br>
+                    </div>
+                @endif
+                <button class="btn green">Gửi</button>
+            </form>
             @endif
             <div class="new_comment" style="background-color:#f4f4f4; padding:20px">
                 
@@ -77,11 +77,6 @@
 			 		<div class="comment_details">
 			 			<ul >
 			 				<li><i class="fa fa-calendar"></i> {{$cmt->created_at}}</li>
-                             @if(isset($user))
-                             @if($user->id === $cmt->idUser)
-			 				<li><a href="home/deleteCmt/{{$cmt->id}}/{{$cmt->idDiaDiem}}/{{$userAuthor->Ten}}/{{$user->id}}"><i class="far fa-trash-alt"></i> Xoá</a></li>
-                             @endif
-                             @endif
 			 				{{-- <li><i class="fa fa-pencil"></i> <span class="user">Simon Gregor</span></li> --}}
 			 			</ul>
 			 		</div><!-- inc. share/reply and love -->
@@ -110,45 +105,60 @@
         
         <hr>
         <div class="post-related">
-        <div class="row">
-            <h4>Tin liên quan</h4>
-            {{-- @foreach ($diadiemList as $item)
-            {{$item}}
-            @endforeach
-            --}}
-        </div>
-        <div class="row">
+            <div class="destination">
+                <div class="destination-before"></div>
+                <span style="margin: 0 10px" class="destination-tittle" id="test1">Điểm đến hấp dẫn</span>
+                <div class="destination-after"></div>
+            </div>
+            <div id="content-slider">
+                <div class="wrapper">
+        <!-- <h2>Slick Carousel Example<h2> -->
+                    <div  class="autoplay">
+                        <div><img src="https://picsum.photos/300/200?random=1"></div>
+                        <div><img src="https://picsum.photos/300/200?random=2"></div>
+                        <div><img src="https://picsum.photos/300/200?random=3"></div>
+                        <div><img src="https://picsum.photos/300/200?random=4"></div>
+                        <div><img src="https://picsum.photos/300/200?random=5"></div>
+                        <div><img src="https://picsum.photos/300/200?random=6"></div>
+                        <div><img src="https://picsum.photos/300/200?random=7"></div>
 
-            @foreach ($diadiemList as $row)
-                <div class="col-4">
-                    <div class="card">
-                        <a href="#">
-                        <div class="card-image">
-                            <img style="height:200px" src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
-                            <span class="card-title">{{$row->TieuDe}}</span>
-                        </div>
-                        </a>
-                        <div class="card-content" >
-                            <p style="display: block;
-                                        display: -webkit-box;
-                                        height: 38px;
-                                        margin: 0 auto;
-                                        font-size: 14px;
-                                        line-height: 1.5;
-                                        -webkit-line-clamp: 2;
-                                        -webkit-box-orient: vertical;
-                                        overflow: hidden;
-                                        text-overflow: ellipsis;
-                                    ">{{$row->TomTat}}</p>
-                        </div>
                     </div>
                 </div>
-                
-            @endforeach
 
-        </div>   
+
+   
+            </div>
+                    
+
+
+   
+        </div> 
     </div>
+        
+    
 </section>
 
 
 @endsection
+@section('script')
+
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+    
+  <!-- <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
+  <script  href="admin_asset/js/homepage.js"></script> -->
+  <script type="text/javascript" src="admin_asset/js/homepage.js"></script>
+  <!-- <script type="text/javascript" src="admin_asset/js/admin.js"></script> -->
+ 
+
+  <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
+  <script>
+  var showFiller=true;
+  function showNavbar(){
+    this.showFiller =!this.showFiller;
+  }
+  </script>
+
+  @endsection
