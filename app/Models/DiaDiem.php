@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class DiaDiem extends Model
 {
-    use HasFactory;
+    protected $table = "diadiem";
+
+    public function dacdiem(){
+        return $this->belongsTo('App\Models\DacDiem','idDacDiem','id');
+    }
+
+    public function comment(){
+        return $this->hasMany('App\Models\Comment','idDiaDiem','id');
+    }
 }

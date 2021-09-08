@@ -981,11 +981,12 @@
 }
 
 .teal {
-    background-color: #009688 !important
+    width: 100%;
+    background-color: #1976d2 !important;
 }
 
 .teal-text {
-    color: #009688 !important
+    color: #1976d2 !important
 }
 
 .teal.lighten-5 {
@@ -1037,7 +1038,7 @@
 }
 
 .teal.darken-2 {
-    background-color: #00796b !important
+    background-color: #1976d2 !important
 }
 
 .teal-text.text-darken-2 {
@@ -2149,8 +2150,13 @@ html {
     -webkit-text-size-adjust: 100%
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    margin: 0
+    margin: 0;
+    box-sizing: inherit;
 }
 
 article,
@@ -3207,6 +3213,12 @@ nav ul a span.badge {
     font-feature-settings: 'liga'
 }
 
+.container-admin {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%
+}
+
 .container {
     margin: 0 auto;
     max-width: 1280px;
@@ -3217,17 +3229,28 @@ nav ul a span.badge {
     .container {
         width: 85%
     }
+    .container-admin {
+        width: 85%;
+    }
 }
 
 @media only screen and (min-width: 993px) {
     .container {
         width: 70%
     }
+    .container-admin {
+        width: 70%;
+    }
 }
 
 .container .row {
     margin-left: -.75rem;
     margin-right: -.75rem
+}
+
+.container-admin .row {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
 }
 
 .section {
@@ -4321,7 +4344,8 @@ html {
     line-height: 1.5;
     font-family: "Roboto", sans-serif;
     font-weight: normal;
-    color: rgba(0, 0, 0, 0.87)
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
 }
 
 @media only screen and (min-width: 0) {
@@ -5864,7 +5888,7 @@ select:focus {
 
 button:focus {
     outline: none;
-    background-color: #2ab7a9
+    background-color: #0561bd
 }
 
 label {
@@ -9106,3 +9130,20 @@ button.picker__close:focus {
     stroke-width: 4;
     stroke-linecap: round
 }
+
+.btn-add a {
+    padding: 30px;
+    color: white;
+}
+
+.btn-add {
+    background-color: #1976d2;
+    border: 1px solid #1976d2;
+    border-radius: 2px;
+    padding: 5px 0;
+}
+
+
+/* #search {
+    margin-top: 200px;
+} */
