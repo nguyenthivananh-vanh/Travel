@@ -1,4 +1,7 @@
 /* HOME */
+a:hover{
+    text-decoration: none;
+}
 
 /* header user */
 
@@ -292,6 +295,111 @@
 
 /* ============================= */
 
+/* Điểm đến hấp dẫn */
+.destination{
+    color: #277fbc;
+    position: relative;
+    /* display: flex; */
+}
+/* .destination span::after{
+    width: 100%;
+    position: absolute;
+    display: block;
+    height: 7px;
+    background: #2874ff;
+    content: '';
+    box-sizing: border-box
+} */
+.destination div{
+    border: 4px solid #2874ff;
+    /* width: 100px; */
+    height: 0;
+    display: inline-block;
+
+
+}
+.destination-before{
+    width: 8%;
+}
+.destination-after{
+    width: 60%;
+}
+.destination-tittle{
+    font-size: 24px;
+}
+
+
+.wrapper{
+    width:100%;
+    padding-top: 20px;
+    text-align:center;
+  }
+  h2{
+    font-family:sans-serif;
+    color:#fff;
+  }
+  .carousel{
+    width:90%;
+    margin:0px auto;
+  }
+  .slick-slide{
+    margin:10px;
+  }
+  .slick-slide img{
+    width:100%;
+    border: 2px solid #fff;
+  }
+  .wrapper .slick-dots li button:before {
+    font-size:20px;
+    color:white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slick-arrow::before{
+    color: red;
+}
+.slick-arrow::after{
+    color: red;
+}
+.wrapper{
+    padding: 0 20px;
+}
+/* Done Điểm đến hấp dẫn */
 .displayBlock{
     display: block;
 }

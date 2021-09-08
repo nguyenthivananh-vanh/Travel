@@ -31,5 +31,18 @@ function showUserMenu(){
   userMenu.classList.toggle("displayBlock");
 }
 // showUserMenu();
-
-
+$(document).ready(function(){
+  $('.autoplay').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      dots:true,
+      arrows:true,
+      autoplay: true,
+      autoplaySpeed: 1000,
+  });
+});
+//test
+var a =document.getElementById("test");
+document.getElementById("test1").addEventListener("click", function() {
+ alert("hi")
+});
