@@ -40,7 +40,7 @@
         @yield('slider')
         @yield('search')
             
-        <div class="row mt-4" >                
+        <div class="row mt-4 content">                
             @include('layout.menu')
             <div class="col-8" style="box-shadow: 0 10px 20px rgba(0,0,0,0.23), 0 6px 6px rgba(0,0,0,0.19);margin-left:20px">
                 @yield('content')

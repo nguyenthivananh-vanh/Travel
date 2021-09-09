@@ -2,6 +2,20 @@
 a:hover{
     text-decoration: none;
 }
+.avatar-user{
+    width:50px;
+    height:50px;
+    object-fit: cover;
+}
+.post-img{
+    object-fit: cover;
+}
+.content{
+    min-height: 80vh;
+  }
+/* #test1{
+    color:red;
+} */
 
 /* header user */
 
@@ -267,6 +281,9 @@ a:hover{
 
 .list-group-item-dd a:hover {
     color: #1976d2;
+}
+.list-item-left-menu a:hover{
+    color:#1976d2 !important;
 }
 
 

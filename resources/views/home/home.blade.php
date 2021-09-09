@@ -6,7 +6,7 @@
 
 <div class="mySlides fade"  style="width:100vw">
   <div class="numbertext">1 / 3</div>
-  <img src="upload/home/resort1.jpg" >
+  <img class="post-img" src="upload/home/resort1.jpg" >
   <div class="text">
      <h3>Explore Vietnam</h3>
      <p>Tìm hiểu về những di sản văn hóa quốc gia , những hang động kì bí , đường biển tuyệt đẹp</p>
@@ -15,13 +15,13 @@
 
 <div class="mySlides fade"  style="width:100vw">
   <div class="numbertext">2 / 3</div>
-  <img src="upload/home/resort2.jpg"  alt="img2">
+  <img  class="post-img" src="upload/home/resort2.jpg"  alt="img2">
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade"  style="width:100vw">
   <div class="numbertext">3 / 3</div>
-  <img src="upload/home/resort3.jpg"  alt="img3">
+  <img class="post-img" src="upload/home/resort3.jpg"  alt="img3">
   <div class="text">Caption Three</div>
 </div>
 
@@ -72,7 +72,7 @@
       <div class="card">
         <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}/{{$user->id}}">
           <div class="card-image">
-            <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+            <img class="post-img" style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
             <span class="card-title">{{$ddiem->TieuDe}}</span>
           </div>
         </a>
@@ -106,7 +106,7 @@
       <div class="card">
         <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
           <div class="card-image">
-            <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+            <img class="post-img" style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
             <span class="card-title">{{$ddiem->TieuDe}}</span>
           </div>
         </a>
@@ -149,7 +149,7 @@
             <div class="card">
               <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
                 <div class="card-image">
-                  <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                  <img class="post-img" style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
                   <span class="card-title">{{$ddiem->TieuDe}}</span>
                 </div>
               </a>

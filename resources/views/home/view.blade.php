@@ -11,7 +11,7 @@
                 </div>
                 <div class="author row">
                     <div class="col-1">
-                        <img src="upload/users/{{$userAuthor->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                        <img src="upload/users/{{$userAuthor->Avatar}}" class="circle avatar-user"  style='width:50px; height:50px' alt="Avatar User">
                     </div>
                     <div class="col-4">
                         <b>{{$DiaDiem->TacGia}}</b>
@@ -34,7 +34,7 @@
                 <form action="home/comment/{{$user->id}}/{{$DiaDiem->id}}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                 <div class="user_avatar">
-                    <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                    <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user" style='width:50px; height:50px' alt="Avatar User">
                 </div><!-- the input field -->
                     <div class="input_comment">
                         <input type="text" placeholder="Bình luận" name="cmt">
@@ -56,7 +56,7 @@
 			<!-- build comment -->
             @foreach ($comment as $cmt)
                 <div class="user_avatar">
-                    <img src="upload/users/{{$cmt->user->Avatar}}" class="circle" style='width:50px; height:50px' alt="Avatar User">
+                    <img src="upload/users/{{$cmt->user->Avatar}}" class="circle avatar-user" style='width:50px; height:50px' alt="Avatar User">
                 </div><!-- the comment body -->
                 <div class="comment_body">
                     <p><div class="replied_to">
@@ -64,7 +64,7 @@
 
                         </b>{{$cmt->NoiDung}}</p>
                         @if (isset($cmt->HinhAnh))                                                  
-                            <img style="width:300px" src="upload/comment/{{$cmt->HinhAnh}}" alt="">
+                            <img class="post-img" style="width:300px" src="upload/comment/{{$cmt->HinhAnh}}" alt="">
                         @endif
                     </div></p>
                         <!-- Finally someone who actually gets it!
@@ -123,7 +123,7 @@
                         <div class="card">
                             <a href="#">
                             <div class="card-image">
-                                <img style="height:200px" src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
+                                <img post-img style="height:200px" src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
                                 <span class="card-title">{{$row->TieuDe}}</span>
                             </div>
                             </a>
@@ -156,7 +156,7 @@
             </div>
             <div id="content-slider">
                 <div class="wrapper">
-                    <div  class="autoplay">
+                    <div  class="autoplay-view">
                         @foreach ($diadiemList as $row)
                           <div class="col-4">
                             <div class="card">
@@ -166,24 +166,10 @@
                                  <a href="home/view/{{$row->id}}/{{$row->TacGia}}">
                                     @endif
                                 <div class="card-image">
-                                  <img style="height:200px" src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
+                                  <img class="post-img" style="height:200px" src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
                                   <span class="card-title">{{$row->TieuDe}}</span>
                                 </div>
                               </a>
-                                <!-- <div class="card-content" >
-                                  <p style="display: block;
-                                                display: -webkit-box;
-                                                height: 38px;
-                                                margin: 0 auto;
-                                                font-size: 14px;
-                                                line-height: 1.5;
-                                                -webkit-line-clamp: 2;
-                                                -webkit-box-orient: vertical;
-                                                overflow: hidden;
-                                                text-overflow: ellipsis;
-                                          ">{{$row->TomTat}}</p>
-                                </div> -->
-                
                             </div>
                           </div>
                         @endforeach
