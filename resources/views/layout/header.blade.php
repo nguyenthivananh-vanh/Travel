@@ -24,7 +24,7 @@
                 <ul class="header__nav-user-menu" id="headerUserMenu">
                   <li class="header__nav-user-item">
                     <a style="display:flex">
-                      {{-- <img src="upload/users/ava-admin.jpg" class="circle" style='width:38px; height:38px' alt="Avatar User">  --}}
+                      {{-- <img src="upload/users/ava-admin.jpg" class="circle avatar-user" style='width:38px; height:38px' alt="Avatar User">  --}}
                       <b  style="color:black; font-size:18px">{{$user->Ten}}</b>
                     </a>
                   </li>

@@ -3,17 +3,17 @@
     <ul class="list-group" id="menu">
       <h4 class="menu__title">Vùng Miền</h4>
       @foreach ($vungmien as $vm)            
-      <li href="#" class="list-group-item menu1">
+      <li href="#" class="list-group-item menu1 list-item-left-menu">
         {{$vm->Ten}}
       </li>             
       <ul>
         @foreach ($vm->dacdiem as $dacdiem)       
         @if(isset($user))
-            <li class="list-group-item list-group-item-dd">
+            <li class="list-group-item list-group-item-dd list-item-left-menu">
           <a href="home/dacdiem/search/{{$dacdiem->id}}/{{$user->id}}">{{$dacdiem->Ten}}</a>
         </li> 
         @else
-        <li class="list-group-item list-group-item-dd">
+        <li class="list-group-item list-group-item-dd list-item-left-menu">
           <a href="home/dacdiem/search/{{$dacdiem->id}}">{{$dacdiem->Ten}}</a>
         </li>
         @endif
