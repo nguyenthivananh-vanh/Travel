@@ -5,11 +5,22 @@
   <div class="row mb-1">
       <div class="col-12">
         <div class="search-container">
-          <form action="admin/diadiem/search" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="search">
+          <form action="home/search" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
             <input style="border: 1px solid #1976d2; border-radius: 3px;padding-left: 10px;margin-bottom:0px"
             type="text" placeholder="Search..." name="search">
           </form>
+          {{-- <form action="home/search" method="POST" enctype="multipart/form-data">
+           
+            <div class="search">
+                <div class="input-field input__search">
+                    <input type="text" style="padding-left: 12px" class="white grey-text autocomplete"
+                           placeholder="Tìm kiếm" id="autocomplete-input" name="search">
+                </div>
+                <button type="submit" class="btn_search--submit" style=" color: black">Search</button>
+
+            </div>
+        </form> --}}
         </div>
       </div>
     </div>

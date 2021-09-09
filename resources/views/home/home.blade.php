@@ -143,49 +143,36 @@
   <div id="content-slider">
     <div class="wrapper">
         <!-- <h2>Slick Carousel Example<h2> -->
-            <div  class="autoplay">
-            @foreach ($DiaDiem as $ddiem)
-    <div class="col-4">
-
-      <div class="card">
-        <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
-          <div class="card-image">
-            <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
-            <span class="card-title">{{$ddiem->TieuDe}}</span>
-          </div>
-        </a>
-          <!-- <div class="card-content" >
-            <p style="display: block;
-                          display: -webkit-box;
-                          height: 38px;
-                          margin: 0 auto;
-                          font-size: 14px;
-                          line-height: 1.5;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                    ">{{$ddiem->TomTat}}</p>
-          </div> -->
-
-      </div>
-
-
-    </div>
-    
-    @endforeach
+      <div  class="autoplay">
+        @foreach ($DiaDiem as $ddiem)
+          <div class="col-4">
+            <div class="card">
+              <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
+                <div class="card-image">
+                  <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                  <span class="card-title">{{$ddiem->TieuDe}}</span>
+                </div>
+              </a>
+                <!-- <div class="card-content" >
+                  <p style="display: block;
+                                display: -webkit-box;
+                                height: 38px;
+                                margin: 0 auto;
+                                font-size: 14px;
+                                line-height: 1.5;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                          ">{{$ddiem->TomTat}}</p>
+                </div> -->
 
             </div>
+          </div>
+        @endforeach
+
       </div>
-
-
-   
-  </div>
-
-  
-
-
-
+    </div>
   </div>
 </section>
 
@@ -199,13 +186,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
     
-  <!-- <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
-  <script  href="admin_asset/js/homepage.js"></script> -->
-  <script type="text/javascript" src="admin_asset/js/homepage.js"></script>
+  <!-- <script rel="stylesheet" href="admin_asset/js/admin.js"></script>-->
+  <script  href="admin_asset/js/homepage.js"></script> 
+  <script type="text/javascript" src="admin_asset/js/slider.js"></script>
   <!-- <script type="text/javascript" src="admin_asset/js/admin.js"></script> -->
  
-
-  <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
   <script>
   var showFiller=true;
   function showNavbar(){

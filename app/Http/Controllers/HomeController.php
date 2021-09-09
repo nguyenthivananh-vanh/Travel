@@ -55,7 +55,7 @@ class HomeController extends Controller
         $diadiem = DiaDiem::find($id);
         $userAuthor = User::where('Ten','like',$tacgia)->first();
         $cmt = Comment::where('idDiaDiem',$id)->get();
-        $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->take(3)->get();
+        $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->get();
         // $diadiemList = DiaDiem::doesntHave('id',$id)->get();
         // $diadiemList = DiaDiem::whereDoesntHave($id, function (Builder $query) {
         //     $query->where('idDacDiem',$diadiem->idDacDiem);

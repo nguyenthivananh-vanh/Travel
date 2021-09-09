@@ -18,8 +18,9 @@
               <li>
                 <a href="admin/adminHome">Admin</a>
               </li>
-              <li>
-                <a onClick="showUserMenu()">Cài đặt</a>
+              
+              <li class="header-login-item">
+                <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:38px; height:38px;margin-right: 18px' alt="Avatar User"></a>               
                 <ul class="header__nav-user-menu" id="headerUserMenu">
                   <li class="header__nav-user-item">
                     <a style="display:flex">
@@ -46,9 +47,6 @@
                   </li>                 
                 </ul>
               </li>
-              <li class="header-login-item">
-                <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:38px; height:38px;margin-right: 18px' alt="Avatar User">               
-              </li>
               <li> {{$user->Ten}}</li>    
             
             </ul>
@@ -60,8 +58,9 @@
               <li>
                 <a href="login">Viết bài</a>
               </li>
-              <li>
-                <a onClick="showUserMenu()">Cài đặt</a>
+            
+              <li class="header-login-item">
+                <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:38px; height:38px;margin-right: 18px' alt="Avatar User">  </a>
                 <ul class="header__nav-user-menu" id="headerUserMenu">
                   <li class="header__nav-user-item">
                     <a style="display:flex">
@@ -87,9 +86,6 @@
 
                   </li>                 
               </ul>
-              </li>
-              <li class="header-login-item">
-                <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:38px; height:38px;margin-right: 18px' alt="Avatar User">               
               </li>
               <li> {{$user->Ten}}</li>            
             </ul>
@@ -133,5 +129,12 @@
         
   </ul> --}}
  
-  {{-- <script src="admin_asset/js/admin.js"></script>
-  <script src="admin_asset/js/homepage.js"></script> --}}
+  {{-- <script src="admin_asset/js/admin.js"></script>--}}
+  {{-- <script src="admin_asset/js/homepage.js"></script>  --}}
+  <script>
+    var userMenu = document.getElementById('headerUserMenu');
+
+function showUserMenu() {
+    userMenu.classList.toggle("displayBlock");
+}
+  </script>
