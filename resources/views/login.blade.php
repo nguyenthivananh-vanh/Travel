@@ -66,7 +66,7 @@
 
   <div class="login-page">
   <div class="form form-login">
-    <h2>Đăng nhập</h2>
+    <h2 style="color: black">Đăng nhập</h2>
     @if(count($errors)>0)
       <div class="alert alert-danger">
           @foreach ($errors->all() as $err)
@@ -79,7 +79,7 @@
           {{session('thongbao')}}
       </div>
     @endif
-    <form action="login" method="POST" enctype="multipart/form-data"> 
+    <form action="login" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
       <div class="form-group row">
         <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" require>
@@ -107,7 +107,7 @@
         <strong>{{$errors->first('g-recaptcha-response')}}</strong>
       </span>
       @endif
-      
+
       <button type="submit" >Đăng nhập</button>
     </form>
   </div>

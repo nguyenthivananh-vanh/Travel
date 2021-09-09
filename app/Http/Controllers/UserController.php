@@ -183,8 +183,12 @@ class UserController extends Controller
         $user = User::find($id);
         $user->Ten =$request->ten;
         $user->email =$request->email;
-        $user->password = bcrypt($request->pass);
         $user->PhanQuyen = defined('0');
+        if ($user->password == $request->pass){
+            $user->password = $user->password;
+        }else{
+            $user->password = bcrypt($request->pass);
+        }
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
@@ -200,7 +204,7 @@ class UserController extends Controller
             $file->move("upload/users",$hinh);
             $user->Avatar = $hinh;
         }else{
-            $user->Avatar = "";
+            $user->Avatar = $user->Avatar;
         }
         $user->save();
         return redirect('home/home/'.$id)->with('thongbao','Cập nhật thành công');

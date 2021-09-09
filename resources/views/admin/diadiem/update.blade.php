@@ -80,43 +80,17 @@
                                 <div>
                                     <label for="" id="level">Trạng thái bài viết</label><br><br>
                                     <section class="section section-Details grey lighten-4">
-                                        @if($diadiem->status==1)
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio1" value="0">
-                                                <label class="form-check-label" for="inlineRadio1">Không cấp
-                                                    phép</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input checked class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio2" value="1">
-                                                <label class="form-check-label" for="inlineRadio2">Cấp phép đăng</label>
-                                            </div>
-                                        @elseif($diadiem->status==0)
-                                            <div class="form-check form-check-inline">
-                                                <input checked class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio1" value="0">
-                                                <label class="form-check-label" for="inlineRadio1">Không cấp
-                                                    phép</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio2" value="1">
-                                                <label class="form-check-label" for="inlineRadio2">Cấp phép đăng</label>
-                                            </div>
-                                        @else
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio1" value="0">
-                                                <label class="form-check-label" for="inlineRadio1">Không cấp
-                                                    phép</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio2" value="1">
-                                                <label class="form-check-label" for="inlineRadio2">Cấp phép đăng</label>
-                                            </div>
-                                        @endif
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="duyet"
+                                                   id="inlineRadio1" value="0">
+                                            <label class="form-check-label" for="inlineRadio1">Không cấp
+                                                phép</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input checked class="form-check-input" type="radio" name="duyet"
+                                                   id="inlineRadio2" value="1">
+                                            <label class="form-check-label" for="inlineRadio2">Cấp phép đăng</label>
+                                        </div>
                                     </section>
                                 </div>
 
