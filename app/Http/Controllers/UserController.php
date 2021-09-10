@@ -184,11 +184,10 @@ class UserController extends Controller
         $user->Ten =$request->ten;
         $user->email =$request->email;
         $user->PhanQuyen = defined('0');
-        if ($user->password == $request->pass){
-            $user->password = $user->password;
-        }else{
-            $user->password = bcrypt($request->pass);
+        if ($user->password !== $request->pass){
+           $user->password = bcrypt($request->pass);
         }
+   
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();

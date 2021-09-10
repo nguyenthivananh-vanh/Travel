@@ -55,7 +55,7 @@
   <div class="login-page">
     
     <div class="form">
-    <h3>Đăng ký</h3>
+    <h2 style="color:#1976d2;">Đăng ký</h2>
     @if(count($errors)>0)
       <div class="alert alert-danger">
           @foreach ($errors->all() as $err)

@@ -38,7 +38,7 @@
           @if(isset($user))
           <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}/{{$user->id}}">             
             <div class="card-image">
-              <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+              <img class="post-img" style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
               <span class="card-title">{{$ddiem->TieuDe}}</span>
             </div>
           </a>
@@ -58,7 +58,7 @@
             @else
             <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
               <div class="card-image">
-                <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                <img class="post-img" style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
                 <span class="card-title">{{$ddiem->TieuDe}}</span>
               </div>
             </a>

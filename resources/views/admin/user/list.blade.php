@@ -49,7 +49,7 @@
                                         <td>{{$user->id}}</td>
                                         <td width="70">
                                             <img src="upload/users/{{$user->Avatar}}" alt=""
-                                                 class="responsive-img circle" style="width: 40px; margin-left: 10px;">
+                                                 class="responsive-img circle" style="width:50px; height:50px;object-fit: cover;margin-left: 10px;" class="circle avatar-user">
                                         </td>
                                         <td>{{$user->Ten}}</td>
                                         <td>{{$user->email}}</td>
