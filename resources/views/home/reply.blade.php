@@ -1,6 +1,10 @@
 @extends('index')
 @section('content')
- 
+ <style>
+   .btn{
+     color: white;
+   }
+ </style>
   <!-- Section: Details -->
   <section class="section section-Details grey lighten-4">
     <div class="container">

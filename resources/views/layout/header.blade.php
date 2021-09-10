@@ -20,7 +20,7 @@
               </li>
               
               <li class="header-login-item">
-                <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:38px; height:38px;margin-right: 18px' alt="Avatar User"></a>               
+                <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:38px; height:38px;margin-right: 18px' alt="Avatar User">{{$user->Ten}}</a>               
                 <ul class="header__nav-user-menu" id="headerUserMenu">
                   <li class="header__nav-user-item">
                     <a style="display:flex">
@@ -47,7 +47,7 @@
                   </li>                 
                 </ul>
               </li>
-              <li> {{$user->Ten}}</li>    
+         
             
             </ul>
           @else       
@@ -56,11 +56,11 @@
                 <a href="home/home/{{$user->id}}">Trang chủ</a>
               </li>
               <li>
-                <a href="login">Viết bài</a>
+                <a href="home/reply/{{$user->id}}">Viết bài</a>
               </li>
             
               <li class="header-login-item">
-                <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:38px; height:38px;margin-right: 18px' alt="Avatar User">  </a>
+                <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle" style='width:38px; height:38px;margin-right: 18px' alt="Avatar User">  {{$user->Ten}}</a>
                 <ul class="header__nav-user-menu" id="headerUserMenu">
                   <li class="header__nav-user-item">
                     <a style="display:flex">
@@ -87,7 +87,7 @@
                   </li>                 
               </ul>
               </li>
-              <li> {{$user->Ten}}</li>            
+              {{-- <li> </li>             --}}
             </ul>
           @endif
         @else 
