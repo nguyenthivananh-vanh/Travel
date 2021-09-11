@@ -2,7 +2,7 @@
 @section('content')
     <section class="content px-2 mt-6">
         <div class="container-fluid mt-2">
-            <div class="post">
+            <div class="post mb-4">
                 <div class="post-header">
                     <div class="post-tilte  ml-2">
                         <p></p>
@@ -14,9 +14,19 @@
                             <img src="upload/users/{{$userAuthor->Avatar}}" class="circle avatar-user"
                                  style='width:50px; height:50px' alt="Avatar User">
                         </div>
-                        <div class="col-4">
-                            <b>{{$DiaDiem->TacGia}}</b>
-                            <p>{{$DiaDiem->created_at}}</p>
+                        <div class="col-4" >
+                            <b class="pl-1">{{$DiaDiem->TacGia}}</b>
+                            <p  class="pl-2">{{$DiaDiem->created_at}}</p>
+                        </div>
+                        <div class="col-7 text-right">
+                            <div onClick="showSettingPost()" class="btn-setting-post" id="btnSettingPost"><i class="fas fa-ellipsis-h"></i></div>
+                    
+                            <ul class="list-setting" id="listSetting">
+                                <li class="list-setting-item"><a>Xóa bài viết</a></li>
+                                <li class="list-setting-item"><a>Sửa bài viết</a></li>
+
+                            </ul>
+                            
                         </div>
 
                     </div>
@@ -32,20 +42,29 @@
                 </div>
             </div>
 
-            <div class="comment">
+            <div class="comment mt-4">
                 @if(isset($user))
                     <form action="home/comment/{{$user->id}}/{{$DiaDiem->id}}" method="POST"
                           enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                        <div class="user_avatar">
-                            <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user"
-                                 style='width:50px; height:50px' alt="Avatar User">
-                        </div><!-- the input field -->
-                        <div class="input_comment">
-                            <input type="text" placeholder="Bình luận" name="cmt">
-                        </div>
-                        <div class="input_comment">
-                            <input type="file" name="hinhanh">
+                        <div class="row">
+                            <div class="user_avatar col-1">
+                                <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user"
+                                    style='width:50px; height:50px' alt="Avatar User">
+                            </div><!-- the input field -->
+                            <div class="input_comment col-9">
+                                <input type="text" placeholder="Bình luận" name="cmt">
+                                <div class="cmt-img">
+                                    <label for="myFile"><i class="fas fa-camera"></i></label>
+                                    <input hidden type="file" id="myFile" name="hinhanh">
+                                </div>
+                                
+                            </div>
+                            <div class="col-1">
+                                <button class="btn mt-2" style="background-color: #277fbc">Gửi</button>
+                            </div>
+                            
+                            
                         </div>
                     </form>
             </div>
@@ -54,36 +73,41 @@
                     {{session('thongbao')}}<br>
                 </div>
             @endif
-            <button class="btn green">Gửi</button>
+            
             </form>
             @endif
             <div class="new_comment" style="background-color:#f4f4f4; padding:20px">
 
                 <!-- build comment -->
                 @foreach ($comment as $cmt)
-                    <div class="user_avatar">
-                        <img src="upload/users/{{$cmt->user->Avatar}}" class="circle avatar-user"
-                             style='width:50px; height:50px' alt="Avatar User">
-                    </div><!-- the comment body -->
+                    <!-- the comment body -->
                     <div class="comment_body">
-                        <p>
-                        <div class="replied_to">
-                            <p><b class="user">{{$cmt->user->Ten}}:
+                        <div class="row">
+                            <div class="user_avatar col-1">
+                            <img src="upload/users/{{$cmt->user->Avatar}}" class="circle avatar-user"
+                                style='width:50px; height:50px' alt="Avatar User">
+                            </div>
+                            <b class="user col-11" style="padding:12px">{{$cmt->user->Ten}}
 
-                                </b>{{$cmt->NoiDung}}</p>
+                                    </b>
+
+                        </div>
+                        <div class="replied_to">
+                            <p>{{$cmt->NoiDung}}</p>
+                      
                             @if (isset($cmt->HinhAnh))
                                 <img class="post-img" style="width:300px" src="upload/comment/{{$cmt->HinhAnh}}" alt="">
                             @endif
                         </div>
-                        </p>
+                       
                         <!-- Finally someone who actually gets it!
                         <div class="replied_to"><p><span class="user">Andrew Johnson:</span>That's exactly what I was thinking!</p></div>That's awesome!</p> -->
 
                     </div>
                     <!-- comments toolbar -->
-                    <div class="comment_toolbar" style="margin:0 20px">
+                    <div class="comment_toolbar row" style="margin:0 20px">
                         <!-- inc. date and time -->
-                        <div class="comment_details">
+                        <div class="comment_details col-6">
                             <ul>
                                 <li><i class="fa fa-calendar"></i> {{$cmt->created_at}}</li>
                                 @if(isset($user))
@@ -93,16 +117,19 @@
                                                     class="far fa-trash-alt"></i> Xoá</a></li>
                                     @endif
                                 @endif
-                                {{-- <li><i class="fa fa-pencil"></i> <span class="user">Simon Gregor</span></li> --}}
+                                {{-- <li><i class="fa fa-pencil"></i></li> --}}
                             </ul>
                         </div><!-- inc. share/reply and love -->
-                        {{-- <div class="comment_tools">
-                            <ul>
+                        <div class="comment_tools col-6">
+                            <ul style="margin-right:80px !important">
                                 <!-- <li><i class="fa fa-share-alt"></i></li> -->
-                                <li><i class="fa fa-reply"></i></li>
-                                <li><i class="fa fa-heart love"><span class="love_amt"> 4039</span></i></li>
+                                <li><a><i class="fa fa-heart love"><span class="love_amt"> 4039</span></i></a></li>
+                                <li><a><i class="far fa-trash-alt"></i></a></li>
+                                <li><a><i class="fa fa-pencil"></i> <span class="user"></span></a></li>
+                                <li><a><i class="fa fa-reply"></i></a></li>
+                                
                             </ul>
-                        </div> --}}
+                        </div>
                     </div>
                     {{-- <div class="comment_body" style="margin:0 50px 0 10%; padding-right:10%">
 
