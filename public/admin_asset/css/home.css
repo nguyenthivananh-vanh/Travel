@@ -3,6 +3,23 @@
 a:hover {
     text-decoration: none;
 }
+.avatar-user{
+    width:50px;
+    height:50px;
+    object-fit: cover;
+}
+.post-img{
+    object-fit: cover;
+}
+.content{
+    min-height: 80vh;
+  }
+li a i{
+    font-size: 14px;
+}
+/* #test1{
+    color:red;
+} */
 
 .avatar-user {
     width: 50px;
@@ -17,11 +34,74 @@ a:hover {
 .content {
     min-height: 80vh;
 }
+.text-right{
+    text-align: right;
+}
 
 
 /* #test1{
     color:red;
 } */
+
+/* setting post */
+.btn-setting-post{
+    position: relative;
+}
+.btn-setting-post i{
+    padding :15px 15px;
+}
+.btn-setting-post i:hover{
+    background-color:#d4d4d4;
+    border-radius: 50%;
+}
+.list-setting{
+    margin-top: 6px;
+    background-color: #f4f4f4;
+    position:absolute;
+    padding-left: 0;
+    right:0;
+    width: 160px;
+    display: none;
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
+}
+.list-setting::before{
+    content: "";
+    position: absolute;
+    border-width: 16px;
+    border-style: solid;
+    border-color: transparent transparent #f4f4f4 transparent;
+    top: -32px;
+    right: 17px;
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
+
+}
+.list-setting-item{
+    /* padding: 20px; */
+    text-align: left;
+}
+.list-setting-item a{
+    padding: 8px 16px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 200;
+}
+.list-setting-item:hover{
+    background-color: #d4d4d4;
+    /* color: white; */
+}
+.list-setting-item a:first-child{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.list-setting-item a:last-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
 
 
 /* header user */
@@ -127,6 +207,15 @@ a:hover {
     vertical-align: middle;
     margin-left: 10px;
     width: calc(100% - 75px);
+    position: relative;
+}
+.cmt-img{
+    position: absolute;
+    top: 20px;
+    left: 90vh;
+}
+.cmt-img i{
+    font-size: 16px;
 }
 
 .input_comment input {
@@ -254,6 +343,9 @@ a:hover {
 
 .list-group-item-dd a:hover {
     color: #1976d2;
+}
+.list-item-left-menu a:hover{
+    color:#1976d2 !important;
 }
 
 .list-item-left-menu a:hover {
