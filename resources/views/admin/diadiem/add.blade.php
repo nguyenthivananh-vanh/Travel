@@ -1,6 +1,6 @@
 @extends('admin.layout.index')
 @section('content')
- 
+
   <!-- Section: Details -->
   <section class="section section-Details grey lighten-4">
     <div class="container">
@@ -12,7 +12,7 @@
                 <div class="col s12 m6">
                   <span class="card-title">Địa điểm</span>
                 </div>
-                
+
               </div>
               @if(count($errors)>0)
                     <div class="alert alert-danger">
@@ -26,7 +26,7 @@
                         {{session('thongbao')}}<br>
                     </div>
                 @endif
-                
+
                 <form action="admin/diadiem/add" method="POST" enctype="multipart/form-data">
                   <input type="hidden" name="_token" value="{{csrf_token()}}" />
                   <div class="form-group">
@@ -37,10 +37,10 @@
                         @endforeach
                     </select>
                   </div>
-  
+
                   <div class="form-group">
                     <label>Đặc điểm</label><br>
-                    <select class="form-control" name="DacDiem" id="dacdiem"> 
+                    <select class="form-control" name="DacDiem" id="dacdiem">
                         @foreach ($dacdiem as $dd)
                             <option value="{{$dd->id}}">{{$dd->Ten}}</option>
                         @endforeach
@@ -48,33 +48,33 @@
                 </div>
                   <div class="input-field">
                     <label for="title">Tiêu Đề</label><br>
-                    <input type="text" id="tieude" value="" name="tieude">                
+                    <input type="text" id="tieude" value="" name="tieude">
                   </div>
                   <div class="input-field">
                     <label for="tomtat">Tóm Tắt</label><br>
-                    <input type="text" id="tomtat" value="" name="tomtat">                
+                    <input type="text" id="tomtat" value="" name="tomtat">
                   </div>
                   <div class="input-field">
                     <label for="hinhanh">Image</label><br><br>
-                    <input type="file" id="hinhanh" name="hinhanh" class="form-control" />                
+                    <input type="file" id="hinhanh" name="hinhanh" class="form-control" />
                   </div>
                   <div class="input-field">
                     <label for="ckeditor">Nội dung</label><br><br>
-                    <textarea class="textarea" id="ckeditor" name="noidung" style="width: 700px; height: 200px; "></textarea>              
+                    <textarea class="textarea" id="ckeditor" name="noidung" style="width: 700px; height: 200px; "></textarea>
                   </div>
                   <div class="input-field">
                     <label for="tacgia">Tác giả</label><br>
-                    <input type="text" id="tacgia" value="" name="tacgia">                
+                    <input type="text" id="tacgia" value="Admin" name="tacgia">
                   </div>
-                  
-  
+
+
                   <div class="card-action">
                     <button class="btn green">Add</button>
                     <button class="btn red">Reset</button>
                   </div>
                 </form>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@
 
   @section('script')
   <script>
-     
+
       $(document).ready(function(){
           $("#vungmien").change(function(){
               var idvm = $(this).val();
@@ -92,11 +92,11 @@
                   $("#dacdiem").html(data);
               });
           });
-          
+
       });
   </script>
 @endsection
-  
 
 
-  
+
+

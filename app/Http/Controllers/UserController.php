@@ -187,7 +187,7 @@ class UserController extends Controller
         if ($user->password !== $request->pass){
            $user->password = bcrypt($request->pass);
         }
-   
+
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();

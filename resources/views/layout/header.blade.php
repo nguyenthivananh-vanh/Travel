@@ -18,7 +18,6 @@
                         <li>
                             <a href="admin/adminHome">Admin</a>
                         </li>
-
                         <li class="header-login-item">
                             <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle"
                                                               style='width:38px; height:38px;margin-right: 18px'
@@ -41,7 +40,6 @@
                                 <li class="header__nav-user-item">
                                     <a href="admin/user/update/{{$user->id}}"><i class="fas fa-cog"></i> Thay đổi thông
                                         tin tài khoản</a>
-
                                 </li>
 
                                 <li class="header__nav-user-item header__nav-user-item--separate">
@@ -50,7 +48,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <li> {{$user->Ten}}</li>
                     </ul>
                 @else
                     <ul class="right hide-on-med-and-down">
