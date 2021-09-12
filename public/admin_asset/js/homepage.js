@@ -47,3 +47,10 @@ var a = document.getElementById("test");
 document.getElementById("test1").addEventListener("click", function() {
     alert("hi")
 });
+
+
+//Show setting post
+var settingPost=document.getElementById("listSetting");
+function showSettingPost(){
+    document.getElementById("listSetting").classList.toggle("displayBlock");
+}
