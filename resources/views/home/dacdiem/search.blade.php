@@ -16,7 +16,7 @@
                 <div class="card">
                     <a href="home/view/{{$noibat->id}}/{{$noibat->TacGia}}/{{$user->id}}">
                     <div class="card-image">
-                        <img style="height:200px" src="upload/diadiem/{{$noibat->HinhAnh}}" alt="img">
+                        <img class="fit-img" style="height:200px" src="upload/diadiem/{{$noibat->HinhAnh}}" alt="img">
                         <span class="card-title">{{$noibat->TieuDe}}</span>
                     </div>
                     </a>
@@ -43,8 +43,8 @@
                 <div class="card">
                     <a href="home/view/{{$noibat->id}}/{{$noibat->TacGia}}">
                     <div class="card-image">
-                        <img style="height:200px" src="upload/diadiem/{{$noibat->HinhAnh}}" alt="img">
-                        <span class="card-title">{{$noibat->TieuDe}}</span>
+                        <img class="fit-img" style="height:200px" src="upload/diadiem/{{$noibat->HinhAnh}}" alt="img">
+                        <span class="card-title ">{{$noibat->TieuDe}}</span>
                     </div>
                     </a>
                     <div class="card-content">
@@ -89,7 +89,7 @@
                 <div class="card">
                   <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}/{{$user->id}}">
                     <div class="card-image">
-                        <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                        <img class="fit-img" style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
                         <span class="card-title">{{$ddiem->TieuDe}}</span>
                     </div>
                     </a>
@@ -117,7 +117,7 @@
                 <div class="card">
                     <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
                     <div class="card-image">
-                        <img style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                        <img class="fit-img" style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
                         <span class="card-title">{{$ddiem->TieuDe}}</span>
                     </div>
                     </a>

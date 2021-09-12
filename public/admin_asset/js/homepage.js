@@ -53,4 +53,5 @@ document.getElementById("test1").addEventListener("click", function() {
 var settingPost=document.getElementById("listSetting");
 function showSettingPost(){
     document.getElementById("listSetting").classList.toggle("displayBlock");
+    document.getElementById("btnSettingPost").classList.toggle("btn-click");
 }

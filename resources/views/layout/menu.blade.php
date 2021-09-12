@@ -1,7 +1,7 @@
 <link href="admin_asset/css/home.css" rel="stylesheet">
 <div class="col-2" style="box-shadow:6px 6px 6px 0 rgba(0,0,0,0.19);margin-left:20px">
     <ul class="list-group" id="menu">
-      <h4 class="menu__title">Vùng Miền</h4>
+      <h5 class="menu__title">Vùng Miền</h5>
       @foreach ($vungmien as $vm)            
       <li href="#" class="list-group-item menu1 list-item-left-menu">
         {{$vm->Ten}}
