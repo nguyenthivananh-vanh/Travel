@@ -16,13 +16,19 @@
 <div class="mySlides fade"  style="width:100vw">
   <div class="numbertext">2 / 3</div>
   <img  class="post-img" src="upload/home/resort2.jpg"  alt="img2">
-  <div class="text">Caption Two</div>
+  <div class="text">
+    <h3>Explore Vietnam</h3>
+    <p>Những phong tục , tập quán của các dân tộc anh em trên khắp vùng miền</p>
+  </div>
 </div>
 
 <div class="mySlides fade"  style="width:100vw">
   <div class="numbertext">3 / 3</div>
   <img class="post-img" src="upload/home/resort3.jpg"  alt="img3">
-  <div class="text">Caption Three</div>
+  <div class="text">
+    <h3>Explore Vietnam</h3>
+    <p>Những tinh hoa văn hóa và ẩm thực của Việt Nam trên mọi nẻo đường của tổ quốc.</p>
+  </div>
 </div>
 
 </div>
