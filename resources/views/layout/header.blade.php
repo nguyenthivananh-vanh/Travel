@@ -2,7 +2,7 @@
     <nav class="teal">
         <div class="container">
             @if (isset($user) )
-                <a href="home/home/{{$user->id}}" class="brand-logo">My VietNam</a>
+                <a href="home/home/{{$user->id}}" class="brand-logo"><img src="upload/home/myVietnam-big1.png" alt="logo" style="width: 200px; height:54px"></a></a>
                 <a href="#" data-activates="mobile-nav" class="button-collapse" onClick=" showNavbar()">
                     <i class="material-icons">menu</i>
                 </a>
@@ -19,13 +19,13 @@
                             <a href="admin/adminHome">Admin</a>
                         </li>
                         <li class="header-login-item">
-                            <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle"
-                                                              style='width:38px; height:38px;margin-right: 18px'
+                            <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="avatar-user circle"
+                                                              style=''
                                                               alt="Avatar User">{{$user->Ten}}</a>
                             <ul class="header__nav-user-menu" id="headerUserMenu">
                                 <li class="header__nav-user-item">
                                     <a style="display:flex">
-                                        {{-- <img src="upload/users/ava-admin.jpg" class="circle avatar-user" style='width:38px; height:38px' alt="Avatar User">  --}}
+                                        {{-- <img src="upload/users/ava-admin.jpg" class="avatar-user circle" style='width:38px; height:38px' alt="Avatar User">  --}}
                                         <b style="color:black; font-size:18px">{{$user->Ten}}</b>
                                     </a>
                                 </li>
@@ -59,9 +59,9 @@
                         </li>
 
                         <li class="header-login-item">
-                            <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle"
+                            <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user"
                                                               style='width:38px; height:38px;margin-right: 18px'
-                                                              alt="Avatar User"> {{$user->Ten}}</a>
+                                                              alt="Avatar User"></a>
                             <ul class="header__nav-user-menu" id="headerUserMenu">
                                 <li class="header__nav-user-item">
                                     <a style="display:flex">
@@ -92,7 +92,9 @@
                     </ul>
                 @endif
             @else
-                <a href="home/home" class="brand-logo">My VietNam</a>
+                <a href="home/home" class="brand-logo">
+                
+                <img src="upload/home/myVietnam-big1.png" alt="logo" style="width: 200px; height:54px"></a>
                 <a href="#" data-activates="mobile-nav" class="button-collapse" onClick=" showNavbar()">
                     <i class="material-icons">menu</i>
                 </a>
