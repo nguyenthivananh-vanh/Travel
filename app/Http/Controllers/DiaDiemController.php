@@ -116,35 +116,33 @@ class DiaDiemController extends Controller
         $diadiem->TacGia = $request->tacgia;
         $diadiem->TrangThai = $request->duyet;
         $diadiem->idDacDiem = $request->DacDiem;
-        $diadiem->TrangThai = $request->duyet;
 
-        $file = $request->file('hinhanh');
-        if ($file == null) {
-            $diadiem->save();
-            return redirect('admin/diadiem/update/' . $id)->with('thongbao', 'Sửa thành công');
-        } else {
+        if($request->hasFile('hinhanh')){
+            $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
-            if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg') {
-                return redirect('admin/diadiem/add')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+            if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
+                return redirect('admin/user/update')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
-            $hinh = Str::random(4) . "_" . $name;
-            while (file_exists("upload/diadiem/" . $hinh)) {
-                $hinh = Str::random(4) . "_" . $name;
+            $hinh = Str::random(4)."_".$name;
+            while(file_exists("upload/diadiem/".$hinh)){
+                $hinh = Str::random(4)."_".$name;
             }
-            $file->move("upload/diadiem", $hinh);
-            $diadiem->HinhAnh = $hinh;
 
+            $file->move("upload/diadiem",$hinh);
+            $diadiem->HinhAnh = $hinh;
+        }else{
+            $diadiem->HinhAnh = $diadiem->HinhAnh;
+        }   
             $diadiem->save();
             return redirect('admin/diadiem/update/' . $id)->with('thongbao', 'Sửa thành công');
-        }
     }
 
     public function getDelete($id)
     {
         $diadiem = DiaDiem::find($id);
         $diadiem->delete();
-        return redirect('admin/diadiem/list')->with('thongbao', 'Xoá thành công');
+        return redirect('admin/diadiem/duyetbai')->with('thongbao', 'Xoá thành công');
     }
 
     //Tìm kiếm

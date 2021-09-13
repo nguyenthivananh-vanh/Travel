@@ -9,6 +9,11 @@
                         <h3 class="mt-4 mb-4">{{$DiaDiem->TieuDe}}
                         </h3>
                     </div>
+                    @if(session('thongbao'))
+                        <div class="alert alert-success">
+                            {{session('thongbao')}}<br>
+                        </div>
+                    @endif
                     <div class="author row">
                         <div class="col-1">
                             <img src="upload/users/{{$userAuthor->Avatar}}" class="circle avatar-user"
@@ -18,16 +23,16 @@
                             <b class="pl-1">{{$DiaDiem->TacGia}}</b>
                             <p  class="pl-2">{{$DiaDiem->created_at}}</p>
                         </div>
+                        @if($user->id == $userAuthor->id)
                         <div class="col-7 text-right">
                             <div onClick="showSettingPost()" class="btn-setting-post" ><i id="btnSettingPost" class="fas fa-ellipsis-h"></i></div>
-                    
+              
                             <ul class="list-setting" id="listSetting">
-                                <li class="list-setting-item"><a>Xóa bài viết</a></li>
-                                <li class="list-setting-item"><a>Sửa bài viết</a></li>
-
-                            </ul>
-                            
+                                <li class="list-setting-item"><a style="font-weight: 500" href="home/deleteView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Xóa bài viết</a></li>
+                                <li class="list-setting-item"><a style="font-weight: 500" href="home/updateView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Sửa bài viết</a></li>
+                            </ul>               
                         </div>
+                        @endif
 
                     </div>
                 </div>
@@ -35,8 +40,7 @@
                     {!! html_entity_decode( $DiaDiem->NoiDung) !!}
                 </div>
                 <div class="post-footer text-right" style="text-align:right">
-                    <span style="padding: 10px"><i class="far fa-heart" style="color:#277fbc"></i> <span
-                            style="padding: 8px">110</span></span>
+                    
                     <span style="padding: 10px"><i class="fas fa-eye" style="color:#277fbc"></i><span
                             style="padding: 10px">{{$DiaDiem->SoLuotXem}}</span></span>
                 </div>
@@ -68,11 +72,7 @@
                         </div>
                     </form>
             </div>
-            @if(session('thongbao'))
-                <div class="alert alert-success">
-                    {{session('thongbao')}}<br>
-                </div>
-            @endif
+            
             
             </form>
             @endif

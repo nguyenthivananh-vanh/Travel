@@ -37,14 +37,14 @@ class HomeController extends Controller
    
     function DacDiemSearch($id){  
         $vungmien = VungMien::all(); 
-        $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(3)->get();
+        $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(6)->get();
         $diadiem = DiaDiem::where('idDacDiem',$id)->paginate(3);
         
         return view('home.dacdiem.search',['noibat'=>$noibat,'vungmien'=>$vungmien,'diadiem'=>$diadiem]);
     }
     function DacDiemSearchUser($id,$idUser){  
         $vungmien = VungMien::all(); 
-        $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(3)->get();
+        $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(9)->get();
         $diadiem = DiaDiem::where('idDacDiem',$id)->paginate(3);
         $user = User::find($idUser);
         
@@ -69,8 +69,8 @@ class HomeController extends Controller
         $diadiem = DiaDiem::find($id);
         $userAuthor = User::where('Ten','like',$tacgia)->first();
         $user = User::find($idUser);
-        $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->take(3)->get();
-        $cmt = Comment::where('idDiaDiem',$id)->get();
+        $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->get();
+        $cmt = Comment::where('idDiaDiem',$id)->orderBy('id','DESC')->get();
         // $diadiemList = DiaDiem::doesntHave('id',$id)->get();
         // $diadiemList = DiaDiem::whereDoesntHave($id, function (Builder $query) {
         //     $query->where('idDacDiem',$diadiem->idDacDiem);
@@ -105,13 +105,13 @@ class HomeController extends Controller
             $comment->HinhAnh = "";
         }
         $comment->save();
-        return redirect('home/view/'.$idDiaDiem.'/'.$diadiem->TacGia.'/'.$idUser);
+        return redirect('home/view/'.$idDiaDiem.'/'.$diadiem->TacGia.'/'.$idUser)->with('thongbao', 'Đã đăng bình luận');
     }
 
     public function commentDelete($idcmt,$idDiaDiem,$tacgia,$idUser){
         $cmt = Comment::find($idcmt);
         $cmt->delete();
-        return redirect('home/view/'.$idDiaDiem.'/'.$tacgia.'/'.$idUser);
+        return redirect('home/view/'.$idDiaDiem.'/'.$tacgia.'/'.$idUser)->with('thongbao', 'Đã xoá bình luận');
     }
 
     // viết bài
@@ -161,9 +161,82 @@ class HomeController extends Controller
 
         $diadiem->NoiBat = 0;
         $diadiem->SoLuotXem = 0;
-        $diadiem->TrangThai = 0;       
+        if($id == 1){
+            $diadiem->TrangThai = 1; 
+        }else{
+            $diadiem->TrangThai = 0;      
+        }
+         
         $diadiem->idDacDiem = $request->DacDiem;
         $diadiem->save();
         return redirect('home/home/'.$id)->with('thongbao', 'Bài viết của bạn đang được chờ xét duyệt');
+    }
+    // xoá bài
+    public function getDeleteView($id,$tacgia,$idUser){
+        return view('home.deleteView',['id'=>$id,'tacgia'=>$tacgia,'idUser'=>$idUser]);
+    }
+    public function getAcceptDelete($id,$tacgia,$idUser){
+        $diadiem = DiaDiem::find($id);
+        $diadiem ->delete();
+        return redirect('home/home/'.$idUser);
+    }
+    public function getBackView($id,$tacgia,$idUser){      
+        return redirect('home/view/'.$id.'/'.$tacgia.'/'.$idUser);
+    }
+    // sửa bài
+    public function getUpdateView($id,$tacgia,$idUser){
+        $vungmien = VungMien::all();
+        $dacdiem = DacDiem::all();
+        $diadiem = DiaDiem::find($id);
+        return view('home.updateView',['id'=>$id,'tacgia'=>$tacgia,'idUser'=>$idUser,'diadiem'=>$diadiem,'dacdiem' => $dacdiem, 'vungmien' => $vungmien]);
+    }
+    public function postUpdateView(Request $request, $id, $tacgia, $idUser)
+    {
+        $this->validate($request,
+            [
+                'DacDiem' => 'required',
+                'tieude' => 'required|min:3',
+                'tomtat' => 'required',
+                'noidung' => 'required',
+            ],
+            [
+                'DacDiem.required' => 'Bạn chưa chọn đặc điểm',
+                'tieude.required' => 'Bạn chưa nhập tiêu đề',
+                'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
+                'tomtat.required' => 'Bạn chưa nhập tóm tắt',
+                'noidung.required' => 'Bạn chưa nhập nội dung',
+            ]);
+
+        $diadiem = DiaDiem::find($id);
+        $diadiem->TieuDe = $request->tieude;
+        $diadiem->TieuDeKhongDau = changeTitle($request->tieude);
+        $diadiem->TomTat = $request->tomtat;
+        $diadiem->NoiDung = $request->noidung;
+        $diadiem->TacGia = $request->tacgia;
+        $diadiem->TrangThai = 1;
+        $diadiem->idDacDiem = $request->DacDiem;
+
+     
+        if($request->hasFile('hinhanh')){
+            $file = $request->file('hinhanh');
+            $tail = $file->getClientOriginalExtension();
+            if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
+                return redirect('admin/user/update')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+            }
+            $name = $file->getClientOriginalName();
+            $hinh = Str::random(4)."_".$name;
+            while(file_exists("upload/diadiem/".$hinh)){
+                $hinh = Str::random(4)."_".$name;
+            }
+
+            $file->move("upload/diadiem",$hinh);
+            $diadiem->HinhAnh = $hinh;
+        }else{
+            $diadiem->HinhAnh = $diadiem->HinhAnh;
+        }   
+
+        $diadiem->save();
+        return redirect('home/view/'.$id.'/'.$tacgia.'/'.$idUser)->with('thongbao', 'Sửa thành công');
+        
     }
 }

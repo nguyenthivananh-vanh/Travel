@@ -6,7 +6,7 @@
         <div class="row">            
             <div class="col-12">
                 <h4 class="center">
-                <span class="teal-text">Popular</span> Places</h4>
+                <span class="teal-text">Địa điểm</span> nổi bật</h4>
             </div>
         </div>
         @if(isset($user))
@@ -79,7 +79,7 @@
             
             <div class="col-12">
                 <h4 class="center">
-                <span class="teal-text"></span> Places</h4>
+                <span class="teal-text"></span> Địa điểm </h4>
             </div>
         </div>
         @if(isset($user))

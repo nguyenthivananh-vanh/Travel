@@ -13,14 +13,23 @@
                         </li>
 
                         <li>
-                            <a href="home/dacdiem/reply/{{$user->id}}">Viết bài</a>
+                            <a href="home/reply/{{$user->id}}">Viết bài</a>
+                            <div class="notify" onload="show()" style="display:none">
+                                @if(session('thongbao'))
+                                    <div class="alert alert-success">
+                                        {{session('thongbao')}}<br>
+                                    </div>
+                                @endif
+                            </div>
+                                
+                            
                         </li>
                         <li>
                             <a href="admin/adminHome">Admin</a>
                         </li>
                         <li class="header-login-item">
                             <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="avatar-user circle"
-                                                              style=''
+                                                              style='width:38px; height:38px;margin-right: 18px'
                                                               alt="Avatar User">{{$user->Ten}}</a>
                             <ul class="header__nav-user-menu" id="headerUserMenu">
                                 <li class="header__nav-user-item">
@@ -28,15 +37,7 @@
                                         {{-- <img src="upload/users/ava-admin.jpg" class="avatar-user circle" style='width:38px; height:38px' alt="Avatar User">  --}}
                                         <b style="color:black; font-size:18px">{{$user->Ten}}</b>
                                     </a>
-                                </li>
-                                <li class="header__nav-user-item">
-                                    <a href=""><i class="far fa-file-alt"></i> Bài viết của bạn</a>
-
-                                </li>
-                                <li class="header__nav-user-item">
-                                    <a href=""><i class="far fa-comment-alt"></i>Bình luận của bạn</a>
-                                </li>
-
+                                
                                 <li class="header__nav-user-item">
                                     <a href="admin/user/update/{{$user->id}}"><i class="fas fa-cog"></i> Thay đổi thông
                                         tin tài khoản</a>
@@ -66,16 +67,10 @@
                                 <li class="header__nav-user-item">
                                     <a style="display:flex">
                                         <!-- <img src="upload/users/ava-admin.jpg" class="circle" style='width:38px; height:38px' alt="Avatar User"> </a> -->
-                                        <b style="color:black; font-size:18px">{{$user->Ten}}</b>
+                                        <b style="color:black; font-size:18px; ">{{$user->Ten}}</b>
                                     </a>
                                 </li>
-                                <li class="header__nav-user-item">
-                                    <a href=""><i class="far fa-file-alt"></i> Bài viết của bạn</a>
-
-                                </li>
-                                <li class="header__nav-user-item">
-                                    <a href=""><i class="far fa-comment-alt"></i>Bình luận của bạn</a>
-                                </li>
+                              
 
                                 <li class="header__nav-user-item">
                                     <a href="admin/user/update/{{$user->id}}"><i class="fas fa-cog"></i> Thay đổi thông
@@ -114,27 +109,16 @@
         </div>
     </nav>
 </div>
-{{-- <ul class="sideNav" id="mobileNav" if="!showFiller" >
-  <li class="nav-li">
-    <p>Trang chủ</p>
-  </li>
-
-  <li  class="nav-li">
-    <p>Đăng kí</p>
-  </li>
-  <li  class="nav-li">
-    <p>Đăng nhập</p>
-  </li>
-  <li  class="nav-li">
-    <p>Contact</p>
-  </li>
 
 
-</ul> --}}
-
-{{-- <script src="admin_asset/js/admin.js"></script>--}}
-{{-- <script src="admin_asset/js/homepage.js"></script>  --}}
 <script>
+    // function show(){
+    //     var notify = document.querySelector(".notify");
+    //     setTimeout(() => {
+    //         notify.style.display = "block";
+    // }, 3000);
+    // }
+   
     var userMenu = document.getElementById('headerUserMenu');
 
     function showUserMenu() {

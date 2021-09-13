@@ -37,8 +37,13 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/deleteCmt/{idcmt}/{idDiaDiem}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@commentDelete');
     Route::get('/reply/{id}', 'App\Http\Controllers\HomeController@getReply');
     Route::post('/reply/{id}', 'App\Http\Controllers\HomeController@postReply');
+    Route::get('/deleteView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getDeleteView');
+    Route::get('/acceptDelete/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getAcceptDelete');
+    Route::get('/backView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getBackView');
+    Route::get('/updateView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getUpdateView');
+    Route::post('/updateView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@postUpdateView');
 });
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
     Route::get('adminHome', 'App\Http\Controllers\DiaDiemController@getList');
     Route::group(['prefix' => 'vungmien'], function () {
         Route::get('list', 'App\Http\Controllers\VungMienController@getList');

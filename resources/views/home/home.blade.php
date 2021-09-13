@@ -47,7 +47,8 @@
             <div class="row">
                 <div class="col s12">
                     <h3>Tìm điểm đến </h3>
-                    <form action="home/search" method="POST" enctype="multipart/form-data">
+                    @if(isset($user))
+                    <form action="home/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <div class="search">
                             <div class="input-field input__search">
@@ -58,6 +59,19 @@
 
                         </div>
                     </form>
+                    @else 
+                    <form action="home/search" method="POST" enctype="multipart/form-data">
+                      <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                      <div class="search">
+                          <div class="input-field input__search">
+                              <input type="text" style="padding-left: 12px" class="white grey-text autocomplete"
+                                     placeholder="Tìm kiếm" id="autocomplete-input" name="search">
+                          </div>
+                          <button type="submit" class="btn_search--submit" style=" color: black">Search</button>
+
+                      </div>
+                  </form>
+                  @endif
                 </div>
             </div>
         </div>

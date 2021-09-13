@@ -74,7 +74,7 @@
   
                   <div class="card-action">
                     <button class="btn green">Đăng</button>
-                    <button class="btn red">Reset</button>
+                    <button class="btn red">Xoá</button>
                   </div>
                 </form>
             </div>
