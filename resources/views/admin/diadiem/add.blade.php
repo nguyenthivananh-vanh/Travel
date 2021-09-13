@@ -64,7 +64,7 @@
                   </div>
                   <div class="input-field">
                     <label for="tacgia">Tác giả</label><br>
-                    <input type="text" id="tacgia" value="Admin" name="tacgia">
+                    <input type="text" id="tacgia" value="" name="tacgia">
                   </div>
 
 
