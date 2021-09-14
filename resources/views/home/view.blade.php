@@ -19,19 +19,27 @@
                             <img src="upload/users/{{$userAuthor->Avatar}}" class="circle avatar-user"
                                  style='width:50px; height:50px' alt="Avatar User">
                         </div>
-                        <div class="col-4" >
+                        <div class="col-4">
                             <b class="pl-1">{{$DiaDiem->TacGia}}</b>
-                            <p  class="pl-2">{{$DiaDiem->created_at}}</p>
+                            <p class="pl-2">{{$DiaDiem->created_at}}</p>
                         </div>
-                        @if($user->id == $userAuthor->id)
-                        <div class="col-7 text-right">
-                            <div onClick="showSettingPost()" class="btn-setting-post" ><i id="btnSettingPost" class="fas fa-ellipsis-h"></i></div>
-              
-                            <ul class="list-setting" id="listSetting">
-                                <li class="list-setting-item"><a style="font-weight: 500" href="home/deleteView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Xóa bài viết</a></li>
-                                <li class="list-setting-item"><a style="font-weight: 500" href="home/updateView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Sửa bài viết</a></li>
-                            </ul>               
-                        </div>
+                        @if(isset($user))
+                            @if($user->id == $userAuthor->id)
+                                <div class="col-7 text-right">
+                                    <div onClick="showSettingPost()" class="btn-setting-post"><i id="btnSettingPost"
+                                                                                                 class="fas fa-ellipsis-h"></i>
+                                    </div>
+
+                                    <ul class="list-setting" id="listSetting">
+                                        <li class="list-setting-item"><a style="font-weight: 500"
+                                                                         href="home/deleteView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Xóa
+                                                bài viết</a></li>
+                                        <li class="list-setting-item"><a style="font-weight: 500"
+                                                                         href="home/updateView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Sửa
+                                                bài viết</a></li>
+                                    </ul>
+                                </div>
+                            @endif
                         @endif
 
                     </div>
@@ -40,7 +48,7 @@
                     {!! html_entity_decode( $DiaDiem->NoiDung) !!}
                 </div>
                 <div class="post-footer text-right" style="text-align:right">
-                    
+
                     <span style="padding: 10px"><i class="fas fa-eye" style="color:#277fbc"></i><span
                             style="padding: 10px">{{$DiaDiem->SoLuotXem}}</span></span>
                 </div>
@@ -54,7 +62,7 @@
                         <div class="row">
                             <div class="user_avatar col-1">
                                 <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user"
-                                    style='width:50px; height:50px' alt="Avatar User">
+                                     style='width:50px; height:50px' alt="Avatar User">
                             </div><!-- the input field -->
                             <div class="input_comment col-9">
                                 <input type="text" placeholder="Bình luận" name="cmt">
@@ -62,44 +70,44 @@
                                     <label for="myFile"><i class="fas fa-camera"></i></label>
                                     <input hidden type="file" id="myFile" name="hinhanh">
                                 </div>
-                                
+
                             </div>
                             <div class="col-1">
                                 <button class="btn mt-2" style="background-color: #277fbc">Gửi</button>
                             </div>
-                            
-                            
+
+
                         </div>
                     </form>
             </div>
-            
-            
+
+
             </form>
             @endif
             <div class="new_comment" style="background-color:#f4f4f4; padding:20px">
 
                 <!-- build comment -->
-                @foreach ($comment as $cmt)
-                    <!-- the comment body -->
+            @foreach ($comment as $cmt)
+                <!-- the comment body -->
                     <div class="comment_body">
                         <div class="row">
                             <div class="user_avatar col-1">
-                            <img src="upload/users/{{$cmt->user->Avatar}}" class="circle avatar-user"
-                                style='width:50px; height:50px' alt="Avatar User">
+                                <img src="upload/users/{{$cmt->user->Avatar}}" class="circle avatar-user"
+                                     style='width:50px; height:50px' alt="Avatar User">
                             </div>
                             <b class="user col-11" style="padding:12px">{{$cmt->user->Ten}}
 
-                                    </b>
+                            </b>
 
                         </div>
                         <div class="replied_to">
                             <p>{{$cmt->NoiDung}}</p>
-                      
+
                             @if (isset($cmt->HinhAnh))
                                 <img class="post-img" style="width:300px" src="upload/comment/{{$cmt->HinhAnh}}" alt="">
                             @endif
                         </div>
-                       
+
                         <!-- Finally someone who actually gets it!
                         <div class="replied_to"><p><span class="user">Andrew Johnson:</span>That's exactly what I was thinking!</p></div>That's awesome!</p> -->
 
@@ -126,7 +134,7 @@
                                 <li><a><i class="far fa-trash-alt"></i></a></li>
                                 <li><a><i class="fa fa-pencil"></i> <span class="user"></span></a></li>
                                 <li><a><i class="fa fa-reply"></i></a></li>
-                                
+
                             </ul>
                         </div> -->
                     </div>

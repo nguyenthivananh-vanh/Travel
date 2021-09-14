@@ -20,7 +20,7 @@ class DiaDiemController extends Controller
         $diadiem = DiaDiem::where('TrangThai',1)->paginate(3);
         return view('admin.diadiem.list', ['DiaDiem' => $diadiem]);
     }
-    
+
 
     public function getListDuyet()
     {
@@ -133,7 +133,7 @@ class DiaDiemController extends Controller
             $diadiem->HinhAnh = $hinh;
         }else{
             $diadiem->HinhAnh = $diadiem->HinhAnh;
-        }   
+        }
             $diadiem->save();
             return redirect('admin/diadiem/update/' . $id)->with('thongbao', 'Sửa thành công');
     }

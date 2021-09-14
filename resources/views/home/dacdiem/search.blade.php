@@ -3,10 +3,10 @@
 <link rel="stylesheet" href="admin_asset/css/pagination.css">
 <section id="popular" class="section section-popular scrollspy">
   <div class="container-fuild">
-        <div class="row">            
+        <div class="row">
             <div class="col-12">
                 <h4 class="center">
-                <span class="teal-text">Địa điểm</span> nổi bật</h4>
+                <span class="teal-text">Địa điểm nổi bật</span></h4>
             </div>
         </div>
         @if(isset($user))
@@ -36,7 +36,7 @@
             </div>
             @endforeach
         </div>
-        @else 
+        @else
         <div class="row">
             @foreach ($noibat as $noibat)
             <div class="col-4">
@@ -66,7 +66,7 @@
         @endif
 
   </div>
-        
+
 
 </section>
 
@@ -76,7 +76,7 @@
 <section id="popular" class="section section-popular scrollspy">
     <div class="container-fuild">
         <div class="row">
-            
+
             <div class="col-12">
                 <h4 class="center">
                 <span class="teal-text"></span> Địa điểm </h4>
@@ -105,11 +105,11 @@
                         overflow: hidden;
                         text-overflow: ellipsis;">{{$ddiem->TomTat}}</p>
                     </div>
-                </div>   
+                </div>
             </div>
             @endforeach
         </div>
-      
+
         @else
         <div class="row">
             @foreach ($diadiem as $ddiem)
@@ -134,26 +134,26 @@
                         text-overflow: ellipsis;">{{$ddiem->TomTat}}</p>
                     </div>
                 </div>
-    
+
             </div>
-    
+
             @endforeach
         </div>
-          
+
         @endif
-        
-          
+
+
         <div class="row">
             <div class="page">
                 {{$diadiem->links("pagination::bootstrap-4")}}
             </div>
         </div>
     </div>
-  
+
   </section>
-  
+
   @endsection
-      
+
   @section('script')
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -167,5 +167,5 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/my.js"></script>
   </script>
-      
+
   @endsection

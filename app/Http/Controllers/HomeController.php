@@ -12,14 +12,16 @@ class HomeController extends Controller
 {
     function home(){
         $diadiem = DiaDiem::orderBy('SoLuotXem','DESC')->where('TrangThai',1)->take(6)->get();
+        $diadiem_new = DiaDiem::orderBy('id','DESC')->take(6)->get();
         $vungmien = VungMien::all();
-        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem]);
+        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem_new,'Diadiem'=>$diadiem]);
     }
     function homeUser($id){
         $user = User::find($id);
         $diadiem = DiaDiem::orderBy('SoLuotXem','DESC')->where('TrangThai',1)->take(6)->get();
+        $diadiem_new = DiaDiem::orderBy('id','DESC')->take(6)->get();
         $vungmien = VungMien::all();
-        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem,'user'=>$user]);
+        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem_new, 'Diadiem'=>$diadiem ,'user'=>$user]);
     }
     function search(Request $request){
         $vungmien = VungMien::all();
@@ -34,20 +36,20 @@ class HomeController extends Controller
         $diadiem = DiaDiem::where('TieuDe','like',"%$key%")->orwhere('TomTat','like',"%$key%")->orwhere('NoiDung','like',"%$key%")->take(30)->paginate(10);
         return view('home.search',['DiaDiem'=>$diadiem,'key'=>$key,'vungmien'=>$vungmien,'user'=>$user]);
     }
-   
-    function DacDiemSearch($id){  
-        $vungmien = VungMien::all(); 
+
+    function DacDiemSearch($id){
+        $vungmien = VungMien::all();
         $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(6)->get();
-        $diadiem = DiaDiem::where('idDacDiem',$id)->paginate(3);
-        
+        $diadiem = DiaDiem::where('idDacDiem',$id)->orderBy('id','DESC')->paginate(3);
+
         return view('home.dacdiem.search',['noibat'=>$noibat,'vungmien'=>$vungmien,'diadiem'=>$diadiem]);
     }
-    function DacDiemSearchUser($id,$idUser){  
-        $vungmien = VungMien::all(); 
-        $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(9)->get();
-        $diadiem = DiaDiem::where('idDacDiem',$id)->paginate(3);
+    function DacDiemSearchUser($id,$idUser){
+        $vungmien = VungMien::all();
+        $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(6)->get();
+        $diadiem = DiaDiem::where('idDacDiem',$id)->orderBy('id','DESC')->paginate(3);
         $user = User::find($idUser);
-        
+
         return view('home.dacdiem.search',['noibat'=>$noibat,'vungmien'=>$vungmien,'diadiem'=>$diadiem,'user'=>$user]);
     }
     function view($id,$tacgia){
@@ -56,6 +58,7 @@ class HomeController extends Controller
         $userAuthor = User::where('Ten','like',$tacgia)->first();
         $cmt = Comment::where('idDiaDiem',$id)->get();
         $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->get();
+        $user = User::all();
         // $diadiemList = DiaDiem::doesntHave('id',$id)->get();
         // $diadiemList = DiaDiem::whereDoesntHave($id, function (Builder $query) {
         //     $query->where('idDacDiem',$diadiem->idDacDiem);
@@ -79,7 +82,7 @@ class HomeController extends Controller
         $diadiem->save();
         return view('home.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt]);
     }
-    
+
     function comment(Request $request,$idUser,$idDiaDiem){
         $diadiem = DiaDiem::find($idDiaDiem);
         $user = User::find($idUser);
@@ -162,11 +165,11 @@ class HomeController extends Controller
         $diadiem->NoiBat = 0;
         $diadiem->SoLuotXem = 0;
         if($id == 1){
-            $diadiem->TrangThai = 1; 
+            $diadiem->TrangThai = 1;
         }else{
-            $diadiem->TrangThai = 0;      
+            $diadiem->TrangThai = 0;
         }
-         
+
         $diadiem->idDacDiem = $request->DacDiem;
         $diadiem->save();
         return redirect('home/home/'.$id)->with('thongbao', 'Bài viết của bạn đang được chờ xét duyệt');
@@ -180,7 +183,7 @@ class HomeController extends Controller
         $diadiem ->delete();
         return redirect('home/home/'.$idUser);
     }
-    public function getBackView($id,$tacgia,$idUser){      
+    public function getBackView($id,$tacgia,$idUser){
         return redirect('home/view/'.$id.'/'.$tacgia.'/'.$idUser);
     }
     // sửa bài
@@ -216,7 +219,7 @@ class HomeController extends Controller
         $diadiem->TrangThai = 1;
         $diadiem->idDacDiem = $request->DacDiem;
 
-     
+
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
@@ -233,10 +236,10 @@ class HomeController extends Controller
             $diadiem->HinhAnh = $hinh;
         }else{
             $diadiem->HinhAnh = $diadiem->HinhAnh;
-        }   
+        }
 
         $diadiem->save();
         return redirect('home/view/'.$id.'/'.$tacgia.'/'.$idUser)->with('thongbao', 'Sửa thành công');
-        
+
     }
 }
