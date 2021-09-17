@@ -33,9 +33,17 @@
 </head>
 <body>
     <div id="wrapper" style="position:relative">
-        @include('admin.layout.header')
-        @yield('content')
-        @include('admin.layout.footer')
+        <div class="container-fuild">
+            <div class="row">
+                <div class="col-2">
+                    @include('admin.layout.menu')
+                </div>
+                <div class="col-10">
+                    @yield('content')
+                </div>
+            </div>
+        </div>  
+        {{-- @include('admin.layout.footer') --}}
     </div>
    
     <script rel="stylesheet" href="admin_asset/js/admin.js"></script>

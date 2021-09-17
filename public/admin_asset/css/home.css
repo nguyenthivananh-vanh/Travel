@@ -122,6 +122,20 @@ li a i {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
 }
+.avatar-user{
+    width:50px;
+    height:50px;
+    object-fit: cover;
+}
+.post-img{
+    object-fit: cover;
+}
+.content{
+    min-height: 80vh;
+  }
+/* #test1{
+    color:red;
+} */
 
 .list-setting-item a:last-child {
     border-top-left-radius: 2px;
@@ -345,6 +359,41 @@ li a i {
 /* done detail */
 
 
+
+
+/* menu sub detail */
+.sub-content{
+    width:15%;
+    position:fixed; 
+    right:0; top:84px; 
+    height:80vh; 
+   
+}
+/* .sub-menu-detail li {
+	float: none;
+	line-height: 48px
+} */
+
+.sub-menu-detail li.active {
+	background-color: rgba(0, 0, 0, 0.05)
+}
+
+/* .sub-menu-detail li>a {
+	color: rgba(0, 0, 0, 0.87);
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	height: 48px;
+	line-height: 48px;
+	padding: 0 32px
+} */
+
+.sub-menu-detail li:hover {
+	background-color: rgba(0, 0, 0, 0.05)
+}
+/* end menu sub detail */
+
+
 /* menu */
 
 .menu__title {
@@ -378,6 +427,9 @@ li a i {
 
 .list-group-item-dd a:hover {
     color: #1976d2;
+}
+.list-item-left-menu a:hover{
+    color:#1976d2 !important;
 }
 
 .list-item-left-menu a:hover {
