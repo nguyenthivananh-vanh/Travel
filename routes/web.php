@@ -74,6 +74,7 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::get('update/{id}', 'App\Http\Controllers\UserController@getUpdate');
         Route::post('update/{id}', 'App\Http\Controllers\UserController@postUpdate');
         Route::post('search', 'App\Http\Controllers\UserController@search');
+        Route::get('showSearch/{key}', 'App\Http\Controllers\UserController@showSearch');
 
     });
     Route::group(['prefix' => 'diadiem'], function () {
@@ -85,12 +86,26 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::post('update/{id}', 'App\Http\Controllers\DiaDiemController@postUpdate');
         Route::get('delete/{id}', 'App\Http\Controllers\DiaDiemController@getDelete');
         Route::post('search', 'App\Http\Controllers\DiaDiemController@search');
+        Route::get('showSearch/{key}', 'App\Http\Controllers\DiaDiemController@showSearch');
         Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\DiaDiemController@view');
         Route::get('/duyet/{id}', 'App\Http\Controllers\DiaDiemController@duyet');
+    });
+    Route::group(['prefix' => 'video'], function () {
+        Route::get('list', 'App\Http\Controllers\VideoController@getList');
+        Route::get('add', 'App\Http\Controllers\VideoController@getAdd');
+        Route::post('add', 'App\Http\Controllers\VideoController@postAdd');
+        Route::get('update/{id}', 'App\Http\Controllers\VideoController@getUpdate');
+        Route::post('update/{id}', 'App\Http\Controllers\VideoController@postUpdate');
+        Route::get('delete/{id}', 'App\Http\Controllers\VideoController@getDelete');
+        Route::post('search', 'App\Http\Controllers\VideoController@search');
+        Route::get('showSearch/{key}', 'App\Http\Controllers\VideoController@showSearch');
+       
     });
     Route::group(['prefix' => 'comment'], function () {
         Route::get('list', 'App\Http\Controllers\CommentController@getList');
         Route::get('delete/{id}', 'App\Http\Controllers\CommentController@getDelete');
+        Route::post('search', 'App\Http\Controllers\CommentController@search');
+        Route::get('showSearch/{key}', 'App\Http\Controllers\CommentController@showSearch');
     });
     Route::group(['prefix' => 'thongke'], function () {
         Route::get('list', 'App\Http\Controllers\ThongKeController@getList');

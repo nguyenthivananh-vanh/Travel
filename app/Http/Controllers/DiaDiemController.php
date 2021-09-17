@@ -149,8 +149,12 @@ class DiaDiemController extends Controller
     public function search(Request $request)
     {
         $key = $request->search;
-        $dd = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")->orwhere('TomTat', 'like', "%$key%")->take(30)->paginate(5);
-        return view('admin.diadiem.search', ['DiaDiem' => $dd]);
+        return redirect('admin/diadiem/showSearch/'.$key);
+    }
+    public function showSearch($key)
+    {
+        $dd = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")->orwhere('TomTat', 'like', "%$key%")->paginate(3);
+        return view('admin.diadiem.list', ['DiaDiem' => $dd]);
     }
 
     public function view($id,$tacgia){

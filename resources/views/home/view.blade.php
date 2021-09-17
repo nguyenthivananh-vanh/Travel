@@ -196,7 +196,7 @@
         <div class="post-related">
             <div class="destination">
                 <div class="destination-before"></div>
-                <span style="margin: 0 10px" class="destination-tittle" id="test1">Điểm đến hấp dẫn</span>
+                <span style="margin: 0 10px" class="destination-tittle" id="test1">Điểm đến liên quan</span>
                 <div class="destination-after"></div>
             </div>
             <div id="content-slider">

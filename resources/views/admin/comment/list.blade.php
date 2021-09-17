@@ -7,8 +7,30 @@
         <div class="col s12">
           <div class="card">
             <div class="card-content">
-              <span class="card-title">Comments</span>
-              <table class="striped">
+              <div class="row">
+                <div class="col-2">
+                    <span class="card-title">Comment</span>
+                </div>
+                <div class="col-4">
+                    <div class="search-container">
+                        <form action="admin/comment/search" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                            <input
+                                style="border: 1px solid #1976d2; border-radius: 3px;padding-left: 10px"
+                                type="text" placeholder="Search.." name="search">
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            @if(session('thongbao'))
+              <div class="alert alert-success">
+                  {{session('thongbao')}}<br>
+              </div>
+            @endif
+            <br>
+          <div class="table table-responsive">
+              <table class="striped"> 
                 <thead>
                     <tr>
                       <th>ID</th>
@@ -43,6 +65,7 @@
             <div class="page">
               {{$comment->links("pagination::bootstrap-4")}}
             </div>
+          </div>
           </div>
         </div>
       </div>

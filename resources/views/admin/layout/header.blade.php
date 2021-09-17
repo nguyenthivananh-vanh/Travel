@@ -1,6 +1,6 @@
 
 <nav class="blue darken-2">
-    <div class="container">
+    <div class="container-fuild">
       <div class="nav-wrapper">
         <a href="admin/adminHome" class="brand-logo" id="adminH">Admin</a>
         <a  data-activates="side-nav" class="button-collapse show-on-large right"id="btnShowSideNav" onclick="showSidebar()">
@@ -22,6 +22,9 @@
           </li>
           <li>
             <a href="admin/diadiem/list">Địa điểm</a>
+          </li>
+          <li>
+            <a href="admin/video/list">Video</a>
           </li>
           <li>
             <a href="admin/user/list">Users</a>

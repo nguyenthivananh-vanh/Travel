@@ -86,7 +86,7 @@ class DacDiemController extends Controller
         }else{
             $key = $key;
         }
-        $dacdiem = DacDiem::where('Ten', 'like', "%$key%")->orwhere('TenKhongDau', 'like', "%$key%")->orwhere('idVungMien', 'like', "%$key%")->take(30)->paginate(4);
-        return view('admin.dacdiem.search', ['dacdiem' => $dacdiem]);
+        $dacdiem = DacDiem::where('Ten', 'like', "%$key%")->orwhere('TenKhongDau', 'like', "%$key%")->orwhere('idVungMien', 'like', "%$key%")->take(30)->paginate(5);
+        return view('admin.dacdiem.list', ['dacdiem' => $dacdiem]);
     }
 }

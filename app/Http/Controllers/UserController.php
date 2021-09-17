@@ -210,10 +210,16 @@ class UserController extends Controller
     }
 
     //Tìm kiếm
-    public function search(Request $request){
+    
+    public function search(Request $request)
+    {
         $key = $request->search;
-        $user = User::where('Ten','like',"%$key%")->orwhere('email','like',"%$key%")->take(30)->paginate(4);
-        return view('admin.user.search',['User'=>$user]);
+        return redirect('admin/user/showSearch/'.$key);
     }
-
+    public function showSearch($key)
+    {
+        $diadiem = DiaDiem::all();
+        $user = User::where('Ten','like',"%$key%")->orwhere('email','like',"%$key%")->paginate(5);
+        return view('admin.user.list',['User'=>$user]);
+    }
 }
