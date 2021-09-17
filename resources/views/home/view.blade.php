@@ -1,6 +1,7 @@
 @extends('layout.index')
 @section('content')
     <section class="content px-2 mt-6">
+        <div style="width:80%">
         <div class="container-fluid mt-2">
             <div class="post mb-4">
                 <div class="post-header">
@@ -229,10 +230,29 @@
         </div>
 
         </div>
+        </div>
+        <div class="sub-content">
+            <h5 class="menu__title">Địa điểm liên quan</h5>
+            <ul class="list-group sub-menu-detail" >
+            <li class="list-group-item">
+                <a>Hòn Gai</a>
+            </li>
+            <li class="list-group-item">
+                <a>Phú quý</a>
+            </li>
+           
+            </ul>       
+                
+        </div>
     </section>
-
-
 @endsection
+
+
+@section('sub-content')
+<span>hi
+</span>
+@endsection
+
 @section('script')
 
     <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->

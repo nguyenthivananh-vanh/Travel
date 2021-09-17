@@ -35,17 +35,20 @@
   
 </head>
 <body>
-     <div class="container-fuild">
+     <div class="">
         @include('layout.header')
         @yield('slider')
         @yield('search')
             
-        <div class="row mt-4 content">                
+        <div class="row mt-4">     
+            
             @include('layout.menu')
-            <div class="col-8" style="box-shadow: 0 10px 20px rgba(0,0,0,0.23), 0 6px 6px rgba(0,0,0,0.19);margin-left:20px">
+                   
+            <div class="" style="box-shadow: 0 10px 20px rgba(0,0,0,0.23), 0 6px 6px rgba(0,0,0,0.19);margin-left:20px; width:82%">
                 @yield('content')
+                
             </div>
-            @yield('sub-content')
+            
         </div> 
         @include('layout.footer')
     </div>
