@@ -86,7 +86,7 @@
         </h4>
         @if(isset($user))
             <div class="row">
-                @foreach ($DiaDiem as $diadiem)
+                @foreach ($Diadiem as $diadiem)
                     <div class="col-4">
                         <div class="card">
                             <a href="home/view/{{$diadiem->id}}/{{$diadiem->TacGia}}/{{$user->id}}">
@@ -120,7 +120,7 @@
             </div>
         @else
             <div class="row">
-                @foreach ($DiaDiem as $ddiem)
+                @foreach ($Diadiem as $ddiem)
                     <div class="col-4">
 
                         <div class="card">
@@ -165,7 +165,7 @@
             <div class="wrapper">
                 <!-- <h2>Slick Carousel Example<h2> -->
                 <div class="autoplay">
-                    @foreach ($Diadiem as $ddiem)
+                    @foreach ($DiaDiem as $ddiem)
                         <div class="col-4">
                             <div class="card">
                                 <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">

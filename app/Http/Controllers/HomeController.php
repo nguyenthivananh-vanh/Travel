@@ -11,17 +11,17 @@ use Illuminate\Support\Str;
 class HomeController extends Controller
 {
     function home(){
-        $diadiem = DiaDiem::orderBy('SoLuotXem','DESC')->where('TrangThai',1)->take(6)->get();
-        $diadiem_new = DiaDiem::orderBy('id','DESC')->take(6)->get();
+        $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(6)->get();
+        $diadiem = DiaDiem::orderBy('id','DESC')->take(6)->get();
         $vungmien = VungMien::all();
-        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem_new,'Diadiem'=>$diadiem]);
+        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$noibat,'Diadiem'=>$diadiem]);
     }
     function homeUser($id){
         $user = User::find($id);
-        $diadiem = DiaDiem::orderBy('SoLuotXem','DESC')->where('TrangThai',1)->take(6)->get();
-        $diadiem_new = DiaDiem::orderBy('id','DESC')->take(6)->get();
+        $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(6)->get();
+        $diadiem = DiaDiem::orderBy('id','DESC')->take(6)->get();
         $vungmien = VungMien::all();
-        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$diadiem_new, 'Diadiem'=>$diadiem ,'user'=>$user]);
+        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$noibat,'Diadiem'=>$diadiem ,'user'=>$user]);
     }
     function search(Request $request){
         $vungmien = VungMien::all();
@@ -47,7 +47,7 @@ class HomeController extends Controller
     function DacDiemSearchUser($id,$idUser){
         $vungmien = VungMien::all();
         $noibat = DiaDiem::where('idDacDiem',$id)->orderBy('SoLuotXem','DESC')->take(6)->get();
-        $diadiem = DiaDiem::where('idDacDiem',$id)->orderBy('id','DESC')->paginate(3);
+        $diadiem = DiaDiem::where('idDacDiem',$id)->orderBy('id','DESC')->paginate(3    );
         $user = User::find($idUser);
 
         return view('home.dacdiem.search',['noibat'=>$noibat,'vungmien'=>$vungmien,'diadiem'=>$diadiem,'user'=>$user]);

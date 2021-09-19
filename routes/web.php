@@ -97,6 +97,18 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
 
     });
 
+    Route::group(['prefix' => 'monan'], function () {
+        Route::get('list', 'App\Http\Controllers\MonAnController@getList');
+        Route::get('add', 'App\Http\Controllers\MonAnController@getAdd');
+        Route::post('add', 'App\Http\Controllers\MonAnController@postAdd');
+        Route::get('update/{id}', 'App\Http\Controllers\MonAnController@getUpdate');
+        Route::post('update/{id}', 'App\Http\Controllers\MonAnController@postUpdate');
+        Route::get('delete/{id}', 'App\Http\Controllers\MonAnController@getDelete');
+        Route::post('search', 'App\Http\Controllers\MonAnController@postSearch');
+        Route::get('duyetbai', 'App\Http\Controllers\MonAnController@getListDuyet');
+        Route::get('duyet/{id}', 'App\Http\Controllers\MonAnController@getDuyet');
+    });
+
     Route::group(['prefix' => 'ajax'], function () {
         Route::get('dacdiem/{idvm}', 'App\Http\Controllers\AjaxController@getDacDiem');
     });
