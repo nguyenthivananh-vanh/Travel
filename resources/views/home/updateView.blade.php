@@ -81,7 +81,7 @@
                                 
                                 <div class="card-action">
                                     <button class="btn green" style="color: white">Cập nhật</button>
-                                    <button class="btn red" style="color: white">Xoá/button>
+                                    <button class="btn red" style="color: white">Xoá</button>
                                 </div>
                             </form>
 

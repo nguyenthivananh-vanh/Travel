@@ -1,0 +1,18 @@
+.user-view {
+    background-color: #1976d2;
+    height: 70px;
+    color: white;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-view a {
+    color: white;
+    text-decoration: none;
+}
+
+.side-nav-admin a:hover {
+    color: #1976d2;
+}

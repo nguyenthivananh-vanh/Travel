@@ -3,7 +3,7 @@
 @section('content')
 <link rel="stylesheet" href="admin_asset/css/pagination.css">
 <section class="section section-users grey lighten-4 content">
-    <div class="container-admin">
+    <div class="container-fuild">
       <div class="row">
         <div >
           <div class="card">
