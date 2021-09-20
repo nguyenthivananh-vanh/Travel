@@ -1577,7 +1577,7 @@ h2 {
 }
 
 .teal {
-    background-color: #277fbc !important;
+    background-image: linear-gradient(to right, #5680E9, #84CEEB, #5AB9EA, #C1C8E4);
 }
 
 .teal-text {

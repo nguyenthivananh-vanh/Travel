@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/test', function () {
+    return view('home.detail-Post');
+});
 
 Route::get('/register', 'App\Http\Controllers\UserController@getRegister');
 Route::post('/register', 'App\Http\Controllers\UserController@postRegister');
