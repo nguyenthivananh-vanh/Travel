@@ -26,7 +26,7 @@
                         </div>
                         @if(isset($user))
                             @if($user->id == $userAuthor->id)
-                                <div class="col-7 text-right">
+                                <div class="col-7 text-right" style="z-index: 999">
                                     <div onClick="showSettingPost()" class="btn-setting-post"><i id="btnSettingPost"
                                                                                                  class="fas fa-ellipsis-h"></i>
                                     </div>
@@ -36,7 +36,7 @@
                                                                          href="home/deleteView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Xóa
                                                 bài viết</a></li>
                                         <li class="list-setting-item"><a style="font-weight: 500"
-                                                                         href="home/updateView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Sửa
+                                                                         href="home/notifyUpdate/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Sửa
                                                 bài viết</a></li>
                                     </ul>
                                 </div>
@@ -46,6 +46,13 @@
                     </div>
                 </div>
                 <div class="post-content">
+                    @if(isset($video))
+                    <h3 style="color: #277fbc">{{$video->TieuDe}}</h3>
+                    <video controls autoplay width="100%" height="500px">
+                        <source src="upload/video/{{$video->video}}"   >
+                    </video>
+                    {!! html_entity_decode( $video->Mota) !!}
+                    @endif
                     {!! html_entity_decode( $DiaDiem->NoiDung) !!}
                 </div>
                 <div class="post-footer text-right" style="text-align:right">
@@ -126,28 +133,11 @@
                                                     class="far fa-trash-alt"></i> Xoá</a></li>
                                     @endif
                                 @endif
-                                {{-- <li><i class="fa fa-pencil"></i></li> --}}
+                               
                             </ul>
-                        </div><!-- inc. share/reply and love -->
-                        <!-- <div class="comment_tools col-6">
-                            <ul style="margin-right:80px !important">
-                                <li><a><i class="fa fa-heart love"><span class="love_amt"> 4039</span></i></a></li>
-                                <li><a><i class="far fa-trash-alt"></i></a></li>
-                                <li><a><i class="fa fa-pencil"></i> <span class="user"></span></a></li>
-                                <li><a><i class="fa fa-reply"></i></a></li>
-
-                            </ul>
-                        </div> -->
+                        </div>
                     </div>
-                    {{-- <div class="comment_body" style="margin:0 50px 0 10%; padding-right:10%">
-
-                                <div class="replied_to">
-                                    <p>
-                                        <b class="user">Andrew Johnson:</b>
-                                        <span>That's exactly what I was thinking!</span>
-                                    </p>
-                            </div>
-                        </div> --}}
+                  
                 @endforeach
             </div>
 
@@ -155,43 +145,6 @@
 
 
         <hr>
-        {{-- <div class="post-related">
-            <div class="row">
-                <h4>Tin liên quan</h4>
-                {{-- @foreach ($diadiemList as $item)
-                {{$item}}
-                @endforeach
-                --}}
-        {{-- </div>
-        <div class="row">
-             @foreach ($diadiemList as $row)
-                <div class="col-4">
-                    <div class="card">
-                        <a href="#">
-                        <div class="card-image">
-                            <img post-img style="height:200px" src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
-                            <span class="card-title">{{$row->TieuDe}}</span>
-                        </div>
-                        </a>
-                        <div class="card-content" >
-                            <p style="display: block;
-                                        display: -webkit-box;
-                                        height: 38px;
-                                        margin: 0 auto;
-                                        font-size: 14px;
-                                        line-height: 1.5;
-                                        -webkit-line-clamp: 2;
-                                        -webkit-box-orient: vertical;
-                                        overflow: hidden;
-                                        text-overflow: ellipsis;
-                                    ">{{$row->TomTat}}</p>
-                        </div>
-                    </div>
-                </div>
-
-            @endforeach
-        </div>
-    </div> --}}
 
         <div class="post-related">
             <div class="destination">
@@ -202,7 +155,7 @@
             <div id="content-slider">
                 <div class="wrapper">
                     <div class="autoplay-view">
-                        @foreach ($diadiemList as $row)
+                        @foreach ($noibat as $row)
                             <div class="col-4">
                                 <div class="card">
                                     @if(isset($user))
@@ -233,16 +186,53 @@
         </div>
         <div class="sub-content">
             <h5 class="menu__title">Địa điểm liên quan</h5>
-            <ul class="list-group sub-menu-detail" >
-            <li class="list-group-item">
-                <a>Hòn Gai</a>
-            </li>
-            <li class="list-group-item">
-                <a>Phú quý</a>
-            </li>
+          
+            @foreach ($diadiemList as $row)
+                <ul class="list-group sub-menu-detail" >
+                    @if(isset($user))
+                    <li class="list-group-item">
+                        <a href="home/view/{{$row->id}}/{{$row->TacGia}}/{{$user->id}}">{{$row->TieuDe}}</a>
+                    </li>
+                    @else
+                    <li class="list-group-item">
+                        <a href="home/view/{{$row->id}}/{{$row->TacGia}}">{{$row->TieuDe}}</a>
+                    </li> 
+                    @endif         
+                </ul>       
+            @endforeach
+            <hr>
+            @if(isset($monan))
+            <h5 class="menu__title">Đặc sản hấp dẫn</h5>
+            @foreach ($monan as $monan)
+                <div class="card">
+                    <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}">
+                        <div class="card-image">
+                            <img class="post-img" style="height:200px" src="upload/monan/{{$monan->HinhAnh}}"
+                                alt="img">
+                            <span class="card-title">{{$monan->TenMonAn}}</span>
+                        </div>
+                    </a>
+                    <div class="card-content">
+                        <p style="display: block;
+                                    display: -webkit-box;
+                                    height: 38px;
+                                    margin: 0 auto;
+                                    font-size: 14px;
+                                    line-height: 1.5;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;">{{$monan->TieuDe}}</p>
+                    </div>
+
+                 </div>
+            @endforeach
+            @endif
+            
+        </div>
+        
+      
            
-            </ul>       
-                
         </div>
     </section>
 @endsection

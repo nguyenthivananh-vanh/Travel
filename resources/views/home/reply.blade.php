@@ -74,6 +74,8 @@
   
                   <div class="card-action">
                     <button class="btn green">Đăng</button>
+                    <button class="btn green"><a href="home.postCulinary">Review Món Ăn</a> </button>
+                    <button class="btn green"><a href="home.postVid"> Video</a></button>
                     <button class="btn red">Xoá</button>
                   </div>
                 </form>

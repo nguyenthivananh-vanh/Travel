@@ -25,23 +25,44 @@ Route::post('/login', 'App\Http\Controllers\UserController@postLogin');
 Route::group(['prefix' => 'home'], function () {
     Route::get('/home/{id}', 'App\Http\Controllers\HomeController@homeUser');
     Route::get('/home', 'App\Http\Controllers\HomeController@home');
+    // tìm kiếm
     Route::post('/search', 'App\Http\Controllers\HomeController@search');
     Route::post('/search/{id}', 'App\Http\Controllers\HomeController@searchUser');
-    Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\HomeController@view');
-    Route::get('/view/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@viewUser');
     Route::group(['prefix' => 'dacdiem'], function () {
         Route::get('/search/{id}', 'App\Http\Controllers\HomeController@DacDiemSearch');
         Route::get('/search/{id}/{idUser}', 'App\Http\Controllers\HomeController@DacDiemSearchUser');
     });
+    // trang chi tiết
+    Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\HomeController@view');
+    Route::get('/view/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@viewUser');
+    Route::get('/viewMonAn/{id}/{idDiaDiem}', 'App\Http\Controllers\HomeController@viewMonAn');
+    
+    // comment
     Route::post('/comment/{idUser}/{idDiaDiem}', 'App\Http\Controllers\HomeController@comment');
     Route::get('/deleteCmt/{idcmt}/{idDiaDiem}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@commentDelete');
+    // viết bài
     Route::get('/reply/{id}', 'App\Http\Controllers\HomeController@getReply');
     Route::post('/reply/{id}', 'App\Http\Controllers\HomeController@postReply');
     Route::get('/deleteView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getDeleteView');
     Route::get('/acceptDelete/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getAcceptDelete');
     Route::get('/backView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getBackView');
+    // cập nhật bài viết
+    Route::get('/notifyUpdate/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@notifyUpdate');
     Route::get('/updateView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getUpdateView');
     Route::post('/updateView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@postUpdateView');
+    Route::get('/updateCulinary/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getUpdateCulinary');
+    Route::get('/showFormUpdate/{id}/{tacgia}/{idUser}/{idMonAn}', 'App\Http\Controllers\HomeController@showFormUpdate');
+    Route::post('/updateCulinary/{id}/{tacgia}/{idUser}/{idMonAn}', 'App\Http\Controllers\HomeController@postUpdateCulinary');
+    Route::get('/updateVideo/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getUpdateVideo');
+    Route::post('/updateVideo/{id}/{tacgia}/{idUser}/{idVideo}', 'App\Http\Controllers\HomeController@postUpdateVideo');
+    // món ăn
+    Route::get('/culinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@notifyCulinary');
+    Route::get('/getCulinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@getCulinary');
+    Route::post('/getCulinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@postCulinary');
+    // video
+    Route::get('/video/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@notifyVideo');
+    Route::get('/getVideo/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@getVideo');
+    Route::post('/Video/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@postVideo');
 });
 Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
     Route::get('adminHome', 'App\Http\Controllers\DiaDiemController@getList');
@@ -119,7 +140,9 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::get('update/{id}', 'App\Http\Controllers\MonAnController@getUpdate');
         Route::post('update/{id}', 'App\Http\Controllers\MonAnController@postUpdate');
         Route::get('delete/{id}', 'App\Http\Controllers\MonAnController@getDelete');
-        Route::post('search', 'App\Http\Controllers\MonAnController@postSearch');
+        Route::post('search', 'App\Http\Controllers\MonAnController@search');
+        Route::get('showSearch/{key}', 'App\Http\Controllers\MonAnController@showSearch');
+        // Route::post('search', 'App\Http\Controllers\MonAnController@postSearch');
         Route::get('duyetbai', 'App\Http\Controllers\MonAnController@getListDuyet');
         Route::get('duyet/{id}', 'App\Http\Controllers\MonAnController@getDuyet');
     });

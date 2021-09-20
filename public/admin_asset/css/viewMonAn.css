@@ -1,0 +1,24 @@
+.image img {
+    width: 100%;
+    position: relative;
+    height: 700px;
+    overflow: hidden;
+    max-height: 700px;
+}
+
+.title {
+    position: absolute;
+    z-index: 999;
+    left: 10%;
+    top: 40%;
+}
+
+.title h2 {
+    color: white;
+    font-size: 50px;
+}
+
+.title h3 {
+    color: white;
+    font-size: 40px;
+}

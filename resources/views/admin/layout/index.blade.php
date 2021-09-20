@@ -72,18 +72,12 @@
     <script src="admin_asset/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
     <script src="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    {{-- <script src="admin_asset/ckeditor_4.16.2.full/ckeditor/ckeditor.js"></script> --}}
     <script type="text/javascript">
         CKEDITOR.replace('ckeditor');
     </script>
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
-        <script>
-            
-  
-   
-
-
-    </script>
     @yield('script')
 </body>
 </html>

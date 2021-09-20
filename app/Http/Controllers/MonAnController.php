@@ -13,13 +13,13 @@ class MonAnController extends Controller
     public function getList()
     {
         $diadiem = DiaDiem::all();
-        $monan = MonAn::where('TrangThai', 1)->paginate(3);
+        $monan = MonAn::paginate(3);
         return view('admin.monan.list', ['MonAn' => $monan, 'DiaDiem' => $diadiem]);
     }
 
     public function getAdd()
     {
-        $diadiem = DiaDiem::where('TrangThai', 1)->get();
+        $diadiem = DiaDiem::all();
         return view('admin.monan.add', ['DiaDiem' => $diadiem]);
     }
 
@@ -39,13 +39,14 @@ class MonAnController extends Controller
                 'iddd.required' => 'Bạn chưa nhập địa điểm',
 
             ]);
-        $diadiem = DiaDiem::where('TrangThai', 1)->get();
+        $diadiem = DiaDiem::all();
         $monan = new MonAn();
         $monan->TenMonAn = $request->tenmonan;
+        $monan->TieuDe = $request->tieude;
         $monan->Mota = $request->mota;
         $monan->idDiaDiem = $request->iddd;
-        $monan->tacgia = $request->tacgia;
-        $monan->trangthai = 1;
+      
+   
 
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
@@ -81,22 +82,22 @@ class MonAnController extends Controller
             [
                 'tenmonan' => 'required',
                 'mota' => 'required',
-                'tacgia' => 'required',
+                'tieude' => 'required',
                 'iddd' => 'required',
             ],
             [
                 'tenmonan.required' => 'Bạn chưa nhập tên món ăn',
                 'mota.required' => 'Bạn chưa nhập mô tả',
-                'tacgia.required' => 'Bạn chưa nhập tác giả',
+                'tieude.required' => 'Bạn chưa nhập tiêu đề',
                 'iddd.required' => 'Bạn chưa nhập id đặc điểm',
             ]);
 
         $monan = MonAn::find($id);
         $monan->TenMonAn = $request->tenmonan;
+        $monan->TieuDe = $request->tieude;
         $monan->MoTa = $request->mota;
-        $monan->tacgia = $request->tacgia;
+       
         $monan->idDiaDiem = $request->iddd;
-        $monan->TrangThai = $request->duyet;
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
@@ -117,23 +118,33 @@ class MonAnController extends Controller
         $monan->save();
         return redirect('admin/monan/update/' . $id)->with('thongbao', 'Sửa thành công');
     }
-
-    public function postSearch(Request $request){
+    public function search(Request $request)
+    {
         $key = $request->search;
-        $ketqua = MonAn::where('TenMonAn', 'like', "%$key%")->orwhere('MoTa', 'like', "%$key%")->take(30)->paginate(5);
-        return view('admin/monan/list',['MonAn'=>$ketqua]);
+        return redirect('admin/monan/showSearch/'.$key);
+    }
+    public function showSearch($key)
+    {
+        $monan = MonAn::where('TenMonAn', 'like', "%$key%")->orwhere('MoTa', 'like', "%$key%")->take(30)->paginate(5);
+        return view('admin.diadiem.list', ['MonAn' => $monan]);
     }
 
-    public function getListDuyet(){
-        $monan = MonAn::where('TrangThai',0)->paginate(3);
-        $diadiem = DiaDiem::all();
-        return view('admin.monan.listDuyet', ['MonAn' => $monan, 'DiaDiem' => $diadiem]);
-    }
+    // public function postSearch(Request $request){
+    //     $key = $request->search;
+    //     $ketqua = MonAn::where('TenMonAn', 'like', "%$key%")->orwhere('MoTa', 'like', "%$key%")->take(30)->paginate(5);
+    //     return view('admin/monan/list',['MonAn'=>$ketqua]);
+    // }
 
-    public function getDuyet($id){
-        $monan = MonAn::find($id);
-        $monan->TrangThai = 1;
-        $monan->save();
-        return redirect('admin/monan/duyetbai');
-    }
+    // public function getListDuyet(){
+    //     $monan = MonAn::where('TrangThai',0)->paginate(3);
+    //     $diadiem = DiaDiem::all();
+    //     return view('admin.monan.listDuyet', ['MonAn' => $monan, 'DiaDiem' => $diadiem]);
+    // }
+
+    // public function getDuyet($id){
+    //     $monan = MonAn::find($id);
+    //     $monan->TrangThai = 1;
+    //     $monan->save();
+    //     return redirect('admin/monan/duyetbai');
+    // }
 }

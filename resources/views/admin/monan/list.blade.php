@@ -21,9 +21,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="col-4 text-right" style="text-align: right;">
-                                    <button class="btn-add"><a href="admin/monan/duyetbai">Duyệt bài</a></button>
-                                </div>
+                              
                                 <div class="col-2 text-right" style="text-align: right;">
                                     <button class="btn-add"><a href="admin/monan/add">Thêm</a></button>
                                 </div>
@@ -40,34 +38,27 @@
                                     <tr>
                                         <th style=" border: 1px solid #ddd;">Id</th>
                                         <th style=" border: 1px solid #ddd;">Tên Món Ăn</th>
+                                        <th style=" border: 1px solid #ddd;">Tiêu đề</th>
                                         <th style=" border: 1px solid #ddd;">Mô Tả</th>
                                         <th style=" border: 1px solid #ddd;">Hình ảnh</th>
                                         <th style=" border: 1px solid #ddd;">Địa điểm</th>
-                                        <th style=" border: 1px solid #ddd;">Trang thái</th>
                                         <th style=" border: 1px solid #ddd;">Tác vụ</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach ($MonAn as $monan)
-
-                                        @if($monan->TrangThai == 1)
                                             <tr>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->id}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->TenMonAn}}</td>
+                                                <td style=" border: 1px solid #ddd;">{{$monan->TieuDe}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->MoTa}}</td>
                                                 <td style=" border: 1px solid #ddd;">
                                                     <img src="upload/monan/{{$monan->HinhAnh}}" alt="img"
                                                          width="100px">
                                                 </td>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->diadiem->TieuDe}}</td>
-                                                <td style=" border: 1px solid #ddd;">
-                                                    @if($monan->TrangThai==1)
-                                                        {{"Đã duyệt"}}
-                                                    @else
-                                                        {{"Chưa duyệt"}}
-                                                    @endif
-                                                </td>
+                                                
                                                 <td style=" border: 1px solid #ddd;">
                                                     <a href="admin/monan/update/{{$monan->id}}" class="green-text">
                                                         <i class="material-icons">done</i>
@@ -77,33 +68,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                        @else
-                                            <tr>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->id}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->TenMonAn}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->MoTa}}</td>
-                                                <td style=" border: 1px solid #ddd;">
-                                                    <img src="upload/monan/{{$monan->HinhAnh}}" alt="img"
-                                                         width="100px">
-                                                </td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->diadiem->TieuDe}}</td>
-                                                <td style=" border: 1px solid #ddd;">
-                                                    @if($monan->TrangThai==1)
-                                                        {{"Đã duyệt"}}
-                                                    @else
-                                                        {{"Chưa duyệt"}}
-                                                    @endif
-                                                </td>
-                                                <td style=" border: 1px solid #ddd;">
-                                                    <a href="admin/monan/update/{{$monan->id}}" class="green-text">
-                                                        <i class="material-icons">done</i>
-                                                    </a>
-                                                    <a href="admin/monan/delete/{{$monan->id}}" class="red-text">
-                                                        <i class="material-icons">close</i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        @endif
+                                        
 
                                     @endforeach
 

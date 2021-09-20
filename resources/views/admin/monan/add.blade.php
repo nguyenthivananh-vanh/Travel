@@ -33,6 +33,10 @@
                                     <input type="text" id="tenmonan" value="" name="tenmonan">
                                 </div>
                                 <div class="input-field">
+                                    <label for="tacgia">Tiêu Đề</label><br>
+                                    <input type="text" id="tieude" value="" name="tieude">
+                                </div>
+                                <div class="input-field">
                                     <label for="hinhanh">Image</label><br><br>
                                     <input type="file" id="hinhanh" name="hinhanh" class="form-control"/>
                                 </div>
@@ -50,10 +54,7 @@
                                         @endforeach
                                     </datalist>
                                 </div>
-                                    <div class="input-field">
-                                        <label for="tacgia">Tác giả</label><br>
-                                        <input type="text" id="tacgia" value="" name="tacgia">
-                                    </div>
+                                   
                                 <div class="card-action">
                                     <button class="btn green">Add</button>
                                     <button class="btn red">Reset</button>

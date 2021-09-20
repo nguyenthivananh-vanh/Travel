@@ -1,4 +1,4 @@
-@extends('admin.layout.index')
+@extends('index')
 @section('content')
 
     <!-- Section: Details -->
@@ -26,12 +26,18 @@
                                     {{session('thongbao')}}<br>
                                 </div>
                             @endif
-                            <form action="admin/monan/duyet/{{$MonAn->id}}" method="POST"
+                            <form action="home/updateCulinary/{{$id}}/{{$tacgia}}/{{$idUser}}/{{$MonAn->id}}" method="POST"
                                   enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="input-field">
                                     <label for="title">Tên Món Ăn</label><br>
                                     <input type="text" id="tenmonan" value="{{$MonAn->TenMonAn}}" name="tenmonan">
+                                </div>
+                                <div class="input-field">
+                                    
+                                    <label for="tacgia">Tiêu Đề</label><br>
+                                    <input type="text" id="tieude" value="{{$MonAn->TieuDe}}" name="tieude">
+                        
                                 </div>
                                 <div class="input-field">
                                     <label for="hinhanh">Image</label><br><br>
@@ -43,20 +49,9 @@
                                     <textarea class="textarea" id="ckeditor" name="mota"
                                               style="width: 700px; height: 200px; ">{{$MonAn->MoTa}}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label>Địa Điểm</label><br>
-                                    <input value="{{$MonAn->idDiaDiem}}" list="html" name="iddd"/>
-                                    <datalist id="html">
-                                        @foreach ($DiaDiem as $diadiem)
-                                            <option value="{{$diadiem->id}}">{{$diadiem->TieuDe}}</option>
-                                        @endforeach
-                                    </datalist>
-                                </div>
-                                <div class="input-field">
-                                    <label for="tacgia">Tác giả</label><br>
-                                    <input type="text" id="tacgia" value="{{$MonAn->tacgia}}" name="tacgia">
-                                </div>
-                                <div>
+                               
+                               
+                                {{-- <div>
                                     <label for="" id="level">Trạng thái bài viết</label><br><br>
                                     @if($MonAn->TrangThai ==1)
                                         <section class="section section-Details grey lighten-4">
@@ -86,12 +81,12 @@
                                                 <label class="form-check-label" for="inlineRadio2">Cấp phép đăng</label>
                                             </div>
                                         </section>
-                                    @endif
+                                    @endif --}}
                                     <div class="card-action">
                                         <button class="btn green">Update</button>
                                         <button class="btn red">Reset</button>
                                     </div>
-                                </div>
+                                {{-- </div> --}}
                             </form>
                         </div>
 
