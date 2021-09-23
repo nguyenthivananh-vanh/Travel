@@ -24,6 +24,12 @@ Route::get('/register', 'App\Http\Controllers\UserController@getRegister');
 Route::post('/register', 'App\Http\Controllers\UserController@postRegister');
 Route::get('/login', 'App\Http\Controllers\UserController@getLogin');
 Route::post('/login', 'App\Http\Controllers\UserController@postLogin');
+Route::get('/forgotPassWord', 'App\Http\Controllers\UserController@getForgotPassWord');
+Route::post('/forgotPassWord', 'App\Http\Controllers\UserController@postForgotPassWord');
+Route::get('otp', 'App\Http\Controllers\UserController@getOTP');
+Route::post('otp', 'App\Http\Controllers\UserController@postOTP');
+
+
 
 Route::group(['prefix' => 'home'], function () {
     Route::get('/home/{id}', 'App\Http\Controllers\HomeController@homeUser');
@@ -39,7 +45,7 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\HomeController@view');
     Route::get('/view/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@viewUser');
     Route::get('/viewMonAn/{id}/{idDiaDiem}', 'App\Http\Controllers\HomeController@viewMonAn');
-    
+
     // comment
     Route::post('/comment/{idUser}/{idDiaDiem}', 'App\Http\Controllers\HomeController@comment');
     Route::get('/deleteCmt/{idcmt}/{idDiaDiem}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@commentDelete');
@@ -123,7 +129,7 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::get('delete/{id}', 'App\Http\Controllers\VideoController@getDelete');
         Route::post('search', 'App\Http\Controllers\VideoController@search');
         Route::get('showSearch/{key}', 'App\Http\Controllers\VideoController@showSearch');
-       
+
     });
     Route::group(['prefix' => 'comment'], function () {
         Route::get('list', 'App\Http\Controllers\CommentController@getList');

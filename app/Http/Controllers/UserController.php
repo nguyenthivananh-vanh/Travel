@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\DiaDiem;
 use App\Models\VungMien;
 use App\Models\User;
+use App\Models\Otp;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use App\Rules\Captcha;
 
 class UserController extends Controller
@@ -210,7 +210,7 @@ class UserController extends Controller
     }
 
     //Tìm kiếm
-    
+
     public function search(Request $request)
     {
         $key = $request->search;
@@ -222,4 +222,58 @@ class UserController extends Controller
         $user = User::where('Ten','like',"%$key%")->orwhere('email','like',"%$key%")->paginate(5);
         return view('admin.user.list',['User'=>$user]);
     }
+
+    public function getForgotPassWord(){
+        return view('forgotPassWord');
+    }
+
+    public function postForgotPassWord(Request $request){
+        $user = User::where('email',$request->email)->first();
+        if (isset($user)){
+            $otp = new Otp();
+            $otp_code = rand(0,999999);
+            $otp->otp_code = $otp_code;
+            $otp->email = $request->email;
+            $otp->TrangThai = 0;
+            $otp->request = 0;
+            $otp->end = time()+1000;
+            $otp->save();
+            return redirect('http://127.0.0.1:8000/otp');
+        }else{
+            return redirect('forgotPassWord')->with('thongbao','Email không tồn tại');
+        }
+    }
+
+    public function getOTP(){
+        return view('admin.user.updatePass');
+    }
+
+    public function postOTP(Request $request){
+        $otp = Otp::where('email',$request->email)->orderBy('id','DESC')->first();
+        $user = User::where('email',$request->email)->first();
+        if ($otp->request < 4 ){
+
+//            if ($otp->end > time()){
+//                if ($otp->otp_code == $request->otp){
+//                    $otp->TrangThai = 1;
+//                    return "Thành Công";
+//                }else{
+//                    $otp->request = $otp->request + 1 ;
+//                    $otp->save();
+//                    return redirect('otp',['User'=>$user])->with('thongbao','Bạn OTP không chính xác');
+//                }
+//            }else{
+//                $otp->TrangThai = 1;
+//                $otp->request = $otp->request + 1 ;
+//                $otp->save();
+//                return view('admin.user.updatePass',['User'=>$user]);
+//            }
+        }else{
+            $otp->TrangThai = 1;
+            $otp->request = $otp->request +1 ;
+            $otp->save();
+            return view('admin.user.updatePass',['User'=>$user]);
+        }
+    }
+
 }
