@@ -9,6 +9,7 @@
     <h4 style="color: #00b0ff;">Chào mừng bạn đến với MyVietNam</h4>
     <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi trong suốt thời gian vừa quá.</p>
     <p>Chúng tôi sẽ cố gắng hoàn thiện website tốt nhất để phục vụ người dùng một cách tốt nhất.</p>
+    <p style="color: red">Mã OTP của bạn hiệu lực trong 5 phút <h3>{{$otp}}</h3></P>
 </div>
 </body>
 </html>

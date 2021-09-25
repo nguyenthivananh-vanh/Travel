@@ -17,15 +17,17 @@
         <form action="otp" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
             <div class="form-group row">
-                <input type="email" value="" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                <input type="email" value="" class="form-control" id="email" name="email"
+                       aria-describedby="emailHelp"
                        placeholder="Enter email" require>
             </div>
             <div class="form-group row">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                <input type="password" class="form-control" id="password" name="password" placeholder="New Password"
                        require>
             </div>
             <div class="form-group row">
-                <input type="password" class="form-control" id="password1" name="password1" placeholder="Forgot Password"
+                <input type="password" class="form-control" id="password1" name="password1"
+                       placeholder="Forgot Password"
                        require>
             </div>
             <div class="form-group row">
