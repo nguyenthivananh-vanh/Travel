@@ -305,6 +305,7 @@ class UserController extends Controller
                     if ($otp->TrangThai != 1) {
                         $otp->TrangThai = 1;
                         $user->password = bcrypt($request->password);
+                        $user->save();
                         $otp->save();
                         return redirect('login')->with('thongbao', 'Xin mời bạn đăng nhập lại');
                     } else {
