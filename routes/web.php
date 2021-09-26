@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/test', function () {
-    return view('home.detail-Post');
+    return view('home.detail-post');
 });
 
 Route::get('/register', 'App\Http\Controllers\UserController@getRegister');

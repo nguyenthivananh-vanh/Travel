@@ -73,10 +73,14 @@
                   
   
                   <div class="card-action">
-                    <button class="btn green">Đăng</button>
+                    <!-- <button class="btn green">Đăng</button> -->
                     <button class="btn green"><a href="home.postCulinary">Review Món Ăn</a> </button>
                     <button class="btn green"><a href="home.postVid"> Video</a></button>
-                    <button class="btn red">Xoá</button>
+                    <button type="button" class="btn btn-success" id="btnPost" onClick="post()">Post</button>
+                    <button type="button" class="btn btn red" id="btnDelete" onClick="popUpDelete()">
+                      Delete
+                  </button>
+                  
                   </div>
                  
                 </form>
@@ -86,12 +90,65 @@
         </div>
       </div>
     </div>
+<!-- Modal Delete -->
+
+<div id="id01" class="modal-view">
+  <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span> -->
+  <!-- <form class="modal-content" action="/action_page.php">
+    <div class="text-content">
+      <h1>Delete Account</h1>
+      <p>Are you sure you want to delete your account?</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+      </div>
+    </div>
+  </form> -->
+  <div class="modal-content"style="width:500px">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Are you sure?</h5>
+      </div>
+      <!-- <div class="modal-body">
+        Bạn có chắc là muốn xóa?
+      </div> -->
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary"  onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" class="btn btn red" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+      </div>
+      </div>
+    </div>
+</div>
+<!-- Modal Post-->
+<div id="modalPost" class="modal-view">
+  <div class="modal-content"style="width:500px">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Bạn có muốn đăng không?</h5>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary"  onclick="document.getElementById('modalPost').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" class="btn btn red" onclick="document.getElementById('modalPost').style.display='none'" class="deletebtn">Post</button>
+      </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
   </section>
   @endsection
-
   @section('script')
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+  <script src="admin_asset/js/homepage.js"></script>
   <script>
-     
+    $('.addAttr').click(function() {
+  var id = $(this).data('id');   
+  $('#id').val(id); 
+  } );
       $(document).ready(function(){
           $("#vungmien").change(function(){
               var idvm = $(this).val();
@@ -103,6 +160,8 @@
       });
   </script>
 @endsection
+
+
   
 
 

@@ -55,3 +55,38 @@ function showSettingPost(){
     document.getElementById("listSetting").classList.toggle("displayBlock");
     document.getElementById("btnSettingPost").classList.toggle("btn-click");
 }
+
+function popUpDelete(){
+    document.getElementById('id01').style.display='block';
+}
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function post(){
+    document.getElementById('modalPost').style.display='block';
+}
+
+// Trang View
+
+function deletePost(){
+    document.getElementById('deletePost').style.display='block';
+    document.getElementById("listSetting").classList.toggle("displayBlock");
+    document.getElementById("btnSettingPost").classList.toggle("btn-click");
+}
+function editPost(){
+    document.getElementById('editPost').style.display='block';
+    document.getElementById("listSetting").classList.toggle("displayBlock");
+    document.getElementById("btnSettingPost").classList.toggle("btn-click");
+}
+function saveEditPost(){
+    document.getElementById('saveEdit').style.display='block';
+}
+function deleteEdit(){
+    document.getElementById('deleteEdit').style.display='block';
+}
