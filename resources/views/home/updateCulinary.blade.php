@@ -85,6 +85,11 @@
                                     <div class="card-action">
                                         <button class="btn green">Update</button>
                                         <button class="btn red">Reset</button>
+                                        <button type="button" class="btn btn-success" id="btnSave" onClick="saveEditPost()">Cập nhập (new)</button>
+                                    <button type="button" class="btn btn red" id="btnDelete" onClick="deleteEdit()">
+                                    Delete
+                                </button>
+                                     
                                     </div>
                                 {{-- </div> --}}
                             </form>
@@ -94,6 +99,34 @@
                 </div>
             </div>
         </div>
+         <!-- Modal Delete -->
+
+         <div id="deleteEdit" class="modal-view"> 
+        <div class="modal-content"style="width:500px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deleteEdit').style.display='none'" class="cancelbtn">Quay lại</button>
+                <button type="button" class="btn btn red" onclick="document.getElementById('deleteEdit').style.display='none'" class="deletebtn">Xóa bài</button>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Edit -->
+        <div id="saveEdit" class="modal-view" style="z-index:10;"> 
+        <div class="modal-content"style="width:500px">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn cập nhập không?</h5>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary"  onclick="document.getElementById('saveEdit').style.display='none'" class="cancelbtn">Đóng</button>
+        <button type="button" class="btn btn red" onclick="document.getElementById('saveEdit').style.display='none'" class="deletebtn">Lưu</button>
+      </div>
+      </div>
+    </div>
     </section>
 @endsection
 
@@ -111,6 +144,11 @@
 {{--        });--}}
 {{--    </script>--}}
 {{--@endsection--}}
+@section('script')
+    <script type="text/javascript" src="admin_asset/js/homepage.js"></script>
+
+        
+@endsection
 
 
 

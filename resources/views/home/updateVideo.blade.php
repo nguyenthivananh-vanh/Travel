@@ -60,6 +60,32 @@
         </div>
       </div>
     </div>
+    <div id="deleteEdit" class="modal-view"> 
+        <div class="modal-content"style="width:500px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa cập nhập không?</h5>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deleteEdit').style.display='none'" class="cancelbtn">Quay lại</button>
+                <button type="button" class="btn btn red" onclick="document.getElementById('deleteEdit').style.display='none'" class="deletebtn">Xóa bài</button>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Edit -->
+        <div id="saveEdit" class="modal-view" style="z-index:10;"> 
+        <div class="modal-content"style="width:500px">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn cập nhập không?</h5>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary"  onclick="document.getElementById('saveEdit').style.display='none'" class="cancelbtn">Đóng</button>
+        <button type="button" class="btn btn red" onclick="document.getElementById('saveEdit').style.display='none'" class="deletebtn">Lưu</button>
+      </div>
+      </div>
+    </div>
   </section>
   @endsection
 

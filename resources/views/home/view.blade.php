@@ -1,7 +1,7 @@
 @extends('layout.index')
 @section('content')
     <section class="content px-2 mt-6">
-        <div style="width:80%">
+        <div style="width:70%">
         <div class="container-fluid mt-2">
             <div class="post mb-4">
                 <div class="post-header">
@@ -26,18 +26,24 @@
                         </div>
                         @if(isset($user))
                             @if($user->id == $userAuthor->id)
-                                <div class="col-7 text-right" style="z-index: 999">
+                                <div class="col-7 text-right" style="z-index: 9">
                                     <div onClick="showSettingPost()" class="btn-setting-post"><i id="btnSettingPost"
                                                                                                  class="fas fa-ellipsis-h"></i>
                                     </div>
 
                                     <ul class="list-setting" id="listSetting">
-                                        <li class="list-setting-item"><a style="font-weight: 500"
+                                        <!-- <li class="list-setting-item"><a style="font-weight: 500"
                                                                          href="home/deleteView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Xóa
+                                                bài viết</a></li> -->
+                                                <li class="list-setting-item"><a style="font-weight: 500" onClick="deletePost()"
+                                                                        >Xóa (Mới)
                                                 bài viết</a></li>
                                         <li class="list-setting-item"><a style="font-weight: 500"
                                                                          href="home/notifyUpdate/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Sửa
                                                 bài viết</a></li>
+                                        <li class="list-setting-item"><a style="font-weight: 500"
+                                                        onClick="editPost()"                >Sửa
+                                                bài viết (mới)</a></li>
                                     </ul>
                                 </div>
                             @endif
@@ -142,7 +148,7 @@
             </div>
 
         </div>
-
+<!-- cai tran chua bsmodel o dau -->
 
         <hr>
 
@@ -234,6 +240,39 @@
       
            
         </div>
+        <!-- Modal Delete -->
+
+        <div id="deletePost" class="modal-view"> 
+        <div class="modal-content"style="width:500px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deletePost').style.display='none'" class="cancelbtn">Quay lại</button>
+                <button type="button" class="btn btn red" onclick="document.getElementById('deletePost').style.display='none'" class="deletebtn">Xóa bài</button>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Edit -->
+        <div id="editPost" class="modal-view" style="z-index:10;"> 
+            <div class="modal-content"style="width:800px;z-index:10">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn muốn cập nhập?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Quay lại</button>
+                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Địa điểm</button>
+                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Đặc sản</button>
+                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Video</button>
+
+                    
+                </div>
+            </div>
+        </div>
+</div>
     </section>
 @endsection
 

@@ -1,3 +1,128 @@
-.test {
-    color: red;
+*{
+    box-sizing: border-box;
+    /* overflow-x: hidden; */
+}
+body{
+    overflow-x: hidden;
+}
+.contanier-detail{
+    position: relative;
+}
+.logo{
+    position: absolute;
+    bottom: 85%;
+    left: 45%;
+}
+.link-homepage{
+    font-size: 16px;
+    position: absolute;
+    bottom: 90%;
+    left: 20px;
+}
+.link-homepage a i{
+    font-size: 24px;
+    color: #ecf5ff;
+    opacity: 0.7;
+}
+.title-detail{
+    
+    position: absolute;
+    bottom: 20%;
+    color: #ecf5ff;
+    font-size: 24px;
+    margin: 0 auto;
+    text-align: center !important;
+    
+    
+}
+.text {
+    bottom: 20%;
+    color: #ecf5ff;
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
+}
+.post-img {
+    object-fit: cover;
+}
+.input_comment {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    /* position: relative; */
+}
+.input_comment input {
+    font-weight: 300;
+    font-size: 1.3rem;
+    padding: 10px;
+    border: none;
+    width: 90% !important;
+    border-bottom: 2px solid #66bfeb;
+}
+.input_comment input:focus{
+    border-bottom: 2px solid #66bfeb !important;
+}
+
+.cmt-img{
+    width: 20px;
+    position: absolute;
+    top: 24px;
+    right: 100px;
+    text-align: end;
+    
+}
+.cmt-img i{
+    /* position: absolute;
+    top: 4px;
+    right:9vh; */
+}
+.send-cmt{
+    /* position: absolute; */
+    /* top: 9px; */
+    right: -12vh;
+    background-color: #66bfeb;
+    color: white;
+    vertical-align: middle;
+}
+.send-cmt i{
+    margin-bottom: 10px;
+}
+
+.send-cmt:hover{
+    background-color: #5bb6e4;
+    color: white;
+}
+.user_avatar{
+    padding-right: 0;
+}
+.input_comment{
+    padding-left: 0px;
+    margin-left: 0px;
+}
+.destination div {
+    border: 4px solid #66bfeb;
+    /* width: 100px; */
+    height: 0;
+    display: inline-block;
+}
+
+.destination-before {
+    width: 8%;
+    border-radius: 2px;
+}
+.destination-tittle{
+
+}
+.destination-after {
+    
+    width:75%;
+    border-radius: 2px;
+    overflow-x: hidden;
+}
+.replied_to{
+    height: auto;
+    margin-left: 65px;
+}
+.list-setting {
+    right: 15vw;
 }
