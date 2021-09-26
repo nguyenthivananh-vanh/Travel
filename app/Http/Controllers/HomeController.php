@@ -81,7 +81,7 @@ class HomeController extends Controller
         $user = User::find($idUser);
         $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->inRandomOrder()->take(5)->get();
         $cmt = Comment::where('idDiaDiem',$id)->orderBy('id','DESC')->get();
-        $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(3)->get();
+        $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(30)->get();
         $video = Video::where('idDiaDiem',$id)->first();
         $monan = MonAn::where('idDiaDiem',$id)->get();
         // $diadiemList = DiaDiem::doesntHave('id',$id)->get();
@@ -268,7 +268,7 @@ class HomeController extends Controller
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
             if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
-                return redirect('admin/user/update')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                return view('home.updateView')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
             $hinh = Str::random(4)."_".$name;
@@ -318,7 +318,7 @@ class HomeController extends Controller
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
             if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
-                return redirect('admin/user/update')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                return view('home.updateCulinary')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
             $hinh = Str::random(4)."_".$name;

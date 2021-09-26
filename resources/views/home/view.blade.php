@@ -35,6 +35,7 @@
                                         <li class="list-setting-item"><a style="font-weight: 500"
                                                                          href="home/deleteView/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Xóa
                                                 bài viết</a></li>
+                                                
                                         <li class="list-setting-item"><a style="font-weight: 500"
                                                                          href="home/notifyUpdate/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}">Sửa
                                                 bài viết</a></li>

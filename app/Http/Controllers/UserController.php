@@ -329,5 +329,6 @@ class UserController extends Controller
             return redirect('otp')->with('thongbao', 'Mã OTP nhập quá số lần quy định');
         }
     }
+    // return redirect('otp')->with('thongbao','Bạn OTP không chính xác');
 
 }

@@ -78,6 +78,7 @@
                     <button class="btn green"><a href="home.postVid"> Video</a></button>
                     <button class="btn red">Xoá</button>
                   </div>
+                 
                 </form>
             </div>
             

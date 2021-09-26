@@ -31,14 +31,14 @@ class VideoController extends Controller
         $this->validate($request,
             [
                 'DiaDiem' => 'required',
-                'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
+                // 'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
                 'video' => 'required',
             ],
             [
                 'DiaDiem.required' => 'Bạn chưa chọn địa điểm',
-                'tieude.required' => 'Bạn chưa nhập tiêu đề',
-                'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
-                'tieude.unique' => 'Tiêu đề đã tồn tại',
+                // 'tieude.required' => 'Bạn chưa nhập tiêu đề',
+                // 'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
+                // 'tieude.unique' => 'Tiêu đề đã tồn tại',
                 'video.required' => 'Bạn cần chọn video tải lên',
             ]);
 
@@ -74,14 +74,14 @@ class VideoController extends Controller
         $this->validate($request,
             [
                 'DiaDiem' => 'required',
-                'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
+                // 'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
             
             ],
             [
                 'DiaDiem.required' => 'Bạn chưa chọn địa điểm',
-                'tieude.required' => 'Bạn chưa nhập tiêu đề',
-                'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
-                'tieude.unique' => 'Tiêu đề đã tồn tại',
+                // 'tieude.required' => 'Bạn chưa nhập tiêu đề',
+                // 'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
+                // 'tieude.unique' => 'Tiêu đề đã tồn tại',
             
             ]);
         $video = Video::find($id);

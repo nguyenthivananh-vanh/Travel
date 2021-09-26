@@ -5217,6 +5217,16 @@ small {
     text-overflow: ellipsis; */
 }
 
+.card-image:hover {
+    box-shadow: 0px 50px 50px rgb(0 0 0 / 13%);
+    transition: 0.3s;
+    margin-top: -15px;
+}
+
+.card-image {
+    transition: 0.3s ease 0s;
+}
+
 .card .card-title.activator {
     cursor: pointer;
 }
