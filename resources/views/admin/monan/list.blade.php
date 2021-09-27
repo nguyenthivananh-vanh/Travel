@@ -21,7 +21,7 @@
                                         </form>
                                     </div>
                                 </div>
-                              
+
                                 <div class="col-2 text-right" style="text-align: right;">
                                     <button class="btn-add"><a href="admin/monan/add">Thêm</a></button>
                                 </div>
@@ -52,13 +52,23 @@
                                                 <td style=" border: 1px solid #ddd;">{{$monan->id}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->TenMonAn}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->TieuDe}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->MoTa}}</td>
+                                                <td style="display: block;
+                                                            display: -webkit-box;
+                                                            width: 300px;
+                                                            height: 116px;
+                                                            margin: 0 auto;
+                                                            font-size: 14px;
+                                                            line-height: 1.5;
+                                                            -webkit-line-clamp: 5;
+                                                            -webkit-box-orient: vertical;
+                                                            overflow: hidden;
+                                                            text-overflow: ellipsis; ">{{$monan->MoTa}}</td>
                                                 <td style=" border: 1px solid #ddd;">
                                                     <img src="upload/monan/{{$monan->HinhAnh}}" alt="img"
                                                          width="100px">
                                                 </td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->diadiem->TieuDe}}</td>
-                                                
+                                                <td style=" border: 1px solid #ddd;">{{$monan->idDiaDiem}}</td>
+
                                                 <td style=" border: 1px solid #ddd;">
                                                     <a href="admin/monan/update/{{$monan->id}}" class="green-text">
                                                         <i class="material-icons">done</i>
@@ -68,7 +78,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                        
+
 
                                     @endforeach
 

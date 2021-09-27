@@ -142,7 +142,8 @@ class DiaDiemController extends Controller
     {
         $diadiem = DiaDiem::find($id);
         $diadiem->delete();
-        return redirect('admin/diadiem/duyetbai')->with('thongbao', 'Xoá thành công');
+        $diadiem1 = DiaDiem::where('TrangThai',1)->paginate(3);
+        return redirect('admin/diadiem/list',302,$diadiem1 =['DiaDiem'])->with('thongbao', 'Xoá thành công');
     }
 
     //Tìm kiếm

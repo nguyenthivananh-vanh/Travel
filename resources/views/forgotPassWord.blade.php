@@ -30,7 +30,7 @@
       </span>
             @endif
 
-            <button type="submit">Gửi</button>
+            <button type="submit">Next</button>
         </form>
     </div>
 </div>

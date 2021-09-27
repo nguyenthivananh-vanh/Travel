@@ -67,7 +67,7 @@
                                                             margin: 0 auto;
                                                             font-size: 14px;
                                                             line-height: 1.5;
-                                                            -webkit-line-clamp: 5
+                                                            -webkit-line-clamp: 5;
                                                             -webkit-box-orient: vertical;
                                                             overflow: hidden;
                                                             text-overflow: ellipsis;">{{$diadiem->TomTat}}</td>
