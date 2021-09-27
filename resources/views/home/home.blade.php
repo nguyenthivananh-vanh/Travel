@@ -207,8 +207,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
-
-    <!-- <script rel="stylesheet" href="admin_asset/js/admin.js"></script>-->
     <script href="admin_asset/js/homepage.js"></script>
     <script type="text/javascript" src="admin_asset/js/slider.js"></script>
     <!-- <script type="text/javascript" src="admin_asset/js/admin.js"></script> -->

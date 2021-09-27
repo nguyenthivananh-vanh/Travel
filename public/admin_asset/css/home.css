@@ -261,17 +261,6 @@ li a i {
     width: calc(100% - 75px);
     position: relative;
 }
-
-.cmt-img {
-    position: absolute;
-    top: 20px;
-    left: 90vh;
-}
-
-.cmt-img i {
-    font-size: 16px;
-}
-
 .input_comment input {
     width: 100%;
     font-weight: 300;
@@ -280,6 +269,15 @@ li a i {
     border: none;
     border-bottom: 2px solid
 }
+
+
+
+.cmt-img i {
+    font-size: 16px;
+}
+
+
+
 
 .new_comment {
     width: 100%;
@@ -364,17 +362,84 @@ li a i {
 /* done detail */
 
 
+
+/* REPLY */
+
+
+
+
+
+/* .modal-backdrop {
+    z-index: -1 !important;
+  } */
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ENDREPLY */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* menu sub detail */
 
 .sub-content {
-    width: 15%;
-    position: fixed;
+    /* width: 15%; */
+    /* position: fixed;
     right: 0;
-    top: 84px;
+    top: 84px; */
     height: 80vh;
 }
 
 
+.sub-content{
+    /* width:22%; */
+    /* position:fixed; 
+    right:0; top:84px;  */
+    /* height:80vh;  */
+    
+    
+   
+}
+.sub-content-1{
+    background-color: #ecf5ff;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+.sub-content-1 h5{
+    padding-top: 20px;
+}
+.sub-content-1 li{
+    background-color: #ecf5ff;
+}
+.sub-content-1 hr{
+    color:#519fd6;
+}
 /* .sub-menu-detail li {
 	float: none;
 	line-height: 48px
@@ -3040,10 +3105,10 @@ nav,
 }
 
 .z-depth-4,
-.modal {
+/* .modal {
     -webkit-box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
-}
+} */
 
 .z-depth-5 {
     -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
@@ -5643,6 +5708,12 @@ small {
     visibility: hidden;
 }
 
+.show {
+    opacity: 0.5;
+}
+.fade {
+    opacity: 0;
+}
 .btn,
 .btn-large,
 .btn-flat {
@@ -6152,7 +6223,7 @@ button.btn-floating {
     z-index: -1;
 }
 
-.modal {
+/* .modal {
     display: none;
     position: fixed;
     left: 0;
@@ -6165,12 +6236,129 @@ button.btn-floating {
     overflow-y: auto;
     border-radius: 2px;
     will-change: top, opacity;
-}
+} */
+/* .modal-view{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: none;
+} */
+
+/* Modal */
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
+  
+  /* Add a color to the delete button */
+  .deletebtn {
+    background-color: #f44336;
+  }
+  
+  /* Add padding and center-align text to the container */
+  .text {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  /* The Modal (background) */
+  .modal-view {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,.32);
+
+    padding-top: 50px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: white;
+    opacity: 1;
+    margin: 5% auto 15% auto; 
+    border: 1px solid #888;
+    width: 500px;
+  }
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+   
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 992px) {
-    .modal {
+    /* .modal {
         width: 80%;
-    }
+    } */
 }
 
 .modal h1,
@@ -6180,22 +6368,22 @@ button.btn-floating {
     margin-top: 0;
 }
 
-.modal .modal-content {
+/* .modal .modal-content {
     padding: 24px;
-}
+} */
 
 .modal .modal-close {
     cursor: pointer;
 }
 
-.modal .modal-footer {
+/* .modal .modal-footer {
     border-radius: 0 0 2px 2px;
     background-color: #fafafa;
     padding: 4px 6px;
     height: 56px;
     width: 100%;
     text-align: right;
-}
+} */
 
 .modal .modal-footer .btn,
 .modal .modal-footer .btn-large,
@@ -6203,7 +6391,7 @@ button.btn-floating {
     margin: 6px 0;
 }
 
-.modal-overlay {
+/* .modal-overlay {
     position: fixed;
     z-index: 999;
     top: -25%;
@@ -6215,28 +6403,28 @@ button.btn-floating {
     background: #000;
     display: none;
     will-change: opacity;
-}
+} */
 
-.modal.modal-fixed-footer {
+/* .modal.modal-fixed-footer {
     padding: 0;
     height: 70%;
-}
+} */
 
-.modal.modal-fixed-footer .modal-content {
+/* .modal.modal-fixed-footer .modal-content {
     position: absolute;
     height: calc(100% - 56px);
     max-height: 100%;
     width: 100%;
     overflow-y: auto;
-}
+} */
 
-.modal.modal-fixed-footer .modal-footer {
+/* .modal.modal-fixed-footer .modal-footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     position: absolute;
     bottom: 0;
-}
+} */
 
-.modal.bottom-sheet {
+/* .modal.bottom-sheet {
     top: auto;
     bottom: -100%;
     margin: 0;
@@ -6244,7 +6432,7 @@ button.btn-floating {
     max-height: 45%;
     border-radius: 0;
     will-change: bottom, opacity;
-}
+} */
 
 .collapsible {
     border-top: 1px solid #ddd;
@@ -8603,6 +8791,7 @@ img {
     bottom: 8px;
     width: 100%;
     text-align: center;
+    opacity: 0.8;
 }
 
 
@@ -8638,9 +8827,9 @@ img {
 
 .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
+    -webkit-animation-duration: 0.5s;
     animation-name: fade;
-    animation-duration: 1.5s;
+    animation-duration: 0.5s;
 }
 
 @-webkit-keyframes fade {
@@ -8670,7 +8859,7 @@ img {
     }
 }
 
-tuwf day
+
 /* .slider.fullscreen ul.slides {
     height: 100%;
   }
