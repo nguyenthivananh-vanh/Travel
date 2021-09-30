@@ -14,7 +14,7 @@ class VideoController extends Controller
     
     public function getList()
     {
-        $video = Video::paginate(5);
+        $video = Video::paginate(3);
         $diadiem = DiaDiem::all();
         return view('admin.video.list', ['video' => $video,'diadiem' => $diadiem]);
     }

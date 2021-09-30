@@ -250,6 +250,13 @@ class UserController extends Controller
 
     public function postForgotPassWord(Request $request)
     {
+        $this->validate($request,
+            [
+                'email' => 'required',
+            ],
+            [
+                'email.required' => 'Bạn chưa nhập email',
+            ]);
         $user = User::where('email', $request->email)->first();
         if (isset($user)) {
             $otp = new Otp();

@@ -30,7 +30,6 @@ Route::get('otp', 'App\Http\Controllers\UserController@getOTP');
 Route::post('otp', 'App\Http\Controllers\UserController@postOTP');
 
 
-
 Route::group(['prefix' => 'home'], function () {
     Route::get('/home/{id}', 'App\Http\Controllers\HomeController@homeUser');
     Route::get('/home', 'App\Http\Controllers\HomeController@home');

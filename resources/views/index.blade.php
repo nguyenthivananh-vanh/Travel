@@ -56,5 +56,6 @@
         CKEDITOR.replace('ckeditor');
     </script>
     @yield('script')
+    @yield('footer')
 </body>
 </html>
