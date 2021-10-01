@@ -1,40 +1,44 @@
-*{
+* {
     box-sizing: border-box;
     /* overflow-x: hidden; */
 }
-body{
+
+body {
     overflow-x: hidden;
 }
-.contanier-detail{
+
+.contanier-detail {
     position: relative;
 }
-.logo{
+
+.logo {
     position: absolute;
     bottom: 85%;
     left: 45%;
 }
-.link-homepage{
+
+.link-homepage {
     font-size: 16px;
     position: absolute;
     bottom: 90%;
     left: 20px;
 }
-.link-homepage a i{
+
+.link-homepage a i {
     font-size: 24px;
     color: #ecf5ff;
     opacity: 0.7;
 }
-.title-detail{
-    
+
+.title-detail {
     position: absolute;
     bottom: 20%;
     color: #ecf5ff;
     font-size: 24px;
     margin: 0 auto;
     text-align: center !important;
-    
-    
 }
+
 .text {
     bottom: 20%;
     color: #ecf5ff;
@@ -42,41 +46,46 @@ body{
     width: 100%;
     text-align: center;
 }
+
 .post-img {
     object-fit: cover;
 }
+
 .input_comment {
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
     /* position: relative; */
 }
+
 .input_comment input {
     font-weight: 300;
     font-size: 1.3rem;
     padding: 10px;
     border: none;
-    width: 90% !important;
+    width: 100% !important;
     border-bottom: 2px solid #66bfeb;
 }
-.input_comment input:focus{
+
+.input_comment input:focus {
     border-bottom: 2px solid #66bfeb !important;
 }
 
-.cmt-img{
-    width: 20px;
+.cmt-img {
+    width: 30px;
     position: absolute;
     top: 24px;
-    right: 100px;
+    right: 5%;
     text-align: end;
-    
 }
-.cmt-img i{
+
+.cmt-img i {
     /* position: absolute;
     top: 4px;
     right:9vh; */
 }
-.send-cmt{
+
+.send-cmt {
     /* position: absolute; */
     /* top: 9px; */
     right: -12vh;
@@ -84,21 +93,29 @@ body{
     color: white;
     vertical-align: middle;
 }
-.send-cmt i{
+
+.send-cmt i {
     margin-bottom: 10px;
 }
 
-.send-cmt:hover{
+.send-cmt:hover {
     background-color: #5bb6e4;
     color: white;
 }
-.user_avatar{
+
+.user_avatar {
     padding-right: 0;
 }
-.input_comment{
+
+.input_comment {
     padding-left: 0px;
     margin-left: 0px;
 }
+
+.destination {
+    width: 100%;
+}
+
 .destination div {
     border: 4px solid #66bfeb;
     /* width: 100px; */
@@ -107,22 +124,115 @@ body{
 }
 
 .destination-before {
-    width: 8%;
     border-radius: 2px;
 }
-.destination-tittle{
 
-}
+.destination-tittle {}
+
 .destination-after {
-    
-    width:75%;
     border-radius: 2px;
     overflow-x: hidden;
 }
-.replied_to{
+
+.replied_to {
     height: auto;
     margin-left: 65px;
 }
-.list-setting {
-    right: 15vw;
+
+
+/* .list-setting {} */
+
+
+/* delete form */
+
+
+/* .wrap {
+    display: none;
+} */
+
+.notify {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    /* text-align: center; */
+    z-index: 999;
+    padding-top: 15%;
+}
+
+.form-notify {
+    width: 500px;
+    height: 250px;
+    background-color: white;
+    margin: auto auto;
+    border-radius: 3px;
+}
+
+.form-delete h2 {
+    color: #5bb6e4;
+    padding: 10px 20px;
+    margin-block-end: 0;
+}
+
+.form-delete h4 {
+    color: #25292b;
+    margin: 10px 20px;
+}
+
+.accept {
+    margin: 30px 20px;
+    float: right;
+}
+
+.accept button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    border: 1px solid gray;
+}
+
+.accept a {
+    color: white !important;
+    text-decoration: none;
+}
+
+
+/* địa điểm liên quan */
+
+.sub-content-travel {
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+    padding: 10px 10px;
+    background-image: linear-gradient(to right, #5680E9, #84CEEB, #5AB9EA, #C1C8E4);
+}
+
+
+/* .travel-title {
+    background-image: linear-gradient(to right, #5680E9, #84CEEB, #5AB9EA, #C1C8E4);
+    height: 50px;
+    margin: -10px -10px;
+}*/
+
+.travel-title h3 {
+    color: #fff;
+}
+
+.title {
+    font-size: 50px;
+    color: #6498ea;
+    padding: 30px 0;
+}
+
+.sub-content-culinary {
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+    padding: 10px 10px;
+    background-color: #ecf5ff;
+}
+
+.post-content {
+    margin-bottom: 50px;
 }

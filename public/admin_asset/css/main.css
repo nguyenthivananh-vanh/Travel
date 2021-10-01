@@ -52,6 +52,34 @@ a {
 
 /* Side nav */
 
+.side-nav-admin-mobile{
+    display:none;
+    padding: 20px 0;
+    padding-top: 0;
+    background-color: white;
+    color: black;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    z-index: 99999 !important;
+    left: 0;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
+}
+.side-nav-admin-mobile li{
+    width: 100%;
+    float: none;
+	line-height: 48px;
+  
+}
+.side-nav-admin-mobile li a{
+    color: black;
+    font-weight: 500;
+}
+.side-nav-admin-mobile li>a:hover {
+	background-color: rgba(0, 0, 0, 0.05);
+    color: black;
+}
 .side-nav-admin {
     /* display: none; */
     padding: 20px 0;
@@ -312,3 +340,79 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;       */
 }
+
+
+/* 
+@media only screen and (max-width: 600px) {
+    .hide-on-small-only,
+    .hide-on-small-and-down {
+        display: none !important;
+    }
+} */
+.header-mobile{
+    display: none;
+}
+@media only screen and (max-width: 992px) {
+    .header-mobile{
+        display: block !important;
+    }
+    .menu-admin-mobile{
+        display: none;
+    }
+
+}
+
+/* @media only screen and (min-width: 601px) {
+    .hide-on-med-and-up {
+        display: none !important;
+    }
+} */
+
+/* @media only screen and (min-width: 600px) and (max-width: 992px) {
+    .hide-on-med-only {
+        display: none !important;
+    }
+} */
+
+/* @media only screen and (min-width: 993px) {
+    .hide-on-large-only {
+        display: none !important;
+    }
+} */
+
+/* @media only screen and (min-width: 993px) {
+    .show-on-large {
+        display: block !important;
+    }
+} */
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+    .show-on-medium {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .show-on-small {
+        display: block !important;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .show-on-medium-and-up {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .show-on-medium-and-down {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .center-on-small-only {
+        text-align: center;
+    }
+}
+

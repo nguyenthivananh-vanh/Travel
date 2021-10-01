@@ -94,11 +94,11 @@
 
                         </div>
                     </form>
-            </div>
+                @endif
+           
 
 
-            </form>
-            @endif
+           
             <div class="new_comment" style="background-color:#f4f4f4; padding:20px">
 
                 <!-- build comment -->

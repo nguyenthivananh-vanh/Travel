@@ -92,13 +92,13 @@ class HomeController extends Controller
         $diadiem->save();
         
         if(isset($video)){
-            return view('home.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video]);
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video]);
         }else if(isset($monan)){
-            return view('home.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'monan'=>$monan]);
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'monan'=>$monan]);
         }else if(isset($video) && isset($monan)){
-            return view('home.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan]);
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan]);
         }else{
-            return view('home.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat]);
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat]);
         }
         
     }
@@ -215,18 +215,18 @@ class HomeController extends Controller
         if(isset($comment)){
             $comment->delete();
         }
-        if(isset($comment)){
+        if(isset($monan)){
             $monan->delete();
         }
-        if(isset($comment)){
+        if(isset($video)){
             $video->delete();
         }
         $diadiem ->delete();
         return redirect('home/home/'.$idUser);
     }
-    public function getBackView($id,$tacgia,$idUser){
-        return redirect('home/view/'.$id.'/'.$tacgia.'/'.$idUser);
-    }
+    // public function getBackView($id,$tacgia,$idUser){
+    //     return redirect('home/view/'.$id.'/'.$tacgia.'/'.$idUser);
+    // }
     // sửa bài
     public function notifyUpdate($id,$tacgia,$idUser){
         return view('home.notifyUpdate',['id'=>$id,'tacgia'=>$tacgia,'idUser'=>$idUser]);

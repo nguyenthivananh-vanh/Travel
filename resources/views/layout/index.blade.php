@@ -70,7 +70,11 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
    
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script> --}}
+    <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('ckeditor');
+    </script>
  
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"

@@ -1,5 +1,6 @@
-var settingPost=document.getElementById("listSetting");
-function showSettingPost(){
+var settingPost = document.getElementById("listSetting");
+
+function showSettingPost() {
     document.getElementById("listSetting").classList.toggle("displayBlock");
     document.getElementById("btnSettingPost").classList.toggle("btn-click");
 }
@@ -15,13 +16,24 @@ $(document).ready(function() {
 });
 // Trang View
 
-function deletePost(){
-    document.getElementById('deletePost').style.display='block';
-    document.getElementById("listSetting").classList.toggle("displayBlock");
-    document.getElementById("btnSettingPost").classList.toggle("btn-click");
+// function deletePost(){
+//     document.getElementById('deletePost').style.display='block';
+//     document.getElementById("listSetting").classList.toggle("displayBlock");
+//     document.getElementById("btnSettingPost").classList.toggle("btn-click");
+// }
+// function editPost(){
+//     document.getElementById('editPost').style.display='block';
+//     document.getElementById("listSetting").classList.toggle("displayBlock");
+//     document.getElementById("btnSettingPost").classList.toggle("btn-click");
+// }
+function deletePost() {
+    document.querySelector('.delete').style.display = 'block';
+    document.querySelector('.wrap').style.display = 'none';
+    document.querySelector('.footer').style.display = 'none';
 }
-function editPost(){
-    document.getElementById('editPost').style.display='block';
-    document.getElementById("listSetting").classList.toggle("displayBlock");
-    document.getElementById("btnSettingPost").classList.toggle("btn-click");
+
+function editPost() {
+    document.querySelector('.update').style.display = 'block';
+    document.querySelector('.wrap').style.display = 'none';
+    document.querySelector('.footer').style.display = 'none';
 }

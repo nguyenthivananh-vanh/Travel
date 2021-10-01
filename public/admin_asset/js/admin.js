@@ -5,7 +5,7 @@
 //     var elems = document.querySelectorAll('.sidenav');
 //     var instances = M.Sidenav.init(elems, options);
 // });
-var sideNavAdmin= document.getElementById('side-nav-admin');
+var sideNavAdmin= document.getElementById('side-nav-admin-mobile');
 var check=false;
 function showSidebar() {
     // sideNavAdmin.style.display="block"

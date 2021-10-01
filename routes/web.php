@@ -31,7 +31,6 @@ Route::post('otp/{id}', 'App\Http\Controllers\UserController@postOTP');
 Route::get('resetPass/{id}', 'App\Http\Controllers\UserController@getresetPass');
 Route::post('resetPass/{id}', 'App\Http\Controllers\UserController@postresetPass');
 
-
 Route::group(['prefix' => 'home'], function () {
     Route::get('/home/{id}', 'App\Http\Controllers\HomeController@homeUser');
     Route::get('/home', 'App\Http\Controllers\HomeController@home');
