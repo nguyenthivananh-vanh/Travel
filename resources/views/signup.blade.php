@@ -1,5 +1,5 @@
 @include('index')
-<!-- include nay la gi nhi -->
+<link href="admin_asset/css/login.css" rel="stylesheet">
 <!-- <nav class="blue darken-2">
     <div class="container">
       <div class="nav-wrapper">
@@ -52,10 +52,10 @@
     <p>My Vietnam Copyright &copy; 2021</p>
   </footer> -->
 
-  <div class="login-page">
+  <div class="login-page  fadeInDown">
     
     <div class="form">
-    <h2 style="color:#1976d2;">Đăng ký</h2>
+    <h4 style="color:#1976d2;">Đăng ký</h4>
     @if(count($errors)>0)
       <div class="alert alert-danger">
           @foreach ($errors->all() as $err)
@@ -71,16 +71,16 @@
     <form action="register" method="POST" enctype="multipart/form-data">   
         <input type="hidden" name="_token" value="{{csrf_token()}}" />
         <div class="form-group row">
-        <input type="text" class="form-control" id="name" name="ten" aria-describedby="nameHelp" placeholder="Enter name" required>
+          <input type="text" class="form-control pl-2" id="name" name="ten" aria-describedby="nameHelp" placeholder="Enter name" style="text-align:left;"  required>
         </div>
         <div class="form-group row">
-          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" require>
+          <input type="email" class="form-control pl-2" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" require>
         </div>
         <div class="form-group row">
-          <input type="password" class="form-control" id="password" name="pass" placeholder="Password" require>
+          <input type="password" class="form-control pl-2" id="password" name="pass" placeholder="Password" require>
         </div>
         <div class="form-group row">
-          <input type="password" class="form-control" id="password_rp" name="confirm" placeholder="Confirm Password" require>
+          <input type="password" class="form-control pl-2" id="password_rp" name="confirm" placeholder="Confirm Password" require>
         </div>
         <!-- <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -101,7 +101,7 @@
           <strong>{{$errors->first('g-recaptcha-response')}}</strong>
         </span>
         @endif
-        <button type="submit" >Đăng ký</button>
+        <button type="submit"style="border-radius:5px">Đăng ký</button>
       </form>
     </div>
 </div>

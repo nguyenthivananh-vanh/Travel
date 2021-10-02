@@ -1,4 +1,5 @@
 @include('index')
+<link href="admin_asset/css/login.css" rel="stylesheet">
 
 
 <div class=" bg">
@@ -47,6 +48,27 @@
     </div>
    
 </div>
+<!-- <div class="wrapper fadeInDown">
+  <div id="formContent">
+   
+    <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>
+
+  
+    <form>
+      <input type="text" id="login" class="fadeInput second style-input" name="login" placeholder="login">
+      <input type="text" id="password" class="fadeInput third" name="login" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+   
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div> -->
 <script type="text/javascript">
     function validateForm() {
         var email = document.getElementById('email').value;

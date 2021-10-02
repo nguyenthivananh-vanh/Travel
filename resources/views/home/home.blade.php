@@ -55,7 +55,7 @@
                                     <input type="text" style="padding-left: 12px" class="white grey-text autocomplete"
                                            placeholder="Tìm kiếm" id="autocomplete-input" name="search">
                                 </div>
-                                <button type="submit" class="btn_search--submit" style=" color: black">Search</button>
+                                <button type="submit" class="btn_search--submit btn" style=" color:white;background-color:#6397ea;border:none">Search</button>
 
                             </div>
                         </form>
@@ -67,7 +67,7 @@
                                     <input type="text" style="padding-left: 12px" class="white grey-text autocomplete"
                                            placeholder="Tìm kiếm" id="autocomplete-input" name="search">
                                 </div>
-                                <button type="submit" class="btn_search--submit" style=" color: black">Search</button>
+                                <button type="submit" class="btn_search--submit" style=" color:white;background-color:#6397ea;border:none">Search</button>
 
                             </div>
                         </form>
