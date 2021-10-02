@@ -74,6 +74,7 @@
     <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace('ckeditor');
+        CKEDITOR.config.height = '100vh';
     </script>
  
 

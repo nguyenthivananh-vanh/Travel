@@ -1,0 +1,95 @@
+.bg {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.overlay {
+    background-image: url('/upload/home/viewLogin.jpg');
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+}
+
+
+/* .login-page {
+    max-width: 500px;
+
+    margin: 0 auto !important;
+    height: 100vh;
+    
+    overflow: hidden;
+} */
+
+
+/* .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 500px;
+    /* margin: 0 auto 100px; */
+
+
+/* margin-top: 13%;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 45px;
+    text-align: center; */
+
+
+/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+
+
+/* box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); */
+
+
+/*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+} */
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    width: 500px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 45px;
+}
+
+.form-login {
+    padding: 5px 5px;
+    border-radius: 3px;
+    /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
+}
+
+.form input {
+    width: 80%;
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #1976d2;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}

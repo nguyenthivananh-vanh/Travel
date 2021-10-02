@@ -151,6 +151,7 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email',
                 'pass' => 'required|min:6|max:20',
                 'confirm' => 'required|same:pass',
+                'g-recaptcha-response' => new Captcha(),
             ],
             [
                 'ten.required' => 'Bạn chưa nhập tên người dùng',

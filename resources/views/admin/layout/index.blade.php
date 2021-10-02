@@ -75,6 +75,7 @@
     {{-- <script src="admin_asset/ckeditor_4.16.2.full/ckeditor/ckeditor.js"></script> --}}
     <script type="text/javascript">
         CKEDITOR.replace('ckeditor');
+        CKEDITOR.config.height = '100vh';
     </script>
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 

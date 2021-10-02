@@ -7,6 +7,12 @@ body {
     overflow-x: hidden;
 }
 
+.vid {
+    object-fit: cover;
+    width: 100%;
+    margin-top: 20px;
+}
+
 .contanier-detail {
     position: relative;
 }
@@ -159,28 +165,26 @@ body {
     align-items: center;
     justify-content: center;
     display: none;
-    /* text-align: center; */
     z-index: 999;
     padding-top: 15%;
 }
 
 .form-notify {
     width: 500px;
-    height: 250px;
+    height: 220px;
     background-color: white;
     margin: auto auto;
     border-radius: 3px;
+    padding: 10px 20px;
 }
 
 .form-delete h2 {
     color: #5bb6e4;
-    padding: 10px 20px;
     margin-block-end: 0;
 }
 
 .form-delete h4 {
     color: #25292b;
-    margin: 10px 20px;
 }
 
 .accept {
@@ -197,6 +201,10 @@ body {
 .accept a {
     color: white !important;
     text-decoration: none;
+}
+
+.form-update h2 {
+    color: #5bb6e4;
 }
 
 
@@ -235,4 +243,5 @@ body {
 
 .post-content {
     margin-bottom: 50px;
+    width: 100%;
 }

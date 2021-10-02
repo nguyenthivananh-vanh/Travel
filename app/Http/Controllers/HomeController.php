@@ -16,14 +16,14 @@ class HomeController extends Controller
         $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(6)->get();
         $diadiem = DiaDiem::orderBy('id','DESC')->take(6)->get();
         $vungmien = VungMien::all();
-        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$noibat,'Diadiem'=>$diadiem]);
+        return view('home.home',['vungmien'=>$vungmien,'noibat'=>$noibat,'DiaDiem'=>$diadiem]);
     }
     function homeUser($id){
         $user = User::find($id);
         $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(6)->get();
         $diadiem = DiaDiem::orderBy('id','DESC')->take(6)->get();
         $vungmien = VungMien::all();
-        return view('home.home',['vungmien'=>$vungmien,'DiaDiem'=>$noibat,'Diadiem'=>$diadiem ,'user'=>$user]);
+        return view('home.home',['vungmien'=>$vungmien,'noibat'=>$noibat,'DiaDiem'=>$diadiem ,'user'=>$user]);
     }
     // tìm kiếm
     function search(Request $request){
@@ -68,9 +68,9 @@ class HomeController extends Controller
         $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
         $diadiem->save();
         if(isset($video)){
-            return view('home.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video]);
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video]);
         }else{
-            return view('home.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
         }
        
     }
@@ -121,7 +121,7 @@ class HomeController extends Controller
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
             if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
-                return view('home.view')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                return view('home.detail-post')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
             $hinh = Str::random(4)."_".$name;

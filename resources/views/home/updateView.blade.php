@@ -82,9 +82,7 @@
                                 <div class="card-action">
                                     <button class="btn green" style="color: white">Cập nhật</button>
                                     <button class="btn red" style="color: white">Xoá</button>
-                                    <button type="button" class="btn btn-success" id="btnSave" onClick="saveEditPost()">Cập nhập (new)</button>
-                                    <button type="button" class="btn btn red" id="btnDelete" onClick="deleteEdit()">
-                                    Delete
+                                
                                 </button>
                                 </div>
                             </form>
