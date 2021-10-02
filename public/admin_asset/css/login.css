@@ -59,11 +59,11 @@
     margin-left: 10px;
     margin-right: 10px;
     padding: 45px;
+    border-radius: 3px;
 }
 
 .form-login {
     padding: 5px 5px;
-    border-radius: 3px;
     /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
 }
 
