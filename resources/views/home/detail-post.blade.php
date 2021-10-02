@@ -261,7 +261,8 @@
             </div>
         </div>  
 
-        <div class="row">       
+        <div class="row">    
+               
             <div class="post-related">
                 <div class="destination">
                     <div class="destination-before"></div>

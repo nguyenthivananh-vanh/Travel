@@ -63,7 +63,7 @@ class HomeController extends Controller
         $cmt = Comment::where('idDiaDiem',$id)->get();
         $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->take(5)->get();
         $user = User::all();
-        $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(3)->get();
+        $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(5)->get();
         $video = Video::where('idDiaDiem',$id)->first();
         $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
         $diadiem->save();
@@ -204,9 +204,9 @@ class HomeController extends Controller
         return redirect('home/culinary/'.$id.'/'.$idDiaDiem);
     }
     // xoá bài
-    public function getDeleteView($id,$tacgia,$idUser){
-        return view('home.deleteView',['id'=>$id,'tacgia'=>$tacgia,'idUser'=>$idUser]);
-    }
+    // public function getDeleteView($id,$tacgia,$idUser){
+    //     return view('home.deleteView',['id'=>$id,'tacgia'=>$tacgia,'idUser'=>$idUser]);
+    // }
     public function getAcceptDelete($id,$tacgia,$idUser){
         $diadiem = DiaDiem::find($id);
         $comment = Comment::where('idDiaDiem',$id)->first();

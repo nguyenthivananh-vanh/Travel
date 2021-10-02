@@ -52,10 +52,11 @@
     <p>My Vietnam Copyright &copy; 2021</p>
   </footer> -->
 
-  <div class="login-page  fadeInDown">
-    
+  <div class="login-page bg fadeInDown">
+    <div class="overlay"></div>
     <div class="form">
-    <h4 style="color:#1976d2;">Đăng ký</h4>
+      <div class="form-login">
+        <h4 style="color:#1976d2;">Đăng ký</h4>
     @if(count($errors)>0)
       <div class="alert alert-danger">
           @foreach ($errors->all() as $err)
@@ -103,6 +104,8 @@
         @endif
         <button type="submit"style="border-radius:5px">Đăng ký</button>
       </form>
+      </div>
+    
     </div>
 </div>
 {{-- <script type="text/javascript">
