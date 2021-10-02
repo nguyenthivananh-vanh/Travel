@@ -6,6 +6,8 @@
 <link href='https://fonts.googleapis.com/css?family=Artifika' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Alice' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
 
  
 <div class="container-fuild">
@@ -255,45 +257,45 @@
             </div>
 
         </div>
-        <div class="row">       
+        
+        </div>   
+    </section>
+    <section>
+      
             <div class="post-related">
                 <div class="destination">
                     <div class="destination-before"></div>
                     <span style="margin: 0 10px" class="destination-tittle" id="test1">Điểm đến liên quan</span>
                     <div class="destination-after"></div>
                 </div>
-                <div id="content-slider">
-                    <div class="wrapper">
-                        <!-- <h2>Slick Carousel Example<h2> -->
-                        <div class="autoplay">
-                            @foreach ($noibat as $row)
-                                <div class="col-4">
-                                    <div class="card">
-                                        <a href="home/view/{{$row->id}}/{{$row->TacGia}}">
-                                            <div class="card-image">
-                                                <img class="post-img" style="height:200px"
-                                                    src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
-                                                <span class="card-title">{{$row->TieuDe}}</span>
-                                            </div>
+                <div class="autoplay-view">
+                        @foreach ($noibat as $row)
+                            <div class="col-4">
+                                <div class="card">
+                                    @if(isset($user))
+                                        <a href="home/view/{{$row->id}}/{{$row->TacGia}}/{{$user->id}}">
+                                            @else
+                                                <a href="home/view/{{$row->id}}/{{$row->TacGia}}">
+                                                    @endif
+                                                    <div class="card-image">
+                                                        <img class="post-img" style="height:200px"
+                                                             src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
+                                                        <span class="card-title">{{$row->TieuDe}}</span>
+                                                    </div>
+                                                </a>
                                         </a>
-                                
-                                    </div>
                                 </div>
-                            @endforeach
-        
-                        </div>
-                    </div>
-                </div>
+                            </div>
+                        @endforeach
 
-            </div>
-        </div>   
+                    </div>
+
     </section>
-   
 </div>
 @endsection
 @section('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
 <script rel="stylesheet" href="admin_asset/js/admin.js"></script>
 <script href="admin_asset/js/homepage.js"></script>
 <script type="text/javascript" src="admin_asset/js/slider.js"></script>

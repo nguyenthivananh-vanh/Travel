@@ -1,9 +1,10 @@
 @include('index')
+<link href="admin_asset/css/login.css" rel="stylesheet">
 
 
-<div class="login-page">
+<div class="login-page fadeInDown">
     <div class="form form-login">
-        <h2 style="color:#1976d2;">Đăng nhập</h2>
+        <h4 style="color:#1976d2;">Đăng nhập</h4>
         @if(count($errors)>0)
             <div class="alert alert-danger">
                 @foreach ($errors->all() as $err)
@@ -17,8 +18,8 @@
             </div>
         @endif
         <form action="login" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-            <div class="form-group row">
+            <input type="hidden"  name="_token" value="{{csrf_token()}}"/>
+            <div class="form-group row styled-input" >
                 <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
                        placeholder="Enter email" require>
             </div>
@@ -39,10 +40,31 @@
       </span>
             @endif
 
-            <button type="submit">Đăng nhập</button>
+            <button type="submit" style="border-radius: 5px">Đăng nhập</button>
         </form>
     </div>
 </div>
+<!-- <div class="wrapper fadeInDown">
+  <div id="formContent">
+   
+    <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>
+
+  
+    <form>
+      <input type="text" id="login" class="fadeInput second style-input" name="login" placeholder="login">
+      <input type="text" id="password" class="fadeInput third" name="login" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+   
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div> -->
 <script type="text/javascript">
     function validateForm() {
         var email = document.getElementById('email').value;
