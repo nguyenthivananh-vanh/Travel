@@ -9,6 +9,7 @@
 
     <link href="admin_asset/css/main.css" rel="stylesheet">
     <link href="admin_asset/css/home.css" rel="stylesheet">
+    <link href="admin_asset/css/login.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,7 +23,7 @@
     <!--Import Google Icon Font-->
 
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
+    {{-- <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" /> --}}
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 
 
@@ -51,10 +52,11 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript">
         CKEDITOR.replace('ckeditor');
+        CKEDITOR.config.height = '100vh';
     </script>
     @yield('script')
     @yield('footer')
