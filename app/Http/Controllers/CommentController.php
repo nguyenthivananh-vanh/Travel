@@ -13,6 +13,7 @@ class CommentController extends Controller
     }
     public function getDelete($id){
         $comment = Comment::find($id);
+        unlink("upload/comment/".$comment->HinhAnh);
         $comment->delete();
         return redirect('admin/comment/list')->with('thongbao','Xoá thành công');
     }

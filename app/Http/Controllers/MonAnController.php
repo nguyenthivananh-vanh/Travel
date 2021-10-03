@@ -66,8 +66,9 @@ class MonAnController extends Controller
 
     public function getDelete($id)
     {
-        $diadiem = MonAn::find($id);
-        $diadiem->delete();
+        $monan = MonAn::find($id);
+        unlink("upload/monan/".$monan->HinhAnh);
+        $monan->delete();
         return redirect('admin/monan/list')->with('thongbao', 'Xoá thành công');
     }
 

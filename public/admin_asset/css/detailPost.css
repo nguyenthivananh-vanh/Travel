@@ -156,57 +156,6 @@ body {
     display: none;
 } */
 
-.notify {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    z-index: 999;
-    padding-top: 15%;
-}
-
-.form-notify {
-    width: 500px;
-    height: 220px;
-    background-color: white;
-    margin: auto auto;
-    border-radius: 3px;
-    padding: 10px 20px;
-}
-
-.form-delete h2 {
-    color: #5bb6e4;
-    margin-block-end: 0;
-}
-
-.form-delete h4 {
-    color: #25292b;
-}
-
-.accept {
-    margin: 30px 20px;
-    float: right;
-}
-
-.accept button {
-    padding: 10px 15px;
-    margin-left: 10px;
-    border: 1px solid gray;
-}
-
-.accept a {
-    color: white !important;
-    text-decoration: none;
-}
-
-.form-update h2 {
-    color: #5bb6e4;
-}
-
 
 /* địa điểm liên quan */
 

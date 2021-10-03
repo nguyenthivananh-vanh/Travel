@@ -56,7 +56,7 @@
                   </div>
                   <div class="input-field">
                     <label for="hinhanh">Image</label><br><br>
-                    <input type="file" id="hinhanh" name="hinhanh" class="form-control" />
+                    <input type="file" id="hinhanh" name="hinhanh" class="form-control" /><br>
                   </div>
                   <div class="input-field">
                     <label for="ckeditor">Nội dung</label><br><br>

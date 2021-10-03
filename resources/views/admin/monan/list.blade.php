@@ -52,7 +52,17 @@
                                                 <td style=" border: 1px solid #ddd;">{{$monan->id}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->TenMonAn}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->TieuDe}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->MoTa}}</td>
+                                                <td style=" display: block;
+                                                display: -webkit-box;
+                                                width: 100px;
+                                                height: 116px;
+                                                margin: 0 auto;
+                                                font-size: 14px;
+                                                line-height: 1.5;
+                                                -webkit-line-clamp: 5
+                                                -webkit-box-orient: vertical;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;">{{$monan->MoTa}}</td>
                                                 <td style=" border: 1px solid #ddd;">
                                                     <img src="upload/monan/{{$monan->HinhAnh}}" alt="img"
                                                          width="100px">

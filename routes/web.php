@@ -51,6 +51,8 @@ Route::group(['prefix' => 'home'], function () {
     // viết bài
     Route::get('/reply/{id}', 'App\Http\Controllers\HomeController@getReply');
     Route::post('/reply/{id}', 'App\Http\Controllers\HomeController@postReply');
+    Route::get('/notify/{id}/{idDiaDiem}', 'App\Http\Controllers\HomeController@getNotify');
+    
     Route::get('/deleteView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getDeleteView');
     Route::get('/acceptDelete/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getAcceptDelete');
     Route::get('/backView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getBackView');
@@ -64,6 +66,7 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/updateVideo/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getUpdateVideo');
     Route::post('/updateVideo/{id}/{tacgia}/{idUser}/{idVideo}', 'App\Http\Controllers\HomeController@postUpdateVideo');
     // món ăn
+
     Route::get('/culinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@notifyCulinary');
     Route::get('/getCulinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@getCulinary');
     Route::post('/getCulinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@postCulinary');
@@ -72,6 +75,8 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/getVideo/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@getVideo');
     Route::post('/Video/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@postVideo');
 });
+
+
 Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
     Route::get('adminHome', 'App\Http\Controllers\DiaDiemController@getList');
     Route::group(['prefix' => 'vungmien'], function () {

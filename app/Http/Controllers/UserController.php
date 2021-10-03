@@ -61,7 +61,7 @@ class UserController extends Controller
         if ($request->hasFile('hinhanh')) {
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
-            if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg') {
+            if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg'&& $tail != 'jfif') {
                 return redirect('admin/user/add')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
@@ -93,6 +93,7 @@ class UserController extends Controller
     public function getDelete($id)
     {
         $user = User::find($id);
+        unlink("upload/users/".$user->Avatar);
         $user->delete();
         return redirect('admin/user/list')->with('thongbao', 'Xoá thành công');
     }
