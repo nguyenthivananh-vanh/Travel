@@ -26,7 +26,6 @@
                                     {{session('thongbao')}}<br>
                                 </div>
                             @endif
-
                             <form action="admin/diadiem/add" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="form-group">
@@ -37,7 +36,6 @@
                                         @endforeach
                                     </select>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Đặc điểm</label><br>
                                     <select class="form-control" name="DacDiem" id="dacdiem">

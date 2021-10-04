@@ -111,6 +111,7 @@ class VideoController extends Controller
     public function getDelete($id)
     {
         $video = Video::find($id);
+        unlink("upload/video/".$video->video);
         $video->delete();
         return redirect('admin/video/list')->with('thongbao', 'Xoá thành công');
     }

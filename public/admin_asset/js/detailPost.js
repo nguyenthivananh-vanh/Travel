@@ -12,7 +12,7 @@ $(document).ready(function() {
         arrows: true,
         autoplay: true,
         autoplaySpeed: 1000,
-        appendDots:false
+        appendDots: false
     });
 });
 // Trang View
@@ -31,10 +31,12 @@ function deletePost() {
     document.querySelector('.delete').style.display = 'block';
     document.querySelector('.wrap').style.display = 'none';
     document.querySelector('.footer').style.display = 'none';
+    document.querySelector('.post-related').style.display = 'none';
 }
 
 function editPost() {
     document.querySelector('.update').style.display = 'block';
     document.querySelector('.wrap').style.display = 'none';
     document.querySelector('.footer').style.display = 'none';
+    document.querySelector('.post-related').style.display = 'none';
 }

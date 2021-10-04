@@ -63,12 +63,17 @@ class HomeController extends Controller
         $cmt = Comment::where('idDiaDiem',$id)->get();
         $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->take(5)->get();
         $user = User::all();
-        $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(5)->get();
+        $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(30)->get();
         $video = Video::where('idDiaDiem',$id)->first();
+        $monan = MonAn::where('idDiaDiem',$id)->get();
         $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
         $diadiem->save();
         if(isset($video)){
             return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video]);
+        }else if(isset($monan)){
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'monan'=>$monan]);
+        }else if(isset($video) && isset($monan)){
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan]);
         }else{
             return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
         }
@@ -140,6 +145,7 @@ class HomeController extends Controller
 
     public function commentDelete($idcmt,$idDiaDiem,$tacgia,$idUser){
         $cmt = Comment::find($idcmt);
+        unlink("upload/comment/".$comment->HinhAnh);
         $cmt->delete();
         return redirect('home/view/'.$idDiaDiem.'/'.$tacgia.'/'.$idUser)->with('thongbao', 'Đã xoá bình luận');
     }
@@ -201,7 +207,11 @@ class HomeController extends Controller
         $diadiem->idDacDiem = $request->DacDiem;
         $diadiem->save();
         $idDiaDiem = $diadiem->id;
-        return redirect('home/culinary/'.$id.'/'.$idDiaDiem);
+        return redirect('home/notify/'.$id.'/'.$idDiaDiem);
+    }
+    // notify
+    public function getNotify($id,$idDiaDiem){
+        return view('home.notify',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
     }
     // xoá bài
     // public function getDeleteView($id,$tacgia,$idUser){
@@ -213,14 +223,18 @@ class HomeController extends Controller
         $monan = MonAn::where('idDiaDiem',$id)->first();
         $video = Video::where('idDiaDiem',$id)->first();
         if(isset($comment)){
+            unlink("upload/comment/".$comment->HinhAnh);
             $comment->delete();
         }
         if(isset($monan)){
+            unlink("upload/monan/".$monan->HinhAnh);
             $monan->delete();
         }
         if(isset($video)){
+            unlink("upload/video/".$video->video);
             $video->delete();
         }
+        unlink("upload/diadiem/".$diadiem->HinhAnh);
         $diadiem ->delete();
         return redirect('home/home/'.$idUser);
     }
@@ -377,10 +391,8 @@ class HomeController extends Controller
         return redirect('home/view/'.$id.'/'.$tacgia.'/'.$idUser)->with('thongbao', 'Sửa thành công');
 
     }
-    // món ăn
-    public function notifyVideo($id,$idDiaDiem){
-        return view('home.notifyVideo',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
-    }
+    //add  video
+   
     public function getVideo($id,$idDiaDiem){
         return view('home.postVideo',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
     }
@@ -414,13 +426,11 @@ class HomeController extends Controller
         $video->video = $vid;
         $video->idDiaDiem = $idDiaDiem;
         $video->save();
-        return redirect('home/home/'.$id)->with('thongbao','Bài viết của bạn đang được chờ xét duyệt');
+        return redirect('home/notify/'.$id.'/'.$idDiaDiem);
     }
 
-    // video
-    public function notifyCulinary($id,$idDiaDiem){
-        return view('home.notifyCulinary',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
-    }
+    // add món ăn
+    
     public function getCulinary($id,$idDiaDiem){
         return view('home.postCulinary',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
     }
@@ -458,7 +468,7 @@ class HomeController extends Controller
         $file->move("upload/monan", $hinh);
         $monan->HinhAnh = $hinh;
         $monan->save();
-        return redirect('home/video/'.$id.'/'.$idDiaDiem);
+        return redirect('home/notify/'.$id.'/'.$idDiaDiem);
     }
 
 }

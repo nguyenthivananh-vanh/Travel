@@ -143,6 +143,7 @@ class DiaDiemController extends Controller
     public function getDelete($id)
     {
         $diadiem = DiaDiem::find($id);
+        unlink("upload/diadiem/".$diadiem->HinhAnh);
         $diadiem->delete();
         $diadiem1 = DiaDiem::where('TrangThai',1)->paginate(3);
         return redirect('admin/diadiem/list',302,$diadiem1 =['DiaDiem'])->with('thongbao', 'Xoá thành công');
