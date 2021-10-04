@@ -19,7 +19,7 @@ class CreateDiadiemTable extends Migration
             $table->string('TieuDeKhongDau');
             $table->text('TomTat');
             $table->string('HinhAnh');
-            $table->longText('NoiDung');          
+            $table->longText('NoiDung');
             $table->integer('NoiBat')->default(0);
             $table->string('TacGia');
             $table->integer('SoLuotXem')->default(0);

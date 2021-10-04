@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home/home');
 });
 Route::get('/test', function () {
     return view('home.detail-post');
@@ -26,9 +26,10 @@ Route::get('/login', 'App\Http\Controllers\UserController@getLogin');
 Route::post('/login', 'App\Http\Controllers\UserController@postLogin');
 Route::get('/forgotPassWord', 'App\Http\Controllers\UserController@getForgotPassWord');
 Route::post('/forgotPassWord', 'App\Http\Controllers\UserController@postForgotPassWord');
-Route::get('otp', 'App\Http\Controllers\UserController@getOTP');
-Route::post('otp', 'App\Http\Controllers\UserController@postOTP');
-
+Route::get('otp/{id}', 'App\Http\Controllers\UserController@getOTP');
+Route::post('otp/{id}', 'App\Http\Controllers\UserController@postOTP');
+Route::get('resetPass/{id}', 'App\Http\Controllers\UserController@getresetPass');
+Route::post('resetPass/{id}', 'App\Http\Controllers\UserController@postresetPass');
 
 Route::group(['prefix' => 'home'], function () {
     Route::get('/home/{id}', 'App\Http\Controllers\HomeController@homeUser');

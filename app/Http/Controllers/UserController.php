@@ -276,68 +276,85 @@ class UserController extends Controller
             Mail::send('admin.user.email',$data,function ($message) use ($request){
                 $message->from('longbadboy2002@gmail.com','MyVietNam')->to($request->email,'OTP')->subject('Mã OTP');
             });
-            return redirect('http://127.0.0.1:8000/otp');
+            return redirect('otp/'.$user->id);
         } else {
             return redirect('forgotPassWord')->with('thongbao', 'Email không tồn tại');
         }
     }
 
-    public function getOTP()
+    public function getOTP($id)
     {
-        return view('admin.user.updatePass');
+        $user = User::find($id);
+        return view('admin.user.otp',['User'=>$user]);
     }
 
-    public function postOTP(Request $request)
+    public function postOTP(Request $request,$id)
     {
         $this->validate($request,
             [
-                'email' => 'required|email',
-                'password' => 'required|min:6',
-                'password1' => 'required|same:password',
+//                'password' => 'required|min:6',
+//                'password1' => 'required|same:password',
                 'otp' => 'required',
             ],
             [
-                'email.required' => 'Bạn chưa nhập email',
-                'email.email' => 'Bạn phải nhập đúng định dạng email',
-                'password.required' => 'Bạn chưa nhập mật khẩu',
-                'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
-                'password1.required' => 'Bạn chưa nhập lại mật khẩu',
-                'password1.same' => 'Mật khẩu nhập lại chưa khớp',
+//                'password.required' => 'Bạn chưa nhập mật khẩu',
+//                'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
+//                'password1.required' => 'Bạn chưa nhập lại mật khẩu',
+//                'password1.same' => 'Mật khẩu nhập lại chưa khớp',
                 'otp.required' => 'Bạn chưa nhập email'
             ]);
 
-        $otp = Otp::where('email', $request->email)->orderBy('id', 'DESC')->first();
-        $user = User::where('email', $request->email)->first();
+        $otp = Otp::where('email',$request->email)->orderBy('id', 'DESC')->first();
         if ($otp->request < 4) {
             if ($otp->end > time()) {
                 if ($otp->otp_code == $request->otp) {
                     if ($otp->TrangThai != 1) {
                         $otp->TrangThai = 1;
-                        $user->password = bcrypt($request->password);
-                        $user->save();
                         $otp->save();
-                        return redirect('login')->with('thongbao', 'Xin mời bạn đăng nhập lại');
+                        return redirect('resetPass/'.$id)->with('thongbao', 'Xin mời quý khách nhập mật khẩu');
                     } else {
-                        return redirect('otp')->with('thongbao', 'OTP đã được sử dụng');
+                        return redirect('forgotPassWord')->with('thongbao', 'OTP đã được sử dụng');
                     }
                 } else {
                     $otp->request = $otp->request + 1;
                     $otp->save();
-                    return redirect('otp')->with('thongbao', 'Mã OTP không chính xác');
+                    return redirect('otp/'.$id)->with('thongbao', 'Mã OTP không chính xác');
                 }
             } else {
                 $otp->TrangThai = 1;
                 $otp->request = $otp->request + 1;
                 $otp->save();
-                return redirect('otp')->with('thongbao', 'Mã gửi OTP quá 5 phút');
+                return redirect('forgotPassWord')->with('thongbao', 'Mã gửi OTP quá 5 phút');
             }
         } else {
             $otp->TrangThai = 1;
             $otp->request = $otp->request + 1;
             $otp->save();
-            return redirect('otp')->with('thongbao', 'Mã OTP nhập quá số lần quy định');
+            return redirect('forgotPassWord')->with('thongbao', 'Mã OTP nhập quá số lần quy định');
         }
     }
-    // return redirect('otp')->with('thongbao','Bạn OTP không chính xác');
+    public function getresetPass($id)
+    {
+        $user = User::find($id);
+        return view('admin.user.updatePass',['User'=>$user]);
+    }
+    public function postresetPass(Request $request,$id)
+    {
+        $this->validate($request,
+            [
+                'password' => 'required|min:6',
+                'password1' => 'required|same:password',
+            ],
+            [
+                'password.required' => 'Bạn chưa nhập mật khẩu',
+                'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
+                'password1.required' => 'Bạn chưa nhập lại mật khẩu',
+                'password1.same' => 'Mật khẩu nhập lại chưa khớp',
+            ]);
+        $user = User::find($id);
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect('login')->with('thongbao', 'Xin mời quý khách đăng nhập lại');
+    }
 
 }

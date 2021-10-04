@@ -45,6 +45,7 @@
                                         <th style=" border: 1px solid #ddd;">Tác giả</th>
                                         <th style=" border: 1px solid #ddd;">Số lượt xem</th>
                                         <th style=" border: 1px solid #ddd;">Id đặc điểm</th>
+                                        <th style=" border: 1px solid #ddd;">Tỉnh Thành</th>
                                         <th style=" border: 1px solid #ddd;">Tác vụ</th>
                                         <th style=" border: 1px solid #ddd;">Trạng thái</th>
                                     </tr>
@@ -65,7 +66,7 @@
                           margin: 0 auto;
                           font-size: 14px;
                           line-height: 1.5;
-                          -webkit-line-clamp: 5
+                          -webkit-line-clamp: 5;
                           -webkit-box-orient: vertical;
                           overflow: hidden;
                           text-overflow: ellipsis;
@@ -96,8 +97,9 @@
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->TacGia}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->SoLuotXem}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->dacdiem->Ten}}</td>
+                                                <td style=" border: 1px solid #ddd;">{{$diadiem->tinh}}</td>
                                                 <td style=" border: 1px solid #ddd;">
-                                                   
+
                                                     <a href="admin/diadiem/view/{{$diadiem->id}}/{{$diadiem->TacGia}}"><i class="fas fa-eye"></i></a>
                                                 </td>
                                                 <td style=" border: 1px solid #ddd;">

@@ -77,7 +77,7 @@ class HomeController extends Controller
         }else{
             return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
         }
-       
+
     }
     function viewUser($id,$tacgia,$idUser){
         $vungmien = VungMien::all();
@@ -95,7 +95,7 @@ class HomeController extends Controller
         // })->take(3)->get();
         $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
         $diadiem->save();
-        
+
         if(isset($video)){
             return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video]);
         }else if(isset($monan)){
@@ -105,14 +105,14 @@ class HomeController extends Controller
         }else{
             return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat]);
         }
-        
+
     }
     // chi tiết món ăn
     function viewMonAn($id,$idDiaDiem){
         $diadiem = DiaDiem::find($idDiaDiem);
         $monan = MonAn::find($id);
         return view('home.viewMonAn',['diadiem'=>$diadiem,'monan'=>$monan]);
-        
+
     }
     // bình luận
     function comment(Request $request,$idUser,$idDiaDiem){
@@ -181,7 +181,7 @@ class HomeController extends Controller
         $diadiem->TomTat = $request->tomtat;
         $diadiem->NoiDung = $request->noidung;
         $diadiem->TacGia = $request->tacgia;
-        
+
 
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
@@ -326,7 +326,7 @@ class HomeController extends Controller
         $monan->TenMonAn = $request->tenmonan;
         $monan->TieuDe = $request->tieude;
         $monan->MoTa = $request->mota;
-      
+
         $monan->idDiaDiem = $id;
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');
@@ -359,23 +359,23 @@ class HomeController extends Controller
         $this->validate($request,
             [
                 'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
-            
+
             ],
             [
                 'tieude.required' => 'Bạn chưa nhập tiêu đề',
                 'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
                 'tieude.unique' => 'Tiêu đề đã tồn tại',
-            
+
             ]);
         $video = Video::find($idVideo);
         $video->TieuDe = $request->tieude;
         $video->TieuDeKhongDau = changeTitle($request->tieude);
         $video->Mota = $request->mota;
-        
+
         if($request->hasFile('video')){
             $file = $request->file('video');
             $tail = $file->getClientOriginalExtension();
-           
+
             $name = $file->getClientOriginalName();
             $vid = Str::random(4)."_".$name;
             while(file_exists("upload/video/".$vid)){
@@ -402,7 +402,7 @@ class HomeController extends Controller
                 'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
                 'video' => 'required',
             ],
-            [            
+            [
                 'tieude.required' => 'Bạn chưa nhập tiêu đề',
                 'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
                 'tieude.unique' => 'Tiêu đề đã tồn tại',
@@ -416,7 +416,7 @@ class HomeController extends Controller
 
         $file = $request->file('video');
         $tail = $file->getClientOriginalExtension();
-       
+
         $name = $file->getClientOriginalName();
         $vid = Str::random(4) . "_" . $name;
         while (file_exists("upload/video/" . $vid)) {
@@ -447,13 +447,13 @@ class HomeController extends Controller
                 'hinhanh.unique' => 'Bạn chưa chọn hình ảnh',
 
             ]);
-        
+
         $monan = new MonAn();
         $monan->TenMonAn = $request->tenmonan;
         $monan->TieuDe = $request->tieude;
         $monan->Mota = $request->mota;
         $monan->idDiaDiem = $idDiaDiem;
-       
+
 
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
@@ -470,5 +470,5 @@ class HomeController extends Controller
         $monan->save();
         return redirect('home/notify/'.$id.'/'.$idDiaDiem);
     }
-    
+
 }
