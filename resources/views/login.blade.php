@@ -4,7 +4,7 @@
 
 <div class=" bg">
     <div class="overlay"></div>
-    <div class="form">
+    <div class="form fadeInDown">
         <div class=" form-login">
             <h2 style="color:#1976d2;">Đăng nhập</h2>
             @if(count($errors)>0)
