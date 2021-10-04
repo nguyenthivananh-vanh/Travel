@@ -52,7 +52,7 @@
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="search">
                                 <div class="input-field input__search">
-                                    <input type="text" style="padding-left: 12px" class="white grey-text autocomplete"
+                                    <input type="text" style="padding-left: 12px;" class="white grey-text autocomplete"
                                            placeholder="Tìm kiếm" id="autocomplete-input" name="search">
                                 </div>
                                 <button type="submit" class="btn_search--submit btn" style=" color:white;background-color:#6397ea;border:none">Search</button>

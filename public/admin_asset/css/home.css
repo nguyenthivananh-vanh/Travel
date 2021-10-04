@@ -48,6 +48,9 @@ li a i {
 .text-right {
     text-align: right;
 }
+input{
+    border-radius: 5px !important;
+}
 
 
 /* #test1{
@@ -8841,14 +8844,15 @@ img {
 
 .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 0.5s;
+    -webkit-animation-duration: 5s;
     animation-name: fade;
-    animation-duration: 0.5s;
+    animation-duration: 5s;
+    
 }
 
 @-webkit-keyframes fade {
     from {
-        opacity: .4
+        opacity: 0.1
     }
     to {
         opacity: 1
@@ -8857,10 +8861,15 @@ img {
 
 @keyframes fade {
     from {
-        opacity: .4
+        /* transform: translateX(0); */
+        opacity: 0.5;
+
+        
     }
     to {
-        opacity: 1
+        /* transform: translateX(100%); */
+        opacity: 1;
+
     }
 }
 

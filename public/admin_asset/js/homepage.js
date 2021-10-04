@@ -43,10 +43,10 @@ $(document).ready(function() {
     });
 });
 //test
-var a = document.getElementById("test");
-document.getElementById("test1").addEventListener("click", function() {
-    alert("hi")
-});
+// var a = document.getElementById("test");
+// document.getElementById("test1").addEventListener("click", function() {
+//     alert("hi")
+// });
 
 
 //Show setting post

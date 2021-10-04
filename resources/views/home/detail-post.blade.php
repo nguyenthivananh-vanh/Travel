@@ -10,7 +10,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
 
- @if(isset($user))
+ 
 <div class="container-fuild">
     <div class="notify delete">
         <div class="form-notify form-delete">
@@ -32,30 +32,46 @@
             <div class="accept">
                 <button class="green"><a href="home/updateView/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Sửa địa điểm</a></button>
                 @if(isset($monan))
-                <button class="green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>             
+
+
+                <!-- <button class="green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>             
                 @elseif(isset($video))
                 <button class="green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>     
                 @else if(isset($monan) && isset($video))
                 <button class="green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>
                 <button class="green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>
+                 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <button class="green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>
+                @endif
+                @if(isset($video))
+                <button class="green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>
+                
                 @endif
                 <button class="red"><a href="home/view/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}" > Trở lại</a></button>
             </div>
         </div>
     </div>
 </div>
-@endif
 <div class="wrap">
     <section class="container-fuild">
         <div class="contanier-detail" style="width:100vw">
             <img src="upload/diadiem/{{$DiaDiem->HinhAnh}}" style="height:70vh; width: 100vw" alt="" class="post-img">
             <a class="logo"><img src="upload/home/myVietnam-big1.png" alt="logo" style="width: 200px; height:54px"></a>
             <div class="link-homepage">
-                @if(isset($user))
                 <a href="home/home/{{$user->id}}"><i class="fas fa-home"></i></a>
-                @else 
-                <a href="home/home"><i class="fas fa-home"></i></a>
-                @endif
             </div>
             <div class="text" style="font-family:'Armata';sans-serif">
                 {{$DiaDiem->TieuDe}}
@@ -82,7 +98,7 @@
                             </div>
                             <div class="col-4" style="padding-left:0px; ">
                                 <b class="pl-1">{{$DiaDiem->TacGia}}</b>
-                                <p class="pl-2">{{$DiaDiem->created_at}}</p>
+                                <p class="pl-2" style="color: rgb(119, 119, 119);">{{$DiaDiem->created_at}}</p>
                             </div>
                             @if(isset($user))
                             <div class="col-6"></div>
@@ -94,7 +110,7 @@
                                     <li class="list-setting-item"><a style="font-weight: 500" onClick="deletePost()">Xóa
                                                 bài viết</a></li>
 
-                                    <li class="list-setting-item"><a style="font-weight: 500" onClick="editPost()">Chỉnh sửa
+                                    <li class="list-setting-item"><a style="font-weight: 500" onClick="editPost()">Sửa
                                                 bài viết</a></li>
                                 </ul>
                             </div>
@@ -102,15 +118,33 @@
                         </div>
                     </div>
                 </div>
-                {{-- video --}}
                 @if(isset($video))
                 <div class="row">
                     {{-- <div class="col col-lg-10 col-md-12 col-sm-12"> --}}
                         <div class="post-content pl-4">
-                            <h3 style="color: #277fbc">{{$video->TieuDe}}</h3>
-                            <video autoplay loop controls muted  width="100%"  class="vid">>
+                           
+                            <video controls  width="100%" height="500px">
                                 <source src="upload/video/{{$video->video}}"   >
                             </video>
+
+<!-- 
+
+
+                            <video controls  width="100%" height="500px">
+                                <source src="upload/video/{{$video->video}}"   >
+                            </video>
+                            <p class="text-center" style="color: rgb(119, 119, 119);"><i>Video: {{$video->TieuDe}}</i></p> -->
+
+
+
+
+
+
+
+
+
+
+                            <p class="text-center" style="color: rgb(119, 119, 119);"><i>Video: {{$video->TieuDe}}</i></p>
                             {!! html_entity_decode( $video->Mota) !!}
                         </div>
                     
@@ -120,7 +154,7 @@
                 @endif
                 
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-8">
                         <div >
                             {!! html_entity_decode( $DiaDiem->NoiDung) !!}
                         </div>
@@ -137,12 +171,12 @@
                                 enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="row">
-                                    <div class="user_avatar col-1">
+                                    <div class="user_avatar col-1 pl-0">
                                         <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user"
                                             style='width:50px; height:50px' alt="Avatar User">
                                     </div><!-- the input field -->
                                     <div class="input_comment col-11">
-                                        <input type="text" placeholder="Bình luận" name="cmt">
+                                        <input type="text" placeholder="Bình luận" name="cmt"class="ml-2">
                                         <div class="cmt-img">
                                             <label for="myFile"><i class="fas fa-camera"></i></label>
                                             <input hidden type="file" id="myFile" name="hinhanh">
@@ -206,8 +240,65 @@
                         
                         <hr>
                     </div>
-                    <div class="col-3">
-                        {{-- <div class="col col-lg-2 col-md-0 col-sm-0"> --}}
+                    <div class="col-4">
+                        <div class="sub-detail-travel">
+                            <div class="sub-title">
+                                <p>TIN LIÊN QUAN</p>
+                            </div>
+                            <hr>
+                            <ul class="list-sub" >
+                            
+                                <li class="list-sub-item">
+                                   <div class="row">
+                                    <div class="col-4 item-img">
+                                            <img src="upload/home/home_01.jpg" alt="">
+                                        </div>
+                                        <div class="col-8 item-text">
+                                            <p> <a>
+                                            Xin chào các bạn mình tên là hiyentrag năm nay mình là sinh bvieen năm 4 của 
+                                                học vvieejn ky thuật mậ mã á  rấ vuidoc là, dwdwdkdkdaadsja cacasc bakn
+                                            </a>
+                                            </p>
+                                            <span>21/02/2021    7:00AM</span>
+                                        </div>
+                                   </div>
+                                </li>
+                                
+                                
+                                      
+                                               
+                            </ul>
+
+                        </div>
+                        <div class="sub-deyail-culinary">
+                            <div class="sub-title">
+                                <p>ĐẶC SẢN HẤP DẪN</p>
+                            </div>
+                            <hr>
+                            <ul class="list-sub" >
+                            
+                            <li class="list-sub-item">
+                                   <div class="row">
+                                    <div class="col-4 item-img">
+                                            <img src="upload/home/home_01.jpg" alt="">
+                                        </div>
+                                        <div class="col-8 item-text">
+                                            <p> <a>
+                                            Xin chào các bạn mình tên là hiyentrag năm nay mình là sinh bvieen năm 4 của 
+                                                học vvieejn ky thuật mậ mã á  rấ vuidoc là, dwdwdkdkdaadsja cacasc bakn
+                                            </a>
+                                            </p>
+                                            <span>21/02/2021    7:00AM</span>
+                                        </div>
+                                   </div>
+                                </li>
+                                
+                                      
+                                               
+                            </ul>
+
+                        </div>
+                        <!-- {{-- <div class="col col-lg-2 col-md-0 col-sm-0"> --}}
                             <div class="sub-content-travel">
                                 <div class="travel-title">
                                     <h3 class="menu__title">Địa điểm liên quan</h3>  
@@ -259,7 +350,7 @@
                                 @endif
                             </div>
                              
-                        {{-- </div> --}}
+                        {{-- </div> --}} -->
 
                     </div>
                 </div>  
@@ -270,15 +361,16 @@
         
         </div>   
     </section>
-    <section>     
-        <div class="post-related">
-            <div class="destination">
-                <div class="destination-before"></div>
-                <span style="margin: 0 10px" class="destination-tittle" id="test1">Điểm đến liên quan</span>
-                <div class="destination-after"></div>
-            </div>
-            <div id="content-slider">
-                <div class="wrapper">
+    <section>
+      
+            <div class="post-related">
+                <div class="destination">
+                    <!-- <div class="destination-before"></div> -->
+                    <span style="margin: 0 10px; margin-left:3%" class="destination-tittle" id="test1">Điểm đến liên quan</span>
+                    <!-- <div class="destination-after"></div> -->
+                </div>
+                <div id="content-slider">
+                    <div class="wrapper">
                     <div class="autoplay-view">
                         @foreach ($noibat as $row)
                             <div class="col-4">
@@ -307,12 +399,43 @@
                         @endforeach
 
                     </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
     </section>
 </div>
+<!-- Modal Delete -->
+
+<div id="deletePost" class="modal-view"> 
+        <div class="modal-content"style="width:500px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deletePost').style.display='none'" class="cancelbtn">Quay lại</button>
+                <button type="button" class="btn btn red" onclick="document.getElementById('deletePost').style.display='none'" class="deletebtn">Xóa bài</button>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Edit -->
+        <div id="editPost" class="modal-view" style="z-index:10;"> 
+            <div class="modal-content"style="width:800px;z-index:10">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn muốn cập nhập?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Quay lại</button>
+                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Địa điểm</button>
+                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Đặc sản</button>
+                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Video</button>
+
+                    
+                </div>
+            </div>
+        </div>
 @endsection
 @section('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>

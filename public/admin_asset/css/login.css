@@ -79,6 +79,10 @@
     font-size: 14px;
 }
 
+input:focus{
+    color: #1976d2;
+}
+
 .form button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
@@ -86,10 +90,41 @@
     background: #1976d2;
     width: 100%;
     border: 0;
+    border-radius: 5px;
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
+}
+@keyframes fadeInDown {
+    from {
+        opacity:0;
+        -webkit-transform: translatey(-50%);
+        -moz-transform: translatey(-50%);
+        -o-transform: translatey(-50%);
+        transform: translatey(-50%);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -o-transform: translatey(0);
+        transform: translatey(0);
+    }
+}
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    -moz-animation-name: fadeInDown;
+    -o-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
 }

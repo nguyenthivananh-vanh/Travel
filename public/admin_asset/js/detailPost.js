@@ -33,6 +33,16 @@ function deletePost() {
     document.querySelector('.footer').style.display = 'none';
     document.querySelector('.post-related').style.display = 'none';
 }
+function editPost(){
+    document.getElementById('editPost').style.display='block';
+    document.getElementById("listSetting").classList.toggle("displayBlock");
+    document.getElementById("btnSettingPost").classList.toggle("btn-click");
+}
+// function deletePost() {
+//     document.querySelector('.delete').style.display = 'block';
+//     document.querySelector('.wrap').style.display = 'none';
+//     document.querySelector('.footer').style.display = 'none';
+// }
 
 function editPost() {
     document.querySelector('.update').style.display = 'block';
