@@ -61,6 +61,7 @@ class DiaDiemController extends Controller
         $diadiem->TomTat = $request->tomtat;
         $diadiem->NoiDung = $request->noidung;
         $diadiem->TacGia = $request->tacgia;
+        $diadiem->tinh = $request->tinh;
 
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
@@ -116,6 +117,7 @@ class DiaDiemController extends Controller
         $diadiem->TacGia = $request->tacgia;
         $diadiem->TrangThai = $request->duyet;
         $diadiem->idDacDiem = $request->DacDiem;
+        $diadiem->tinh = $request->tinh;
 
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');
@@ -154,7 +156,8 @@ class DiaDiemController extends Controller
     }
     public function showSearch($key)
     {
-        $dd = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")->orwhere('TomTat', 'like', "%$key%")->paginate(3);
+        $dd = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")
+            ->orwhere('TomTat', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->paginate(3);
         return view('admin.diadiem.list', ['DiaDiem' => $dd]);
     }
 

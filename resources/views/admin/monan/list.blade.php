@@ -40,8 +40,9 @@
                                         <th style=" border: 1px solid #ddd;">Tên Món Ăn</th>
                                         <th style=" border: 1px solid #ddd;">Tiêu đề</th>
                                         <th style=" border: 1px solid #ddd;">Mô Tả</th>
-                                        <th style=" border: 1px solid #ddd;">Hình ảnh</th>
-                                        <th style=" border: 1px solid #ddd;">Địa điểm</th>
+                                        <th style=" border: 1px solid #ddd;">Hình Ảnh</th>
+                                        <th style=" border: 1px solid #ddd;">Địa Điểm</th>
+                                        <th style=" border: 1px solid #ddd;">Tỉnh Thành</th>
                                         <th style=" border: 1px solid #ddd;">Tác vụ</th>
 
                                     </tr>
@@ -68,6 +69,17 @@
                                                          width="100px">
                                                 </td>
                                                 <td style=" border: 1px solid #ddd;">{{$monan->idDiaDiem}}</td>
+                                                <td style="display: block;
+                                                            display: -webkit-box;
+                                                            width: 300px;
+                                                            height: 116px;
+                                                            margin: 0 auto;
+                                                            font-size: 14px;
+                                                            line-height: 1.5;
+                                                            -webkit-line-clamp: 5;
+                                                            -webkit-box-orient: vertical;
+                                                            overflow: hidden;
+                                                            text-overflow: ellipsis; ">{{$monan->tinh}}</td>
 
                                                 <td style=" border: 1px solid #ddd;">
                                                     <a href="admin/monan/update/{{$monan->id}}" class="green-text">
@@ -78,8 +90,6 @@
                                                     </a>
                                                 </td>
                                             </tr>
-
-
                                     @endforeach
 
                                     </tbody>

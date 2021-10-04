@@ -45,8 +45,7 @@ class MonAnController extends Controller
         $monan->TieuDe = $request->tieude;
         $monan->Mota = $request->mota;
         $monan->idDiaDiem = $request->iddd;
-      
-   
+        $monan->tinh = $request->tinh;
 
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
@@ -96,7 +95,8 @@ class MonAnController extends Controller
         $monan->TenMonAn = $request->tenmonan;
         $monan->TieuDe = $request->tieude;
         $monan->MoTa = $request->mota;
-       
+        $monan->tinh = $request->tinh;
+
         $monan->idDiaDiem = $request->iddd;
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');

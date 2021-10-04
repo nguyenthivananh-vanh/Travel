@@ -1,7 +1,7 @@
 @extends('admin.layout.index')
 @section('content')
     <link rel="stylesheet" href="admin_asset/css/pagination.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <section class="section section-posts grey lighten-4 content">
         <div class="container-fuild">
             <div class="row">
@@ -28,7 +28,7 @@
                                 <div class="col-2 text-right" style="text-align: right;">
                                     <button class="btn-add"><a href="admin/diadiem/add">Thêm</a></button>
                                 </div>
-                                
+
                             </div>
                             @if(session('thongbao'))
                                 <div class="alert alert-success">
@@ -50,6 +50,7 @@
                                         <th style=" border: 1px solid #ddd;">Tác giả</th>
                                         <th style=" border: 1px solid #ddd;">Số lượt xem</th>
                                         <th style=" border: 1px solid #ddd;">Id đặc điểm</th>
+                                        <th style=" border: 1px solid #ddd;">Tỉnh Thành</th>
                                         <th style=" border: 1px solid #ddd;">Tác vụ</th>
                                         <th style=" border: 1px solid #ddd;">Trạng thái</th>
                                     </tr>
@@ -93,6 +94,7 @@
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->TacGia}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->SoLuotXem}}</td>
                                                 <td style=" border: 1px solid #ddd;">{{$diadiem->dacdiem->Ten}}</td>
+                                                <td style=" border: 1px solid #ddd;">{{$diadiem->tinh}}</td>
                                                 <td style=" border: 1px solid #ddd;">
                                                     <a href="admin/diadiem/update/{{$diadiem->id}}" class="green-text">
                                                         <i class="material-icons">done</i>
