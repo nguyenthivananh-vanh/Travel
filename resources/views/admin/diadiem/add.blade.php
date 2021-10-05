@@ -137,6 +137,19 @@
                                 <div class="card-action">
                                     <button class="btn green">Add</button>
                                     <button class="btn red">Reset</button>
+
+
+
+
+                                    <button  type="button" class="btn btn-success" style="color: white" onClick="createNews()">Thêm</button>
+                                    <button  type="button" class="btn btn red" style="color: white" onClick="deleteNews()">Reset</button>
+
+
+
+
+
+
+
                                 </div>
                             </form>
                         </div>
@@ -146,10 +159,56 @@
             </div>
         </div>
     </section>
+    <div id="deleteDiaDiem" class="modal-view"> 
+        <div class="modal-content"style="width:500px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deleteDiaDiem').style.display='none'" class="cancelbtn">Quay lại</button>
+            <button class="btn red" style="color: white">Xoá</button>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Edit -->
+        <div id="addDiaDiem" class="modal-view" style="z-index:10;"> 
+            <div class="modal-content"style="width:500px">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn thêm không?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"  onclick="document.getElementById('addDiaDiem').style.display='none'" class="cancelbtn">Đóng</button>
+                    <button class="btn green" style="color: white">Cập nhật</button>
+        
+                </div>
+            </div>
+        </div>
+
 @endsection
 
 @section('script')
     <script>
+        var deleteDiaDiemModal = document.getElementById("deleteDiaDiem");
+        var addDiaDiemModal = document.getElementById("addDiaDiem");
+        function deleteNews(){
+            document.getElementById('deleteDiaDiem').style.display='block';
+        
+        }
+        function createNews(){
+            document.getElementById('addDiaDiem').style.display='block';
+        
+        }
+
+        window.onclick = function(event) {
+            if (event.target == deleteDiaDiemModal || event.target == addDiaDiemModal) {
+                document.getElementById('deleteDiaDiem').style.display = "none";
+                document.getElementById('addDiaDiem').style.display = "none";
+            }
+        }
+
 
         $(document).ready(function () {
             $("#vungmien").change(function () {

@@ -90,3 +90,71 @@ function saveEditPost(){
 function deleteEdit(){
     document.getElementById('deleteEdit').style.display='block';
 }
+
+
+
+
+
+
+
+
+
+
+//updateView.php
+function deleteUpdateView(){
+    document.getElementById('deleteEditView').style.display='block';
+  
+}
+function editUpdateView(){
+    document.getElementById('saveEditView').style.display='block';
+    
+}
+var deleteUpdateViewModal= document.getElementById("deleteEditView");
+var editUpdateViewModal = document.getElementById("saveEditView");
+window.onclick = function(event) {
+    if (event.target == deleteUpdateViewModal || event.target == editUpdateViewModal) {
+        deleteUpdateViewModal.style.display = "none";
+        editUpdateViewModal.style.display = "none";
+    }
+}
+//updateVideo.php
+function deleteUpdateVideo(){
+    document.getElementById('deleteEditVideo').style.display='block';
+  
+}
+function editUpdateVideo(){
+    document.getElementById('saveEditVideo').style.display='block';
+    
+}
+var deleteUpdateVideoModal= document.getElementById("deleteEditVideo");
+var editUpdateVideoModal = document.getElementById("saveEditVideo");
+window.onclick = function(event) {
+    if (event.target == deleteUpdateViewModal || event.target == editUpdateViewModal) {
+        deleteUpdateVideoModal.style.display = "none";
+        editUpdateVideoModal.style.display = "none";
+    }
+}
+
+
+//reply.php
+
+var deleteNewsModal = document.getElementById("deleteNews");
+var postNewsModal = document.getElementById("postNews");
+function deleteNews(){
+    document.getElementById('deleteNews').style.display='block';
+   
+}
+function createNews(){
+    document.getElementById('postNews').style.display='block';
+   
+}
+
+window.onclick = function(event) {
+    if (event.target == deleteNewsModal || event.target == postNewsModal) {
+        deleteNewsModal.style.display = "none";
+        postNewsModal.style.display = "none";
+    }
+}
+
+
+

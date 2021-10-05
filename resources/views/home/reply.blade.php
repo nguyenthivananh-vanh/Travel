@@ -69,8 +69,11 @@
 
 
                   <div class="card-action">
-                    <button class="btn green">Đăng bài</button>
-                    <button class="btn red">Xóa</button>
+                    <!-- <button class="btn green">Đăng bài</button>
+                    <button class="btn red">Xóa</button> -->
+                      <!-- Gà Tây: đoạn này t comment hai cái nút lại và ấy lại để mở popup -->
+                      <button  type="button" class="btn btn-success" style="color: white" onClick="createNews()">Đăng bài</button>
+                      <button  type="button" class="btn btn red" style="color: white" onClick="deleteNews()">Xoá</button>
                   </div>
                 </form>
             </div>
@@ -80,11 +83,45 @@
       </div>
     </div>
   </section>
+   <!-- Modal Delete -->
+
+   <div id="deleteNews" class="modal-view"> 
+        <div class="modal-content"style="width:500px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deleteNews').style.display='none'" class="cancelbtn">Quay lại</button>
+            <button class="btn red" style="color: white">Xoá</button>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Edit -->
+        <div id="postNews" class="modal-view" style="z-index:10;"> 
+            <div class="modal-content"style="width:500px">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn có muốn đăng bài không?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"  onclick="document.getElementById('postNews').style.display='none'" class="cancelbtn">Đóng</button>
+                    <button class="btn green" style="color: white">Đăng bài</button>
+        
+                </div>
+            </div>
+        </div>
+
+
+
   @endsection
 
   @section('script')
-  <script>
+  <script type="text/javascript" src="admin_asset/js/homepage.js"></script>
 
+  <script>
+    
       $(document).ready(function(){
           $("#vungmien").change(function(){
               var idvm = $(this).val();

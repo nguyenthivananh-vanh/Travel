@@ -2,7 +2,7 @@
 @section('slider')
 
 
-    <div class="slideshow-container">
+    <div class="slideshow-container" style="overflow-x:hidden">
 
         <div class="mySlides fade" style="width:100vw">
             <div class="numbertext">1 / 3</div>
