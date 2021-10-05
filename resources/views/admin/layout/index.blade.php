@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> -->
-    <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
+    {{-- <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" /> --}}
 
     <!-- <link href="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet"> -->
     <!-- {{-- <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> --}} -->
@@ -33,13 +33,14 @@
 </head>
 <body>
     <div id="wrapper" style="position:relative">
-    @include('admin.layout.header')
+      
         <div class="container-fuild">
+           
             <div class="row">
                 <div class="col-lg-2 col-sm-0 menu-admin-mobile">
                     @include('admin.layout.menu')
                 </div>
-                <div class="col-lg-10 col-sm-12">
+                <div class="col-lg-10 col-sm-12 ">
                     @yield('content')
                 </div>
             </div>

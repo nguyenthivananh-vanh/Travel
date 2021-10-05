@@ -66,18 +66,16 @@ class HomeController extends Controller
         $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(30)->get();
         $video = Video::where('idDiaDiem',$id)->first();
         $monan = MonAn::where('idDiaDiem',$id)->get();
+        $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->take(10)->get();
         $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
         $diadiem->save();
-        if(isset($video)){
-            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video]);
-        }else if(isset($monan)){
-            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'monan'=>$monan]);
-        }else if(isset($video) && isset($monan)){
-            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan]);
+        // dd($monanTinh);
+        if(isset($video) || isset($monan) || isset($monanTinh)){
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan,'monanTinh'=>$monanTinh]);
         }else{
             return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
         }
-
+       
     }
     function viewUser($id,$tacgia,$idUser){
         $vungmien = VungMien::all();
@@ -89,21 +87,13 @@ class HomeController extends Controller
         $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(30)->get();
         $video = Video::where('idDiaDiem',$id)->first();
         $monan = MonAn::where('idDiaDiem',$id)->get();
-        // $diadiemList = DiaDiem::doesntHave('id',$id)->get();
-        // $diadiemList = DiaDiem::whereDoesntHave($id, function (Builder $query) {
-        //     $query->where('idDacDiem',$diadiem->idDacDiem);
-        // })->take(3)->get();
+        $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->get();
         $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
         $diadiem->save();
-
-        if(isset($video)){
-            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video]);
-        }else if(isset($monan)){
-            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'monan'=>$monan]);
-        }else if(isset($video) && isset($monan)){
-            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan]);
+        if(isset($video) || isset($monan) || isset($monanTinh)){
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan,'monanTinh'=>$monanTinh]);
         }else{
-            return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat]);
+            return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
         }
 
     }

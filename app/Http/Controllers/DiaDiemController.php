@@ -18,7 +18,8 @@ class DiaDiemController extends Controller
     public function getList()
     {
         $diadiem = DiaDiem::where('TrangThai',1)->paginate(3);
-        return view('admin.diadiem.list', ['DiaDiem' => $diadiem]);
+        $user = User::where('id',1)->first();
+        return view('admin.diadiem.list', ['DiaDiem' => $diadiem,'user'=>$user]);
     }
 
 

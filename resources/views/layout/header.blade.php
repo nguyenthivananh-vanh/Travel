@@ -6,7 +6,7 @@
                 <a href="#" data-activates="mobile-nav" class="button-collapse" onClick=" showNavbar()">
                     <i class="material-icons">menu</i>
                 </a>
-                @if($user->Ten == "admin" )
+                @if($user->id == 1 )
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <a href="home/home/{{$user->id}}">Trang chủ</a>

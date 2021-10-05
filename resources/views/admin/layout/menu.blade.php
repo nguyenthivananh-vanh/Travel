@@ -1,30 +1,22 @@
-<div class="container">
-    <div class="nav-wrapper">
-        <ul id="side-nav-admin" class="side-nav-admin">
-            <li>
-                <div class="user-view">
-                    <a href="">Admin</a>
-                    <!-- <a  class="admin-btnClose-sidenav" onclick="showSidebar()"><i class="fas fa-times"></i></a> -->
-                {{-- <div class="background">
-                  <img src="upload/users/background-admin.jpg" alt="ocean-background">
+<div class="container ">
+    <div class="side-nav-admin nav-wrapper">
+        <div class="menu-admin">
+            <div class="title-admin">
+                <div class="home" >
+                    <a href="home/home/{{$user->id}}" class="brand-logo"><i class="fas fa-home" ></i>Home</a>                       
                 </div>
-                <div class="ml-2"  style="margin-top:20%; margin-left:20px">
-                  <a href="#" class="admin-img-sidenav mt-4">
-                    <img src="upload/users/ava-admin.jpg" alt="person1.jpg" class="circle avatar-user" style='width:50px; height:50px'>
-                  </a>
-                  <a href="#" class="admin-name-sidenav white-text">
-                    <p class="">Admin My VietNam</p>
-                  </a>
-                  <a href="#" class="admin-email-sidenav white-text">
-                    <p>myvietnam@gmail.com</p>
-                  </a>
+                
+                <div class="admin-infor">
+                    <img src="upload/users/{{$user->Avatar}}" class="circle-admin avatar-user" alt="Avatar User">
+                    <p >{{$user->Ten}}</p>
                 </div>
-              </div> --}}
-            </li>
-
-            <li>
-                <a href="home/home/1">Trang chủ</a>
-            </li>
+            </div>       
+        </div>
+                           
+           
+            <ul id="side-nav-admin" class="side-nav-admin menu-admin">
+              
+    
             <li>
                 <a href="admin/vungmien/list">Vùng miền</a>
             </li>
