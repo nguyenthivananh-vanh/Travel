@@ -80,8 +80,12 @@
                                 </div>
                                 
                                 <div class="card-action">
-                                    <button class="btn green" style="color: white">Cập nhật</button>
-                                    <button class="btn red" style="color: white">Xoá</button>
+                                    <!-- <button class="btn green" style="color: white">Cập nhật</button>
+                                    <button class="btn red" style="color: white">Xoá</button> -->
+
+                                    <!-- Gà Tây: đoạn này t comment hai cái nút lại và ấy lại để mở popup -->
+                                    <button  type="button" class="btn btn-success" style="color: white" onClick="editUpdateView()">Cập nhật</button>
+                                    <button  type="button" class="btn btn red" style="color: white" onClick="deleteUpdateView()">Xoá</button>
                                 
                                 </button>
                                 </div>
@@ -95,14 +99,14 @@
         </div>
          <!-- Modal Delete -->
 
-        <div id="deleteEdit" class="modal-view"> 
+        <div id="deleteEditView" class="modal-view"> 
         <div class="modal-content"style="width:500px">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deleteEdit').style.display='none'" class="cancelbtn">Quay lại</button>
-                <button type="button" class="btn btn red" onclick="document.getElementById('deleteEdit').style.display='none'" class="deletebtn">Xóa bài</button>
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deleteEditView').style.display='none'" class="cancelbtn">Quay lại</button>
+            <button class="btn red" style="color: white">Xoá</button>
             </div>
             </div>
             </div>
@@ -110,18 +114,18 @@
 
 
         <!-- Modal Edit -->
-        <div id="saveEdit" class="modal-view" style="z-index:10;"> 
-        <div class="modal-content"style="width:500px">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn cập nhập không?</h5>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-secondary"  onclick="document.getElementById('saveEdit').style.display='none'" class="cancelbtn">Đóng</button>
-        <button type="button" class="btn btn red" onclick="document.getElementById('saveEdit').style.display='none'" class="deletebtn">Lưu</button>
+        <div id="saveEditView" class="modal-view" style="z-index:10;"> 
+            <div class="modal-content"style="width:500px">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn cập nhập không?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"  onclick="document.getElementById('saveEditView').style.display='none'" class="cancelbtn">Đóng</button>
+                    <button class="btn green" style="color: white">Cập nhật</button>
         
-    </div>
-      </div>
-    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
         

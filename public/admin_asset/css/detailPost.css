@@ -245,3 +245,6 @@ body {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
+.content-detail img{
+    width: 100% !important;
+}
