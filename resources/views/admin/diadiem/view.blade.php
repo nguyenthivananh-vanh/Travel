@@ -34,9 +34,9 @@
             </div>
         </div>
         <div class="card-action">
-            <button class="btn green"><a style="color: white" href="admin/diadiem/delete/{{$DiaDiem->id}}"> Xoá</a></button>
-            <button class="btn green"><a style="color: white" href="admin/diadiem/duyet/{{$DiaDiem->id}}"> Duyệt</a></button>
-            <button class="btn green"><a style="color: white" href="admin/diadiem/list"> Trở lại</a></button>
+            <button class="btn green"><a style="color: white" href="admin/diadiem/delete/{{$DiaDiem->id}}/{{$user->id}}"> Xoá</a></button>
+            <button class="btn green"><a style="color: white" href="admin/diadiem/duyet/{{$DiaDiem->id}}/{{$user->id}}"> Duyệt</a></button>
+            <button class="btn green"><a style="color: white" href="admin/diadiem/list/{{$user->id}}"> Trở lại</a></button>
         </div>
         <div class="row"></div>      
     </section>

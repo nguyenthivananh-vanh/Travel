@@ -79,86 +79,86 @@ Route::group(['prefix' => 'home'], function () {
 
 
 Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
-    Route::get('adminHome', 'App\Http\Controllers\DiaDiemController@getList');
+    Route::get('adminHome/{idUser}', 'App\Http\Controllers\DiaDiemController@getList');
     Route::group(['prefix' => 'vungmien'], function () {
-        Route::get('list', 'App\Http\Controllers\VungMienController@getList');
-        Route::get('add', 'App\Http\Controllers\VungMienController@getAdd');
-        Route::post('add', 'App\Http\Controllers\VungMienController@postAdd');
-        Route::get('update/{id}', 'App\Http\Controllers\VungMienController@getUpdate');
-        Route::post('update/{id}', 'App\Http\Controllers\VungMienController@postUpdate');
-        Route::get('delete/{id}', 'App\Http\Controllers\VungMienController@getDelete');
+        Route::get('list/{idUser}', 'App\Http\Controllers\VungMienController@getList');
+        Route::get('add/{idUser}', 'App\Http\Controllers\VungMienController@getAdd');
+        Route::post('add/{idUser}', 'App\Http\Controllers\VungMienController@postAdd');
+        Route::get('update/{id}/{idUser}', 'App\Http\Controllers\VungMienController@getUpdate');
+        Route::post('update/{id}/{idUser}', 'App\Http\Controllers\VungMienController@postUpdate');
+        Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\VungMienController@getDelete');
 
     });
     Route::group(['prefix' => 'dacdiem'], function () {
-        Route::get('list', 'App\Http\Controllers\DacDiemController@getList');
-        Route::get('add', 'App\Http\Controllers\DacDiemController@getAdd');
-        Route::post('add', 'App\Http\Controllers\DacDiemController@postAdd');
-        Route::get('update/{id}', 'App\Http\Controllers\DacDiemController@getUpdate');
-        Route::post('update/{id}', 'App\Http\Controllers\DacDiemController@postUpdate');
-        Route::get('delete/{id}', 'App\Http\Controllers\DacDiemController@getDelete');
-        Route::post('search', 'App\Http\Controllers\DacDiemController@search');
+        Route::get('list/{idUser}', 'App\Http\Controllers\DacDiemController@getList');
+        Route::get('add/{idUser}', 'App\Http\Controllers\DacDiemController@getAdd');
+        Route::post('add/{idUser}', 'App\Http\Controllers\DacDiemController@postAdd');
+        Route::get('update/{id}/{idUser}', 'App\Http\Controllers\DacDiemController@getUpdate');
+        Route::post('update/{id}/{idUser}', 'App\Http\Controllers\DacDiemController@postUpdate');
+        Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\DacDiemController@getDelete');
+        Route::post('search/{idUser}', 'App\Http\Controllers\DacDiemController@search');
+    
 
     });
     Route::group(['prefix' => 'user'], function () {
-        Route::get('list', 'App\Http\Controllers\UserController@getList');
-        Route::get('add', 'App\Http\Controllers\UserController@getAdd');
-        Route::post('add', 'App\Http\Controllers\UserController@postAdd');
-        Route::get('level/{id}', 'App\Http\Controllers\UserController@getLevel');
-        Route::post('level/{id}', 'App\Http\Controllers\UserController@postLevel');
-        Route::get('delete/{id}', 'App\Http\Controllers\UserController@getDelete');
+        Route::get('list/{idUser}', 'App\Http\Controllers\UserController@getList');
+        Route::get('add/{idUser}', 'App\Http\Controllers\UserController@getAdd');
+        Route::post('add/{idUser}', 'App\Http\Controllers\UserController@postAdd');
+        Route::get('level/{id}/{idUser}', 'App\Http\Controllers\UserController@getLevel');
+        Route::post('level/{id}/{idUser}', 'App\Http\Controllers\UserController@postLevel');
+        Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\UserController@getDelete');
         Route::get('update/{id}', 'App\Http\Controllers\UserController@getUpdate');
         Route::post('update/{id}', 'App\Http\Controllers\UserController@postUpdate');
-        Route::post('search', 'App\Http\Controllers\UserController@search');
-        Route::get('showSearch/{key}', 'App\Http\Controllers\UserController@showSearch');
+        Route::post('search/{idUser}', 'App\Http\Controllers\UserController@search');
+        Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\UserController@showSearch');
 
     });
     Route::group(['prefix' => 'diadiem'], function () {
-        Route::get('list', 'App\Http\Controllers\DiaDiemController@getList');
-        Route::get('duyetbai', 'App\Http\Controllers\DiaDiemController@getListDuyet');
-        Route::get('add', 'App\Http\Controllers\DiaDiemController@getAdd');
-        Route::post('add', 'App\Http\Controllers\DiaDiemController@postAdd');
-        Route::get('update/{id}', 'App\Http\Controllers\DiaDiemController@getUpdate');
-        Route::post('update/{id}', 'App\Http\Controllers\DiaDiemController@postUpdate');
-        Route::get('delete/{id}', 'App\Http\Controllers\DiaDiemController@getDelete');
-        Route::post('search', 'App\Http\Controllers\DiaDiemController@search');
-        Route::get('showSearch/{key}', 'App\Http\Controllers\DiaDiemController@showSearch');
+        Route::get('list/{idUser}', 'App\Http\Controllers\DiaDiemController@getList');
+        Route::get('duyetbai/{idUser}', 'App\Http\Controllers\DiaDiemController@getListDuyet');
+        Route::get('add/{idUser}', 'App\Http\Controllers\DiaDiemController@getAdd');
+        Route::post('add/{idUser}', 'App\Http\Controllers\DiaDiemController@postAdd');
+        Route::get('update/{id}/{idUser}', 'App\Http\Controllers\DiaDiemController@getUpdate');
+        Route::post('update/{id}/{idUser}', 'App\Http\Controllers\DiaDiemController@postUpdate');
+        Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\DiaDiemController@getDelete');
+        Route::post('search/{idUser}', 'App\Http\Controllers\DiaDiemController@search');
+        Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\DiaDiemController@showSearch');
         Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\DiaDiemController@view');
-        Route::get('/duyet/{id}', 'App\Http\Controllers\DiaDiemController@duyet');
+        Route::get('/duyet/{id}/{idUser}', 'App\Http\Controllers\DiaDiemController@duyet');
     });
     Route::group(['prefix' => 'video'], function () {
-        Route::get('list', 'App\Http\Controllers\VideoController@getList');
-        Route::get('add', 'App\Http\Controllers\VideoController@getAdd');
-        Route::post('add', 'App\Http\Controllers\VideoController@postAdd');
-        Route::get('update/{id}', 'App\Http\Controllers\VideoController@getUpdate');
-        Route::post('update/{id}', 'App\Http\Controllers\VideoController@postUpdate');
-        Route::get('delete/{id}', 'App\Http\Controllers\VideoController@getDelete');
-        Route::post('search', 'App\Http\Controllers\VideoController@search');
-        Route::get('showSearch/{key}', 'App\Http\Controllers\VideoController@showSearch');
+        Route::get('list/{idUser}', 'App\Http\Controllers\VideoController@getList');
+        Route::get('add/{idUser}', 'App\Http\Controllers\VideoController@getAdd');
+        Route::post('add/{idUser}', 'App\Http\Controllers\VideoController@postAdd');
+        Route::get('update/{id}/{idUser}', 'App\Http\Controllers\VideoController@getUpdate');
+        Route::post('update/{id}/{idUser}', 'App\Http\Controllers\VideoController@postUpdate');
+        Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\VideoController@getDelete');
+        Route::post('search/{idUser}', 'App\Http\Controllers\VideoController@search');
+        Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\VideoController@showSearch');
 
     });
     Route::group(['prefix' => 'comment'], function () {
-        Route::get('list', 'App\Http\Controllers\CommentController@getList');
-        Route::get('delete/{id}', 'App\Http\Controllers\CommentController@getDelete');
-        Route::post('search', 'App\Http\Controllers\CommentController@search');
-        Route::get('showSearch/{key}', 'App\Http\Controllers\CommentController@showSearch');
+        Route::get('list/{idUser}', 'App\Http\Controllers\CommentController@getList');
+        Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\CommentController@getDelete');
+        Route::post('search/{idUser}', 'App\Http\Controllers\CommentController@search');
+        Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\CommentController@showSearch');
     });
     Route::group(['prefix' => 'thongke'], function () {
-        Route::get('list', 'App\Http\Controllers\ThongKeController@getList');
+        Route::get('list/{idUser}', 'App\Http\Controllers\ThongKeController@getList');
 
     });
 
     Route::group(['prefix' => 'monan'], function () {
-        Route::get('list', 'App\Http\Controllers\MonAnController@getList');
-        Route::get('add', 'App\Http\Controllers\MonAnController@getAdd');
-        Route::post('add', 'App\Http\Controllers\MonAnController@postAdd');
-        Route::get('update/{id}', 'App\Http\Controllers\MonAnController@getUpdate');
-        Route::post('update/{id}', 'App\Http\Controllers\MonAnController@postUpdate');
-        Route::get('delete/{id}', 'App\Http\Controllers\MonAnController@getDelete');
-        Route::post('search', 'App\Http\Controllers\MonAnController@search');
-        Route::get('showSearch/{key}', 'App\Http\Controllers\MonAnController@showSearch');
-        // Route::post('search', 'App\Http\Controllers\MonAnController@postSearch');
-        Route::get('duyetbai', 'App\Http\Controllers\MonAnController@getListDuyet');
-        Route::get('duyet/{id}', 'App\Http\Controllers\MonAnController@getDuyet');
+        Route::get('list/{idUser}', 'App\Http\Controllers\MonAnController@getList');
+        Route::get('add/{idUser}', 'App\Http\Controllers\MonAnController@getAdd');
+        Route::post('add/{idUser}', 'App\Http\Controllers\MonAnController@postAdd');
+        Route::get('update/{id}/{idUser}', 'App\Http\Controllers\MonAnController@getUpdate');
+        Route::post('update/{id}/{idUser}', 'App\Http\Controllers\MonAnController@postUpdate');
+        Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\MonAnController@getDelete');
+        Route::post('search/{idUser}', 'App\Http\Controllers\MonAnController@search');
+        Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\MonAnController@showSearch');
+       
+       
     });
 
     Route::group(['prefix' => 'ajax'], function () {

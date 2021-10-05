@@ -1,130 +1,120 @@
 @extends('admin.layout.index')
 @section('content')
     <link rel="stylesheet" href="admin_asset/css/pagination.css">
-    <section class="section section-posts grey lighten-4 content">
-        <div class="container-admin">
-            <div class="row">
-                <div>
-                    <div class="card">
-                        <div class="card-content pb-0">
-                            <div class="row">
-                                <div class="col-4">
-                                    <span class="card-title">Địa điểm</span>
-                                </div>
-                                <div class="col-4">
-                                    <div class="search-container">
-                                        <form action="admin/diadiem/search" method="POST" enctype="multipart/form-data">
-                                            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                            <input
-                                                style="border: 1px solid #1976d2; border-radius: 3px;padding-left: 10px"
-                                                type="text" placeholder="Search.." name="search">
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col-4 text-right" style="text-align: right;">
-                                    <button class="btn-add"><a href="admin/diadiem/add">Thêm</a></button>
-                                </div>
-                            </div>
-                            @if(session('thongbao'))
-                                <div class="alert alert-success">
-                                    {{session('thongbao')}}<br>
-                                </div>
-                            @endif
-                            <br><br>
-                            <div class="table table-responsive">
-                                <table style="border-collapse: collapse;" class="table striped">
-                                    <thead>
-                                    <tr>
-                                        <th style=" border: 1px solid #ddd;">Id</th>
-                                        <th style=" border: 1px solid #ddd;">Tiêu đề</th>
-                                        <th style=" border: 1px solid #ddd;">Tiêu đề không dấu</th>
-                                        <th style=" border: 1px solid #ddd;">Tóm tắt</th>
-                                        <th style=" border: 1px solid #ddd;">Hình ảnh</th>
-                                        <th style=" border: 1px solid #ddd;">Nội Dung</th>
-                                        <th style=" border: 1px solid #ddd;">Nổi bật</th>
-                                        <th style=" border: 1px solid #ddd;">Tác giả</th>
-                                        <th style=" border: 1px solid #ddd;">Số lượt xem</th>
-                                        <th style=" border: 1px solid #ddd;">Id đặc điểm</th>
-                                        <th style=" border: 1px solid #ddd;">Tỉnh Thành</th>
-                                        <th style=" border: 1px solid #ddd;">Tác vụ</th>
-                                        <th style=" border: 1px solid #ddd;">Trạng thái</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach ($DiaDiem as $diadiem)
-
-                                        @if($diadiem->status == 0)
-                                            <tr>
-                                                <td style=" border: 1px solid #ddd;">{{$diadiem->id}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$diadiem->TieuDe}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$diadiem->TieuDeKhongDau}}</td>
-                                                <td style="
-                          display: block;
-                          display: -webkit-box;
-                          width: 100px;
-                          height: 116px;
-                          margin: 0 auto;
-                          font-size: 14px;
-                          line-height: 1.5;
-                          -webkit-line-clamp: 5;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-
-                    "
-                                                >{{$diadiem->TomTat}}</td>
-                                                <td style=" border: 1px solid #ddd;">
-                                                    <img src="upload/diadiem/{{$diadiem->HinhAnh}}" alt="img"
-                                                         width="100px">
-                                                </td>
-                                                <td style="
-                          display: block;
-                          display: -webkit-box;
-                          width: 300px;
-                          height: 116px;
-                          margin: 0 auto;
-                          font-size: 14px;
-                          line-height: 1.5;
-                          -webkit-line-clamp: 5;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-
-                    ">
-                                                    {{$diadiem->NoiDung}}</td>
-
-                                                <td style=" border: 1px solid #ddd;">{{$diadiem->NoiBat}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$diadiem->TacGia}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$diadiem->SoLuotXem}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$diadiem->dacdiem->Ten}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$diadiem->tinh}}</td>
-                                                <td style=" border: 1px solid #ddd;">
-
-                                                    <a href="admin/diadiem/view/{{$diadiem->id}}/{{$diadiem->TacGia}}"><i class="fas fa-eye"></i></a>
-                                                </td>
-                                                <td style=" border: 1px solid #ddd;">
-                                                    @if($diadiem->status==1)
-                                                        {{"Đã duyệt"}}
-                                                    @else
-                                                        {{"Chưa duyệt"}}
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endif
-
-                                    @endforeach
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="page">
-                            {{$DiaDiem->links("pagination::bootstrap-4")}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">  
+    <section class="section section-posts lighten-4 content">
+        <div class="container-fuild content">
+            <div class=" pb-0">
+                <div class="row title">
+                    <div class="col-2">
+                        <h5 class="card-title">Địa điểm</h5>
+                    </div>
+                    <div class="col-7"></div>
+                    <div class="col-2">
+                        <div class="search-container">
+                            <form action="admin/diadiem/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                <input
+                                    style="border: 1px solid #ddd; border-radius: 3px;padding-left: 10px"
+                                    type="text" placeholder="Search.." name="search">
+                                    
+                            </form>
                         </div>
                     </div>
+                    <div class="col-1"></div>
                 </div>
+                
+                @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}<br>
+                    </div>
+                @endif
+                <div class="card-body" >
+                    <table class="table table-bordered table-hover">
+                      <thead>
+                        <tr style="text-align:center">
+                            <th >Id</th>
+                            <th >Tiêu đề</th>
+                            <th >Tóm tắt</th>
+                            <th >Hình ảnh</th>
+                            <th >Nội Dung</th>
+                            <th >Nổi bật</th>
+                            <th >Tác giả</th>
+                            <th style="width:7%">Số lượt xem</th>
+                            <th >Id đặc điểm</th>
+                            <th >Tỉnh thành</th>
+                            <th style="width:7%">Trạng thái</th>
+                            <th style="width:5%">Tác vụ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($DiaDiem as $diadiem)
+
+                            @if($diadiem->TrangThai == 1)
+                                <tr>
+                                    <td >{{$diadiem->id}}</td>
+                                    <td >{{$diadiem->TieuDe}}</td>
+                                    <td style=" display: block;
+                                                display: -webkit-box;
+                                                width: 200px;
+                                                height: 116px;
+                                                margin: 0 auto;
+                                                font-size: 14px;
+                                                line-height: 1.5;
+                                                -webkit-line-clamp: 5
+                                                -webkit-box-orient: vertical;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;">{{$diadiem->TomTat}}</td>
+                                    <td >
+                                        <img src="upload/diadiem/{{$diadiem->HinhAnh}}" alt="img"
+                                                width="100px">
+                                    </td>
+                                    <td style="display: block;
+                                                display: -webkit-box;
+                                                width: 300px;
+                                                height: 116px;
+                                                margin: 0 auto;
+                                                font-size: 14px;
+                                                line-height: 1.5;
+                                                -webkit-line-clamp: 5;
+                                                -webkit-box-orient: vertical;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis; ">{{$diadiem->NoiDung}}</td>
+
+                                    <td >{{$diadiem->NoiBat}}</td>
+                                    <td >{{$diadiem->TacGia}}</td>
+                                    <td >{{$diadiem->SoLuotXem}}</td>
+                                    <td >{{$diadiem->dacdiem->Ten}}</td>
+                                    <td>{{$diadiem->tinh}}
+                                    <td >
+                                        @if($diadiem->TrangThai==1)
+                                            {{"Đã duyệt"}}
+                                        @else
+                                            {{"Chưa duyệt"}}
+                                        @endif
+                                    </td>
+                                    <td >
+                                        <a href="admin/diadiem/view/{{$diadiem->id}}/{{$diadiem->TacGia}}"><i class="fas fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            @endif
+
+                        @endforeach
+                        
+                      </tbody>
+                    </table>
+                  </div>
+              
             </div>
+            <div class="page">
+                {{$DiaDiem->links("pagination::bootstrap-4")}}
+            </div>
+                    
+                
+            
         </div>
     </section>
 
 @endsection
+
+

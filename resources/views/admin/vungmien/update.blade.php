@@ -1,6 +1,6 @@
 @extends('admin.layout.index')
 @section('content')
- 
+<link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
   <!-- Section: Details -->
   <section class="section section-Details grey lighten-4">
     <div class="container">

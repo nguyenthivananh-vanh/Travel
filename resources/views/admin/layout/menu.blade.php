@@ -18,28 +18,29 @@
               
     
             <li>
-                <a href="admin/vungmien/list">Vùng miền</a>
+                <a href="admin/vungmien/list/{{$user->id}}">Vùng miền</a>
             </li>
             <li>
-                <a href="admin/dacdiem/list">Đặc điểm</a>
+                <a href="admin/dacdiem/list/{{$user->id}}">Đặc điểm</a>
             </li>
             <li>
-                <a href="admin/diadiem/list">Địa điểm</a>
+                <a href="admin/diadiem/list/{{$user->id}}">Địa điểm</a>
             </li>
             <li>
-                <a href="admin/video/list">Video</a>
+                <a href="admin/video/list/{{$user->id}}">Video</a>
             </li>
             <li>
-                <a href="admin/user/list">Users</a>
+                <a href="admin/user/list/{{$user->id}}">Users</a>
             </li>
             <li>
-                <a href="admin/comment/list">Comments</a>
+                <a href="admin/comment/list/{{$user->id}}">Bình luận</a>
+            </li>
+           
+            <li>
+                <a href="admin/monan/list/{{$user->id}}">Món ăn</a>
             </li>
             <li>
-                <a href="admin/thongke/list">Thống kê</a>
-            </li>
-            <li>
-                <a href="admin/monan/list">Món ăn</a>
+                <a href="admin/thongke/list/{{$user->id}}">Thống kê</a>
             </li>
         </ul>
     </div>

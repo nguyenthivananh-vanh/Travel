@@ -11,32 +11,31 @@ use Illuminate\Support\Str;
 
 class DiaDiemController extends Controller
 {
-    function __construct(){
-        $userAdmin = User::where('Ten','admin');
-        view()->share('userAdmin',$userAdmin);
-    }
-    public function getList()
+    
+    public function getList($idUser)
     {
         $diadiem = DiaDiem::where('TrangThai',1)->paginate(3);
-        $user = User::where('id',1)->first();
+        $user = User::find($idUser);
         return view('admin.diadiem.list', ['DiaDiem' => $diadiem,'user'=>$user]);
     }
 
 
-    public function getListDuyet()
+    public function getListDuyet($idUser)
     {
         $diadiem = DiaDiem::where('TrangThai',0)->paginate(3);
-        return view('admin.diadiem.listDuyet', ['DiaDiem' => $diadiem]);
+        $user = User::find($idUser);
+        return view('admin.diadiem.listDuyet', ['DiaDiem' => $diadiem,'user'=>$user]);
     }
 
-    public function getAdd()
+    public function getAdd($idUser)
     {
+        $user = User::find($idUser);
         $vungmien = VungMien::all();
         $dacdiem = DacDiem::all();
-        return view('admin.diadiem.add', ['vungmien' => $vungmien], ['dacdiem' => $dacdiem]);
+        return view('admin.diadiem.add', ['vungmien' => $vungmien], ['dacdiem' => $dacdiem,'user'=> $user]);
     }
 
-    public function postAdd(Request $request)
+    public function postAdd(Request $request, $idUser)
     {
         $this->validate($request,
             [
@@ -67,7 +66,7 @@ class DiaDiemController extends Controller
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
         if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg') {
-            return redirect('admin/diadiem/add')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+            return redirect('admin/diadiem/add/'.$idUser)->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
         }
         $name = $file->getClientOriginalName();
         $hinh = Str::random(4) . "_" . $name;
@@ -82,18 +81,19 @@ class DiaDiemController extends Controller
         $diadiem->idDacDiem = $request->DacDiem;
         $diadiem->TrangThai = 1;
         $diadiem->save();
-        return redirect('admin/diadiem/add')->with('thongbao', 'Thêm thành công');
+        return redirect('admin/diadiem/add/'.$idUser)->with('thongbao', 'Thêm thành công');
     }
-
-    public function getUpdate($id)
+// update
+    public function getUpdate($id,$idUser)
     {
+        $user = User::find($idUser);
         $vungmien = VungMien::all();
         $dacdiem = DacDiem::all();
         $diadiem = DiaDiem::find($id);
-        return view('admin.diadiem.update', ['diadiem' => $diadiem, 'vungmien' => $vungmien, 'dacdiem' => $dacdiem]);
+        return view('admin.diadiem.update', ['diadiem' => $diadiem, 'vungmien' => $vungmien, 'dacdiem' => $dacdiem,'user'=> $user]);
     }
 
-    public function postUpdate(Request $request, $id)
+    public function postUpdate(Request $request, $id, $idUser)
     {
         $this->validate($request,
             [
@@ -124,7 +124,7 @@ class DiaDiemController extends Controller
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
             if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
-                return redirect('admin/user/update')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                return redirect('admin/user/update/' . $id .'/' .$idUser)->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
             $hinh = Str::random(4)."_".$name;
@@ -138,29 +138,30 @@ class DiaDiemController extends Controller
             $diadiem->HinhAnh = $diadiem->HinhAnh;
         }
             $diadiem->save();
-            return redirect('admin/diadiem/update/' . $id)->with('thongbao', 'Sửa thành công');
+            return redirect('admin/diadiem/update/' . $id .'/' .$idUser)->with('thongbao', 'Sửa thành công');
     }
 
-    public function getDelete($id)
+    public function getDelete($id, $idUser)
     {
         $diadiem = DiaDiem::find($id);
         unlink("upload/diadiem/".$diadiem->HinhAnh);
         $diadiem->delete();
-        $diadiem1 = DiaDiem::where('TrangThai',1)->paginate(3);
-        return redirect('admin/diadiem/list',302,$diadiem1 =['DiaDiem'])->with('thongbao', 'Xoá thành công');
+        // $diadiem1 = DiaDiem::where('TrangThai',1)->paginate(3);
+        return redirect('admin/diadiem/list/'.$idUser,)->with('thongbao', 'Xoá thành công');
     }
 
     //Tìm kiếm
-    public function search(Request $request)
+    public function search(Request $request, $idUser)
     {
         $key = $request->search;
-        return redirect('admin/diadiem/showSearch/'.$key);
+        return redirect('admin/diadiem/showSearch/'.$key .'/'.$idUser);
     }
-    public function showSearch($key)
+    public function showSearch($key, $idUser)
     {
+        $user = User::find($idUser);
         $dd = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")
             ->orwhere('TomTat', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->paginate(3);
-        return view('admin.diadiem.list', ['DiaDiem' => $dd]);
+        return view('admin.diadiem.list', ['DiaDiem' => $dd,'user'=>$user]);
     }
 
     public function view($id,$tacgia){
@@ -171,10 +172,10 @@ class DiaDiemController extends Controller
         return view('admin.diadiem.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user]);
     }
 
-    public function duyet($id){
+    public function duyet($id, $idUser){
         $diadiem = DiaDiem::find($id);
         $diadiem->TrangThai = 1;
         $diadiem->save();
-        return redirect('admin/diadiem/duyetbai');
+        return redirect('admin/diadiem/duyetbai/' .$idUser);
     }
 }

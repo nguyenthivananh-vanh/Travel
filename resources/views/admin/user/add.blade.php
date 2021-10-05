@@ -1,5 +1,6 @@
 @extends('admin.layout.index')
 @section('content')
+<link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
  <style>
    #level{
      margin-top: 20px;
@@ -33,7 +34,7 @@
                     </div>
                 @endif
                 
-              <form action="admin/user/add" method="POST" enctype="multipart/form-data">
+              <form action="admin/user/add/{{$user->id}}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                 
                 <div class="input-field">

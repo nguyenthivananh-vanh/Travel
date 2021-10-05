@@ -4,23 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\DacDiem;
 use App\Models\VungMien;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DacDiemController extends Controller
 {
-    public function getList()
+    public function getList($idUser)
     {
+        $user = User::find($idUser);
         $dacdiem = DacDiem::paginate(5);
-        return view('admin.dacdiem.list', ['dacdiem' => $dacdiem]);
+        return view('admin.dacdiem.list', ['dacdiem' => $dacdiem,'user'=>$user]);
     }
 
-    public function getAdd()
+    public function getAdd($idUser)
     {
+        $user = User::find($idUser);
         $vungmien = VungMien::all();
-        return view('admin.dacdiem.add', ['vungmien' => $vungmien]);
+        return view('admin.dacdiem.add', ['vungmien' => $vungmien,'user'=>$user]);
     }
 
-    public function postAdd(Request $request)
+    public function postAdd(Request $request, $idUser)
     {
         $this->validate($request,
             [
@@ -37,18 +40,19 @@ class DacDiemController extends Controller
         $dacdiem->TenKhongDau = changeTitle($request->ten);
         $dacdiem->idVungMien = $request->VungMien;
         $dacdiem->save();
-        return redirect('admin/dacdiem/add')->with('thongbao', 'Thêm thành công');
+        return redirect('admin/dacdiem/add/'.$idUser)->with('thongbao', 'Thêm thành công');
 
     }
 
-    public function getUpdate($id)
+    public function getUpdate($id, $idUser)
     {
+        $user = User::find($idUser);
         $vungmien = VungMien::all();
         $dacdiem = DacDiem::find($id);
-        return view('admin.dacdiem.update', ['vungmien' => $vungmien], ['dacdiem' => $dacdiem]);
+        return view('admin.dacdiem.update', ['vungmien' => $vungmien], ['dacdiem' => $dacdiem,'user'=>$user]);
     }
 
-    public function postUpdate(Request $request, $id)
+    public function postUpdate(Request $request, $id, $idUser)
     {
         $this->validate($request,
             [
@@ -64,18 +68,19 @@ class DacDiemController extends Controller
         $dacdiem->TenKhongDau = changeTitle($request->ten);
         $dacdiem->idVungMien = $request->VungMien;
         $dacdiem->save();
-        return redirect('admin/dacdiem/update/' . $id)->with('thongbao', 'Sửa thành công');
+        return redirect('admin/dacdiem/update/' . $id .'/'.$idUser)->with('thongbao', 'Sửa thành công');
     }
 
-    public function getDelete($id)
+    public function getDelete($id, $idUser)
     {
         $dacdiem = DacDiem::find($id);
         $dacdiem->delete();
-        return redirect('admin/dacdiem/list')->with('thongbao', 'Xoá thành công');
+        return redirect('admin/dacdiem/list/'.$idUser)->with('thongbao', 'Xoá thành công');
     }
 
-    public function search(Request $request)
+    public function search(Request $request, $idUser)
     {
+        $user = User::find($idUser);
         $key = $request->search;
         if ($key == "Miền Bắc" || $key == "Bắc"){
             $key = "1";
@@ -87,6 +92,6 @@ class DacDiemController extends Controller
             $key = $key;
         }
         $dacdiem = DacDiem::where('Ten', 'like', "%$key%")->orwhere('TenKhongDau', 'like', "%$key%")->orwhere('idVungMien', 'like', "%$key%")->take(30)->paginate(5);
-        return view('admin.dacdiem.list', ['dacdiem' => $dacdiem]);
+        return view('admin.dacdiem.list', ['dacdiem' => $dacdiem, 'user'=>$user]);
     }
 }
