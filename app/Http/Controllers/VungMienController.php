@@ -30,7 +30,7 @@ class VungMienController extends Controller
         $vungmien->TenKhongDau = changeTitle($request->ten);
         $vungmien->save();
         return redirect('admin/vungmien/add')->with('thongbao','Thêm thành công');
-        
+
     }
     public function getUpdate($id){
         $vungmien = VungMien::find($id);
@@ -51,7 +51,7 @@ class VungMienController extends Controller
         $vungmien->Ten = $request->ten;
         $vungmien->TenKhongDau = changeTitle($request->ten);
         $vungmien->save();
-        return redirect('admin/vungmien/update/'.$id)->with('thongbao','Sửa thành công');      
+        return redirect('admin/vungmien/update/'.$id)->with('thongbao','Sửa thành công');
     }
 
     public function getDelete($id){

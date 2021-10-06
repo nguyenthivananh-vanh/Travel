@@ -3,20 +3,20 @@
         <div class="menu-admin">
             <div class="title-admin">
                 <div class="home" >
-                    <a href="home/home/{{$user->id}}" class="brand-logo"><i class="fas fa-home" ></i>Home</a>                       
+                    <a href="home/home/{{$user->id}}" class="brand-logo"><i class="fas fa-home" ></i>Home</a>
                 </div>
-                
+
                 <div class="admin-infor">
                     <img src="upload/users/{{$user->Avatar}}" class="circle-admin avatar-user" alt="Avatar User">
                     <p >{{$user->Ten}}</p>
                 </div>
-            </div>       
+            </div>
         </div>
-                           
-           
+
+
             <ul id="side-nav-admin" class="side-nav-admin menu-admin">
-              
-    
+
+
             <li>
                 <a href="admin/vungmien/list">Vùng miền</a>
             </li>
