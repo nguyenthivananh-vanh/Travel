@@ -1,6 +1,7 @@
 @extends('index')
 @section('content')
 <link rel="stylesheet" href="admin_asset/css/updateUser.css">
+
 <div class="wrapper">
   
 <form action="admin/user/update/{{$user->id}}" method="POST" enctype="multipart/form-data">   

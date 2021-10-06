@@ -6,27 +6,30 @@ use App\Models\DiaDiem;
 use App\Models\VungMien;
 use App\Models\DacDiem;
 use App\Models\Video;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class VideoController extends Controller
 {
     
-    public function getList()
+    public function getList($idUser)
     {
+        $user = User::find($idUser);
         $video = Video::paginate(3);
         $diadiem = DiaDiem::all();
-        return view('admin.video.list', ['video' => $video,'diadiem' => $diadiem]);
+        return view('admin.video.list', ['video' => $video,'diadiem' => $diadiem,'user'=>$user]);
     }
 
 
-    public function getAdd()
+    public function getAdd($idUser)
     {
+        $user = User::find($idUser);
         $diadiem = DiaDiem::all();
-        return view('admin.video.add', ['diadiem' => $diadiem]);
+        return view('admin.video.add', ['diadiem' => $diadiem,'user'=>$user]);
     }
 
-    public function postAdd(Request $request)
+    public function postAdd(Request $request,$idUser)
     {
         $this->validate($request,
             [
@@ -59,17 +62,18 @@ class VideoController extends Controller
         $video->video = $vid;
         $video->idDiaDiem = $request->DiaDiem;
         $video->save();
-        return redirect('admin/video/add')->with('thongbao', 'Thêm thành công');
+        return redirect('admin/video/add/'.$idUser)->with('thongbao', 'Thêm thành công');
     }
 
-    public function getUpdate($id)
+    public function getUpdate($id,$idUser)
     {
+        $user = User::find($idUser);
         $diadiem = DiaDiem::all();
         $video = Video::find($id);
-        return view('admin.video.update', ['diadiem' => $diadiem, 'video' => $video]);
+        return view('admin.video.update', ['diadiem' => $diadiem, 'video' => $video,'user'=>$user]);
     }
 
-    public function postUpdate(Request $request, $id)
+    public function postUpdate(Request $request, $id,$idUser)
     {
         $this->validate($request,
             [
@@ -105,24 +109,25 @@ class VideoController extends Controller
             $video->video = $video->video;
         }
         $video->save();
-        return redirect('admin/video/update/'.$id)->with('thongbao', 'Sửa thành công');
+        return redirect('admin/video/update/'.$id.'/'.$idUser)->with('thongbao', 'Sửa thành công');
     }
 
-    public function getDelete($id)
+    public function getDelete($id,$idUser)
     {
         $video = Video::find($id);
         unlink("upload/video/".$video->video);
         $video->delete();
-        return redirect('admin/video/list')->with('thongbao', 'Xoá thành công');
+        return redirect('admin/video/list/'.$idUser)->with('thongbao', 'Xoá thành công');
     }
     
-    public function search(Request $request)
+    public function search(Request $request,$idUser)
     {
         $key = $request->search;
-        return redirect('admin/video/showSearch/'.$key);
+        return redirect('admin/video/showSearch/'.$key.'/'.$idUser);
     }
-    public function showSearch($key)
+    public function showSearch($key,$idUser)
     {
+        $user = User::find($idUser);
         $diadiem = DiaDiem::all();
         $dd = DiaDiem::where('TieuDe','like',"%$key%")->first();
         if(isset($dd)){
@@ -130,7 +135,7 @@ class VideoController extends Controller
         }else{
             $video = Video::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")->orwhere('Mota', 'like', "%$key%")->paginate(5);
         }       
-        return view('admin.video.list', ['video' => $video,'diadiem' => $diadiem]);
+        return view('admin.video.list', ['video' => $video,'diadiem' => $diadiem,'user'=>$user]);
     }
 
     

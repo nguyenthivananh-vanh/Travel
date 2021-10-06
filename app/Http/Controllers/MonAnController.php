@@ -10,20 +10,22 @@ use Illuminate\Support\Str;
 
 class MonAnController extends Controller
 {
-    public function getList()
+    public function getList($idUser)
     {
-        $diadiem = DiaDiem::all();
+        $user = User::find($idUser);      
         $monan = MonAn::paginate(3);
-        return view('admin.monan.list', ['MonAn' => $monan, 'DiaDiem' => $diadiem]);
-    }
-
-    public function getAdd()
-    {
         $diadiem = DiaDiem::all();
-        return view('admin.monan.add', ['DiaDiem' => $diadiem]);
+        return view('admin.monan.list', ['MonAn' => $monan, 'DiaDiem' => $diadiem,'user'=>$user]);
     }
 
-    public function postAdd(Request $request)
+    public function getAdd($idUser)
+    {
+        $user = User::find($idUser);
+        $diadiem = DiaDiem::all();
+        return view('admin.monan.add', ['DiaDiem' => $diadiem,'user'=>$user]);
+    }
+
+    public function postAdd(Request $request, $idUser)
     {
         $this->validate($request,
             [
@@ -60,24 +62,25 @@ class MonAnController extends Controller
         $file->move("upload/monan", $hinh);
         $monan->HinhAnh = $hinh;
         $monan->save();
-        return view('admin.monan.add', ['DiaDiem' => $diadiem])->with('thongbao', 'Thêm thành công');
+        return redirect('admin/monan/add/'.$idUser)->with('thongbao', 'Thêm thành công');
     }
 
-    public function getDelete($id)
+    public function getDelete($id, $idUser)
     {
         $monan = MonAn::find($id);
         unlink("upload/monan/".$monan->HinhAnh);
         $monan->delete();
-        return redirect('admin/monan/list')->with('thongbao', 'Xoá thành công');
+        return redirect('admin/monan/list/'.$idUser)->with('thongbao', 'Xoá thành công');
     }
 
-    public function getUpdate($id){
+    public function getUpdate($id, $idUser){
+        $user = User::find($idUser);
         $monan = MonAn::find($id);
         $dd = DiaDiem::all();
-        return view('admin/monan/update', ['MonAn'=>$monan,'DiaDiem'=>$dd]);
+        return view('admin.monan.update', ['MonAn'=>$monan,'DiaDiem'=>$dd,'user'=>$user]);
     }
 
-    public function postUpdate($id, Request $request){
+    public function postUpdate($id, Request $request, $idUser){
         $this->validate($request,
             [
                 'tenmonan' => 'required',
@@ -103,7 +106,7 @@ class MonAnController extends Controller
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
             if($tail != 'jpg' && $tail != 'png' && $tail !='jpeg'){
-                return redirect('admin/user/update')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                return redirect('admin/monan/update/' . $id.'/'.$idUser)->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
             $hinh = Str::random(4)."_".$name;
@@ -117,35 +120,19 @@ class MonAnController extends Controller
             $monan->HinhAnh = $monan->HinhAnh;
         }
         $monan->save();
-        return redirect('admin/monan/update/' . $id)->with('thongbao', 'Sửa thành công');
+        return redirect('admin/monan/update/' . $id.'/'.$idUser)->with('thongbao', 'Sửa thành công');
     }
-    public function search(Request $request)
+    public function search(Request $request, $idUser)
     {
         $key = $request->search;
-        return redirect('admin/monan/showSearch/'.$key);
+        return redirect('admin/monan/showSearch/'.$key.'/'.$idUser);
     }
-    public function showSearch($key)
+    public function showSearch($key, $idUser)
     {
+        $user = User::find($idUser);
         $monan = MonAn::where('TenMonAn', 'like', "%$key%")->orwhere('MoTa', 'like', "%$key%")->take(30)->paginate(5);
-        return view('admin.diadiem.list', ['MonAn' => $monan]);
+        return view('admin.monan.list', ['MonAn' => $monan,'user'=>$user]);
     }
 
-    // public function postSearch(Request $request){
-    //     $key = $request->search;
-    //     $ketqua = MonAn::where('TenMonAn', 'like', "%$key%")->orwhere('MoTa', 'like', "%$key%")->take(30)->paginate(5);
-    //     return view('admin/monan/list',['MonAn'=>$ketqua]);
-    // }
-
-    // public function getListDuyet(){
-    //     $monan = MonAn::where('TrangThai',0)->paginate(3);
-    //     $diadiem = DiaDiem::all();
-    //     return view('admin.monan.listDuyet', ['MonAn' => $monan, 'DiaDiem' => $diadiem]);
-    // }
-
-    // public function getDuyet($id){
-    //     $monan = MonAn::find($id);
-    //     $monan->TrangThai = 1;
-    //     $monan->save();
-    //     return redirect('admin/monan/duyetbai');
-    // }
+   
 }

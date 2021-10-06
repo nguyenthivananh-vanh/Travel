@@ -1,4 +1,4 @@
-<div class="navbar-fixed">
+<div class="navbar-fixed" >
     <nav class="teal">
         <div class="container">
             @if (isset($user) )
@@ -25,7 +25,7 @@
                             
                         </li>
                         <li>
-                            <a href="admin/adminHome">Admin</a>
+                            <a href="admin/adminHome/{{$user->id}}">Admin</a>
                         </li>
                         <li class="header-login-item">
                             <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="avatar-user circle"

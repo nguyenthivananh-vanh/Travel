@@ -14,24 +14,27 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
-    public function getList()
+    public function getList($idUser)
     {
+        $users = User::find($idUser);
         $user = User::paginate(5);
-        return view('admin.user.list', ['User' => $user]);
+        return view('admin.user.list', ['User' => $user,'user' => $users]);
     }
 
-    public function getAdd()
+    public function getAdd($idUser)
     {
-        return view('admin.user.add');
+        $users = User::find($idUser);
+        return view('admin.user.add',['user' => $users]);
     }
 
-    public function getLevel($id)
+    public function getLevel($id, $idUser)
     {
+        $users = User::find($idUser);
         $user = User::find($id);
-        return view('admin.user.level', ['user' => $user]);
+        return view('admin.user.level', ['User' => $user,'user' => $users]);
     }
 
-    public function postAdd(Request $request)
+    public function postAdd(Request $request, $idUser)
     {
         $this->validate($request,
             [
@@ -62,7 +65,7 @@ class UserController extends Controller
             $file = $request->file('hinhanh');
             $tail = $file->getClientOriginalExtension();
             if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg'&& $tail != 'jfif') {
-                return redirect('admin/user/add')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                return redirect('admin/user/add/'.$idUser)->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $name = $file->getClientOriginalName();
             $hinh = Str::random(4) . "_" . $name;
@@ -77,25 +80,24 @@ class UserController extends Controller
         }
 
         $user->save();
-        return redirect('admin/user/add')->with('thongbao', 'Thêm thành công');
+        return redirect('admin/user/add/' .$idUser)->with('thongbao', 'Thêm thành công');
     }
 
-    public function postLevel(Request $request, $id)
+    public function postLevel(Request $request, $id, $idUser)
     {
         $user = User::find($id);
         $user->PhanQuyen = $request->phanquyen;
-
         $user->save();
-        return redirect('admin/user/level/' . $id)->with('thongbao', 'Đã thay đổi quyền');
+        return redirect('admin/user/level/' . $id.'/'.$idUser)->with('thongbao', 'Đã thay đổi quyền');
     }
 
 
-    public function getDelete($id)
+    public function getDelete($id, $idUser)
     {
         $user = User::find($id);
         unlink("upload/users/".$user->Avatar);
         $user->delete();
-        return redirect('admin/user/list')->with('thongbao', 'Xoá thành công');
+        return redirect('admin/user/list/'.$idUser)->with('thongbao', 'Xoá thành công');
     }
 
     // dăng nhập
@@ -232,19 +234,21 @@ class UserController extends Controller
 
     //Tìm kiếm
 
-    public function search(Request $request)
+    public function search(Request $request, $idUser)
     {
+
         $key = $request->search;
-        return redirect('admin/user/showSearch/' . $key);
+        return redirect('admin/user/showSearch/' . $key.'/'.$idUser);
     }
 
-    public function showSearch($key)
+    public function showSearch($key,$idUser)
     {
+        $users = User::find($idUser);
         $diadiem = DiaDiem::all();
         $user = User::where('Ten', 'like', "%$key%")->orwhere('email', 'like', "%$key%")->paginate(5);
-        return view('admin.user.list', ['User' => $user]);
+        return view('admin.user.list', ['User' => $user,'user'=>$users]);
     }
-
+// quên mật khẩu
     public function getForgotPassWord()
     {
         return view('forgotPassWord');

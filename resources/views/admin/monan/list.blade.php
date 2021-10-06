@@ -1,108 +1,117 @@
 @extends('admin.layout.index')
 @section('content')
     <link rel="stylesheet" href="admin_asset/css/pagination.css">
-    <section class="section section-posts grey lighten-4 content">
-        <div class="container-admin">
-            <div class="row">
-                <div>
-                    <div class="card">
-                        <div class="card-content pb-0">
-                            <div class="row">
-                                <div class="col-2">
-                                    <span class="card-title">Món ăn</span>
-                                </div>
-                                <div class="col-4">
-                                    <div class="search-container">
-                                        <form action="admin/monan/search" method="POST" enctype="multipart/form-data">
-                                            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                            <input
-                                                style="border: 1px solid #1976d2; border-radius: 3px;padding-left: 10px"
-                                                type="text" placeholder="Search.." name="search" id="search">
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <div class="col-2 text-right" style="text-align: right;">
-                                    <button class="btn-add"><a href="admin/monan/add">Thêm</a></button>
-                                </div>
-                            </div>
-                            @if(session('thongbao'))
-                                <div class="alert alert-success">
-                                    {{session('thongbao')}}<br>
-                                </div>
-                            @endif
-                            <br><br>
-                            <div class="table table-responsive">
-                                <table style="border-collapse: collapse;" class="table striped">
-                                    <thead>
-                                    <tr>
-                                        <th style=" border: 1px solid #ddd;">Id</th>
-                                        <th style=" border: 1px solid #ddd;">Tên Món Ăn</th>
-                                        <th style=" border: 1px solid #ddd;">Tiêu đề</th>
-                                        <th style=" border: 1px solid #ddd;">Mô Tả</th>
-                                        <th style=" border: 1px solid #ddd;">Hình Ảnh</th>
-                                        <th style=" border: 1px solid #ddd;">Địa Điểm</th>
-                                        <th style=" border: 1px solid #ddd;">Tỉnh Thành</th>
-                                        <th style=" border: 1px solid #ddd;">Tác vụ</th>
-
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach ($MonAn as $monan)
-                                            <tr>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->id}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->TenMonAn}}</td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->TieuDe}}</td>
-                                                <td style="display: block;
-                                                            display: -webkit-box;
-                                                            width: 300px;
-                                                            height: 116px;
-                                                            margin: 0 auto;
-                                                            font-size: 14px;
-                                                            line-height: 1.5;
-                                                            -webkit-line-clamp: 5;
-                                                            -webkit-box-orient: vertical;
-                                                            overflow: hidden;
-                                                            text-overflow: ellipsis; ">{{$monan->MoTa}}</td>
-                                                <td style=" border: 1px solid #ddd;">
-                                                    <img src="upload/monan/{{$monan->HinhAnh}}" alt="img"
-                                                         width="100px">
-                                                </td>
-                                                <td style=" border: 1px solid #ddd;">{{$monan->idDiaDiem}}</td>
-                                                <td style="display: block;
-                                                            display: -webkit-box;
-                                                            width: 300px;
-                                                            height: 116px;
-                                                            margin: 0 auto;
-                                                            font-size: 14px;
-                                                            line-height: 1.5;
-                                                            -webkit-line-clamp: 5;
-                                                            -webkit-box-orient: vertical;
-                                                            overflow: hidden;
-                                                            text-overflow: ellipsis; ">{{$monan->tinh}}</td>
-
-                                                <td style=" border: 1px solid #ddd;">
-                                                    <a href="admin/monan/update/{{$monan->id}}" class="green-text">
-                                                        <i class="material-icons">done</i>
-                                                    </a>
-                                                    <a href="admin/monan/delete/{{$monan->id}}" class="red-text">
-                                                        <i class="material-icons">close</i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                    @endforeach
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="page">
-                            {{$MonAn->links("pagination::bootstrap-4")}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">  
+    <section class="section section-posts lighten-4 content">
+        <div class="container-fuild content">
+            <div class=" pb-0">
+                <div class="row title">
+                    <div class="col-2">
+                        <h5 class="card-title">Món ăn</h5>
+                    </div>
+                    <div class="col-7"></div>
+                    <div class="col-2">
+                        <div class="search-container">
+                            <form action="admin/monan/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                <input
+                                    style="border: 1px solid #ddd; border-radius: 3px;padding-left: 10px"
+                                    type="text" placeholder="Search.." name="search">
+                                    
+                            </form>
                         </div>
                     </div>
+                    <div class="col-1"></div>
                 </div>
+                <div class="row task" >
+                    <div class="col-9"></div>
+                    <div class="col-3 " >
+                        <button class="btn-add"><a href="admin/monan/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a></button>                              
+                    </div>   
+                </div>
+                @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}<br>
+                    </div>
+                @endif
+                <div class="card-body" >
+                    <table class="table table-bordered table-hover">
+                      <thead>
+                        <tr style="text-align:center">
+                            <th >Id</th>
+                            <th style="width:10%">Tên Món Ăn</th>
+                            <th style="width:20%">Tiêu đề</th>
+                            <th >Hình Ảnh</th>
+                            <th >Mô Tả</th>
+                            <th style="width:7%">Địa Điểm</th>
+                            <th style="width:7%">Tỉnh Thành</th>
+                            <th style="width:7%">Tác vụ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($MonAn as $monan)
+                        <tr>
+                            <td >{{$monan->id}}</td>
+                            <td >{{$monan->TenMonAn}}</td>
+                            <td style=" display: block;
+                                        display: -webkit-box;
+                                        width:100%;
+                                        height: 116px;                                      
+                                        font-size: 14px;
+                                        line-height: 1.5;
+                                        -webkit-line-clamp: 5
+                                        -webkit-box-orient: vertical;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;">{{$monan->TieuDe}}</td>
+                                   
+                           
+                            <td >
+                                <img src="upload/monan/{{$monan->HinhAnh}}" alt="img"
+                                     width="100px">
+                            </td>
+                            <td style="display: block;
+                            display: -webkit-box;
+                            width:500px;
+                            height: 116px;                                     
+                            font-size: 14px;
+                            line-height: 1.5;
+                            -webkit-line-clamp: 5;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis; ">{{$monan->MoTa}}</td>
+                            @foreach ($DiaDiem as $dd)                                           
+                                @if ($monan->idDiaDiem == $dd->id)
+                                    <td >{{$dd->TieuDe}}</td>
+                                @endif
+                            @endforeach
+                            
+                            <td style="text-align:center">{{$monan->tinh}}</td>
+
+                            <td style="text-align:center">
+                                <a href="admin/monan/update/{{$monan->id}}/{{$user->id}}" class="green-text">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                <a href="admin/monan/delete/{{$monan->id}}/{{$user->id}}" class="red-text">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                                   
+                      </tbody>
+                    </table>
+                  </div>
+              
             </div>
+            <div class="page">
+                {{$MonAn->links("pagination::bootstrap-4")}}
+            </div>
+                    
+                
+            
         </div>
     </section>
 
 @endsection
+
+

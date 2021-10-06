@@ -6299,8 +6299,8 @@ button.btn-floating {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,.32);
+     /* Enable scroll if needed */
+    background-color: rgba(0,0,0,.5);
 
     padding-top: 50px;
   }
@@ -6408,7 +6408,7 @@ button.btn-floating {
     margin: 6px 0;
 }
 
-/* .modal-overlay {
+.modal-overlay {
     position: fixed;
     z-index: 999;
     top: -25%;
@@ -6420,28 +6420,28 @@ button.btn-floating {
     background: #000;
     display: none;
     will-change: opacity;
-} */
+}
 
-/* .modal.modal-fixed-footer {
+.modal.modal-fixed-footer {
     padding: 0;
     height: 70%;
-} */
+}
 
-/* .modal.modal-fixed-footer .modal-content {
+.modal.modal-fixed-footer .modal-content {
     position: absolute;
     height: calc(100% - 56px);
     max-height: 100%;
     width: 100%;
     overflow-y: auto;
-} */
+}
 
-/* .modal.modal-fixed-footer .modal-footer {
+.modal.modal-fixed-footer .modal-footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     position: absolute;
     bottom: 0;
-} */
+}
 
-/* .modal.bottom-sheet {
+.modal.bottom-sheet {
     top: auto;
     bottom: -100%;
     margin: 0;
@@ -6449,7 +6449,7 @@ button.btn-floating {
     max-height: 45%;
     border-radius: 0;
     will-change: bottom, opacity;
-} */
+}
 
 .collapsible {
     border-top: 1px solid #ddd;

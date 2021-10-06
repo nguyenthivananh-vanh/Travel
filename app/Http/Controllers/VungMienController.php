@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\VungMien;
+use App\Models\User;
 
 class VungMienController extends Controller
 {
-    public function getList(){
+    public function getList($idUser){
+        $user = User::find($idUser);
         $vungmien = VungMien::paginate(5);
-        return view('admin.vungmien.list',['vungmien'=>$vungmien]);
+        return view('admin.vungmien.list',['vungmien'=>$vungmien,'user'=>$user]);
     }
-    public function getAdd(){
-        return view('admin.vungmien.add');
+    public function getAdd($idUser){
+        $user = User::find($idUser);
+        return view('admin.vungmien.add',['user'=>$user]);
     }
-    public function postAdd(Request $request){
+    public function postAdd(Request $request, $idUser){
         $this->validate($request,
         [
             'ten'=>'required|unique:VungMien|min:3|max:100'
@@ -29,14 +32,16 @@ class VungMienController extends Controller
         $vungmien->Ten = $request->ten;
         $vungmien->TenKhongDau = changeTitle($request->ten);
         $vungmien->save();
-        return redirect('admin/vungmien/add')->with('thongbao','Thêm thành công');
+
+        return redirect('admin/vungmien/add/'.$idUser)->with('thongbao','Thêm thành công');
 
     }
-    public function getUpdate($id){
+    public function getUpdate($id, $idUser){
+        $user = User::find($idUser);
         $vungmien = VungMien::find($id);
-        return view('admin.vungmien.update',['vungmien'=>$vungmien]);
+        return view('admin.vungmien.update',['vungmien'=>$vungmien, 'user'=>$user]);
     }
-    public function postUpdate(Request $request,$id){
+    public function postUpdate(Request $request,$id, $idUser){
         $this->validate($request,
         [
             'ten'=>'required|unique:VungMien|min:3|max:100'
@@ -51,12 +56,12 @@ class VungMienController extends Controller
         $vungmien->Ten = $request->ten;
         $vungmien->TenKhongDau = changeTitle($request->ten);
         $vungmien->save();
-        return redirect('admin/vungmien/update/'.$id)->with('thongbao','Sửa thành công');
+        return redirect('admin/vungmien/update/'.$id.'/'.$idUser)->with('thongbao','Sửa thành công');
     }
 
-    public function getDelete($id){
+    public function getDelete($id, $idUser){
         $vungmien = VungMien::find($id);
         $vungmien->delete();
-        return redirect('admin/vungmien/list')->with('thongbao','Xoá thành công');
+        return redirect('admin/vungmien/list/'.$idUser)->with('thongbao','Xoá thành công');
     }
 }

@@ -123,8 +123,8 @@
                 @endif
                 
                 <div class="row">
-                    <div class="col-8">
-                        <div >
+                    <div class="col-xl-8 col-l-8 col-md-7 col-sm-12  col-12">
+                        <div class="content-detail">
                             {!! html_entity_decode( $DiaDiem->NoiDung) !!}
                         </div>
                         {{-- số lượt xem --}}
@@ -209,7 +209,7 @@
                         
                         <hr>
                     </div>
-                    <div class="col-4">
+                    <div class="col-xl-4 col-l-4 col-md-5 col-sm-0 col-0">
                         <div class="sub-detail-travel">
                             <div class="sub-title">
                                 <p>TIN LIÊN QUAN</p>
@@ -389,17 +389,17 @@
 </div>
 <!-- Modal Delete -->
 
-<div id="deletePost" class="modal-view"> 
-        <div class="modal-content"style="width:500px">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deletePost').style.display='none'" class="cancelbtn">Quay lại</button>
-                <button type="button" class="btn btn red" onclick="document.getElementById('deletePost').style.display='none'" class="deletebtn">Xóa bài</button>
-            </div>
-            </div>
-            </div>
+        <div id="deletePost" class="modal-view"> 
+            <div class="modal-content"style="width:500px">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deletePost').style.display='none'" class="cancelbtn">Quay lại</button>
+                    <button type="button" class="btn btn red" onclick="document.getElementById('deletePost').style.display='none'" class="deletebtn">Xóa bài</button>
+                </div>
+                </div>
+                </div>
         </div>
 
 
@@ -410,10 +410,20 @@
                     <h5 class="modal-title" id="exampleModalLongTitle">Bạn muốn cập nhập?</h5>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Quay lại</button>
-                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Địa điểm</button>
+                
+                <button type="button" class="btn btn-success"><a href="home/updateView/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Sửa địa điểm</a></button>
+                @if(isset($monan))
+                <button type="button" class="btn btn-success"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>
+                @endif
+                @if(isset($video))
+                <button type="button" class="btn btn-success"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>
+                
+                @endif
+                <!-- <button class="red"><a href="home/view/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}" > Trở lại</a></button> -->
+                <button type="button" class="btn btn-secondary"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Quay lại</button>
+                    <!-- <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Địa điểm</button>
                     <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Đặc sản</button>
-                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Video</button>
+                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Video</button> -->
 
                     
                 </div>

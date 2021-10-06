@@ -12,7 +12,7 @@
                     <div class="col-7"></div>
                     <div class="col-2">
                         <div class="search-container">
-                            <form action="admin/diadiem/search" method="POST" enctype="multipart/form-data">
+                            <form action="admin/diadiem/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <input
                                     style="border: 1px solid #ddd; border-radius: 3px;padding-left: 10px"
@@ -26,11 +26,9 @@
                 <div class="row task" >
                     <div class="col-9"></div>
                     <div class="col-3 " >
-                        <button class="btn-add"><a href="admin/diadiem/add"> <i class="fas fa-plus"></i>Thêm</a></button>                              
-                        <button class="btn-add"><a href="admin/diadiem/duyetbai">Duyệt bài</a></button>
-                    </div>
-                    
-                    
+                        <button class="btn-add"><a href="admin/diadiem/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a></button>                              
+                        <button class="btn-add"><a href="admin/diadiem/duyetbai/{{$user->id}}">Duyệt bài</a></button>
+                    </div>   
                 </div>
                 @if(session('thongbao'))
                     <div class="alert alert-success">
@@ -102,10 +100,10 @@
                                         @endif
                                     </td>
                                     <td >
-                                        <a href="admin/diadiem/update/{{$diadiem->id}}" class="green-text">
+                                        <a href="admin/diadiem/update/{{$diadiem->id}}/{{$user->id}}" class="green-text">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        <a href="admin/diadiem/delete/{{$diadiem->id}}" class="red-text">
+                                        <a href="admin/diadiem/delete/{{$diadiem->id}}/{{$user->id}}" class="red-text">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>
