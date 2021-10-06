@@ -245,6 +245,27 @@ body {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
-.content-detail img{
+
+.content-detail img {
     width: 100% !important;
+}
+
+.modal-footer {
+    margin: 30px 0 20px;
+    border-top: none;
+}
+
+.modal-footer button a {
+    color: #fff;
+}
+
+.monan-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.monan-title p {
+    text-align: center;
+    margin: 0 100px 30px;
 }

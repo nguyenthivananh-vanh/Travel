@@ -45,8 +45,8 @@
                   </div>
                   
                   <div class="card-action">
-                    <button class="btn green">Add</button>
-                    <button class="btn red">Reset</button>
+                    <button class="btn btn-secondary green">Thêm</button>
+                    <button class="btn btn-secondary red">Xoá</button>
                   </div>
                 </form>
             </div>

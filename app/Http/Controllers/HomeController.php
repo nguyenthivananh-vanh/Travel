@@ -101,7 +101,15 @@ class HomeController extends Controller
     function viewMonAn($id,$idDiaDiem){
         $diadiem = DiaDiem::find($idDiaDiem);
         $monan = MonAn::find($id);
-        return view('home.viewMonAn',['diadiem'=>$diadiem,'monan'=>$monan]);
+        $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->get();
+        return view('home.viewMonAn',['diadiem'=>$diadiem,'monan'=>$monan,'monanTinh'=>$monanTinh]);
+    }
+    function viewMonAnUser($id,$idDiaDiem,$idUser){
+        $user = User::find($idUser);
+        $diadiem = DiaDiem::find($idDiaDiem);
+        $monan = MonAn::find($id);
+        $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->get();
+        return view('home.viewMonAn',['diadiem'=>$diadiem,'monan'=>$monan,'monanTinh'=>$monanTinh,'user'=>$user]);
 
     }
     // bình luận
@@ -171,7 +179,7 @@ class HomeController extends Controller
         $diadiem->TomTat = $request->tomtat;
         $diadiem->NoiDung = $request->noidung;
         $diadiem->TacGia = $request->tacgia;
-
+        $diadiem->tinh = $request->tinh;
 
         $file = $request->file('hinhanh');
         $tail = $file->getClientOriginalExtension();
@@ -201,7 +209,88 @@ class HomeController extends Controller
     }
     // notify
     public function getNotify($id,$idDiaDiem){
-        return view('home.notify',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
+        $diadiem = DiaDiem::find($idDiaDiem);
+        return view('home.notify',['id'=>$id,'idDiaDiem'=>$idDiaDiem,'diadiem'=>$diadiem]);
+    }
+
+    //add  video
+   
+    public function getVideo($id,$idDiaDiem){
+        return view('home.postVideo',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
+    }
+    public function postVideo(Request $request, $id, $idDiaDiem){
+        $this->validate($request,
+            [
+                'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
+                'video' => 'required',
+            ],
+            [
+                'tieude.required' => 'Bạn chưa nhập tiêu đề',
+                'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
+                'tieude.unique' => 'Tiêu đề đã tồn tại',
+                'video.required' => 'Bạn cần chọn video tải lên',
+            ]);
+
+        $video = new Video;
+        $video->TieuDe = $request->tieude;
+        $video->TieuDeKhongDau = changeTitle($request->tieude);
+        $video->Mota = $request->mota;
+
+        $file = $request->file('video');
+        $tail = $file->getClientOriginalExtension();
+
+        $name = $file->getClientOriginalName();
+        $vid = Str::random(4) . "_" . $name;
+        while (file_exists("upload/video/" . $vid)) {
+            $vid = Str::random(4) . "_" . $name;
+        }
+        $file->move("upload/video", $vid);
+        $video->video = $vid;
+        $video->idDiaDiem = $idDiaDiem;
+        $video->save();
+        return redirect('home/notify/'.$id.'/'.$idDiaDiem);
+    }
+
+    // add món ăn
+    
+    public function getCulinary($id,$idDiaDiem){
+        return view('home.postCulinary',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
+    }
+    public function postCulinary(Request $request, $id, $idDiaDiem){
+        $this->validate($request,
+            [
+                'tenmonan' => 'required',
+                'mota' => 'required',
+                'hinhanh' => 'required',
+            ],
+            [
+                'tenmonan.required' => 'Bạn chưa nhập tên món ăn',
+                'mota.required' => 'Bạn chưa nhập mô tả',
+                'hinhanh.unique' => 'Bạn chưa chọn hình ảnh',
+
+            ]);
+
+        $monan = new MonAn();
+        $monan->TenMonAn = $request->tenmonan;
+        $monan->TieuDe = $request->tieude;
+        $monan->Mota = $request->mota;
+        $monan->idDiaDiem = $idDiaDiem;
+        $monan->tinh = $request->tinh;
+
+        $file = $request->file('hinhanh');
+        $tail = $file->getClientOriginalExtension();
+        if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg') {
+            return redirect('admin/monan/add')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+        }
+        $name = $file->getClientOriginalName();
+        $hinh = Str::random(4) . "_" . $name;
+        while (file_exists("upload/monan/" . $hinh)) {
+            $hinh = Str::random(4) . "_" . $name;
+        }
+        $file->move("upload/monan", $hinh);
+        $monan->HinhAnh = $hinh;
+        $monan->save();
+        return redirect('home/notify/'.$id.'/'.$idDiaDiem);
     }
     // xoá bài
     // public function getDeleteView($id,$tacgia,$idUser){
@@ -212,9 +301,12 @@ class HomeController extends Controller
         $comment = Comment::where('idDiaDiem',$id)->first();
         $monan = MonAn::where('idDiaDiem',$id)->first();
         $video = Video::where('idDiaDiem',$id)->first();
+    
         if(isset($comment)){
-            unlink("upload/comment/".$comment->HinhAnh);
             $comment->delete();
+        }      
+        if(isset($comment->HinhAnh)){
+            unlink("upload/comment/".$comment->HinhAnh);
         }
         if(isset($monan)){
             unlink("upload/monan/".$monan->HinhAnh);
@@ -341,8 +433,8 @@ class HomeController extends Controller
     }
 
     // update Video
-    public function getUpdateVideo($id,$tacgia,$idUser){
-        $video = Video::where('idDiaDiem',$id)->first();
+    public function getUpdateVideo($id,$tacgia,$idUser,$idVideo){
+        $video = Video::find($idVideo);
         return view('home.updateVideo',['id'=>$id,'tacgia'=>$tacgia,'idUser'=>$idUser,'video'=>$video]);
     }
     public function postUpdateVideo(Request $request, $id,$tacgia,$idUser,$idVideo){
@@ -381,84 +473,6 @@ class HomeController extends Controller
         return redirect('home/view/'.$id.'/'.$tacgia.'/'.$idUser)->with('thongbao', 'Sửa thành công');
 
     }
-    //add  video
-   
-    public function getVideo($id,$idDiaDiem){
-        return view('home.postVideo',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
-    }
-    public function postVideo(Request $request, $id, $idDiaDiem){
-        $this->validate($request,
-            [
-                'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
-                'video' => 'required',
-            ],
-            [
-                'tieude.required' => 'Bạn chưa nhập tiêu đề',
-                'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
-                'tieude.unique' => 'Tiêu đề đã tồn tại',
-                'video.required' => 'Bạn cần chọn video tải lên',
-            ]);
-
-        $video = new Video;
-        $video->TieuDe = $request->tieude;
-        $video->TieuDeKhongDau = changeTitle($request->tieude);
-        $video->Mota = $request->mota;
-
-        $file = $request->file('video');
-        $tail = $file->getClientOriginalExtension();
-
-        $name = $file->getClientOriginalName();
-        $vid = Str::random(4) . "_" . $name;
-        while (file_exists("upload/video/" . $vid)) {
-            $vid = Str::random(4) . "_" . $name;
-        }
-        $file->move("upload/video", $vid);
-        $video->video = $vid;
-        $video->idDiaDiem = $idDiaDiem;
-        $video->save();
-        return redirect('home/notify/'.$id.'/'.$idDiaDiem);
-    }
-
-    // add món ăn
     
-    public function getCulinary($id,$idDiaDiem){
-        return view('home.postCulinary',['id'=>$id,'idDiaDiem'=>$idDiaDiem]);
-    }
-    public function postCulinary(Request $request, $id, $idDiaDiem){
-        $this->validate($request,
-            [
-                'tenmonan' => 'required',
-                'mota' => 'required',
-                'hinhanh' => 'required',
-            ],
-            [
-                'tenmonan.required' => 'Bạn chưa nhập tên món ăn',
-                'mota.required' => 'Bạn chưa nhập mô tả',
-                'hinhanh.unique' => 'Bạn chưa chọn hình ảnh',
-
-            ]);
-
-        $monan = new MonAn();
-        $monan->TenMonAn = $request->tenmonan;
-        $monan->TieuDe = $request->tieude;
-        $monan->Mota = $request->mota;
-        $monan->idDiaDiem = $idDiaDiem;
-
-
-        $file = $request->file('hinhanh');
-        $tail = $file->getClientOriginalExtension();
-        if ($tail != 'jpg' && $tail != 'png' && $tail != 'jpeg') {
-            return redirect('admin/monan/add')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
-        }
-        $name = $file->getClientOriginalName();
-        $hinh = Str::random(4) . "_" . $name;
-        while (file_exists("upload/monan/" . $hinh)) {
-            $hinh = Str::random(4) . "_" . $name;
-        }
-        $file->move("upload/monan", $hinh);
-        $monan->HinhAnh = $hinh;
-        $monan->save();
-        return redirect('home/notify/'.$id.'/'.$idDiaDiem);
-    }
 
 }

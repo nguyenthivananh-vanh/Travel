@@ -45,6 +45,7 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\HomeController@view');
     Route::get('/view/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@viewUser');
     Route::get('/viewMonAn/{id}/{idDiaDiem}', 'App\Http\Controllers\HomeController@viewMonAn');
+    Route::get('/viewMonAn/{id}/{idDiaDiem}/{idUser}', 'App\Http\Controllers\HomeController@viewMonAnUser');
 
     // comment
     Route::post('/comment/{idUser}/{idDiaDiem}', 'App\Http\Controllers\HomeController@comment');
@@ -64,7 +65,7 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/updateCulinary/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getUpdateCulinary');
     Route::get('/showFormUpdate/{id}/{tacgia}/{idUser}/{idMonAn}', 'App\Http\Controllers\HomeController@showFormUpdate');
     Route::post('/updateCulinary/{id}/{tacgia}/{idUser}/{idMonAn}', 'App\Http\Controllers\HomeController@postUpdateCulinary');
-    Route::get('/updateVideo/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getUpdateVideo');
+    Route::get('/updateVideo/{id}/{tacgia}/{idUser}/{idVideo}', 'App\Http\Controllers\HomeController@getUpdateVideo');
     Route::post('/updateVideo/{id}/{tacgia}/{idUser}/{idVideo}', 'App\Http\Controllers\HomeController@postUpdateVideo');
     // món ăn
 

@@ -10,7 +10,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
 
-@if(isset($user)) 
+{{-- @if(isset($user)) 
 <div class="container-fuild">
     <div class="notify delete">
         <div class="form-notify form-delete">
@@ -45,7 +45,7 @@
         </div>
     </div>
 </div>
-@endif
+@endif --}}
 <div class="wrap">
     <section class="container-fuild">
         <div class="contanier-detail" style="width:100vw">
@@ -261,80 +261,53 @@
                             <hr>
                             <ul class="list-sub" >
                                 @if(isset($monan))
-                                @foreach ($monan as $monan)
-                                @if(isset($user))
-                                <li class="list-sub-item">
-                                    <div class="row">
-                                     <div class="col-4 item-img">
-                                             <img src="upload/monan/{{$monan->HinhAnh}}" alt="">
-                                         </div>
-                                         <div class="col-8 item-text">
-                                             <p> <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}">{{$monan->TenMonAn}}<br>
-                                            <span style="color: black; font-size: 14px">{{$monan->TieuDe}}</span></a></p>
-                                             <span>{{$monan->updated_at}}</span>
-                                         </div>
-                                    </div>
-                                 </li>
-                               
-                                {{-- @else
-                                <li class="list-sub-item">
-                                    <div class="row">
-                                     <div class="col-4 item-img">
-                                             <img src="upload/monan/{{$monan->HinhAnh}}" alt="">
-                                         </div>
-                                         <div class="col-8 item-text">
-                                             <p> <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}">{{$monan->TenMonAn}}<br>
+                                    @foreach ($monan as $monan)
+                                   
+                                    <li class="list-sub-item">
+                                        <div class="row">
+                                        <div class="col-4 item-img">
+                                                <img src="upload/monan/{{$monan->HinhAnh}}" alt="">
+                                            </div>
+                                            <div class="col-8 item-text">
+                                                @if(isset($user))
+                                                <p> <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}/{{$user->id}}">{{$monan->TenMonAn}}<br>
+                                                @else 
+                                                <p> <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}">{{$monan->TenMonAn}}<br>
+                                                @endif  
                                                 <span style="color: black; font-size: 14px">{{$monan->TieuDe}}</span></a></p>
-                                             
-                                             <span>{{$monan->updated_at}}</span>
-                                         </div>
-                                    </div>
-                                 </li> --}}
-     
-                                @endif  
-
-                            @endforeach  
-                            @endif
-                            @if(isset($monanTinh))    
-                           
-                            @foreach ($monanTinh as $ma)
-                                @if(isset($user))
-                                <li class="list-sub-item">
-                                    <div class="row">
-                                     <div class="col-4 item-img">
-                                             <img src="upload/monan/{{$ma->HinhAnh}}" alt="">
-                                         </div>
-                                         <div class="col-8 item-text">
-                                             <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}">{{$ma->TenMonAn}}<br>
-                                            <span style="color: black; font-size: 14px">{{$ma->TieuDe}}</span></a></p>
-                                             <span>{{$ma->updated_at}}</span>
-                                         </div>
-                                    </div>
-                                 </li>
-                               
-                                {{-- @else
-                                <li class="list-sub-item">
-                                    <div class="row">
-                                     <div class="col-4 item-img">
-                                             <img src="upload/monan/{{$ma->HinhAnh}}" alt="">
-                                         </div>
-                                         <div class="col-8 item-text">
-                                             <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}">{{$ma->TenMonAn}}<br>
-                                                <span style="color: black; font-size: 14px">{{$ma->TieuDe}}</span></a></p>
-                                             
-                                             <span>{{$ma->updated_at}}</span>
-                                         </div>
-                                    </div>
-                                 </li>     --}}
-                                @endif  
-                            @endforeach   
-                            @endif       
+                                                <span>{{$monan->updated_at}}</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                   
+                                     @endforeach  
+                                @endif
+                                @if(isset($monanTinh))    
+                                    @foreach ($monanTinh as $ma)
+                                        
+                                        <li class="list-sub-item">
+                                            <div class="row">
+                                                <div class="col-4 item-img">
+                                                    <img src="upload/monan/{{$ma->HinhAnh}}" alt="">
+                                                 </div>
+                                                <div class="col-8 item-text">
+                                                    @if(isset($user))
+                                                        <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}/{{$user->id}}">{{$ma->TenMonAn}}<br>
+                                                    @else 
+                                                         <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}">{{$ma->TenMonAn}}<br>
+                                                    @endif 
+                                                     <span style="color: black; font-size: 14px">{{$ma->TieuDe}}</span></a></p>
+                                                    <span>{{$ma->updated_at}}</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                         
+                                    @endforeach   
+                                @endif       
                             </ul>
 
                         </div>
-                        
-                        
-
+                     
                     </div>
                 </div>  
 
@@ -345,90 +318,83 @@
         </div>   
     </section>
     <section>
-      
-            <div class="post-related">
-                <div class="destination">
-                    <!-- <div class="destination-before"></div> -->
-                    <span style="margin: 0 10px; margin-left:3%" class="destination-tittle" id="test1">Điểm đến liên quan</span>
-                    <!-- <div class="destination-after"></div> -->
-                </div>
-                <div id="content-slider">
-                    <div class="wrapper">
+       <div class="post-related">
+            <div class="destination">
+                <!-- <div class="destination-before"></div> -->
+                <span style="margin: 0 10px; margin-left:3%" class="destination-tittle" id="test1">Điểm đến liên quan</span>
+                <!-- <div class="destination-after"></div> -->
+            </div>
+            <div id="content-slider">
+                <div class="wrapper">
                     <div class="autoplay-view">
-                        @foreach ($noibat as $row)
-                            <div class="col-4">
-                                <div class="card">
-                                    @if(isset($user))
-                                        <a href="home/view/{{$row->id}}/{{$row->TacGia}}/{{$user->id}}">
-                                            <div class="card-image">
-                                                <img class="post-img" style="height:200px"
-                                                        src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
-                                                <span class="card-title">{{$row->TieuDe}}</span>
-                                            </div>
-                                        </a>
-                                    @else
-                                        <a href="home/view/{{$row->id}}/{{$row->TacGia}}">
-                                            <div class="card-image">
-                                                <img class="post-img" style="height:200px"
-                                                        src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
-                                                <span class="card-title">{{$row->TieuDe}}</span>
-                                            </div>
-                                        </a>
-                                    @endif
-                                                    
-                                       
-                                </div>
+                    @foreach ($noibat as $row)
+                        <div class="col-4">
+                            <div class="card">
+                                @if(isset($user))
+                                    <a href="home/view/{{$row->id}}/{{$row->TacGia}}/{{$user->id}}">
+                                        <div class="card-image">
+                                            <img class="post-img" style="height:200px"
+                                                    src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
+                                            <span class="card-title">{{$row->TieuDe}}</span>
+                                        </div>
+                                    </a>
+                                @else
+                                    <a href="home/view/{{$row->id}}/{{$row->TacGia}}">
+                                        <div class="card-image">
+                                            <img class="post-img" style="height:200px"
+                                                    src="upload/diadiem/{{$row->HinhAnh}}" alt="img">
+                                            <span class="card-title">{{$row->TieuDe}}</span>
+                                        </div>
+                                    </a>
+                                @endif
+                                                
+                                    
                             </div>
-                        @endforeach
-
-                    </div>
+                        </div>
+                    @endforeach
                     </div>
                 </div>
-
+            </div>
+        </div>
     </section>
 </div>
 <!-- Modal Delete -->
 
-        <div id="deletePost" class="modal-view"> 
-            <div class="modal-content"style="width:500px">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deletePost').style.display='none'" class="cancelbtn">Quay lại</button>
-                    <button type="button" class="btn btn red" onclick="document.getElementById('deletePost').style.display='none'" class="deletebtn">Xóa bài</button>
-                </div>
-                </div>
-                </div>
+<div id="deletePost" class="modal-view"> 
+    <div class="modal-content"style="width:500px">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deletePost').style.display='none'" class="cancelbtn">Quay lại</button>
+            <button type="button" class="btn btn red" onclick="document.getElementById('deletePost').style.display='none'" class="deletebtn">
+                <a href="home/acceptDelete/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Xoá bài</a>
+            </button>
+        </div>       
+    </div>
+</div>
 
-
-        <!-- Modal Edit -->
-        <div id="editPost" class="modal-view" style="z-index:10;"> 
-            <div class="modal-content"style="width:800px;z-index:10">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn muốn cập nhập?</h5>
-                </div>
-                <div class="modal-footer">
-                
-                <button type="button" class="btn btn-success"><a href="home/updateView/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Sửa địa điểm</a></button>
-                @if(isset($monan))
-                <button type="button" class="btn btn-success"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>
-                @endif
-                @if(isset($video))
-                <button type="button" class="btn btn-success"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>
-                
-                @endif
-                <!-- <button class="red"><a href="home/view/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}" > Trở lại</a></button> -->
-                <button type="button" class="btn btn-secondary"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Quay lại</button>
-                    <!-- <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Địa điểm</button>
-                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Đặc sản</button>
-                    <button type="button" class="btn btn-success"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Video</button> -->
-
-                    
-                </div>
-            </div>
+<!-- Modal Edit -->
+<div id="editPost" class="modal-view" style="z-index:10;"> 
+    <div class="modal-content"style="width:600px;z-index:10">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Bạn muốn cập nhập?</h5>
         </div>
+        <div class="modal-footer">               
+            <button class="btn btn-secondary green"><a href="home/updateView/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Sửa địa điểm</a></button>
+            @if(isset($monan))
+            <button class="btn btn-secondary green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>             
+            @endif
+            @if(isset($video))
+            <button class="btn btn-secondary green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>     
+            
+            @endif
+            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Quay lại</button>
+        
+        </div>
+        
+    </div>
+</div>
 @endsection
 @section('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>

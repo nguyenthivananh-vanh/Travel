@@ -53,9 +53,8 @@
                         <label>Avatar</label>
                         <p><img src="upload/users/{{$user->Avatar}}" width = "400px" alt=""></p>
                         <input type="file" class="form-control" id="hinhanh" name="hinhanh"/>
-
                     </div>
-                    <button type="submit">Update</button>
+                    <button type="submit">Cập nhật</button>
                 </div>
             </div>
         </div>
