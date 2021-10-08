@@ -1,6 +1,7 @@
 @extends('layout.index')
+<link href="admin_asset/css/home.css" rel="stylesheet">
 @section('content')
-    <section id="popular" class="section section-popular scrollspy mt-4">
+    <section  id="popular" class="section section-popular scrollspy  mt-4" >
         <div class="container-fuild">
             <div class="row mb-1">
                 <div class="col-12">
@@ -31,7 +32,7 @@
             </div>
             <div class="row">
                 @foreach ($DiaDiem as $ddiem)
-                    <div class="col-4">
+                    <div class="col-4 c-6" >
 
                         <div class="card">
                             @if(isset($user))

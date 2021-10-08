@@ -122,8 +122,8 @@
                 </div>
                 @endif
                 
-                <div class="row">
-                    <div class="col-xl-8 col-l-8 col-md-7 col-sm-12  col-12">
+                <div class="row box-content">
+                    <div class="col-xl-8 col-l-8 l-8 m-6 c-12">
                         <div class="content-detail">
                             {!! html_entity_decode( $DiaDiem->NoiDung) !!}
                         </div>
@@ -140,11 +140,11 @@
                                 enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="row">
-                                    <div class="user_avatar col-1 pl-0">
+                                    <div class="user_avatar col-1 m-2 c-2 pl-0" style="margin:0 !important">
                                         <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user"
                                             style='width:50px; height:50px' alt="Avatar User">
                                     </div><!-- the input field -->
-                                    <div class="input_comment col-11">
+                                    <div class="input_comment col-11 m-10 c-10 pl-2" style="margin:0 !important">
                                         <input type="text" placeholder="Bình luận" name="cmt"class="ml-2">
                                         <div class="cmt-img">
                                             <label for="myFile"><i class="fas fa-camera"></i></label>
@@ -161,12 +161,12 @@
                                 @foreach ($comment as $cmt)
                                     <!-- the comment body -->
                                     <div class="comment_body">
-                                        <div class="row">
-                                            <div class="user_avatar col-1">
+                                        <div class="row mb-0">
+                                            <div class="user_avatar col-2 m-2 c-2" style="margin:0 !important;">
                                                 <img src="upload/users/{{$cmt->user->Avatar}}" class="circle avatar-user"
                                                     style='width:50px; height:50px' alt="Avatar User">
                                             </div>
-                                            <b class="user col-11" style="padding:12px">{{$cmt->user->Ten}}
+                                            <b class="user col-10 m-10 c-10 pl-2" style="padding:12px">{{$cmt->user->Ten}}
                 
                                             </b>
                 
@@ -209,7 +209,7 @@
                         
                         <hr>
                     </div>
-                    <div class="col-xl-4 col-l-4 col-md-5 col-sm-0 col-0">
+                    <div class="right-menu col-xl-4 col-l-4 l-4 m-6 c-12">
                         <div class="sub-detail-travel">
                             <div class="sub-title">
                                 <p>TIN LIÊN QUAN</p>
@@ -318,7 +318,7 @@
         </div>   
     </section>
     <section>
-       <div class="post-related">
+       <div class="post-related hide-post-related">
             <div class="destination">
                 <!-- <div class="destination-before"></div> -->
                 <span style="margin: 0 10px; margin-left:3%" class="destination-tittle" id="test1">Điểm đến liên quan</span>
