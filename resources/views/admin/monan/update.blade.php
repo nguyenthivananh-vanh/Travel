@@ -128,8 +128,8 @@
                                     </datalist>
                                 </div>
                                 <div class="card-action">
-                                    <button class="btn green">Update</button>
-                                    <button class="btn red">Reset</button>
+                                    <button class="btn green">Cập nhật</button>
+                                    <button class="btn red">Xoá</button>
                                     <a style="float: right" href="admin/monan/list" class="green-text">
                                         <span class="material-icons-outlined">Back</span>
                                     </a>

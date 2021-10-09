@@ -34,8 +34,8 @@
                   <input type="text" id="title" name="ten" value="{{$vungmien->Ten}}"/>                
                 </div>
                 <div class="card-action">
-                  <button class="btn green">Update</button>
-                  <button class="btn red">Reset</button>
+                  <button class="btn green">Cập nhật</button>
+                  <button class="btn red">Xoá</button>
                 </div>
               </form>            
             </div>           

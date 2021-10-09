@@ -29,9 +29,6 @@
 
                 <form action="home/updateVideo/{{$id}}/{{$tacgia}}/{{$idUser}}/{{$video->id}}" method="POST" enctype="multipart/form-data">
                   <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                  
-
-                 
                   <div class="input-field">
                     <label for="title">Tiêu Đề</label><br>
                     <input type="text" id="tieude" value="{{$video->TieuDe}}" name="tieude">
@@ -50,10 +47,9 @@
                   </div>
                   
                   <div class="card-action">
-                    <!-- <button class="btn green">Update</button>
-                    <button class="btn red">Reset</button> -->
-                    <button  type="button" class="btn btn-success" style="color: white" onClick="editUpdateVideo()">Cập nhật</button>
-                    <button  type="button" class="btn btn red" style="color: white" onClick="deleteUpdateVideo()">Xoá</button>
+                    <button class="btn btn-secondary green" style="color: white" >Cập nhật</button>
+                    <button class="btn btn-secondary red" style="color: white" >Xoá</button>
+                    
 
                   </div>
                 </form>
@@ -63,32 +59,8 @@
         </div>
       </div>
     </div>
-    <div id="deleteEditVideo" class="modal-view"> 
-        <div class="modal-content"style="width:500px">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa cập nhập không?</h5>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary"  onclick="document.getElementById('deleteEditVideo').style.display='none'" class="cancelbtn">Quay lại</button>
-                <button type="button" class="btn btn red" class="deletebtn">Xóa bài</button>
-            </div>
-            </div>
-            </div>
-        </div>
+   
 
-
-        <!-- Modal Edit -->
-        <div id="saveEditVideo" class="modal-view" style="z-index:10;"> 
-        <div class="modal-content"style="width:500px">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn cập nhập không?</h5>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-secondary"  onclick="document.getElementById('saveEditVideo').style.display='none'" class="cancelbtn">Đóng</button>
-        <button type="button" class="btn btn red"  class="deletebtn">Lưu</button>
-      </div>
-      </div>
-    </div>
   </section>
   @endsection
 

@@ -120,9 +120,7 @@
             <div class="page">
                 {{$DiaDiem->links("pagination::bootstrap-4")}}
             </div>
-                    
-                
-            
+           
         </div>
     </section>
 

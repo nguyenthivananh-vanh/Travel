@@ -41,8 +41,8 @@
                     <input type="text" id="title" value="" name="ten">                
                   </div>
                   <div class="card-action">
-                    <button class="btn green">Add</button>
-                    <button class="btn red">Reset</button>
+                    <button class="btn green">Thêm </button>
+                    <button class="btn red">Xoá</button>
                   </div>
                 </form>
               

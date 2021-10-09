@@ -1,4 +1,5 @@
 @extends('layout.index')
+<link href="admin_asset/css/home.css" rel="stylesheet">
 @section('slider')
 
 
@@ -126,7 +127,7 @@
         @else
             <div class="row">
                 @foreach ($DiaDiem as $ddiem)
-                    <div class="col-4">
+                    <div class="col-4 c-6">
 
                         <div class="card">
                             <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
@@ -160,7 +161,7 @@
             </div>
         @endif
     </section>
-    <section>
+    <section class="c-0">
         <div class="destination">
             <div class="destination-before"></div>
             <span style="margin: 0 10px" class="destination-tittle" id="test2">Điểm đến hấp dẫn</span>
@@ -169,7 +170,7 @@
         <div id="content-slider">
             <div class="wrapper">
                 <!-- <h2>Slick Carousel Example<h2> -->
-                <div class="autoplay">
+                <div class="autoplay row">
                     @foreach ($noibat as $ddiem)
                         <div class="col-4">
                             <div class="card">

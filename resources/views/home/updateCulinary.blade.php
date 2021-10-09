@@ -83,8 +83,8 @@
                                         </section>
                                     @endif --}}
                                     <div class="card-action">
-                                        <button class="btn green"  style="color: white">Cập nhật</button>
-                                        <button class="btn red"  style="color: white">Xoá</button>
+                                        <button class="btn btn-secondary green"  style="color: white">Cập nhật</button>
+                                        <button class="btn btn-secondary red"  style="color: white">Xoá</button>
                                        
                                 </button>
                                      

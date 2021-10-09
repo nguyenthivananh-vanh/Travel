@@ -1,6 +1,7 @@
 @extends('layout.index')
+<link href="admin_asset/css/home.css" rel="stylesheet">
 @section('content')
-    <section id="popular" class="section section-popular scrollspy mt-4">
+    <section id="popular" class="section section-popular scrollspy  mt-4">
         <div class="container-fuild">
             <div class="row mb-1">
                 <div class="col-12">
@@ -64,7 +65,6 @@
                             </div>
                         @endforeach
                     </div>
-
                 @else
                     <div class="row">
                         @foreach ($diadiem as $ddiem)
