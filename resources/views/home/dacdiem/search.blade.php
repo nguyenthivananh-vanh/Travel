@@ -76,7 +76,6 @@
 <section id="popular" class="section section-popular scrollspy">
     <div class="container-fuild">
         <div class="row">
-
             <div class="col-12">
                 <h4 class="center">
                 <span class="teal-text"></span> Địa điểm </h4>

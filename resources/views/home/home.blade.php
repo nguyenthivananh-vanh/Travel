@@ -48,26 +48,30 @@
                 <div class="col s12">
                     <h3>Tìm điểm đến </h3>
                     @if(isset($user))
-                        <form action="home/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                        <form action="home/search/{{$user->id}}" method="GET" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="search">
                                 <div class="input-field input__search">
                                     <input type="text" style="padding-left: 12px;" class="white grey-text autocomplete"
                                            placeholder="Tìm kiếm" id="autocomplete-input" name="search">
                                 </div>
-                                <button type="submit" class="btn_search--submit btn" style=" color:white;background-color:#6397ea;border:none">Search</button>
+                                <button type="submit" class="btn_search--submit btn"
+                                        style=" color:white;background-color:#6397ea;border:none">Search
+                                </button>
 
                             </div>
                         </form>
                     @else
-                        <form action="home/search" method="POST" enctype="multipart/form-data">
+                        <form action="home/search" method="GET" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="search">
                                 <div class="input-field input__search">
                                     <input type="text" style="padding-left: 12px" class="white grey-text autocomplete"
                                            placeholder="Tìm kiếm" id="autocomplete-input" name="search">
                                 </div>
-                                <button type="submit" class="btn_search--submit" style=" color:white;background-color:#6397ea;border:none">Search</button>
+                                <button type="submit" class="btn_search--submit"
+                                        style=" color:white;background-color:#6397ea;border:none">Search
+                                </button>
 
                             </div>
                         </form>
@@ -91,7 +95,8 @@
                         <div class="card">
                             <a href="home/view/{{$diadiem->id}}/{{$diadiem->TacGia}}/{{$user->id}}">
                                 <div class="card-image">
-                                    <img class="post-img" style="height:200px" src="upload/diadiem/{{$diadiem->HinhAnh}}"
+                                    <img class="post-img" style="height:200px"
+                                         src="upload/diadiem/{{$diadiem->HinhAnh}}"
                                          alt="img">
                                     <span class="card-title">{{$diadiem->TieuDe}}</span>
                                 </div>
@@ -169,17 +174,17 @@
                         <div class="col-4">
                             <div class="card">
                                 @if(isset($user))
-                                <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}/{{$user->id}}">
-                                @else 
-                                <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
-                                @endif
-                                    <div class="card-image">
-                                        <img class="post-img" style="height:200px"
-                                             src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
-                                        <span class="card-title">{{$ddiem->TieuDe}}</span>
-                                    </div>
-                                </a>
-                            <!-- <div class="card-content" >
+                                    <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}/{{$user->id}}">
+                                        @else
+                                            <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
+                                                @endif
+                                                <div class="card-image">
+                                                    <img class="post-img" style="height:200px"
+                                                         src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
+                                                    <span class="card-title">{{$ddiem->TieuDe}}</span>
+                                                </div>
+                                            </a>
+                                        <!-- <div class="card-content" >
                   <p style="display: block;
                                 display: -webkit-box;
                                 height: 38px;
@@ -192,7 +197,7 @@
                                 text-overflow: ellipsis;
                           ">{{$ddiem->TomTat}}</p>
                 </div> -->
-
+                                    </a>
                             </div>
                         </div>
                     @endforeach

@@ -30,13 +30,14 @@ Route::get('otp/{id}', 'App\Http\Controllers\UserController@getOTP');
 Route::post('otp/{id}', 'App\Http\Controllers\UserController@postOTP');
 Route::get('resetPass/{id}', 'App\Http\Controllers\UserController@getresetPass');
 Route::post('resetPass/{id}', 'App\Http\Controllers\UserController@postresetPass');
+//Route::get('HomeTest', 'App\Http\Controllers\HomeController@HomeTest');
 
 Route::group(['prefix' => 'home'], function () {
     Route::get('/home/{id}', 'App\Http\Controllers\HomeController@homeUser');
     Route::get('/home', 'App\Http\Controllers\HomeController@home');
     // tìm kiếm
-    Route::post('/search', 'App\Http\Controllers\HomeController@search');
-    Route::post('/search/{id}', 'App\Http\Controllers\HomeController@searchUser');
+    Route::get('/search', 'App\Http\Controllers\HomeController@search');
+    Route::get('/search/{id}', 'App\Http\Controllers\HomeController@searchUser');
     Route::group(['prefix' => 'dacdiem'], function () {
         Route::get('/search/{id}', 'App\Http\Controllers\HomeController@DacDiemSearch');
         Route::get('/search/{id}/{idUser}', 'App\Http\Controllers\HomeController@DacDiemSearchUser');
@@ -53,7 +54,7 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/reply/{id}', 'App\Http\Controllers\HomeController@getReply');
     Route::post('/reply/{id}', 'App\Http\Controllers\HomeController@postReply');
     Route::get('/notify/{id}/{idDiaDiem}', 'App\Http\Controllers\HomeController@getNotify');
-    
+
     Route::get('/deleteView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getDeleteView');
     Route::get('/acceptDelete/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getAcceptDelete');
     Route::get('/backView/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\HomeController@getBackView');
@@ -97,7 +98,7 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::post('update/{id}/{idUser}', 'App\Http\Controllers\DacDiemController@postUpdate');
         Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\DacDiemController@getDelete');
         Route::post('search/{idUser}', 'App\Http\Controllers\DacDiemController@search');
-    
+
 
     });
     Route::group(['prefix' => 'user'], function () {
@@ -157,8 +158,8 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\MonAnController@getDelete');
         Route::post('search/{idUser}', 'App\Http\Controllers\MonAnController@search');
         Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\MonAnController@showSearch');
-       
-       
+
+
     });
 
     Route::group(['prefix' => 'ajax'], function () {
