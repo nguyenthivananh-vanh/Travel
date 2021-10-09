@@ -16,7 +16,7 @@ class VideoController extends Controller
     public function getList($idUser)
     {
         $user = User::find($idUser);
-        $video = Video::paginate(3);
+        $video = Video::paginate(2);
         $diadiem = DiaDiem::all();
         return view('admin.video.list', ['video' => $video,'diadiem' => $diadiem,'user'=>$user]);
     }
@@ -62,7 +62,7 @@ class VideoController extends Controller
         $video->video = $vid;
         $video->idDiaDiem = $request->DiaDiem;
         $video->save();
-        return redirect('admin/video/add/'.$idUser)->with('thongbao', 'Thêm thành công');
+        return redirect('admin/video/list/'.$idUser)->with('thongbao', 'Thêm thành công');
     }
 
     public function getUpdate($id,$idUser)
@@ -109,7 +109,7 @@ class VideoController extends Controller
             $video->video = $video->video;
         }
         $video->save();
-        return redirect('admin/video/update/'.$id.'/'.$idUser)->with('thongbao', 'Sửa thành công');
+        return redirect('admin/video/list/'.$idUser)->with('thongbao', 'Sửa thành công');
     }
 
     public function getDelete($id,$idUser)

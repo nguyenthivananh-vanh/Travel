@@ -6,11 +6,33 @@
     <section class="section section-posts lighten-4 content">
         <div class="container-fuild content">
             <div class=" pb-0">
-                <div class="row title">
-                    <div class="col-12">
-                        <h5 class="card-title">Thống kê địa điểm</h5>
+                <div class="header__pc">
+                    <div class="row title">
+                        <div class="col-12">
+                            <h5 class="card-title">Thống kê</h5>
+                        </div>
                     </div>
                 </div>
+                <div class="header__mobile">
+                    <div class="row title">
+                        <div class="col-lg-1 col-md-1 col-sm-1 header__mobile-navbar">
+                            <label for="header__mobile-input" class="header__mobile--btn" onclick="checkbar()">
+                                <i class="fas fa-bars"></i>
+                            </label>
+                        </div>
+                        <div class="col-lg-1 col-md-1  col-sm-1 header__mobile-navbar">
+                            <span class="header__home"><a href="home/home/{{$user->id}}" ><i class="fas fa-home" ></i></a></span>       
+                        </div>
+                        
+                        <div class="col-lg-10 col-md-10  col-sm-10 ">
+                            <h5 class="card-title-tk">Thống kê</h5>
+                        </div>
+                        
+                       
+                    </div>
+                   
+                </div>
+                    
                 @if(session('thongbao'))
                     <div class="alert alert-success">
                         {{session('thongbao')}}<br>
@@ -29,16 +51,16 @@
                         </thead>
                         <tbody>
                         @foreach ($DiaDiem as $diadiem)
-                            <tr>
-                                <td>{{$diadiem->id}}</td>
-                                <td style="width:18%">{{$diadiem->TieuDe}}</td>
-                                <td style="">{{$diadiem->TomTat}}</td>
-                                <td style="text-align:center">{{$diadiem->SoLuotXem}}</td>
-                                <td style="text-align:center"><a href="home/view/{{$diadiem->id}}/{{$diadiem->TacGia}}"><i
-                                            class="fas fa-eye"></i></a></td>
-                            </tr>
-                        @endforeach
-                        </tbody>
+                        <tr>
+                            <td>{{$diadiem->id}}</td>
+                            <td style="width:18%">{{$diadiem->TieuDe}}</td>
+                            <td style="">{{$diadiem->TomTat}}</td>                          
+                            <td style="text-align:center">{{$diadiem->SoLuotXem}}</td>
+                            <td style="text-align:center"><a href="home/view/{{$diadiem->id}}/{{$diadiem->TacGia}}/{{$user->id}}"><i class="fas fa-eye"></i></a></td>
+                        </tr>                      
+                         @endforeach
+                        
+                      </tbody>
                     </table>
                 </div>
 

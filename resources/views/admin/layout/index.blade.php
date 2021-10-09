@@ -12,7 +12,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-    <link href="admin_asset/css/main.css" rel="stylesheet">
+    {{-- <link href="admin_asset/css/main.css" rel="stylesheet"> --}}
 
     <link href="admin_asset/css/admin.css" rel="stylesheet">
     {{-- pagination --}}
@@ -29,6 +29,7 @@
 
     <!-- <link href="admin_asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet"> -->
     <!-- {{-- <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> --}} -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -37,10 +38,10 @@
         <div class="container-fuild">
            
             <div class="row">
-                <div class="col-lg-2 col-sm-0 menu-admin-mobile">
+                <div class="menu-admin-mobile col-lg-2 col-sm-4" id="menu">
                     @include('admin.layout.menu')
                 </div>
-                <div class="col-lg-10 col-sm-12 ">
+                <div class="body-admin-mobile col-lg-10 col-sm-12 " >
                     @yield('content')
                 </div>
             </div>
@@ -79,7 +80,14 @@
         CKEDITOR.config.height = '100vh';
     </script>
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-
+    <script>
+        function checkbar(){
+            document.getElementById('menu-mobile').style.display = "block";
+        }
+        function exit(){
+            document.getElementById('menu-mobile').style.display = "none";
+        }
+    </script>
     @yield('script')
 </body>
 </html>

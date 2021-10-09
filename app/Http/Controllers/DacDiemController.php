@@ -40,7 +40,7 @@ class DacDiemController extends Controller
         $dacdiem->TenKhongDau = changeTitle($request->ten);
         $dacdiem->idVungMien = $request->VungMien;
         $dacdiem->save();
-        return redirect('admin/dacdiem/add/'.$idUser)->with('thongbao', 'Thêm thành công');
+        return redirect('admin/dacdiem/list/'.$idUser)->with('thongbao', 'Thêm thành công');
 
     }
 
@@ -68,7 +68,7 @@ class DacDiemController extends Controller
         $dacdiem->TenKhongDau = changeTitle($request->ten);
         $dacdiem->idVungMien = $request->VungMien;
         $dacdiem->save();
-        return redirect('admin/dacdiem/update/' . $id .'/'.$idUser)->with('thongbao', 'Sửa thành công');
+        return redirect('admin/dacdiem/list/' .$idUser)->with('thongbao', 'Sửa thành công');
     }
 
     public function getDelete($id, $idUser)

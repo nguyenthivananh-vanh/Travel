@@ -1,5 +1,6 @@
-<div class="container ">
-    <div class="side-nav-admin nav-wrapper">
+<div class="container-fuild ">
+   
+    <div class="side-nav-admin nav-wrapper admin__menu--tablet">
         <div class="menu-admin">
             <div class="title-admin">
                 <div class="home" >
@@ -35,7 +36,7 @@
             <li>
                 <a href="admin/comment/list/{{$user->id}}">Bình luận</a>
             </li>
-           
+            
             <li>
                 <a href="admin/monan/list/{{$user->id}}">Món ăn</a>
             </li>
@@ -44,5 +45,52 @@
             </li>
         </ul>
     </div>
+    <div class="admin__menu--mobile" id="menu-mobile">
+        
+        <div class="side-nav-admin nav-wrapper ">
+            <div class="menu-admin">
+                <div class="title-admin">
+                   <div class="exit"  onclick="exit()">
+                        <i class="fas fa-times"></i>
+                   </div>
+                    <div class="admin-infor">
+                        <img src="upload/users/{{$user->Avatar}}" class="circle-admin avatar-user" alt="Avatar User">
+                        <p >{{$user->Ten}}</p>
+                    </div>
+                </div>       
+            </div>
+                                
+                
+            <ul class="menu-admin">
+               
+                <li>
+                    <a href="admin/vungmien/list/{{$user->id}}">Vùng miền</a>
+                </li>
+                <li>
+                    <a href="admin/dacdiem/list/{{$user->id}}">Đặc điểm</a>
+                </li>
+                <li>
+                    <a href="admin/diadiem/list/{{$user->id}}">Địa điểm</a>
+                </li>
+                <li>
+                    <a href="admin/video/list/{{$user->id}}">Video</a>
+                </li>
+                <li>
+                    <a href="admin/user/list/{{$user->id}}">Users</a>
+                </li>
+                <li>
+                    <a href="admin/comment/list/{{$user->id}}">Bình luận</a>
+                </li>
+                
+                <li>
+                    <a href="admin/monan/list/{{$user->id}}">Món ăn</a>
+                </li>
+                <li>
+                    <a href="admin/thongke/list/{{$user->id}}">Thống kê</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  
+  
 </div>
-

@@ -159,8 +159,14 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\MonAnController@getDelete');
         Route::post('search/{idUser}', 'App\Http\Controllers\MonAnController@search');
         Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\MonAnController@showSearch');
+<<<<<<< Updated upstream
 
 
+=======
+        Route::get('/view/{id}/{idUser}', 'App\Http\Controllers\MonAnController@view');
+       
+       
+>>>>>>> Stashed changes
     });
 
     Route::group(['prefix' => 'ajax'], function () {

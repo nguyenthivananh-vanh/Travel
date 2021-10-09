@@ -53,7 +53,7 @@
             <div class="col-xl-4 col-l-4 col-md-5 col-sm-0 col-0">               
                 <div class="sub-deyail-culinary">
                     <div class="sub-title">
-                        <p>ĐẶC SẢN {{$monan->tinh}}</p>
+                        <p>Đặc sản {{$monan->tinh}}</p>
                     </div>
                     <hr>
                     <ul class="list-sub" >

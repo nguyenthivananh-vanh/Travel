@@ -80,7 +80,7 @@ class UserController extends Controller
         }
 
         $user->save();
-        return redirect('admin/user/add/' .$idUser)->with('thongbao', 'Thêm thành công');
+        return redirect('admin/user/list/' .$idUser)->with('thongbao', 'Thêm thành công');
     }
 
     public function postLevel(Request $request, $id, $idUser)
@@ -88,7 +88,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->PhanQuyen = $request->phanquyen;
         $user->save();
-        return redirect('admin/user/level/' . $id.'/'.$idUser)->with('thongbao', 'Đã thay đổi quyền');
+        return redirect('admin/user/list/'.$idUser)->with('thongbao', 'Đã thay đổi quyền');
     }
 
 

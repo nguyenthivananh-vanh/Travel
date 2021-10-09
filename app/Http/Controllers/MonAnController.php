@@ -62,7 +62,7 @@ class MonAnController extends Controller
         $file->move("upload/monan", $hinh);
         $monan->HinhAnh = $hinh;
         $monan->save();
-        return redirect('admin/monan/add/'.$idUser)->with('thongbao', 'Thêm thành công');
+        return redirect('admin/monan/list/'.$idUser)->with('thongbao', 'Thêm thành công');
     }
 
     public function getDelete($id, $idUser)
@@ -120,7 +120,7 @@ class MonAnController extends Controller
             $monan->HinhAnh = $monan->HinhAnh;
         }
         $monan->save();
-        return redirect('admin/monan/update/' . $id.'/'.$idUser)->with('thongbao', 'Sửa thành công');
+        return redirect('admin/monan/list/'.$idUser)->with('thongbao', 'Sửa thành công');
     }
     public function search(Request $request, $idUser)
     {
@@ -134,5 +134,9 @@ class MonAnController extends Controller
         return view('admin.monan.list', ['MonAn' => $monan,'user'=>$user]);
     }
 
-   
+    public function view($id, $idUser){
+        $user = User::find($idUser);
+       $monan = MonAn::find($id);
+        return view('admin.monan.view',['monan'=>$monan,'user'=>$user]);
+    }
 }

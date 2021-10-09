@@ -81,7 +81,7 @@ class DiaDiemController extends Controller
         $diadiem->idDacDiem = $request->DacDiem;
         $diadiem->TrangThai = 1;
         $diadiem->save();
-        return redirect('admin/diadiem/add/'.$idUser)->with('thongbao', 'Thêm thành công');
+        return redirect('admin/diadiem/list/'.$idUser)->with('thongbao', 'Thêm thành công');
     }
 // update
     public function getUpdate($id,$idUser)
@@ -118,7 +118,12 @@ class DiaDiemController extends Controller
         $diadiem->TacGia = $request->tacgia;
         $diadiem->TrangThai = $request->duyet;
         $diadiem->idDacDiem = $request->DacDiem;
-        $diadiem->tinh = $request->tinh;
+        if(isset($request->tinh)){
+            $diadiem->tinh = $request->tinh;
+        }else{
+            $diadiem->tinh = $diadiem->tinh;
+        }
+        
 
         if($request->hasFile('hinhanh')){
             $file = $request->file('hinhanh');
@@ -138,7 +143,7 @@ class DiaDiemController extends Controller
             $diadiem->HinhAnh = $diadiem->HinhAnh;
         }
             $diadiem->save();
-            return redirect('admin/diadiem/update/' . $id .'/' .$idUser)->with('thongbao', 'Sửa thành công');
+            return redirect('admin/diadiem/list/' .$idUser)->with('thongbao', 'Sửa thành công');
     }
 
     public function getDelete($id, $idUser)
