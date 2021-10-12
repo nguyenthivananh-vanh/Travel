@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Collection;
 use App\Models\DiaDiem;
 use Illuminate\Http\Request;
 use App\Models\VungMien;
@@ -10,6 +11,7 @@ use App\Models\Comment;
 use Illuminate\Support\Str;
 use App\Models\Video;
 use App\Models\MonAn;
+use DB;
 class HomeController extends Controller
 {
     function home(){
@@ -63,7 +65,7 @@ class HomeController extends Controller
     function view($id,$tacgia){
         $cookie_name = $id.$tacgia;
         $cookie_value = "1";
-        if (isset($_COOKIE[$cookie_name])){
+        // if (isset($_COOKIE[$cookie_name])){
             $vungmien = VungMien::all();
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten','like',$tacgia)->first();
@@ -79,32 +81,32 @@ class HomeController extends Controller
             }else{
                 return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
             }
-        }else{
-            setcookie($cookie_name, $cookie_value, time()+3600);
-            $vungmien = VungMien::all();
-            $diadiem = DiaDiem::find($id);
-            $userAuthor = User::where('Ten','like',$tacgia)->first();
-            $cmt = Comment::where('idDiaDiem',$id)->get();
-            $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->take(5)->get();
-            $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(30)->get();
-            $video = Video::where('idDiaDiem',$id)->first();
-            $monan = MonAn::where('idDiaDiem',$id)->get();
-            $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->take(10)->get();
-            $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
-            $diadiem->save();
-            // dd($monanTinh);
-            if(isset($video) || isset($monan) || isset($monanTinh)){
-                return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan,'monanTinh'=>$monanTinh]);
-            }else{
-                return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
-            }
-        }
+        // }else{
+        //     setcookie($cookie_name, $cookie_value, time()+3600);
+        //     $vungmien = VungMien::all();
+        //     $diadiem = DiaDiem::find($id);
+        //     $userAuthor = User::where('Ten','like',$tacgia)->first();
+        //     $cmt = Comment::where('idDiaDiem',$id)->get();
+        //     $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->take(5)->get();
+        //     $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(30)->get();
+        //     $video = Video::where('idDiaDiem',$id)->first();
+        //     $monan = MonAn::where('idDiaDiem',$id)->get();
+        //     $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->take(10)->get();
+        //     $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
+        //     $diadiem->save();
+        //     // dd($monanTinh);
+        //     if(isset($video) || isset($monan) || isset($monanTinh)){
+        //         return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan,'monanTinh'=>$monanTinh]);
+        //     }else{
+        //         return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
+        //     }
+        // }
 
     }
     function viewUser($id,$tacgia,$idUser){
         $cookie_name = $id.$tacgia.$idUser;
         $cookie_value = "1";
-        if (isset($_COOKIE[$cookie_name])){
+        // if (isset($_COOKIE[$cookie_name])){
             $vungmien = VungMien::all();
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten','like',$tacgia)->first();
@@ -115,31 +117,48 @@ class HomeController extends Controller
             $video = Video::where('idDiaDiem',$id)->first();
             $monan = MonAn::where('idDiaDiem',$id)->get();
             $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->get();
+        //     $id = new Collection();
+        //     $monanDDLength = count($monanDD);
+        //     $monanTLength = count($monanT);
+        //    for($i = 0;$i<$monanDDLength;$i++){
+        //     for($j = 0;$j<$monanTLength;$j++){
+        //         if($monanDD->id !== $monanT->id){
+        //             $id += $monanT;
+        //         }
+        //     }
+        //    }
+        //    foreach($id as $id){
+        //     dd($id);
+        //    }
+           
+           
+        //   dd($monanTinh);
+            
             if(isset($video) || isset($monan) || isset($monanTinh)){
                 return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan,'monanTinh'=>$monanTinh]);
             }else{
                 return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
             }
-        }else{
-            setcookie($cookie_name, $cookie_value, time()+3600);
-            $vungmien = VungMien::all();
-            $diadiem = DiaDiem::find($id);
-            $userAuthor = User::where('Ten','like',$tacgia)->first();
-            $user = User::find($idUser);
-            $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->inRandomOrder()->take(5)->get();
-            $cmt = Comment::where('idDiaDiem',$id)->orderBy('id','DESC')->get();
-            $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(30)->get();
-            $video = Video::where('idDiaDiem',$id)->first();
-            $monan = MonAn::where('idDiaDiem',$id)->get();
-            $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->get();
-            $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
-            $diadiem->save();
-            if(isset($video) || isset($monan) || isset($monanTinh)){
-                return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan,'monanTinh'=>$monanTinh]);
-            }else{
-                return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
-            }
-        }
+        // }else{
+        //     setcookie($cookie_name, $cookie_value, time()+3600);
+        //     $vungmien = VungMien::all();
+        //     $diadiem = DiaDiem::find($id);
+        //     $userAuthor = User::where('Ten','like',$tacgia)->first();
+        //     $user = User::find($idUser);
+        //     $diadiemList= DiaDiem::where('idDacDiem',$diadiem->idDacDiem)->inRandomOrder()->take(5)->get();
+        //     $cmt = Comment::where('idDiaDiem',$id)->orderBy('id','DESC')->get();
+        //     $noibat = DiaDiem::orderBy('SoLuotXem','DESC')->take(30)->get();
+        //     $video = Video::where('idDiaDiem',$id)->first();
+        //     $monan = MonAn::where('idDiaDiem',$id)->get();
+        //     $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->get();
+        //     $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
+        //     $diadiem->save();
+        //     if(isset($video) || isset($monan) || isset($monanTinh)){
+        //         return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'diadiemList'=>$diadiemList,'userAuthor'=>$userAuthor,'comment'=>$cmt,'noibat'=>$noibat,'video'=>$video,'monan'=>$monan,'monanTinh'=>$monanTinh]);
+        //     }else{
+        //         return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
+        //     }
+        // }
 
     }
     // chi tiết món ăn
@@ -263,8 +282,6 @@ class HomeController extends Controller
         }
         $file->move("upload/diadiem", $hinh);
         $diadiem->HinhAnh = $hinh;
-
-        $diadiem->NoiBat = 0;
         $diadiem->SoLuotXem = 0;
         if($id == 1){
             $diadiem->TrangThai = 1;

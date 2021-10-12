@@ -260,7 +260,7 @@
                             </div>
                             <hr>
                             <ul class="list-sub" >
-                                @if(isset($monan))
+                                {{-- @if(isset($monan))
                                     @foreach ($monan as $monan)
                                    
                                     <li class="list-sub-item">
@@ -281,7 +281,7 @@
                                     </li>
                                    
                                      @endforeach  
-                                @endif
+                                @endif --}}
                                 @if(isset($monanTinh))    
                                     @foreach ($monanTinh as $ma)
                                         
@@ -359,7 +359,7 @@
     </section>
 </div>
 <!-- Modal Delete -->
-
+@if(isset($user))
 <div id="deletePost" class="modal-view"> 
     <div class="modal-content"style="width:500px">
         <div class="modal-header">
@@ -374,6 +374,7 @@
     </div>
 </div>
 
+
 <!-- Modal Edit -->
 <div id="editPost" class="modal-view" style="z-index:10;"> 
     <div class="modal-content"style="width:600px;z-index:10">
@@ -383,7 +384,7 @@
         <div class="modal-footer">               
             <button class="btn btn-secondary green"><a href="home/updateView/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Sửa địa điểm</a></button>
             @if(isset($monan))
-            <button class="btn btn-secondary green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>             
+            <button class="btn btn-secondary green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa đặc sản</a></button>             
             @endif
             @if(isset($video))
             <button class="btn btn-secondary green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>     
@@ -395,6 +396,7 @@
         
     </div>
 </div>
+@endif
 @endsection
 @section('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>

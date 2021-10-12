@@ -14,11 +14,11 @@
 
               </div>
               @if(count($errors)>0)
-                    <div class="alert alert-danger">
-                        @foreach ($errors->all() as $err)
-                            {{$err}}<br>
-                        @endforeach
-                    </div>
+                  <div class="alert alert-danger">
+                      @foreach ($errors->all() as $err)
+                          {{$err}}<br>
+                      @endforeach
+                  </div>
                 @endif
                 @if(session('thongbao'))
                     <div class="alert alert-success">
@@ -35,15 +35,14 @@
                             <option value="{{$vm->id}}">{{$vm->Ten}}</option>
                         @endforeach
                     </select>
-                  </div>
-
-                  <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label>Đặc điểm</label><br>
                     <select class="form-control" name="DacDiem" id="dacdiem">
-                      @foreach ($dacdiem as $dd)
-                          <option value="{{$dd->id}}">{{$dd->Ten}}</option>
-                      @endforeach
-                  </select>
+                        @foreach ($dacdiem as $dd)
+                            <option value="{{$dd->id}}">{{$dd->Ten}}</option>
+                        @endforeach
+                    </select>
                 </div>
                   <div class="input-field">
                     <label for="title">Tiêu Đề</label><br>
@@ -73,9 +72,7 @@
                   <div class="card-action">
                     <button class="btn btn-secondary green">Đăng bài</button>
                     <button class="btn btn-secondary red">Xóa</button> 
-                      <!-- Gà Tây: đoạn này t comment hai cái nút lại và ấy lại để mở popup -->
-                      {{-- <button  type="button" class="btn btn-success" style="color: white" >Đăng bài</button>
-                      <button  type="button" class="btn btn red" style="color: white" >Xoá</button> --}}
+                     
                   </div>
                 </form>
             </div>
@@ -85,33 +82,16 @@
       </div>
     </div>
   </section>
-   <!-- Modal Delete -->
-
-
-        <!-- Modal Edit -->
-        {{-- <div id="postNews" class="modal-view" style="z-index:10;"> 
-            <div class="modal-content"style="width:500px">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn có muốn đăng bài không?</h5>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"  onclick="document.getElementById('postNews').style.display='none'" class="cancelbtn">Đóng</button>
-                    <button class="btn green" style="color: white">Đăng bài</button>
-                </div>
-            </div>
-        </div> --}}
-
+  
 
 
   @endsection
 
   @section('script')
-  <script type="text/javascript" src="admin_asset/js/homepage.js"></script>
+  {{-- <script type="text/javascript" src="admin_asset/js/homepage.js"></script> --}}
 
   <script>
-   
-    
-      $(document).ready(function(){
+    $(document).ready(function(){
           $("#vungmien").change(function(){
               var idvm = $(this).val();
               $.get("admin/ajax/dacdiem/"+idvm,function(data){
