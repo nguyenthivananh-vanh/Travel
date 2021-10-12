@@ -8,18 +8,21 @@
             <div class=" pb-0">
               <div class="header__pc">
                 <div class="row title">
-                    <div class="col-12">
+                    <div class="col-6">
                         <h5 class="card-title">Vùng miền</h5>
+                    </div>
+                    <div class="col-6">
+                        <div class="row task" style="border-bottom:none">
+                            <div class="col-6"></div>
+                            <div class="col-6 text-right">
+                                <button class="btn-add"><a href="admin/vungmien/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
-                <div class="row task">
-                    <div class="col-9"></div>
-                    <div class="col-3 ">
-                        <button class="btn-add"><a href="admin/vungmien/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a>
-                        </button>
-                    </div>
-                </div>
+                
             </div>
             <div class="header__mobile">
               <div class="row title">

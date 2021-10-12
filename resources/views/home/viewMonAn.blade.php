@@ -16,9 +16,9 @@
         <div class="contanier-detail" style="width:100vw">
             <img src="upload/monan/{{$monan->HinhAnh}}" style="height:70vh; width: 100vw" alt="" class="post-img">
             @if(isset($user))
-            <a href="home/home/{{$user->id}}" class="logo"><img src="upload/home/myVietnam-big1.png" alt="logo" style="width: 200px; height:54px"></a>
+            <a href="home/home/{{$user->id}}" class="logo" tyle="margin 0 auto"><img src="upload/home/myVietnam-big1.png" alt="logo" style="width: 200px; height:54px"></a>
             @else
-            <a href="home/home" class="logo"><img src="upload/home/myVietnam-big1.png" alt="logo" style="width: 200px; height:54px"></a>
+            <a href="home/home" class="logo" style="margin 0 auto"><img src="upload/home/myVietnam-big1.png" alt="logo" style="width: 200px; height:54px"></a>
             @endif
             <div class="link-homepage">
                 @if(isset($user))
@@ -40,7 +40,7 @@
     <section class="container content mt-6">   
          
         <div class="row">
-            <div class="col-xl-8 col-l-8 col-md-7 col-sm-12  col-12">
+            <div class="col-xl-8 col-l-8 l-8 m-6 c-12">
                 <div class="content-detail">
                     {!! html_entity_decode( $monan->MoTa) !!}
                 </div>
@@ -50,7 +50,7 @@
                                 style="padding: 10px">{{$DiaDiem->SoLuotXem}}</span></span>
                 </div> --}}
             </div>
-            <div class="col-xl-4 col-l-4 col-md-5 col-sm-0 col-0">               
+            <div class="col-xl-4 col-l-4 l-4 m-6 c-12">               
                 <div class="sub-deyail-culinary">
                     <div class="sub-title">
                         <p>Đặc sản {{$monan->tinh}}</p>
