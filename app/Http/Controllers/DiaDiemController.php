@@ -76,7 +76,6 @@ class DiaDiemController extends Controller
         $file->move("upload/diadiem", $hinh);
         $diadiem->HinhAnh = $hinh;
 
-        $diadiem->NoiBat = 0;
         $diadiem->SoLuotXem = 0;
         $diadiem->idDacDiem = $request->DacDiem;
         $diadiem->TrangThai = 1;

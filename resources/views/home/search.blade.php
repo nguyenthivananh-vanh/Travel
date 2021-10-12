@@ -1,6 +1,7 @@
 @extends('layout.index')
-<link href="admin_asset/css/home.css" rel="stylesheet">
+
 @section('content')
+<link rel="stylesheet" href="admin_asset/css/pagination.css">
     <section id="popular" class="section section-popular scrollspy  mt-4">
         <div class="container-fuild">
             <div class="row mb-1">
@@ -96,6 +97,12 @@
                     </div>
                 @endif
             </div>
+            <div class="row">
+                <div class="page" >
+                    {{$diadiem->links("pagination::bootstrap-4")}}
+                </div>
+            </div>
+           
         </div>
     </section>
 
@@ -134,7 +141,7 @@
                             <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}">
                                 <div class="card-image">
                                     <img class="post-img" style="height:200px"
-                                         src="upload/diadiem/{{$monan->HinhAnh}}" alt="img">
+                                         src="upload/monan/{{$monan->HinhAnh}}" alt="img">
                                     <span class="card-title">{{$monan->TenMonAn}}</span>
                                 </div>
                             </a>
@@ -159,61 +166,7 @@
     </section>
     <!-- Section: Gallery -->
 
-    {{-- <section id="gallery" class="section section-gallery scrollspy">
-      <div class="container-fuild">
-
-          <div class="col-12">
-          <h4 class="center">
-              <span class="teal-text">Photo</span> Gallery
-            </h4>
-            <div class="row">
-              <div class="col-4">
-                <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach" alt="">
-              </div>
-              <div class="col-4">
-                <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?travel" alt="">
-              </div>
-              <div class="col-4">
-                <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?nature" alt="">
-              </div>
-              <!-- <div class="col s12 m3">
-                <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beach,travel" alt="">
-              </div> -->
-            </div>
-          <div class="row">
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?water" alt="">
-            </div>
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?building" alt="">
-            </div>
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?trees" alt="">
-            </div>
-            <!-- <div class="col s12 m3">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?cruise" alt="">
-            </div> -->
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?beaches" alt="">
-            </div>
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?traveling" alt="">
-            </div>
-            <div class="col-4">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?bridge" alt="">
-            </div>
-            <!-- <div class="col s12 m3">
-              <img class="materialboxed responsive-img" src="https://source.unsplash.com/1600x900/?boat,travel" alt="">
-            </div> -->
-
-          </div>
-        </div>
-
-
-    </section>
-         --}}
+   
 
 
 @endsection
@@ -228,10 +181,11 @@
             this.showFiller = !this.showFiller;
         }
 
-        <script src="js/jquery.js"></script>
+        
+    </script>
+    <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/my.js"></script>
-    </script>
 
 @endsection
