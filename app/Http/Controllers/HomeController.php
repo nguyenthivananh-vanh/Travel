@@ -80,7 +80,7 @@ class HomeController extends Controller
                 return view('home.detail-post',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
             }
         }else{
-            setcookie($cookie_name, $cookie_value, time()+3600);
+            setcookie($cookie_name, $cookie_value, time()+600);
             $vungmien = VungMien::all();
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten','like',$tacgia)->first();
@@ -121,7 +121,7 @@ class HomeController extends Controller
                 return view('home.detail-post',['DiaDiem'=>$diadiem,'user'=>$user,'vungmien'=>$vungmien,'userAuthor'=>$userAuthor,'diadiemList'=>$diadiemList,'comment'=>$cmt,'noibat'=>$noibat]);
             }
         }else{
-            setcookie($cookie_name, $cookie_value, time()+3600);
+            setcookie($cookie_name, $cookie_value, time()+600);
             $vungmien = VungMien::all();
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten','like',$tacgia)->first();
@@ -151,7 +151,7 @@ class HomeController extends Controller
             $monan = MonAn::find($id);
             return view('home.viewMonAn',['diadiem'=>$diadiem,'monan'=>$monan]);
         }else{
-            setcookie($cookie_name, $cookie_value, time()+3600);
+            setcookie($cookie_name, $cookie_value, time()+600);
             $diadiem = DiaDiem::find($idDiaDiem);
             $monan = MonAn::find($id);
             $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->get();
@@ -171,7 +171,7 @@ class HomeController extends Controller
             $monanTinh = MonAn::where('tinh','like',$diadiem->tinh)->get();
             return view('home.viewMonAn',['diadiem'=>$diadiem,'monan'=>$monan,'monanTinh'=>$monanTinh,'user'=>$user]);
         }else{
-            setcookie($cookie_name, $cookie_value, time()+3600);
+            setcookie($cookie_name, $cookie_value, time()+600);
             $user = User::find($idUser);
             $diadiem = DiaDiem::find($idDiaDiem);
             $monan = MonAn::find($id);
