@@ -21,6 +21,7 @@ body {
     position: absolute;
     bottom: 85%;
     left: 45%;
+    margin: 0 auto !important;
 }
 
 .link-homepage {
@@ -251,6 +252,9 @@ body {
     object-fit: contain;
     height: 100% !important;
 }
+.content-detail p em{
+    text-align: center;
+}
 
 .modal-footer {
     margin: 30px 0 20px;
@@ -373,6 +377,12 @@ body {
         display: block;
         flex: 0 0 100%;
         max-width: 100%;
+    }
+    .logo {
+        position: absolute;
+        bottom: 85%;
+        left: 30%;
+        margin: 0 auto !important;
     }
 }
 
