@@ -30,7 +30,7 @@
               <form action="admin/vungmien/update/{{$vungmien->id}}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                 <div class="input-field">
-                    <label for="title">Ten</label><br>
+                    <label for="title">Tên</label><br>
                   <input type="text" id="title" name="ten" value="{{$vungmien->Ten}}"/>                
                 </div>
                 <div class="card-action">

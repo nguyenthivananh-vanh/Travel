@@ -168,12 +168,13 @@ class DiaDiemController extends Controller
         return view('admin.diadiem.list', ['DiaDiem' => $dd,'user'=>$user]);
     }
 
-    public function view($id,$tacgia){
+    public function view($id,$tacgia,$idUser){
         $vungmien = VungMien::all();
         $diadiem = DiaDiem::find($id);
-        $user = User::where('Ten','like',$tacgia)->first();
+        $userAuthor = User::where('Ten','like',$tacgia)->first();
+        $user = User::find($idUser);
         $diadiem->save();
-        return view('admin.diadiem.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user]);
+        return view('admin.diadiem.view',['DiaDiem'=>$diadiem,'vungmien'=>$vungmien,'user'=>$user,'userAuthor'=>$userAuthor]);
     }
 
     public function duyet($id, $idUser){

@@ -10,42 +10,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
 
-{{-- @if(isset($user)) 
-<div class="container-fuild">
-    <div class="notify delete">
-        <div class="form-notify form-delete">
-            <h2>Xóa</h2>
-            <hr>
-            <h4>Bạn có chắc chắn muốn xóa không?</h4>
-            <div class="accept ">
-                <button class="green"><a href="home/acceptDelete/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Xoá bài</a></button>
-                <button class="red"><a href="home/view/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}" > Trở lại</a></button>
-            </div>
-        </div>
-        
-    </div>
-    <div class="notify update">
-        <div class="form-notify form-update">
-            <h2>Chỉnh sửa</h2>
-            <hr>
-            <h4>Bạn muốn chỉnh sửa thông tin?</h4>
-            <div class="accept">
-                <button class="green"><a href="home/updateView/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Sửa địa điểm</a></button>
-                @if(isset($monan))
-                <button class="green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>             
-                @elseif(isset($video))
-                <button class="green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>     
-                @elseif(isset($monan) && isset($video))
-                <button class="green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>
-                <button class="green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>
-                <button class="green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa Món Ăn</a></button>
-                @endif
-                <button class="red"><a href="home/view/{{$DiaDiem->id}}/{{$DiaDiem->TacGia}}/{{$user->id}}" > Trở lại</a></button>
-            </div>
-        </div>
-    </div>
-</div>
-@endif --}}
+
 <div class="wrap">
     <section class="container-fuild">
         <div class="contanier-detail" style="width:100vw">

@@ -12,7 +12,7 @@ class DacDiemController extends Controller
     public function getList($idUser)
     {
         $user = User::find($idUser);
-        $dacdiem = DacDiem::paginate(5);
+        $dacdiem = DacDiem::paginate(10);
         return view('admin.dacdiem.list', ['dacdiem' => $dacdiem,'user'=>$user]);
     }
 

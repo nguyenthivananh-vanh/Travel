@@ -34,13 +34,13 @@
                 </div>
               <br>
               <br>
-                <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                {{-- <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
                 <br/>
                 @if($errors->has('g-recaptcha-response'))
                     <span class="invalid-feedback" style="display:block">
                         <strong>{{$errors->first('g-recaptcha-response')}}</strong>
                     </span>
-                @endif
+                @endif --}}
     
                 <button type="submit">Đăng nhập</button>
             </form>

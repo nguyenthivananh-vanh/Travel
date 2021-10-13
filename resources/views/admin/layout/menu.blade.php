@@ -4,7 +4,7 @@
         <div class="menu-admin" style="background-color:#1976d2">
             <div class="title-admin">
                 <div class="home" style="color: white">
-                    <a style="color: white" href="home/home/{{$user->id}}" class="brand-logo">Admin</a>
+                    <a style="color: white" href="admin/adminHome/{{$user->id}}" class="brand-logo">Admin</a>
                 </div>
 
                
@@ -12,8 +12,7 @@
         </div>
 
 
-            <ul id="side-nav-admin" class="side-nav-admin menu-admin">
-                
+            <ul id="side-nav-admin" class="side-nav-admin menu-admin">              
                  
                 <li class="" style="display:flex; align-items:center">
                     <img src="upload/users/{{$user->Avatar}}" class="circle-admin avatar-user" alt="Avatar User">
@@ -48,10 +47,10 @@
                 <a href="admin/thongke/list/{{$user->id}}">Thống kê</a>
             </li>
         </ul>
-        <div class="menu-admin" style="background-color:#1976d2; bottom:0; ">
+        <div class="menu-admin" style="background-color:#fff; bottom:0; border-top: 1px solid #ddd">
             <div class="title-admin">
-                <div class="home" style="color: white">
-                    <a style="color: white" href="home/home/{{$user->id}}" class="brand-logo">&copy; 2021 My Vietnam</a>
+                <div class="home" style="color: black">
+                    <a style="color: #1976d2" href="home/home/{{$user->id}}" class="brand-logo">&copy; 2021 My Vietnam</a>
                 </div>
 
                

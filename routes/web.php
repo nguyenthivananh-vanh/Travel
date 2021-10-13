@@ -17,7 +17,7 @@ Route::get('/', function () {
     return redirect('home/home');
 });
 Route::get('/test', function () {
-    return view('admintest.layout.index');
+    return view('admintest.layout.index'); 
 });
 
 Route::get('/register', 'App\Http\Controllers\UserController@getRegister');
@@ -30,6 +30,11 @@ Route::get('otp/{id}', 'App\Http\Controllers\UserController@getOTP');
 Route::post('otp/{id}', 'App\Http\Controllers\UserController@postOTP');
 Route::get('resetPass/{id}', 'App\Http\Controllers\UserController@getresetPass');
 Route::post('resetPass/{id}', 'App\Http\Controllers\UserController@postresetPass');
+// thay đổi thông tin cá nhân
+Route::group(['prefix' => 'user'], function () {
+    Route::get('update/{id}', 'App\Http\Controllers\UserController@getUpdate');
+    Route::post('update/{id}', 'App\Http\Controllers\UserController@postUpdate');
+});
 //Route::get('HomeTest', 'App\Http\Controllers\HomeController@HomeTest');
 
 Route::group(['prefix' => 'home'], function () {
@@ -109,8 +114,7 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::get('level/{id}/{idUser}', 'App\Http\Controllers\UserController@getLevel');
         Route::post('level/{id}/{idUser}', 'App\Http\Controllers\UserController@postLevel');
         Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\UserController@getDelete');
-        Route::get('update/{id}', 'App\Http\Controllers\UserController@getUpdate');
-        Route::post('update/{id}', 'App\Http\Controllers\UserController@postUpdate');
+       
         Route::post('search/{idUser}', 'App\Http\Controllers\UserController@search');
         Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\UserController@showSearch');
 
@@ -125,7 +129,7 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
         Route::get('delete/{id}/{idUser}', 'App\Http\Controllers\DiaDiemController@getDelete');
         Route::post('search/{idUser}', 'App\Http\Controllers\DiaDiemController@search');
         Route::get('showSearch/{key}/{idUser}', 'App\Http\Controllers\DiaDiemController@showSearch');
-        Route::get('/view/{id}/{tacgia}', 'App\Http\Controllers\DiaDiemController@view');
+        Route::get('/view/{id}/{tacgia}/{idUser}', 'App\Http\Controllers\DiaDiemController@view');
         Route::get('/duyet/{id}/{idUser}', 'App\Http\Controllers\DiaDiemController@duyet');
     });
     Route::group(['prefix' => 'video'], function () {

@@ -77,42 +77,38 @@
                           </thead>
                           <tbody>
                             @foreach ($DiaDiem as $diadiem)
-    
-                                @if($diadiem->TrangThai == 1)
-                                    <tr>
-                                        <td >{{$diadiem->id}}</td>
-                                        <td >{{$diadiem->TieuDe}}</td>
-                                        <td class="title__short--hidden">{{$diadiem->TomTat}}</td>
-                                        <td >
-                                            <img src="upload/diadiem/{{$diadiem->HinhAnh}}" alt="img"
-                                                    width="100px" class="list-image">
-                                        </td>
-                                        <td class="title__des--hidden">{{$diadiem->NoiDung}}</td>
-    
-                                        
-                                        <td >{{$diadiem->TacGia}}</td>
-                                        <td >{{$diadiem->SoLuotXem}}</td>
-                                        <td >{{$diadiem->dacdiem->Ten}}</td>
-                                        <td class="province">{{$diadiem->tinh}}
-                                        <td class="status">
-                                            @if($diadiem->TrangThai==1)
-                                                {{"Đã duyệt"}}
-                                            @else
-                                                {{"Chưa duyệt"}}
-                                            @endif
-                                        </td>
-                                        <td >
-                                            <a href="admin/diadiem/update/{{$diadiem->id}}/{{$user->id}}" class="green-text">
-                                                <i class="far fa-edit"></i>
-                                            </a>
-                                            <a href="admin/diadiem/delete/{{$diadiem->id}}/{{$user->id}}" class="red-text">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                            <a class="view--hidden" href="admin/diadiem/view/{{$diadiem->id}}/{{$diadiem->TacGia}}"><i class="fas fa-eye"></i></a>
-                                        </td>
-                                    </tr>
-                                @endif
-    
+                                <tr>
+                                    <td >{{$diadiem->id}}</td>
+                                    <td >{{$diadiem->TieuDe}}</td>
+                                    <td class="title__short--hidden">{{$diadiem->TomTat}}</td>
+                                    <td >
+                                        <img src="upload/diadiem/{{$diadiem->HinhAnh}}" alt="img"
+                                                width="100px" class="list-image">
+                                    </td>
+                                    <td class="title__des--hidden">{{$diadiem->NoiDung}}</td>
+
+                                    
+                                    <td >{{$diadiem->TacGia}}</td>
+                                    <td >{{$diadiem->SoLuotXem}}</td>
+                                    <td >{{$diadiem->dacdiem->Ten}}</td>
+                                    <td class="province">{{$diadiem->tinh}}
+                                    <td class="status">
+                                        @if($diadiem->TrangThai==1)
+                                            {{"Đã duyệt"}}
+                                        @else
+                                            {{"Chưa duyệt"}}
+                                        @endif
+                                    </td>
+                                    <td >
+                                        <a href="admin/diadiem/view/{{$diadiem->id}}/{{$diadiem->TacGia}}/{{$user->id}}" class="green-text">
+                                            <i class="far fa-eye"></i>
+                                        </a>
+                                        <a href="admin/diadiem/delete/{{$diadiem->id}}/{{$user->id}}" class="red-text">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <a class="view--hidden" href="admin/diadiem/view/{{$diadiem->id}}/{{$diadiem->TacGia}}"><i class="fas fa-eye"></i></a>
+                                    </td>
+                                </tr>  
                             @endforeach
                             
                           </tbody>
