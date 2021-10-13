@@ -130,8 +130,9 @@ class MonAnController extends Controller
     public function showSearch($key, $idUser)
     {
         $user = User::find($idUser);
+        $diadiem = DiaDiem::all();
         $monan = MonAn::where('TenMonAn', 'like', "%$key%")->orwhere('MoTa', 'like', "%$key%")->take(30)->paginate(5);
-        return view('admin.monan.list', ['MonAn' => $monan,'user'=>$user]);
+        return view('admin.monan.list', ['MonAn' => $monan,'user'=>$user,'DiaDiem'=>$diadiem]);
     }
 
     public function view($id, $idUser){

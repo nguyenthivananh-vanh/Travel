@@ -95,7 +95,9 @@ class UserController extends Controller
     public function getDelete($id, $idUser)
     {
         $user = User::find($id);
-        unlink("upload/users/".$user->Avatar);
+        if(file_exists($user->Avatar)){
+            unlink("upload/users/".$user->Avatar);
+        }       
         $user->delete();
         return redirect('admin/user/list/'.$idUser)->with('thongbao', 'Xoá thành công');
     }

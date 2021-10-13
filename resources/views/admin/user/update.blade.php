@@ -4,7 +4,7 @@
 
 <div class="wrapper">
   
-<form action="admin/user/update/{{$user->id}}" method="POST" enctype="multipart/form-data">   
+<form action="user/update/{{$user->id}}" method="POST" enctype="multipart/form-data">   
     <div class="container-fuild">
         <div class="container">
             <div class="contain">
