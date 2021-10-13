@@ -233,7 +233,9 @@ class HomeController extends Controller
     public function commentDelete($idcmt, $idDiaDiem, $tacgia, $idUser)
     {
         $cmt = Comment::find($idcmt);
-        unlink("upload/comment/" . $comment->HinhAnh);
+        if(file_exists($cmt->HinhAnh)){
+            unlink("upload/comment/" . $cmt->HinhAnh);
+        }
         $cmt->delete();
         return redirect('home/view/' . $idDiaDiem . '/' . $tacgia . '/' . $idUser)->with('thongbao', 'Đã xoá bình luận');
     }
