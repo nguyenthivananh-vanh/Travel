@@ -233,7 +233,9 @@ class HomeController extends Controller
     public function commentDelete($idcmt, $idDiaDiem, $tacgia, $idUser)
     {
         $cmt = Comment::find($idcmt);
-        unlink("upload/comment/" . $comment->HinhAnh);
+        if(file_exists($cmt->HinhAnh)){
+            unlink("upload/comment/" . $cmt->HinhAnh);
+        }       
         $cmt->delete();
         return redirect('home/view/' . $idDiaDiem . '/' . $tacgia . '/' . $idUser)->with('thongbao', 'Đã xoá bình luận');
     }
@@ -403,11 +405,14 @@ class HomeController extends Controller
         $video = Video::where('idDiaDiem', $id)->first();
 
         if (isset($comment)) {
-            $comment->delete();
+            if (isset($comment->HinhAnh)) {
+                unlink("upload/comment/" . $comment->HinhAnh);
+                $comment->delete();
+            }else{
+                $comment->delete();
+            }       
         }
-        if (isset($comment->HinhAnh)) {
-            unlink("upload/comment/" . $comment->HinhAnh);
-        }
+       
         if (isset($monan)) {
             unlink("upload/monan/" . $monan->HinhAnh);
             $monan->delete();

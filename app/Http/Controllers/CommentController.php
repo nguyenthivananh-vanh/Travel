@@ -14,7 +14,9 @@ class CommentController extends Controller
     }
     public function getDelete($id, $idUser){
         $comment = Comment::find($id);
-        unlink("upload/comment/".$comment->HinhAnh);
+        if(file_exists($comment->HinhAnh)){
+            unlink("upload/comment/".$comment->HinhAnh);
+        }       
         $comment->delete();
         return redirect('admin/comment/list/'.$idUser)->with('thongbao','Xoá thành công');
     }
