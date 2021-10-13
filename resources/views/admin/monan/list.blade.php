@@ -11,25 +11,31 @@
                         <div class="col-2">
                             <h5 class="card-title">Món ăn</h5>
                         </div>
-                        <div class="col-7"></div>
-                        <div class="col-2">
-                            <div class="search-container">
-                                <form action="admin/monan/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                        <div class="col-3"></div>
+                        <div class="col-7">
+                            <div class="row task" style="border-bottom:none">
+                                <div class="col-6"></div>
+                                <div class="col-6 text-right">
+                                    <button class="btn-add"><a href="admin/monan/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a></button>                              
+                                </div>   
+                            </div>
+                            
+                        </div>
+                        <div class="col-0"></div>
+                    </div>
+                    <div class="row task" style="border-bottom:none" >
+                        <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn bg-blue" style="background-color: #1976d2; color:white">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                                <form action="admin/monan/search/{{$user->id}}" method="POST" enctype="multipart/form-data" style="width:95%">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                    <input
-                                        style="border: 1px solid #ddd; border-radius: 3px;padding-left: 10px"
-                                        type="text" placeholder="Search.." name="search">
+                                    <input class="form-control" type="text" placeholder="Search.." name="search">
                                         
                                 </form>
-                            </div>
                         </div>
-                        <div class="col-1"></div>
-                    </div>
-                    <div class="row task" >
-                        <div class="col-9"></div>
-                        <div class="col-3 " >
-                            <button class="btn-add"><a href="admin/monan/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a></button>                              
-                        </div>   
                     </div>
                 </div>
                 <div class="header__mobile">

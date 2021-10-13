@@ -1,7 +1,16 @@
-function showNavbar() {
-    document.getElementById('sideNavHome').classList.toggle('displayBlock');
 
+var navBar = document.getElementById('hy');
+
+function showNavMobile(){
+    document.getElementById('hy').classList.toggle("displayBlock");
 }
+
+    window.onclick = function(event) {
+    if (event.target == navBar) {
+        document.getElementById('hy').style.display = "none";
+    }
+  }
+
 //Slider
 var slideIndex = 0;
 

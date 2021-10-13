@@ -15,7 +15,7 @@
                             </div>
                             <div class="author row">
                                 <div class="col-1">
-                                    <img src="upload/users/{{$user->Avatar}}" class="circle view-admin-img" style='width:50px; height:50px' alt="Avatar User">
+                                    <img src="upload/users/{{$userAuthor->Avatar}}" class="circle view-admin-img" style='width:50px; height:50px' alt="Avatar User">
                                 </div>
                                 <div class="col-4">
                                     <b>{{$DiaDiem->TacGia}}</b>

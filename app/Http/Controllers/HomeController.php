@@ -405,11 +405,14 @@ class HomeController extends Controller
         $video = Video::where('idDiaDiem', $id)->first();
 
         if (isset($comment)) {
-            $comment->delete();
+            if (isset($comment->HinhAnh)) {
+                unlink("upload/comment/" . $comment->HinhAnh);
+                $comment->delete();
+            }else{
+                $comment->delete();
+            }
         }
-        if (isset($comment->HinhAnh)) {
-            unlink("upload/comment/" . $comment->HinhAnh);
-        }
+
         if (isset($monan)) {
             unlink("upload/monan/" . $monan->HinhAnh);
             $monan->delete();

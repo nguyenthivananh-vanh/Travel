@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-7"></div>
                     <div class="col-2">
-                        <div class="search-container">
+                        <!-- <div class="search-container">
                             <form action="admin/comment/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <input
@@ -20,9 +20,25 @@
                                     type="text" placeholder="Search.." name="search">
                                     
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-1"></div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn bg-blue" style="background-color: #1976d2; color:white">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                                <form action="admin/comment/search/{{$user->id}}" method="POST" enctype="multipart/form-data" style="width:95%">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                <input
+                                    class="form-control"
+                                    type="text" placeholder="Search.." name="search">
+                                    
+                            </form>
+                        </div>
                 </div>
               </div>
               <div class="header__mobile">

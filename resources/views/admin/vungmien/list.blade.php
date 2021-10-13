@@ -8,18 +8,11 @@
             <div class=" pb-0">
               <div class="header__pc">
                 <div class="row title">
-                    <div class="col-12">
+                    <div class="col-6">
                         <h5 class="card-title">Vùng miền</h5>
                     </div>
-
                 </div>
-                <div class="row task">
-                    <div class="col-9"></div>
-                    <div class="col-3 ">
-                        <button class="btn-add"><a href="admin/vungmien/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a>
-                        </button>
-                    </div>
-                </div>
+                
             </div>
             <div class="header__mobile">
               <div class="row title">
@@ -39,13 +32,10 @@
               
               </div>
               <div class="row task" >
-                  <div class="col-lg-2 col-md-2  col-sm-3 header__mobile-5">
+                  <div class="col-lg-12 col-md-12  col-sm-12 ">
                       <h5 class="card-title">Vùng miền</h5>
                   </div>
-                  <div class="col-lg-7 col-md-6  col-sm-4 no-empty"></div>
-                  <div class="col-lg-3 col-md-4  col-sm-5  task-button header__mobile-5" >
-                      <button class="btn-add"><a href="admin/diadiem/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a></button>                              
-                  </div>   
+                   
               </div>
           </div>
                 @if(session('thongbao'))

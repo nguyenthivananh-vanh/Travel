@@ -10,26 +10,33 @@
                         <div class="col-lg-2">
                             <h5 class="card-title">Địa điểm</h5>
                         </div>
-                        <div class="col-lg-7"></div>
-                        <div class="col-lg-2">
-                            <div class="search-container">
-                                <form action="admin/diadiem/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                    <input
-                                        style="border: 1px solid #ddd; border-radius: 3px;padding-left: 10px"
-                                        type="text" placeholder="Search.." name="search">                                 
-                                </form>
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-7 text-right">
+                            <div class="row" >
+                                <div class="col-lg-6 col-md-6"></div>
+                                <div class="col-lg-6 col-md-6 task-button" >
+                                    <button class="btn-add"><a href="admin/diadiem/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a></button>                              
+                                    <button class="btn-add"><a href="admin/diadiem/duyetbai/{{$user->id}}">Duyệt bài</a></button>
+                                </div>   
                             </div>
                         </div>
-                        <div class="col-lg-1"></div>
+                        <div class="col-lg-0"></div>
                     </div>    
-                    <div class="row task" >
-                       
-                        <div class="col-lg-9 col-md-8"></div>
-                        <div class="col-lg-3 col-md-4 task-button" >
-                            <button class="btn-add"><a href="admin/diadiem/add/{{$user->id}}"> <i class="fas fa-plus"></i>Thêm</a></button>                              
-                            <button class="btn-add"><a href="admin/diadiem/duyetbai/{{$user->id}}">Duyệt bài</a></button>
-                        </div>   
+                    <div class="row" >
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn bg-blue" style="background-color: #1976d2; color:white">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                            <form action="admin/diadiem/search/{{$user->id}}" method="POST" enctype="multipart/form-data" style="width:95%">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                    <input
+                                    class="form-control"
+                                        type="text" placeholder="Search.." name="search">                                 
+                                </form>
+                        </div>
+                        
                     </div>        
                 </div>
                 {{-- tablet, mobile --}}

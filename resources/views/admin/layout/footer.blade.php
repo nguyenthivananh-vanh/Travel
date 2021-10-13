@@ -2,7 +2,7 @@
     bottom:0;
     left: 0;
     right: 0;
-    " class="section blue darken-2 white-text center">
+    " class="section  darken-2 white-text center">
     <p>My Vietnam &copy; 2021</p>
 </footer>
 @section('script')
