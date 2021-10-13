@@ -7,6 +7,20 @@
     width: 100%;
 }
 
+.bg-otp {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-otp {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
 .overlay {
     background-image: url('/upload/home/viewLogin.jpg');
     width: 100%;
@@ -79,7 +93,7 @@
     font-size: 14px;
 }
 
-input:focus{
+input:focus {
     color: #1976d2;
 }
 
@@ -98,22 +112,24 @@ input:focus{
     transition: all 0.3 ease;
     cursor: pointer;
 }
+
 @keyframes fadeInDown {
     from {
-        opacity:0;
+        opacity: 0;
         -webkit-transform: translatey(-50%);
         -moz-transform: translatey(-50%);
         -o-transform: translatey(-50%);
         transform: translatey(-50%);
     }
     to {
-        opacity:1;
+        opacity: 1;
         -webkit-transform: translatey(0);
         -moz-transform: translatey(0);
         -o-transform: translatey(0);
         transform: translatey(0);
     }
 }
+
 .fadeInDown {
     -webkit-animation-name: fadeInDown;
     -moz-animation-name: fadeInDown;
