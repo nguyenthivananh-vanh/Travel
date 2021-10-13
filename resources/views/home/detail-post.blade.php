@@ -1,4 +1,4 @@
-@extends('index') 
+@extends('index')
 @section('content')
 <link href="admin_asset/css/detailPost.css" rel="stylesheet">
 <link href="admin_asset/css/notify.css" rel="stylesheet">
@@ -16,11 +16,11 @@
         <div class="contanier-detail" style="width:100vw">
             <img src="upload/diadiem/{{$DiaDiem->HinhAnh}}" style="height:70vh; width: 100vw" alt="" class="post-img">
             <a class="logo"><img src="upload/home/myVietnam-big1.png" alt="logo" style="width: 200px; height:54px"></a>
-         
+
             <div class="link-homepage">
                 @if(isset($user))
                 <a href="home/home/{{$user->id}}"><i class="fas fa-home"></i></a>
-                @else 
+                @else
                 <a href="home/home"><i class="fas fa-home"></i></a>
                 @endif
             </div>
@@ -51,7 +51,7 @@
                                 <b class="pl-1">{{$DiaDiem->TacGia}}</b>
                                 <p class="pl-2" style="color: rgb(119, 119, 119);">{{$DiaDiem->created_at}}</p>
                             </div>
-                            @if(isset($user))
+                            @if($user->id == $userAuthor->id))
                             <div class="col-6"></div>
                             <div class="col-1 text-center" style="z-index: 999">
                                 <div style="margin-left:43%" onClick="showSettingPost()" class="btn-setting-post"><i id="btnSettingPost" class="fas fa-ellipsis-h"></i>
@@ -77,16 +77,16 @@
                             <video autoplay loop controls muted  width="100%"  class="vid">>
                                 <source src="upload/video/{{$video->video}}"   >
                             </video>
-                            
+
                             <p class="text-center" style="color: rgb(119, 119, 119);"><i>Video: {{$video->TieuDe}}</i></p>
                             {!! html_entity_decode( $video->Mota) !!}
                         </div>
-                    
-                        
+
+
                     {{-- </div> --}}
                 </div>
                 @endif
-                
+
                 <div class="row box-content">
                     <div class="col-xl-8 col-l-8 l-8 m-6 c-12">
                         <div class="content-detail">
@@ -97,7 +97,7 @@
                             <span style="padding: 10px"><i class="fas fa-eye" style="color:#277fbc"></i><span
                                         style="padding: 10px">{{$DiaDiem->SoLuotXem}}</span></span>
                         </div>
-                    
+
                         {{-- cmt --}}
                         <div class="comment ">
                             @if(isset($user))
@@ -116,7 +116,7 @@
                                             <input hidden type="file" id="myFile" name="hinhanh">
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </form>
                             @endif
@@ -132,21 +132,21 @@
                                                     style='width:50px; height:50px' alt="Avatar User">
                                             </div>
                                             <b class="user col-10 m-10 c-10 pl-2" style="padding:12px">{{$cmt->user->Ten}}
-                
+
                                             </b>
-                
+
                                         </div>
                                         <div class="replied_to">
                                             <p>{{$cmt->NoiDung}}</p>
-                
+
                                             @if (isset($cmt->HinhAnh))
                                                 <img class="post-img" style="width:300px" src="upload/comment/{{$cmt->HinhAnh}}" alt="">
                                             @endif
                                         </div>
-                
+
                                         <!-- Finally someone who actually gets it!
                                         <div class="replied_to"><p><span class="user">Andrew Johnson:</span>That's exactly what I was thinking!</p></div>That's awesome!</p> -->
-                
+
                                     </div>
                                     <!-- comments toolbar -->
                                     <div class="comment_toolbar row" style="margin:0 20px">
@@ -161,17 +161,17 @@
                                                                     class="far fa-trash-alt"></i> Xoá</a></li>
                                                     @endif
                                                 @endif
-                                            
+
                                             </ul>
                                         </div>
                                     </div>
-                                    
+
                                 @endforeach
                             </div>
-                
-                            
+
+
                         </div>
-                        
+
                         <hr>
                     </div>
                     <div class="right-menu col-xl-4 col-l-4 l-4 m-6 c-12">
@@ -180,7 +180,7 @@
                                 <p>TIN LIÊN QUAN</p>
                             </div>
                             <hr>
-                            
+
                             <ul class="list-sub" >
                                 @foreach ($diadiemList as $row)
                                 @if(isset($user))
@@ -196,7 +196,7 @@
                                          </div>
                                     </div>
                                  </li>
-                               
+
                                 @else
                                 <li class="list-sub-item">
                                     <div class="row">
@@ -206,19 +206,19 @@
                                          <div class="col-8 item-text">
                                              <p> <a href="home/view/{{$row->id}}/{{$row->TacGia}}">{{$row->TieuDe}}<br>
                                                 <span style="color: black; font-size: 14px">{{$row->TomTat}}</span></a></p>
-                                             
+
                                              <span>{{$row->updated_at}}</span>
                                          </div>
                                     </div>
                                  </li>
-     
-                                @endif  
-                                @endforeach                
+
+                                @endif
+                                @endforeach
                             </ul>
 
                         </div>
-                       
-                        
+
+
                         <div class="sub-deyail-culinary">
                             <div class="sub-title">
                                 <p>ĐẶC SẢN HẤP DẪN</p>
@@ -227,7 +227,7 @@
                             <ul class="list-sub" >
                                 {{-- @if(isset($monan))
                                     @foreach ($monan as $monan)
-                                   
+
                                     <li class="list-sub-item">
                                         <div class="row">
                                         <div class="col-4 item-img">
@@ -236,20 +236,20 @@
                                             <div class="col-8 item-text">
                                                 @if(isset($user))
                                                 <p> <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}/{{$user->id}}">{{$monan->TenMonAn}}<br>
-                                                @else 
+                                                @else
                                                 <p> <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}">{{$monan->TenMonAn}}<br>
-                                                @endif  
+                                                @endif
                                                 <span style="color: black; font-size: 14px">{{$monan->TieuDe}}</span></a></p>
                                                 <span>{{$monan->updated_at}}</span>
                                             </div>
                                         </div>
                                     </li>
-                                   
-                                     @endforeach  
+
+                                     @endforeach
                                 @endif --}}
-                                @if(isset($monanTinh))    
+                                @if(isset($monanTinh))
                                     @foreach ($monanTinh as $ma)
-                                        
+
                                         <li class="list-sub-item">
                                             <div class="row">
                                                 <div class="col-4 item-img">
@@ -258,29 +258,29 @@
                                                 <div class="col-8 item-text">
                                                     @if(isset($user))
                                                         <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}/{{$user->id}}">{{$ma->TenMonAn}}<br>
-                                                    @else 
+                                                    @else
                                                          <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}">{{$ma->TenMonAn}}<br>
-                                                    @endif 
+                                                    @endif
                                                      <span style="color: black; font-size: 14px">{{$ma->TieuDe}}</span></a></p>
                                                     <span>{{$ma->updated_at}}</span>
                                                 </div>
                                             </div>
                                         </li>
-                                         
-                                    @endforeach   
-                                @endif       
+
+                                    @endforeach
+                                @endif
                             </ul>
 
                         </div>
-                     
+
                     </div>
-                </div>  
+                </div>
 
             </div>
 
         </div>
-        
-        </div>   
+
+        </div>
     </section>
     <section>
        <div class="post-related hide-post-related">
@@ -312,8 +312,8 @@
                                         </div>
                                     </a>
                                 @endif
-                                                
-                                    
+
+
                             </div>
                         </div>
                     @endforeach
@@ -325,7 +325,7 @@
 </div>
 <!-- Modal Delete -->
 @if(isset($user))
-<div id="deletePost" class="modal-view"> 
+<div id="deletePost" class="modal-view">
     <div class="modal-content"style="width:500px">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Bạn có chắc là muốn xóa bài viết không?</h5>
@@ -335,30 +335,30 @@
             <button type="button" class="btn btn red" onclick="document.getElementById('deletePost').style.display='none'" class="deletebtn">
                 <a href="home/acceptDelete/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Xoá bài</a>
             </button>
-        </div>       
+        </div>
     </div>
 </div>
 
 
 <!-- Modal Edit -->
-<div id="editPost" class="modal-view" style="z-index:10;"> 
+<div id="editPost" class="modal-view" style="z-index:10;">
     <div class="modal-content"style="width:600px;z-index:10">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Bạn muốn cập nhập?</h5>
         </div>
-        <div class="modal-footer">               
+        <div class="modal-footer">
             <button class="btn btn-secondary green"><a href="home/updateView/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}">Sửa địa điểm</a></button>
             @if(isset($monan))
-            <button class="btn btn-secondary green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa đặc sản</a></button>             
+            <button class="btn btn-secondary green"><a href="home/updateCulinary/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}" > Sửa đặc sản</a></button>
             @endif
             @if(isset($video))
-            <button class="btn btn-secondary green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>     
-            
+            <button class="btn btn-secondary green"><a href="home/updateVideo/{{$DiaDiem->id}}/{{$userAuthor->Ten}}/{{$user->id}}/{{$video->id}}">Sửa video</a></button>
+
             @endif
             <button type="button" class="btn btn-secondary"  onclick="document.getElementById('editPost').style.display='none'" class="cancelbtn">Quay lại</button>
-        
+
         </div>
-        
+
     </div>
 </div>
 @endif

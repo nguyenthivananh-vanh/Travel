@@ -18,8 +18,8 @@ class HomeController extends Controller
 {
     function home()
     {
-        $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->take(6)->get();
-        $diadiem = DiaDiem::orderBy('id', 'DESC')->take(6)->get();
+        $noibat = DiaDiem::where('TrangThai',1)->orderBy('SoLuotXem', 'DESC')->take(6)->get();
+        $diadiem = DiaDiem::where('TrangThai',1)->orderBy('id', 'DESC')->take(6)->get();
         $vungmien = VungMien::all();
         return view('home.home', ['vungmien' => $vungmien, 'noibat' => $noibat, 'DiaDiem' => $diadiem]);
     }
@@ -27,8 +27,8 @@ class HomeController extends Controller
     function homeUser($id)
     {
         $user = User::find($id);
-        $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->take(6)->get();
-        $diadiem = DiaDiem::orderBy('id', 'DESC')->take(6)->get();
+        $noibat = DiaDiem::where('TrangThai',1)->orderBy('SoLuotXem', 'DESC')->take(6)->get();
+        $diadiem = DiaDiem::where('TrangThai',1)->orderBy('id', 'DESC')->take(6)->get();
         $vungmien = VungMien::all();
         return view('home.home', ['vungmien' => $vungmien, 'noibat' => $noibat, 'DiaDiem' => $diadiem, 'user' => $user]);
     }
@@ -75,7 +75,7 @@ class HomeController extends Controller
     // trang chi tiết
     function view($id, $tacgia)
     {
-        $cookie_name = $id . $tacgia;
+        $cookie_name = $id;
         $cookie_value = "1";
         if (isset($_COOKIE[$cookie_name])) {
             $vungmien = VungMien::all();
@@ -117,7 +117,7 @@ class HomeController extends Controller
 
     function viewUser($id, $tacgia, $idUser)
     {
-        $cookie_name = $id . $tacgia . $idUser;
+        $cookie_name = $id.$idUser;
         $cookie_value = "1";
         if (isset($_COOKIE[$cookie_name])) {
             $vungmien = VungMien::all();
@@ -180,7 +180,7 @@ class HomeController extends Controller
 
     function viewMonAnUser($id, $idDiaDiem, $idUser)
     {
-        $cookie_name = $id . $idDiaDiem . $idUser;
+        $cookie_name = $id . $idDiaDiem;
         $cookie_value = "1";
         if (isset($_COOKIE[$cookie_name])) {
             $user = User::find($idUser);

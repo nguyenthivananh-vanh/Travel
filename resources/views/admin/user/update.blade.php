@@ -3,8 +3,8 @@
 <link rel="stylesheet" href="admin_asset/css/updateUser.css">
 
 <div class="wrapper">
-  
-<form action="admin/user/update/{{$user->id}}" method="POST" enctype="multipart/form-data">   
+
+<form action="user/update/{{$user->id}}" method="POST" enctype="multipart/form-data">
     <div class="container-fuild">
         <div class="container">
             <div class="contain">
@@ -27,13 +27,13 @@
                         <label for="formGroupExampleInput2" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="ten" value="{{$user->Ten}}"
                             aria-describedby="nameHelp" placeholder="Enter name" required>
-                    </div>                 
+                    </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" value="{{$user->email}}"
                             aria-describedby="emailHelp" placeholder="Enter email" require>
-                    </div>                 
-                    
+                    </div>
+
                     <div class="mb-3 check-is-changepassword">
                         <label><input type="checkbox" style="opacity: 1;position: relative">Thay đổi mật khẩu </label>
                     </div>
@@ -60,7 +60,7 @@
         </div>
     </div>
 </form>
-  
+
 </div>
 {{-- <form method="post" action="{{URL::to('News/update')}}/{{$new->id}}" enctype="multipart/form-data">
     @method("PUT")
@@ -97,28 +97,28 @@
                             @foreach ($new_category as $row)
                                 @if ($row->id == $new->new_category_id)
                                 <option value="{{$row->id}}">{{$row->title}}</option>
-                                @endif                 
+                                @endif
                             @endforeach
                             @foreach ($new_category as $row)
                                 <option value="{{$row->id}}">{{$row->title}}</option>
-                            @endforeach                            
+                            @endforeach
                           </select>
                       </div>
-                      <div class="mb-3">                      
+                      <div class="mb-3">
                         <input type="Submit" class="form-control" name="submit" id="formGroupExampleInput2" >
                       </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
 </form> --}}
 {{-- @endforeach --}}
 
 
 
 
-    
+
 @endsection
 @section('script')
 
@@ -132,6 +132,6 @@
         }
     })
 </script>
-    
+
 @endsection
 

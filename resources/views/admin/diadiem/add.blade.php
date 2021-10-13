@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col s12">
                     <div class="card">
-                        <div class="card-content"> 
+                        <div class="card-content">
                             <div class="row">
                                 <div class="col s12 m6">
                                     <span class="card-title">Địa điểm</span>
@@ -146,8 +146,8 @@
             </div>
         </div>
     </section>
-  
-        
+
+
 @endsection
 
 @section('script')
@@ -156,11 +156,11 @@
         var addDiaDiemModal = document.getElementById("addDiaDiem");
         function deleteNews(){
             document.getElementById('deleteDiaDiem').style.display='block';
-        
+
         }
         function createNews(){
             document.getElementById('addDiaDiem').style.display='block';
-        
+
         }
 
         window.onclick = function(event) {

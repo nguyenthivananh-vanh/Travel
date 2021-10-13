@@ -17,9 +17,9 @@
               <div class="row">
                 <div class="col s12 m6">
                   <span class="card-title">User</span>
-                  
+
                 </div>
-                
+
               </div>
               @if(count($errors)>0)
                     <div class="alert alert-danger">
@@ -33,31 +33,31 @@
                         {{session('thongbao')}}<br>
                     </div>
                 @endif
-                
+
               <form action="admin/user/add/{{$user->id}}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                
+
                 <div class="input-field">
                   <label >Tên tài khoản</label><br>
-                  <input type="text" id="ten" value="" name="ten">                
+                  <input type="text" id="ten" value="" name="ten">
                 </div>
                 <div class="input-field">
                   <label >Email</label><br>
-                  <input type="email" id="mail" value="" name="email">                
+                  <input type="email" id="mail" value="" name="email">
                 </div>
-                
-                
+
+
                 <div class="input-field">
                   <label >Password</label><br>
-                  <input type="password" id="pass" value="" name="pass">                
+                  <input type="password" id="pass" value="" name="pass">
                 </div>
                 <div class="input-field">
                   <label >Nhập lại Password</label><br>
-                  <input type="password" id="confirm" value="" name="confirm">                
+                  <input type="password" id="confirm" value="" name="confirm">
                 </div>
                 <div class="input-field">
                   <label for="hinhanh">Avatar</label><br><br>
-                  <input type="file" id="hinhanh" name="hinhanh" class="form-control" />     
+                  <input type="file" id="hinhanh" name="hinhanh" class="form-control" />
                 </div>
                 <div>
                   <label for="" id="level">Phân quyền</label><br><br>
@@ -69,20 +69,20 @@
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="phanquyen" id="inlineRadio2" value="1">
                       <label class="form-check-label" for="inlineRadio2">Admin</label>
-                    </div>               
+                    </div>
                   </section>
               </div>
-              
-                
+
+
               </div>
               <div class="card-action">
                   <button class="btn green">Thêm</button>
                   <button class="btn red">Xoá</button>
                 </div>
               </form>
-              
+
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -91,16 +91,16 @@
   @endsection
   @section('script')
     <script>
-      
+
         var deleteDiaDiemModal = document.getElementById("deleteDiaDiem");
         var addDiaDiemModal = document.getElementById("addDiaDiem");
         function deleteNews(){
             document.getElementById('deleteDiaDiem').style.display='block';
-        
+
         }
         function createNews(){
             document.getElementById('addDiaDiem').style.display='block';
-        
+
         }
 
         window.onclick = function(event) {
@@ -108,7 +108,7 @@
                 document.getElementById('deleteDiaDiem').style.display = "none";
                 document.getElementById('addDiaDiem').style.display = "none";
             }
-        } 
+        }
         $(document).ready(function(){
             $("#vungmien").change(function(){
                 var idvm = $(this).val();
@@ -121,4 +121,3 @@
 @endsection
 
 
-  
