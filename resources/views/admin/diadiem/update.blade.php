@@ -27,7 +27,7 @@
                                     {{session('thongbao')}}<br>
                                 </div>
                             @endif
-                            <form action="admin/diadiem/update/{{$diadiem->id}}/{{$user->id}}" method="POST"
+                            <form action="admin/diadiem/update/{{$diadiem->id}}/{{$user->id}}" method="POST" id="myForm"
                                   enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="form-group">
@@ -167,6 +167,7 @@
                                 <div class="card-action">
                                     <button class="btn green">Cập nhật</button>
                                     <button class="btn red">Xoá</button>
+                                    <!-- <button class="btn btn-primary" onClick="reset()">Reset</button> -->
                                 </div>
                             </form>
 
@@ -180,6 +181,9 @@
 @endsection
 @section('script')
     <script>
+        function reset(){
+            document.getElementById("myForm").reset();
+        }
 
         $(document).ready(function () {
             $("#vungmien").change(function () {
@@ -189,6 +193,12 @@
                 });
             });
         });
+
+        
+
+
+
+
     </script>
 @endsection
 

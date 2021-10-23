@@ -69,7 +69,7 @@
           {{session('thongbao')}}
       </div>
     @endif
-    <form action="register" method="POST" enctype="multipart/form-data">   
+    <form action="register" method="POST" enctype="multipart/form-data" id="myForm">   
         <input type="hidden" name="_token" value="{{csrf_token()}}" />
         <div class="form-group row">
           <input type="text" class="form-control pl-2" id="name" name="ten" aria-describedby="nameHelp" placeholder="Enter name" style="text-align:left;"  required>
@@ -82,6 +82,9 @@
         </div>
         <div class="form-group row">
           <input type="password" class="form-control pl-2" id="password_rp" name="confirm" placeholder="Confirm Password" require>
+        </div>
+        <div>
+          <p style="float: right;margin-bottom: 20px; color: #1976d1"  onClick="reset()" class="mr-2">Reset</p>
         </div>
         <!-- <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -126,3 +129,9 @@
         }
     }
 </script> --}}
+<script>
+  function reset(){
+      document.getElementById("myForm").reset();
+    }
+</script>
+    

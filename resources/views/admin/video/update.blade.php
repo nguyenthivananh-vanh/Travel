@@ -27,7 +27,7 @@
                     </div>
                 @endif
 
-                <form action="admin/video/update/{{$video->id}}/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                <form action="admin/video/update/{{$video->id}}/{{$user->id}}" method="POST" enctype="multipart/form-data"id="myForm">
                   <input type="hidden" name="_token" value="{{csrf_token()}}" />
                   <div class="form-group">
                     <label>Địa điểm</label><br>
@@ -64,9 +64,11 @@
                   <div class="card-action">
                     <button class="btn green">Cập nhật</button>
                     <button class="btn red">Xoá</button>
+                    
                   </div>
                 </form>
             </div>
+            <!-- <button class="btn btn-primary" onClick="reset()">Reset</button> -->
 
           </div>
         </div>
@@ -77,7 +79,10 @@
 
   @section('script')
   <script>
-
+      function reset(){
+          alert("hi")
+          document.getElementById("myForm").reset();
+      }
       $(document).ready(function(){
           $("#vungmien").change(function(){
               var idvm = $(this).val();

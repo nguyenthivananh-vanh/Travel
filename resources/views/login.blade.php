@@ -19,18 +19,20 @@
                     {{session('thongbao')}}
                 </div>
             @endif
-            <form action="login" method="POST" enctype="multipart/form-data">
+            <form action="login" method="POST" enctype="multipart/form-data" id="myForm">
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                 <div class="form-group row">
-                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                    <input  type="email" class="form-control pl-1" id="email" name="email" aria-describedby="emailHelp"
                            placeholder="Enter email" require>
                 </div>
                 <div class="form-group row">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                    <input type="password" class="form-control pl-1" id="password" name="password" placeholder="Password"
                            require>
                 </div>
                 <div>
-                    <a style="float: right;margin-bottom: 20px;" href="forgotPassWord">Quên mật khẩu</a>
+                    <a style="float: right;margin-bottom: 20px;" href="forgotPassWord">Quên mật khẩu ?</a>
+                    <p style="float: right;margin-bottom: 20px; color: #1976d1"  onClick="reset()" class="mr-2">Reset</p>
+
                 </div>
               <br>
               <br>
@@ -85,6 +87,9 @@
             alert("Password phải lớn hơn 3 kí tự và nhỏ hơn 32 kí tự")
             return false;
         }
+    }
+    function reset(){
+      document.getElementById("myForm").reset();
     }
 </script>
 <!-- <form>

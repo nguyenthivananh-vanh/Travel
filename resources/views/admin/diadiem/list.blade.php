@@ -20,9 +20,8 @@
                                 </div>   
                             </div>
                         </div>
-                        <div class="col-lg-0"></div>
                     </div>    
-                    <div class="row" >
+                    <div class="row">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <button type="button" class="btn bg-blue" style="background-color: #1976d2; color:white">
@@ -83,7 +82,7 @@
                     </div>
                 @endif
                 <div class="row">
-                    <div class="card-body col-lg-12" style="overflow-x:auto;" >
+                    <div class="card-body col-lg-12 " style="overflow-x:auto;" >
                         <table class="table table-bordered table-hover">
                           <thead>
                             <tr style="text-align:center">

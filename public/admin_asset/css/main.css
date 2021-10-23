@@ -170,9 +170,11 @@ a {
 }
 
 .display-block {
-    display: block;
+    display: block !important;
 }
-
+html, body{
+    /* overflow: hidden; */
+}
 .display-none {
     display: none;
 }

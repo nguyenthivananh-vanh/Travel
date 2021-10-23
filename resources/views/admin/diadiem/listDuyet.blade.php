@@ -11,7 +11,7 @@
                             <h5 class="card-title">Địa điểm</h5>
                         </div>
                         <div class="col-7"></div>
-                        <div class="col-2">
+                        <div class="col-2 text-right">
                             <div class="search-container">
                                 <form action="admin/diadiem/search/{{$user->id}}" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>

@@ -1,6 +1,10 @@
+*{
+    box-sizing: border-box;
+  
+}
 .wrapper {
     width: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 a {
@@ -29,6 +33,9 @@ a {
 .side-nav-admin {
     border: 1px solid #ddd;
     color: black;
+  
+   
+    
     /* background-color: black; */
     /* background-image: linear-gradient(to right, #5680E9, #5AB9EA, #C1C8E4); */
 }
@@ -266,9 +273,9 @@ hr {
     text-overflow: ellipsis;
 }
 
-.admin__menu--mobile {
-    display: none;
-}
+/* .admin__menu--mobile {
+    display: none  ;
+} */
 
 .view--hidden {
     display: none;
@@ -294,9 +301,9 @@ hr {
 }
 
 @media (max-width: 1199.98px) {
-    .menu-admin li {
+    /* .menu-admin li {
         padding: 27px 20px;
-    }
+    } */
     .task-button {
         display: flex;
         flex-wrap: nowrap;
@@ -318,12 +325,18 @@ hr {
     }
 }
 
-
+/* admin__menu--mobile */
 /* max-width:991.98px */
-
+@media (min-width: 993px) {
+    .admin__menu--mobile{
+        display: none  !important;
+    }
+}
 @media (max-width: 991.98px) {
     .side-nav-admin {
-        background-image: linear-gradient(to right, #5680E9, #C1C8E4);
+        height: 100vh;
+       /* max-height: 100vh; */
+        /* background-image: linear-gradient(to right, #5680E9, #C1C8E4); */
     }
     .header__pc {
         display: none;
@@ -341,6 +354,7 @@ hr {
     .header__mobile--btn {
         margin-bottom: 0 !important;
     }
+   
     .fa-bars {
         font-size: 20px;
         margin-left: 20px;
@@ -379,21 +393,21 @@ hr {
     .fa-times {
         margin-right: 20px;
         font-size: 24px;
-        color: #fff;
+        color: #1976d2;
     }
-    .menu-admin li {
+    /* .menu-admin li {
         padding: 27px 35px;
     }
     .menu-admin li a {
-        font-size: 20px;
-        color: #fff;
-    }
+        font-size: 16px;
+      
+    } */
     .circle-admin {
         width: 60px;
         height: 60px;
     }
     .admin-infor p {
-        color: #fff;
+        color: black;
         margin: 0;
         font-size: 20px;
     }
@@ -453,13 +467,14 @@ hr {
     .admin__menu--tablet {
         display: none;
     }
-    .admin__menu--mobile {
+    /* .admin__menu--mobile {
         position: absolute !important;
         z-index: 10;
         display: none;
         width: 100%;
         transition: transform ease-in 1s;
-    }
+        color:black
+    } */
     .card-title {
         margin-left: 20px;
     }
@@ -470,20 +485,20 @@ hr {
     .fa-times {
         margin-right: 20px;
         font-size: 24px;
-        color: #fff;
+        color: #1976d2;
     }
-    .menu-admin li {
+    /* .menu-admin li {
         padding: 27px 35px;
     }
     .menu-admin li a {
         font-size: 20px;
-    }
+    } */
     .circle-admin {
         width: 60px;
         height: 60px;
     }
     .admin-infor p {
-        color: #fff;
+        color: black;
         margin: 0;
         font-size: 20px;
     }
@@ -594,25 +609,16 @@ hr {
     .card-body {
         max-width: 100% !important;
     }
-    /* .title__short--hidden {
-    width: 30px;
-}
-.title__des--hidden {
-    width: 30px;
-} */
+
     .list-image {
         width: 30px;
     }
-    /* .view {
-    width: 3%;
-} */
+   
     .status {
         width: 4%;
         display: none;
     }
-    /* .tac-vu {
-    width: 4%;
-} */
+
     .view--hidden {
         display: block;
     }
@@ -670,9 +676,9 @@ hr {
     .btn {
         padding: 0 1rem !important;
     }
-    .menu-admin {
+    /* .menu-admin {
         text-align: center;
-    }
+    } */
     .view-admin-img {
         width: 30px !important;
         height: 30px !important;

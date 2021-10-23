@@ -26,7 +26,7 @@
                                     {{session('thongbao')}}<br>
                                 </div>
                             @endif
-                            <form action="admin/diadiem/add/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                            <form action="admin/diadiem/add/{{$user->id}}" method="POST" enctype="multipart/form-data" id="myForm">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="form-group">
                                     <label>Vùng miền</label><br>
@@ -137,6 +137,7 @@
                                 <div class="card-action">
                                     <button class="btn green">Thêm</button>
                                     <button class="btn red">Xoá</button>
+                                    <button class="btn btn-primary" onClick="reset()">Reset</button>
                                 </div>
                             </form>
                         </div>
@@ -180,6 +181,11 @@
             });
 
         });
+       
+        function reset(){
+            document.getElementById("myForm").reset();
+        }
+
     </script>
 @endsection
 
