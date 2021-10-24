@@ -164,7 +164,7 @@ class DiaDiemController extends Controller
     {
         $user = User::find($idUser);
         $dd = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('TieuDeKhongDau', 'like', "%$key%")
-            ->orwhere('TomTat', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->paginate(3);
+           ->orwhere('tinh', 'like', "%$key%")->paginate(3);
         return view('admin.diadiem.list', ['DiaDiem' => $dd,'user'=>$user]);
     }
 

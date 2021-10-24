@@ -100,8 +100,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach ($DiaDiem as $diadiem)
-    
+                            @foreach ($DiaDiem as $diadiem)   
                                 @if($diadiem->TrangThai == 1)
                                     <tr>
                                         <td >{{$diadiem->id}}</td>

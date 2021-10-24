@@ -51,20 +51,22 @@
                                 <b class="pl-1">{{$DiaDiem->TacGia}}</b>
                                 <p class="pl-2" style="color: rgb(119, 119, 119);">{{$DiaDiem->created_at}}</p>
                             </div>
-                            @if($user->id == $userAuthor->id))
-                            <div class="col-6"></div>
-                            <div class="col-1 text-center" style="z-index: 999">
-                                <div style="margin-left:43%" onClick="showSettingPost()" class="btn-setting-post"><i id="btnSettingPost" class="fas fa-ellipsis-h"></i>
+                            @if(isset($user))
+                                @if($user->id == $userAuthor->id)
+                                <div class="col-6"></div>
+                                <div class="col-1 text-center" style="z-index: 999">
+                                    <div style="margin-left:43%" onClick="showSettingPost()" class="btn-setting-post"><i id="btnSettingPost" class="fas fa-ellipsis-h"></i>
+                                    </div>
+
+                                    <ul class="list-setting" id="listSetting">
+                                        <li class="list-setting-item"><a style="font-weight: 500" onClick="deletePost()">Xóa
+                                                    bài viết</a></li>
+
+                                        <li class="list-setting-item"><a style="font-weight: 500" onClick="editPost()">Sửa
+                                                    bài viết</a></li>
+                                    </ul>
                                 </div>
-
-                                <ul class="list-setting" id="listSetting">
-                                    <li class="list-setting-item"><a style="font-weight: 500" onClick="deletePost()">Xóa
-                                                bài viết</a></li>
-
-                                    <li class="list-setting-item"><a style="font-weight: 500" onClick="editPost()">Sửa
-                                                bài viết</a></li>
-                                </ul>
-                            </div>
+                                @endif
                             @endif
                         </div>
                     </div>

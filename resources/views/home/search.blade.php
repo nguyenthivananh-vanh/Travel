@@ -117,7 +117,7 @@
                 <div class="col-4">
                     <div class="card">
                         @if(isset($user))
-                            <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}">
+                            <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}/{{$user->id}}">
                                 <div class="card-image">
                                     <img class="post-img" style="height:200px"
                                          src="upload/monan/{{$monan->HinhAnh}}" alt="img">

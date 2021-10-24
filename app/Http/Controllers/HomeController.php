@@ -391,7 +391,7 @@ class HomeController extends Controller
         $file->move("upload/monan", $hinh);
         $monan->HinhAnh = $hinh;
         $monan->save();
-        return redirect('home/notify/' . $id . '/' . $idDiaDiem);
+        return redirect('home/notify/' . $id . '/' . $idDiaDiem); 
     }
     // xoá bài
     // public function getDeleteView($id,$tacgia,$idUser){
@@ -558,13 +558,11 @@ class HomeController extends Controller
     {
         $this->validate($request,
             [
-                'tieude' => 'required|unique:DiaDiem,TieuDe|min:3',
-
+                'tieude' => 'required|min:3',
             ],
             [
                 'tieude.required' => 'Bạn chưa nhập tiêu đề',
                 'tieude.min' => 'Tiêu đề phải có độ dài ít nhất 3 ký tự',
-                'tieude.unique' => 'Tiêu đề đã tồn tại',
 
             ]);
         $video = Video::find($idVideo);

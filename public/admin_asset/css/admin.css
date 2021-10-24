@@ -1,7 +1,7 @@
-*{
+* {
     box-sizing: border-box;
-  
 }
+
 .wrapper {
     width: 100%;
     overflow-y: hidden;
@@ -33,9 +33,6 @@ a {
 .side-nav-admin {
     border: 1px solid #ddd;
     color: black;
-  
-   
-    
     /* background-color: black; */
     /* background-image: linear-gradient(to right, #5680E9, #5AB9EA, #C1C8E4); */
 }
@@ -88,16 +85,17 @@ a {
     list-style: none;
     padding-left: 0;
     border-bottom: none;
-    
 }
 
 .menu-admin li {
     width: 100%;
     padding: 16px 35px;
 }
-.menu-admin li:hover{
+
+.menu-admin li:hover {
     background-color: #d4d4d4;
 }
+
 .menu-admin li a {
     color: black;
     font-size: 16px;
@@ -273,6 +271,7 @@ hr {
     text-overflow: ellipsis;
 }
 
+
 /* .admin__menu--mobile {
     display: none  ;
 } */
@@ -325,17 +324,22 @@ hr {
     }
 }
 
+
 /* admin__menu--mobile */
+
+
 /* max-width:991.98px */
+
 @media (min-width: 993px) {
-    .admin__menu--mobile{
-        display: none  !important;
+    .admin__menu--mobile {
+        display: none !important;
     }
 }
+
 @media (max-width: 991.98px) {
     .side-nav-admin {
         height: 100vh;
-       /* max-height: 100vh; */
+        /* max-height: 100vh; */
         /* background-image: linear-gradient(to right, #5680E9, #C1C8E4); */
     }
     .header__pc {
@@ -354,7 +358,6 @@ hr {
     .header__mobile--btn {
         margin-bottom: 0 !important;
     }
-   
     .fa-bars {
         font-size: 20px;
         margin-left: 20px;
@@ -372,6 +375,7 @@ hr {
     .body-admin-mobile {
         position: relative;
         width: 100%;
+        height: 100vh;
     }
     .admin__menu--tablet {
         display: none;
@@ -609,16 +613,13 @@ hr {
     .card-body {
         max-width: 100% !important;
     }
-
     .list-image {
         width: 30px;
     }
-   
     .status {
         width: 4%;
         display: none;
     }
-
     .view--hidden {
         display: block;
     }
