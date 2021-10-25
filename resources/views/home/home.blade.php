@@ -33,13 +33,6 @@
         </div>
 
     </div>
-    <!-- <br>
-
-    <div style="text-align:center">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div> -->
 
 @endsection
 @section('search')
@@ -117,12 +110,8 @@
                             </div>
 
                         </div>
-
-
                     </div>
-
                 @endforeach
-
             </div>
         @else
             <div class="row">

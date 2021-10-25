@@ -74,14 +74,10 @@
                                         <b style="color:black; font-size:18px; ">{{$user->Ten}}</b>
                                     </a>
                                 </li>
-
-
                                 <li class="header__nav-user-item">
                                     <a href="user/update/{{$user->id}}"><i class="fas fa-cog"></i> Thay đổi thông
                                         tin tài khoản</a>
-
                                 </li>
-
                                 <li class="header__nav-user-item header__nav-user-item--separate">
                                     <a href="home/home"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
 
@@ -112,109 +108,102 @@
                 </ul>
             @endif
         </div>
-        <div class="aaa modal-home" id="hy">
-
-        @if (isset($user) )
-          
-                @if($user->PhanQuyen == 1 )
-                    <ul class="side-nav-home">
-                   
-                        <li class="header-login-item">
-                            <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="avatar-user circle"
-                                                              style='width:38px; height:38px;margin-right: 18px'
-                                                              alt="Avatar User">{{$user->Ten}}</a>
-                            <ul class="header__nav-user-menu" id="headerUserMenu">
-                                <li class="header__nav-user-item">
-                                    <a style="display:flex">
-                                        {{-- <img src="upload/users/ava-admin.jpg" class="avatar-user circle" style='width:38px; height:38px' alt="Avatar User">  --}}
-                                        <b style="color:black; font-size:18px">{{$user->Ten}}</b>
-                                    </a>
-                                
-                            </ul>
-                        </li>
-                        <li class="header__nav-user-item">
-                            <a href="admin/adminHome/{{$user->id}}"> <i class="fas fa-users-cog"></i>Admin</a>
-                        </li>
-                        <li class="header__nav-user-item">
-                            <a href="home/home/{{$user->id}}"><i class="fas fa-home"></i>Trang chủ</a>
-                        </li>
-
-                        <li class="header__nav-user-item">
-                            <a href="home/reply/{{$user->id}}"><i class="fas fa-pen"></i>Viết bài</a>
-                            <div class="notify" onload="show()" style="display:none">
-                                @if(session('thongbao'))
-                                    <div class="alert alert-success">
-                                        {{session('thongbao')}}<br>
-                                    </div>
-                                @endif
-                            </div>
-                                
+        {{-- <div class="aaa modal-home" id="hy">
+        @if (isset($user) )       
+            @if($user->PhanQuyen == 1 )
+                <ul class="side-nav-home">
+                
+                    <li class="header-login-item">
+                        <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="avatar-user circle"
+                                                            style='width:38px; height:38px;margin-right: 18px'
+                                                            alt="Avatar User">{{$user->Ten}}</a>
+                        <ul class="header__nav-user-menu" id="headerUserMenu">
+                            <li class="header__nav-user-item">
+                                <a style="display:flex">
+                                    
+                                    <b style="color:black; font-size:18px">{{$user->Ten}}</b>
+                                </a>
                             
-                        </li>
-                        
-                        <li class="header__nav-user-item">
-                                    <a href="admin/user/update/{{$user->id}}"><i class="fas fa-cog"></i> Thay đổi thông
-                                        tin tài khoản</a>
-                        </li>
-                        <li class="header__nav-user-item header__nav-user-item--separate">
-                                    <a href="home/home"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
-
-                        </li>
-                        
-                    </ul>
-                @else
-                    <ul class="side-nav-home">
-                        <li class="header__nav-user-item">
-                            <a href="home/home/{{$user->id}}"> <i class="fas fa-home"></i>Trang chủ</a>
-                        </li>
-                        <li class="header__nav-user-item">
-                            <a href="home/reply/{{$user->id}}"><i class="fas fa-pen">Viết bài</a>
-                        </li>
-
-                        <li class="header-login-item">
-                            <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user"
-                                                              style='width:38px; height:38px;margin-right: 18px'
-                                                              alt="Avatar User"></a>
-                            <ul class="header__nav-user-menu" id="headerUserMenu">
-                                <li class="header__nav-user-item">
-                                    <a style="display:flex">
-                                        <!-- <img src="upload/users/ava-admin.jpg" class="circle" style='width:38px; height:38px' alt="Avatar User"> </a> -->
-                                        <b style="color:black; font-size:18px; ">{{$user->Ten}}</b>
-                                    </a>
-                                </li>
-                              
-
-                                <li class="header__nav-user-item">
-                                    <a href="admin/user/update/{{$user->id}}"><i class="fas fa-cog"></i> Thay đổi thông
-                                        tin tài khoản</a>
-
-                                </li>
-
-                                <li class="header__nav-user-item header__nav-user-item--separate">
-                                    <a href="home/home"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
-
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                @endif
-        @else
-        <ul class="side-nav-home">
-                   
+                        </ul>
+                    </li>
                     <li class="header__nav-user-item">
-                    <a href="home/home"><i class="fas fa-home"></i>Trang chủ</a>
+                        <a href="admin/adminHome/{{$user->id}}"> <i class="fas fa-users-cog"></i>Admin</a>
+                    </li>
+                    <li class="header__nav-user-item">
+                        <a href="home/home/{{$user->id}}"><i class="fas fa-home"></i>Trang chủ</a>
                     </li>
 
                     <li class="header__nav-user-item">
-                        <a href="login"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a>
+                        <a href="home/reply/{{$user->id}}"><i class="fas fa-pen"></i>Viết bài</a>
+                        <div class="notify" onload="show()" style="display:none">
+                            @if(session('thongbao'))
+                                <div class="alert alert-success">
+                                    {{session('thongbao')}}<br>
+                                </div>
+                            @endif
+                        </div>                            
+                    </li>
+                    
+                    <li class="header__nav-user-item">
+                                <a href="admin/user/update/{{$user->id}}"><i class="fas fa-cog"></i> Thay đổi thông
+                                    tin tài khoản</a>
+                    </li>
+                    <li class="header__nav-user-item header__nav-user-item--separate">
+                                <a href="home/home"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+
+                    </li>
+                    
+                </ul>
+            @else
+                <ul class="side-nav-home">
+                    <li class="header__nav-user-item">
+                        <a href="home/home/{{$user->id}}"> <i class="fas fa-home"></i>Trang chủ</a>
                     </li>
                     <li class="header__nav-user-item">
-                        <a href="register"><i class="fas fa-user-plus"></i>Đăng kí</a>
+                        <a href="home/reply/{{$user->id}}"><i class="fas fa-pen">Viết bài</a>
+                    </li>
+
+                    <li class="header-login-item">
+                        <a onClick="showUserMenu()"> <img src="upload/users/{{$user->Avatar}}" class="circle avatar-user"
+                                                            style='width:38px; height:38px;margin-right: 18px'
+                                                            alt="Avatar User"></a>
+                        <ul class="header__nav-user-menu" id="headerUserMenu">
+                            <li class="header__nav-user-item">
+                                <a style="display:flex">
+                                    <!-- <img src="upload/users/ava-admin.jpg" class="circle" style='width:38px; height:38px' alt="Avatar User"> </a> -->
+                                    <b style="color:black; font-size:18px; ">{{$user->Ten}}</b>
+                                </a>
+                            </li>
+                            <li class="header__nav-user-item">
+                                <a href="admin/user/update/{{$user->id}}"><i class="fas fa-cog"></i> Thay đổi thông
+                                    tin tài khoản</a>
+
+                            </li>
+
+                            <li class="header__nav-user-item header__nav-user-item--separate">
+                                <a href="home/home"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-        @endif
+            @endif
+        @else --}}
+        {{-- <ul class="side-nav-home">                  
+                <li class="header__nav-user-item">
+                <a href="home/home"><i class="fas fa-home"></i>Trang chủ</a>
+                </li>
+
+                <li class="header__nav-user-item">
+                    <a href="login"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a>
+                </li>
+                <li class="header__nav-user-item">
+                    <a href="register"><i class="fas fa-user-plus"></i>Đăng kí</a>
+                </li>
+            </ul>
+        @endif --}}
         
-        </div>
+        {{-- </div> --}}
 
     </nav>
 </div>
