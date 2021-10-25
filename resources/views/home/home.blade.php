@@ -50,7 +50,7 @@
                                            placeholder="Tìm kiếm" id="autocomplete-input" name="search">
                                 </div>
                                 <button type="submit" class="btn_search--submit "
-                                        style=" color:white;background-color:#6397ea;border:none">Search
+                                        style=" color:white;background-color:#6397ea;border:none">Search 
                                 </button>
 
                             </div>

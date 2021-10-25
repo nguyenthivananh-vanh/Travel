@@ -62,58 +62,6 @@
 </form>
 
 </div>
-{{-- <form method="post" action="{{URL::to('News/update')}}/{{$new->id}}" enctype="multipart/form-data">
-    @method("PUT")
-    @csrf
-    <div class="container-fuild">
-        <div class="container">
-            <div class="contain">
-                <div class="content">
-                    <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">Chọn tệp</label>
-                        <input type="file" class="form-control" name="image" value="{{$new->image}}" id="formGroupExampleInput">
-                        <br>
-                        <img src="/images/{{ $new->image }}" width="100px">
-                      </div>
-                       <span class="alert-danger">@error('image'){{$message}} @enderror</span>
-                      <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">Nội dung</label>
-                        <input type="text" class="form-control" name="short_description" value="{{$new->short_description}}" id="formGroupExampleInput2">
-                      </div>
-                       <span class="alert-danger">@error('short_description'){{$message}} @enderror</span>
-                      <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">Tiêu đề</label>
-                        <input type="text" class="form-control" name="description" value="{{$new->description}}" id="formGroupExampleInput2">
-                      </div>
-                       <span class="alert-danger">@error('description'){{$message}} @enderror</span>
-                      <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">Người viết</label>
-                        <input type="text" class="form-control" name="author" value="{{$new->create_by}}" id="formGroupExampleInput2">
-                      </div>
-                       <span class="alert-danger">@error('author'){{$message}} @enderror</span>
-                      <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">Danh mục</label>
-                        <select class="form-select" aria-label="Default select example" name="new_category_id">
-                            @foreach ($new_category as $row)
-                                @if ($row->id == $new->new_category_id)
-                                <option value="{{$row->id}}">{{$row->title}}</option>
-                                @endif
-                            @endforeach
-                            @foreach ($new_category as $row)
-                                <option value="{{$row->id}}">{{$row->title}}</option>
-                            @endforeach
-                          </select>
-                      </div>
-                      <div class="mb-3">
-                        <input type="Submit" class="form-control" name="submit" id="formGroupExampleInput2" >
-                      </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</form> --}}
-{{-- @endforeach --}}
 
 
 

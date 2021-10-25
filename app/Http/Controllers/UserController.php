@@ -208,7 +208,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->Ten = $request->ten;
         $user->email = $request->email;
-        $user->PhanQuyen = defined('0');
+        $user->PhanQuyen = $user->PhanQuyen;
         if ($user->password !== $request->pass) {
             $user->password = bcrypt($request->pass);
         }

@@ -62,7 +62,7 @@
                                               style="width: 700px; height: 200px; "></textarea>
                                 </div>
                                 <div class="input-field">
-                                    <label for="tacgia">Tác giả</label><br>
+                                    <label for="tacgia">Tên tài khoản</label><br>
                                     <input type="text" id="tacgia" value="" name="tacgia">
                                 </div>
                                 <div class="input-field">

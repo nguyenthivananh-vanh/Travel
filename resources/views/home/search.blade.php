@@ -97,14 +97,14 @@
                     </div>
                 @endif
             </div>
-            <div class="row">
-                <div class="page" >
-                    {{$diadiem->links("pagination::bootstrap-4")}}
-                </div>
-            </div>
-           
+                  
         </div>
     </section>
+    <div class="row">
+        <div class="page" >
+            {{$diadiem->links("pagination::bootstrap-4")}}
+        </div>
+    </div>   
 
     <section>
         <div class="destination">

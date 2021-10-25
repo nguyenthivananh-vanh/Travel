@@ -43,7 +43,10 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/home', 'App\Http\Controllers\HomeController@home');
     // tìm kiếm
     Route::get('/search', 'App\Http\Controllers\HomeController@search');
+    Route::get('/showSearch/{key}', 'App\Http\Controllers\HomeController@showSearch');
     Route::get('/search/{id}', 'App\Http\Controllers\HomeController@searchUser');
+    Route::get('/showSearchUser/{key}/{id}', 'App\Http\Controllers\HomeController@showSearchUser');
+    
     Route::group(['prefix' => 'dacdiem'], function () {
         Route::get('/search/{id}', 'App\Http\Controllers\HomeController@DacDiemSearch');
         Route::get('/search/{id}/{idUser}', 'App\Http\Controllers\HomeController@DacDiemSearchUser');

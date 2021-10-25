@@ -34,21 +34,30 @@ class HomeController extends Controller
     }
 
     // tìm kiếm
-    function search(Request $request)
+    public function search(Request $request)
+    {
+        $key = $request->search;
+        return redirect('home/showSearch/'.$key);
+    }
+    function showSearch( $key)
     {
         $vungmien = VungMien::all();
-        $key = $request->search;
-        $diadiem = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->paginate(6);
+        $diadiem = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->where('TrangThai',1)->paginate(6);
         $monan = MonAn::where('tinh', 'like', "%$key%")->orderBy('SoLuotXem', 'DESC')->take(3)->get();
         return view('home.search', ['diadiem' => $diadiem, 'key' => $key, 'vungmien' => $vungmien, 'MonAn' => $monan]);
     }
 
-    function searchUser(Request $request, $id)
+   
+    public function searchUser(Request $request, $id)
+    {
+        $key = $request->search;
+        return redirect('home/showSearchUser/'.$key .'/'.$id);
+    }
+    public function showSearchUser($key, $id)
     {
         $vungmien = VungMien::all();
-        $key = $request->search;
         $user = User::find($id);
-        $diadiem = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->paginate(6);
+        $diadiem = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->where('TrangThai',1)->paginate(6);
         $monan = MonAn::where('tinh', 'like', "%$key%")->orderBy('SoLuotXem', 'DESC')->take(3)->get();
         return view('home.search', ['diadiem' => $diadiem, 'key' => $key, 'vungmien' => $vungmien, 'user' => $user, 'MonAn' => $monan]);
     }
@@ -56,8 +65,8 @@ class HomeController extends Controller
     function DacDiemSearch($id)
     {
         $vungmien = VungMien::all();
-        $noibat = DiaDiem::where('idDacDiem', $id)->orderBy('SoLuotXem', 'DESC')->take(6)->get();
-        $diadiem = DiaDiem::where('idDacDiem', $id)->orderBy('id', 'DESC')->paginate(3);
+        $noibat = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('SoLuotXem', 'DESC')->take(6)->get();
+        $diadiem = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('id', 'DESC')->paginate(3);
 
         return view('home.dacdiem.search', ['noibat' => $noibat, 'vungmien' => $vungmien, 'diadiem' => $diadiem]);
     }
@@ -65,8 +74,8 @@ class HomeController extends Controller
     function DacDiemSearchUser($id, $idUser)
     {
         $vungmien = VungMien::all();
-        $noibat = DiaDiem::where('idDacDiem', $id)->orderBy('SoLuotXem', 'DESC')->take(6)->get();
-        $diadiem = DiaDiem::where('idDacDiem', $id)->orderBy('id', 'DESC')->paginate(3);
+        $noibat = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('SoLuotXem', 'DESC')->take(6)->get();
+        $diadiem = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('id', 'DESC')->paginate(3);
         $user = User::find($idUser);
 
         return view('home.dacdiem.search', ['noibat' => $noibat, 'vungmien' => $vungmien, 'diadiem' => $diadiem, 'user' => $user]);
@@ -82,8 +91,8 @@ class HomeController extends Controller
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten', 'like', $tacgia)->first();
             $cmt = Comment::where('idDiaDiem', $id)->get();
-            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->take(5)->get();
-            $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->take(30)->get();
+            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->take(5)->get();
+            $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->where('TrangThai',1)->take(30)->get();
             $video = Video::where('idDiaDiem', $id)->first();
             $monan = MonAn::where('idDiaDiem', $id)->get();
             $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->take(10)->get();
@@ -98,8 +107,8 @@ class HomeController extends Controller
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten', 'like', $tacgia)->first();
             $cmt = Comment::where('idDiaDiem', $id)->get();
-            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->take(5)->get();
-            $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->take(30)->get();
+            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->take(5)->get();
+            $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->where('TrangThai',1)->take(30)->get();
             $video = Video::where('idDiaDiem', $id)->first();
             $monan = MonAn::where('idDiaDiem', $id)->get();
             $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->take(10)->get();
@@ -124,9 +133,9 @@ class HomeController extends Controller
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten', 'like', $tacgia)->first();
             $user = User::find($idUser);
-            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->inRandomOrder()->take(5)->get();
+            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->inRandomOrder()->take(5)->get();
             $cmt = Comment::where('idDiaDiem', $id)->orderBy('id', 'DESC')->get();
-            $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->take(30)->get();
+            $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->where('TrangThai',1)->take(30)->get();
             $video = Video::where('idDiaDiem', $id)->first();
             $monan = MonAn::where('idDiaDiem', $id)->get();
             $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->get();
@@ -141,9 +150,9 @@ class HomeController extends Controller
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten', 'like', $tacgia)->first();
             $user = User::find($idUser);
-            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->inRandomOrder()->take(5)->get();
+            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->inRandomOrder()->take(5)->get();
             $cmt = Comment::where('idDiaDiem', $id)->orderBy('id', 'DESC')->get();
-            $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->take(30)->get();
+            $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->where('TrangThai',1)->take(30)->get();
             $video = Video::where('idDiaDiem', $id)->first();
             $monan = MonAn::where('idDiaDiem', $id)->get();
             $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->get();

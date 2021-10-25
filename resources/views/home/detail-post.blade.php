@@ -179,7 +179,7 @@
                     <div class="right-menu col-xl-4 col-l-4 l-4 m-6 c-12">
                         <div class="sub-detail-travel">
                             <div class="sub-title">
-                                <p>TIN LIÊN QUAN</p>
+                                <p>ĐỊA ĐIỂM LIÊN QUAN</p>
                             </div>
                             <hr>
 
