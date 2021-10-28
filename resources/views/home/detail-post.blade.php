@@ -227,7 +227,7 @@
                             </div>
                             <hr>
                             <ul class="list-sub" >
-                                {{-- @if(isset($monan))
+                                @if(isset($monan))
                                     @foreach ($monan as $monan)
 
                                     <li class="list-sub-item">
@@ -248,8 +248,11 @@
                                     </li>
 
                                      @endforeach
-                                @endif --}}
+                                @endif
                                 @if(isset($monanTinh))
+                                <div class="sub-title">
+                                    <p>ĐẶC SẢN VÙNG MIỀN</p>
+                                </div>
                                     @foreach ($monanTinh as $ma)
 
                                         <li class="list-sub-item">

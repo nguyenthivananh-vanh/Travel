@@ -44,11 +44,6 @@
                 <div class="content-detail">
                     {!! html_entity_decode( $monan->MoTa) !!}
                 </div>
-                {{-- số lượt xem --}}
-                {{-- <div class="post-footer text-right" style="text-align:right">
-                    <span style="padding: 10px"><i class="fas fa-eye" style="color:#277fbc"></i><span
-                                style="padding: 10px">{{$DiaDiem->SoLuotXem}}</span></span>
-                </div> --}}
             </div>
             <div class="col-xl-4 col-l-4 l-4 m-6 c-12">               
                 <div class="sub-deyail-culinary">

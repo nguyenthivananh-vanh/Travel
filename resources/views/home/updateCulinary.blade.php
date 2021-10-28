@@ -12,7 +12,6 @@
                                 <div class="col s12 m6">
                                     <span class="card-title">Món Ăn</span>
                                 </div>
-
                             </div>
                             @if(count($errors)>0)
                                 <div class="alert alert-danger">
@@ -48,48 +47,12 @@
                                     <label for="ckeditor">Mô Tả Món Ăn</label><br><br>
                                     <textarea class="textarea" id="ckeditor" name="mota"
                                               style="width: 700px; height: 200px; ">{{$MonAn->MoTa}}</textarea>
+                                </div>                                                         
+                                <div class="card-action">
+                                    <button class="btn btn-secondary green"  style="color: white">Cập nhật</button>
+                                    <button class="btn btn-secondary red"  style="color: white">Xoá</button>
                                 </div>
-                               
-                               
-                                {{-- <div>
-                                    <label for="" id="level">Trạng thái bài viết</label><br><br>
-                                    @if($MonAn->TrangThai ==1)
-                                        <section class="section section-Details grey lighten-4">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio1" value="0">
-                                                <label class="form-check-label" for="inlineRadio1">Không cấp
-                                                    phép</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input checked class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio2" value="1">
-                                                <label class="form-check-label" for="inlineRadio2">Cấp phép đăng</label>
-                                            </div>
-                                        </section>
-                                    @else
-                                        <section class="section section-Details grey lighten-4">
-                                            <div class="form-check form-check-inline">
-                                                <input checked class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio1" value="0">
-                                                <label class="form-check-label" for="inlineRadio1">Không cấp
-                                                    phép</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="duyet"
-                                                       id="inlineRadio2" value="1">
-                                                <label class="form-check-label" for="inlineRadio2">Cấp phép đăng</label>
-                                            </div>
-                                        </section>
-                                    @endif --}}
-                                    <div class="card-action">
-                                        <button class="btn btn-secondary green"  style="color: white">Cập nhật</button>
-                                        <button class="btn btn-secondary red"  style="color: white">Xoá</button>
-                                       
-                                </button>
-                                     
-                                    </div>
-                                {{-- </div> --}}
+                                
                             </form>
                         </div>
 

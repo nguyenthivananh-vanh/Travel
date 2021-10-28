@@ -80,14 +80,8 @@
                                 </div>
                                 
                                 <div class="card-action">
-                                    <!-- <button class="btn green" style="color: white">Cập nhật</button>
-                                    <button class="btn red" style="color: white">Xoá</button> -->
-
-                                    <!-- Gà Tây: đoạn này t comment hai cái nút lại và ấy lại để mở popup -->
-                                    <button  type="button" class="btn btn-secondary btn-success" style="color: white" >Cập nhật</button>
-                                    <button  type="button" class="btn btn-secondaryred" style="color: white">Xoá</button>
-                                
-                                </button>
+                                    <button class="btn green" style="color: white">Cập nhật</button>
+                                    <button class="btn red" style="color: white">Xoá</button> 
                                 </div>
                             </form>
 
