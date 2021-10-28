@@ -49,8 +49,6 @@
                   <div class="card-action">
                     <button class="btn btn-secondary green" style="color: white" >Cập nhật</button>
                     <button class="btn btn-secondary red" style="color: white" >Xoá</button>
-                    
-
                   </div>
                 </form>
             </div>

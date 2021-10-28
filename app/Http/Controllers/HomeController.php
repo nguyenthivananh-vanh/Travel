@@ -91,11 +91,15 @@ class HomeController extends Controller
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten', 'like', $tacgia)->first();
             $cmt = Comment::where('idDiaDiem', $id)->get();
-            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->take(5)->get();
+            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->where('id','<>',$id)->inRandomOrder()->take(5)->get();
             $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->where('TrangThai',1)->take(30)->get();
             $video = Video::where('idDiaDiem', $id)->first();
             $monan = MonAn::where('idDiaDiem', $id)->get();
-            $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->take(10)->get();
+            $idMonAn = array();
+            foreach($monan as $row){
+                $idMonAn[]= $row->id;
+            }           
+            $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->whereNotIn('id',$idMonAn)->take(10)->get();
             if (isset($video) || isset($monan) || isset($monanTinh)) {
                 return view('home.detail-post', ['DiaDiem' => $diadiem, 'vungmien' => $vungmien, 'diadiemList' => $diadiemList, 'userAuthor' => $userAuthor, 'comment' => $cmt, 'noibat' => $noibat, 'video' => $video, 'monan' => $monan, 'monanTinh' => $monanTinh]);
             } else {
@@ -107,11 +111,15 @@ class HomeController extends Controller
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten', 'like', $tacgia)->first();
             $cmt = Comment::where('idDiaDiem', $id)->get();
-            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->take(5)->get();
+            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->where('id','<>',$id)->inRandomOrder()->take(5)->get();
             $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->where('TrangThai',1)->take(30)->get();
             $video = Video::where('idDiaDiem', $id)->first();
             $monan = MonAn::where('idDiaDiem', $id)->get();
-            $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->take(10)->get();
+            $idMonAn = array();
+            foreach($monan as $row){
+                $idMonAn[]= $row->id;
+            } 
+            $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->whereNotIn('id',$idMonAn)->take(10)->get();
             $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
             $diadiem->save();
             // dd($monanTinh);
@@ -133,12 +141,16 @@ class HomeController extends Controller
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten', 'like', $tacgia)->first();
             $user = User::find($idUser);
-            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->inRandomOrder()->take(5)->get();
+            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->where('id','<>',$id)->inRandomOrder()->take(5)->get();
             $cmt = Comment::where('idDiaDiem', $id)->orderBy('id', 'DESC')->get();
             $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->where('TrangThai',1)->take(30)->get();
             $video = Video::where('idDiaDiem', $id)->first();
             $monan = MonAn::where('idDiaDiem', $id)->get();
-            $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->get();
+            $idMonAn = array();
+            foreach($monan as $row){
+                $idMonAn[]= $row->id;
+            } 
+            $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->whereNotIn('id',$idMonAn)->get();
             if (isset($video) || isset($monan) || isset($monanTinh)) {
                 return view('home.detail-post', ['DiaDiem' => $diadiem, 'user' => $user, 'vungmien' => $vungmien, 'diadiemList' => $diadiemList, 'userAuthor' => $userAuthor, 'comment' => $cmt, 'noibat' => $noibat, 'video' => $video, 'monan' => $monan, 'monanTinh' => $monanTinh]);
             } else {
@@ -150,12 +162,16 @@ class HomeController extends Controller
             $diadiem = DiaDiem::find($id);
             $userAuthor = User::where('Ten', 'like', $tacgia)->first();
             $user = User::find($idUser);
-            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->inRandomOrder()->take(5)->get();
+            $diadiemList = DiaDiem::where('idDacDiem', $diadiem->idDacDiem)->where('TrangThai',1)->where('id','<>',$id)->inRandomOrder()->take(5)->get();
             $cmt = Comment::where('idDiaDiem', $id)->orderBy('id', 'DESC')->get();
             $noibat = DiaDiem::orderBy('SoLuotXem', 'DESC')->where('TrangThai',1)->take(30)->get();
             $video = Video::where('idDiaDiem', $id)->first();
             $monan = MonAn::where('idDiaDiem', $id)->get();
-            $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->get();
+            $idMonAn = array();
+            foreach($monan as $row){
+                $idMonAn[]= $row->id;
+            } 
+            $monanTinh = MonAn::where('tinh', 'like', $diadiem->tinh)->whereNotIn('id',$idMonAn)->get();
             $diadiem->SoLuotXem = $diadiem->SoLuotXem + 1;
             $diadiem->save();
             if (isset($video) || isset($monan) || isset($monanTinh)) {
