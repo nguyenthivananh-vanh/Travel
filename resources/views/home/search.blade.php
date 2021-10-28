@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('content')
-<link rel="stylesheet" href="admin_asset/css/pagination.css">
+    <link rel="stylesheet" href="admin_asset/css/pagination.css">
     <section id="popular" class="section section-popular scrollspy  mt-4">
         <div class="container-fuild">
             <div class="row mb-1">
@@ -97,14 +97,13 @@
                     </div>
                 @endif
             </div>
-                  
         </div>
     </section>
     <div class="row">
-        <div class="page" >
+        <div class="page">
             {{$diadiem->links("pagination::bootstrap-4")}}
         </div>
-    </div>   
+    </div>
 
     <section>
         <div class="destination">
@@ -164,9 +163,22 @@
             @endforeach
         </div>
     </section>
+    @if(isset($user))
+        <div class="row">
+            <div class="page">
+                <a href="home/monan/all/{{$key}}/{{$user->id}}">Xem thêm</a>
+            </div>
+        </div>
+    @else
+        <div class="row">
+            <div class="page">
+                <a href="home/monan/all/{{$key}}">Xem thêm</a>
+            </div>
+        </div>
+    @endif
     <!-- Section: Gallery -->
 
-   
+
 
 
 @endsection
@@ -181,7 +193,7 @@
             this.showFiller = !this.showFiller;
         }
 
-        
+
     </script>
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->

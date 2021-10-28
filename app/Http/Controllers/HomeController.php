@@ -43,11 +43,11 @@ class HomeController extends Controller
     {
         $vungmien = VungMien::all();
         $diadiem = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->where('TrangThai',1)->paginate(6);
-        $monan = MonAn::where('tinh', 'like', "%$key%")->orderBy('SoLuotXem', 'DESC')->take(3)->get();
+        $monan = MonAn::where('tinh', 'like', "%$key%")->orderBy('SoLuotXem', 'DESC')->paginate(3);
         return view('home.search', ['diadiem' => $diadiem, 'key' => $key, 'vungmien' => $vungmien, 'MonAn' => $monan]);
     }
 
-   
+
     public function searchUser(Request $request, $id)
     {
         $key = $request->search;
@@ -58,8 +58,22 @@ class HomeController extends Controller
         $vungmien = VungMien::all();
         $user = User::find($id);
         $diadiem = DiaDiem::where('TieuDe', 'like', "%$key%")->orwhere('tinh', 'like', "%$key%")->where('TrangThai',1)->paginate(6);
-        $monan = MonAn::where('tinh', 'like', "%$key%")->orderBy('SoLuotXem', 'DESC')->take(3)->get();
+        $monan = MonAn::where('tinh', 'like', "%$key%")->orderBy('SoLuotXem', 'DESC')->paginate(3);
         return view('home.search', ['diadiem' => $diadiem, 'key' => $key, 'vungmien' => $vungmien, 'user' => $user, 'MonAn' => $monan]);
+    }
+
+    public function getMonAn($key)
+    {
+        $vungmien = VungMien::all();
+        $monan = MonAn::where('tinh', 'like', "%$key%")->orderBy('SoLuotXem', 'DESC')->get();
+        return view('home.monan', ['vungmien' => $vungmien,'monan' => $monan]);
+    }
+    public function getMonAnUser($key,$id)
+    {
+        $vungmien = VungMien::all();
+        $user = User::find($id);
+        $monan = MonAn::where('tinh', 'like', "%$key%")->orderBy('SoLuotXem', 'DESC')->get();
+        return view('home.monan', ['vungmien' => $vungmien,'monan' => $monan, 'user' => $user,]);
     }
 
     function DacDiemSearch($id)
@@ -400,7 +414,7 @@ class HomeController extends Controller
         $file->move("upload/monan", $hinh);
         $monan->HinhAnh = $hinh;
         $monan->save();
-        return redirect('home/notify/' . $id . '/' . $idDiaDiem); 
+        return redirect('home/notify/' . $id . '/' . $idDiaDiem);
     }
     // xoá bài
     // public function getDeleteView($id,$tacgia,$idUser){

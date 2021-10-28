@@ -46,7 +46,7 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/showSearch/{key}', 'App\Http\Controllers\HomeController@showSearch');
     Route::get('/search/{id}', 'App\Http\Controllers\HomeController@searchUser');
     Route::get('/showSearchUser/{key}/{id}', 'App\Http\Controllers\HomeController@showSearchUser');
-    
+
     Route::group(['prefix' => 'dacdiem'], function () {
         Route::get('/search/{id}', 'App\Http\Controllers\HomeController@DacDiemSearch');
         Route::get('/search/{id}/{idUser}', 'App\Http\Controllers\HomeController@DacDiemSearchUser');
@@ -78,7 +78,8 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/updateVideo/{id}/{tacgia}/{idUser}/{idVideo}', 'App\Http\Controllers\HomeController@getUpdateVideo');
     Route::post('/updateVideo/{id}/{tacgia}/{idUser}/{idVideo}', 'App\Http\Controllers\HomeController@postUpdateVideo');
     // món ăn
-
+    Route::get('/monan/all/{key}','App\Http\Controllers\HomeController@getMonAn');
+    Route::get('/monan/all/{key}/{id}','App\Http\Controllers\HomeController@getMonAnUser');
     Route::get('/culinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@notifyCulinary');
     Route::get('/getCulinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@getCulinary');
     Route::post('/getCulinary/{id}/{idDiaDiem}','App\Http\Controllers\HomeController@postCulinary');
