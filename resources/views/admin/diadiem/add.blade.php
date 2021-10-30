@@ -1,6 +1,6 @@
 @extends('admin.layout.index')
 @section('content')
- <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
     <!-- Section: Details -->
     <section class="section section-Details grey lighten-4">
         <div class="container">
@@ -12,27 +12,27 @@
                                 <div class="col s12 m6">
                                     <span class="card-title">Địa điểm</span>
                                 </div>
-
                             </div>
-                            @if(count($errors)>0)
+                            @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     @foreach ($errors->all() as $err)
-                                        {{$err}}<br>
+                                        {{ $err }}<br>
                                     @endforeach
                                 </div>
                             @endif
-                            @if(session('thongbao'))
+                            @if (session('thongbao'))
                                 <div class="alert alert-success">
-                                    {{session('thongbao')}}<br>
+                                    {{ session('thongbao') }}<br>
                                 </div>
                             @endif
-                            <form action="admin/diadiem/add/{{$user->id}}" method="POST" enctype="multipart/form-data" id="myForm">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                            <form action="admin/diadiem/add/{{ $user->id }}" method="POST" enctype="multipart/form-data"
+                                id="myForm">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="form-group">
                                     <label>Vùng miền</label><br>
                                     <select class="form-control" name="VungMien" id="vungmien">
                                         @foreach ($vungmien as $vm)
-                                            <option value="{{$vm->id}}">{{$vm->Ten}}</option>
+                                            <option value="{{ $vm->id }}">{{ $vm->Ten }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -40,7 +40,7 @@
                                     <label>Đặc điểm</label><br>
                                     <select class="form-control" name="DacDiem" id="dacdiem">
                                         @foreach ($dacdiem as $dd)
-                                            <option value="{{$dd->id}}">{{$dd->Ten}}</option>
+                                            <option value="{{ $dd->id }}">{{ $dd->Ten }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -54,12 +54,12 @@
                                 </div>
                                 <div class="input-field">
                                     <label for="hinhanh">Image</label><br><br>
-                                    <input type="file" id="hinhanh" name="hinhanh" class="form-control"/>
+                                    <input type="file" id="hinhanh" name="hinhanh" class="form-control" />
                                 </div>
                                 <div class="input-field">
                                     <label for="ckeditor">Nội dung</label><br><br>
                                     <textarea class="textarea" id="ckeditor" name="noidung"
-                                              style="width: 700px; height: 200px; "></textarea>
+                                        style="width: 700px; height: 200px; "></textarea>
                                 </div>
                                 <div class="input-field">
                                     <label for="tacgia">Tác giả</label><br>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tỉnh Thành</label><br>
-                                    <input list="html" name="tinh"/>
+                                    <input list="html" name="tinh" />
                                     <datalist id="html">
                                         <option value="An Giang">An Giang</option>
                                         <option value="Bà Rịa – Vũng Tàu">Bà Rịa – Vũng Tàu</option>
@@ -141,26 +141,25 @@
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 @endsection
 
 @section('script')
     <script>
         var deleteDiaDiemModal = document.getElementById("deleteDiaDiem");
         var addDiaDiemModal = document.getElementById("addDiaDiem");
-        function deleteNews(){
-            document.getElementById('deleteDiaDiem').style.display='block';
+
+        function deleteNews() {
+            document.getElementById('deleteDiaDiem').style.display = 'block';
 
         }
-        function createNews(){
-            document.getElementById('addDiaDiem').style.display='block';
+
+        function createNews() {
+            document.getElementById('addDiaDiem').style.display = 'block';
 
         }
 
@@ -172,23 +171,18 @@
         }
 
 
-        $(document).ready(function () {
-            $("#vungmien").change(function () {
+        $(document).ready(function() {
+            $("#vungmien").change(function() {
                 var idvm = $(this).val();
-                $.get("admin/ajax/dacdiem/" + idvm, function (data) {
+                $.get("admin/ajax/dacdiem/" + idvm, function(data) {
                     $("#dacdiem").html(data);
                 });
             });
 
         });
-       
-        function reset(){
+
+        function reset() {
             document.getElementById("myForm").reset();
         }
-
     </script>
 @endsection
-
-
-
-

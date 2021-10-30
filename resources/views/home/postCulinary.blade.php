@@ -14,20 +14,21 @@
                                 </div>
 
                             </div>
-                            @if(count($errors)>0)
+                            @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     @foreach ($errors->all() as $err)
-                                        {{$err}}<br>
+                                        {{ $err }}<br>
                                     @endforeach
                                 </div>
                             @endif
-                            @if(session('thongbao'))
+                            @if (session('thongbao'))
                                 <div class="alert alert-success">
-                                    {{session('thongbao')}}<br>
+                                    {{ session('thongbao') }}<br>
                                 </div>
                             @endif
-                            <form action="home/getCulinary/{{$id}}/{{$idDiaDiem}}" method="POST" enctype="multipart/form-data">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                            <form action="home/getCulinary/{{ $id }}/{{ $idDiaDiem }}" method="POST"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="input-field">
                                     <label for="title">Tên Món Ăn</label><br>
                                     <input type="text" id="tenmonan" value="" name="tenmonan">
@@ -38,30 +39,18 @@
                                 </div>
                                 <div class="input-field">
                                     <label for="hinhanh">Image</label><br><br>
-                                    <input type="file" id="hinhanh" name="hinhanh" class="form-control"/>
+                                    <input type="file" id="hinhanh" name="hinhanh" class="form-control" />
                                 </div>
                                 <div class="input-field">
                                     <label for="ckeditor">Mô Tả Món Ăn</label><br><br>
                                     <textarea class="textarea" id="ckeditor" name="mota"
-                                              style="width: 700px; height: 200px; "></textarea>
+                                        style="width: 700px; height: 200px; "></textarea>
                                 </div>
-                                {{-- <div class="form-group">
-                                    <label>Địa Điểm</label><br>
-                                    <input list="html" name="iddd" />
-                                    <datalist id="html">
-                                        @foreach ($DiaDiem as $diadiem)
-                                            <option value="{{$diadiem->id}}">{{$diadiem->TieuDe}}</option>
-                                        @endforeach
-                                    </datalist>
+                            
+                                <div class="input-field">
+                                    <label for="tinh">Tỉnh thành</label><br>
+                                    <input type="text" id="tinh" value="" name="tinh">
                                 </div>
-                                    <div class="input-field">
-                                        <label for="tacgia">Tác giả</label><br>
-                                        <input type="text" id="tacgia" value="" name="tacgia">
-                                    </div> --}}
-                                    <div class="input-field">
-                                        <label for="tinh">Tỉnh thành</label><br>
-                                        <input type="text" id="tinh" value="" name="tinh">
-                                    </div>
                                 <div class="card-action">
                                     <button class="btn btn-secondary green">Thêm</button>
                                     <button class="btn btn-secondary red">Xoá</button>
@@ -75,22 +64,4 @@
         </div>
     </section>
 @endsection
-
-{{--@section('script')--}}
-{{--    <script>--}}
-
-{{--        $(document).ready(function(){--}}
-{{--            $("#vungmien").change(function(){--}}
-{{--                var idvm = $(this).val();--}}
-{{--                $.get("admin/ajax/dacdiem/"+idvm,function(data){--}}
-{{--                    $("#dacdiem").html(data);--}}
-{{--                });--}}
-{{--            });--}}
-
-{{--        });--}}
-{{--    </script>--}}
-{{--@endsection--}}
-
-
-
 

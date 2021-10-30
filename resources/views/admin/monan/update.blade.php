@@ -1,6 +1,6 @@
 @extends('admin.layout.index')
 @section('content')
-<link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="admin_asset/css/materialize.min.css" media="screen,projection" />
     <!-- Section: Details -->
     <section class="section section-Details grey lighten-4">
         <div class="container">
@@ -14,53 +14,53 @@
                                 </div>
 
                             </div>
-                            @if(count($errors)>0)
+                            @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     @foreach ($errors->all() as $err)
-                                        {{$err}}<br>
+                                        {{ $err }}<br>
                                     @endforeach
                                 </div>
                             @endif
-                            @if(session('thongbao'))
+                            @if (session('thongbao'))
                                 <div class="alert alert-success">
-                                    {{session('thongbao')}}<br>
+                                    {{ session('thongbao') }}<br>
                                 </div>
                             @endif
-                            <form action="admin/monan/update/{{$MonAn->id}}/{{$user->id}}" method="POST"
-                                  enctype="multipart/form-data">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                            <form action="admin/monan/update/{{ $MonAn->id }}/{{ $user->id }}" method="POST"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="input-field">
                                     <label for="title">Tên Món Ăn</label><br>
-                                    <input type="text" id="tenmonan" value="{{$MonAn->TenMonAn}}" name="tenmonan">
+                                    <input type="text" id="tenmonan" value="{{ $MonAn->TenMonAn }}" name="tenmonan">
                                 </div>
                                 <div class="input-field">
 
                                     <label for="tacgia">Tiêu Đề</label><br>
-                                    <input type="text" id="tieude" value="{{$MonAn->TieuDe}}" name="tieude">
+                                    <input type="text" id="tieude" value="{{ $MonAn->TieuDe }}" name="tieude">
 
                                 </div>
                                 <div class="input-field">
                                     <label for="hinhanh">Image</label><br><br>
-                                    <p><img src="upload/monan/{{$MonAn->HinhAnh}}" width="400px" alt=""></p>
-                                    <input type="file" id="hinhanh" name="hinhanh" class="form-control"/>
+                                    <p><img src="upload/monan/{{ $MonAn->HinhAnh }}" width="400px" alt=""></p>
+                                    <input type="file" id="hinhanh" name="hinhanh" class="form-control" />
                                 </div>
                                 <div class="input-field">
                                     <label for="ckeditor">Mô Tả Món Ăn</label><br><br>
                                     <textarea class="textarea" id="ckeditor" name="mota"
-                                              style="width: 700px; height: 200px; ">{{$MonAn->MoTa}}</textarea>
+                                        style="width: 700px; height: 200px; ">{{ $MonAn->MoTa }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Địa Điểm</label><br>
-                                    <input value="{{$MonAn->idDiaDiem}}" list="html" name="iddd"/>
+                                    <input value="{{ $MonAn->idDiaDiem }}" list="html" name="iddd" />
                                     <datalist id="html">
                                         @foreach ($DiaDiem as $diadiem)
-                                            <option value="{{$diadiem->id}}">{{$diadiem->TieuDe}}</option>
+                                            <option value="{{ $diadiem->id }}">{{ $diadiem->TieuDe }}</option>
                                         @endforeach
                                     </datalist>
                                 </div>
                                 <div class="form-group">
                                     <label>Tỉnh Thành</label><br>
-                                    <input list="html1" name="tinh" value="{{$MonAn->tinh}}" />
+                                    <input list="html1" name="tinh" value="{{ $MonAn->tinh }}" />
                                     <datalist id="html1">
                                         <option value="An Giang">An Giang</option>
                                         <option value="Bà Rịa – Vũng Tàu">Bà Rịa – Vũng Tàu</option>
@@ -143,9 +143,3 @@
         </div>
     </section>
 @endsection
-
-
-
-
-
-

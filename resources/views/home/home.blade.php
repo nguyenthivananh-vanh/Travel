@@ -1,10 +1,7 @@
 @extends('layout.index')
 <link href="admin_asset/css/home.css" rel="stylesheet">
 @section('slider')
-
-
     <div class="slideshow-container" style="overflow-x:hidden">
-
         <div class="mySlides fade" style="width:100vw">
             <div class="numbertext">1 / 3</div>
             <img class="post-img" src="upload/home/resort1.jpg">
@@ -31,9 +28,7 @@
                 <p>Những tinh hoa văn hóa và ẩm thực của Việt Nam trên mọi nẻo đường của tổ quốc.</p>
             </div>
         </div>
-
     </div>
-
 @endsection
 @section('search')
     <div id="search" class="section section-search teal darken-2 white-text center scrollspy">
@@ -41,30 +36,29 @@
             <div class="row">
                 <div class="col s12">
                     <h3>Tìm điểm đến </h3>
-                    @if(isset($user))
-                        <form action="home/search/{{$user->id}}" method="GET" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                    @if (isset($user))
+                        <form action="home/search/{{ $user->id }}" method="GET" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <div class="search">
                                 <div class="input-field input__search">
                                     <input type="text" style="padding-left: 12px;" class="white grey-text autocomplete"
-                                           placeholder="Tìm kiếm" id="autocomplete-input" name="search">
+                                        placeholder="Tìm kiếm" id="autocomplete-input" name="search">
                                 </div>
                                 <button type="submit" class="btn_search--submit "
-                                        style=" color:white;background-color:#6397ea;border:none">Search 
+                                    style=" color:white;background-color:#6397ea;border:none">Search
                                 </button>
-
                             </div>
                         </form>
                     @else
                         <form action="home/search" method="GET" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <div class="search">
                                 <div class="input-field input__search">
                                     <input type="text" style="padding-left: 12px" class="white grey-text autocomplete"
-                                           placeholder="Tìm kiếm" id="autocomplete-input" name="search">
+                                        placeholder="Tìm kiếm" id="autocomplete-input" name="search">
                                 </div>
                                 <button type="submit" class="btn_search--submit "
-                                        style=" color:white;background-color:#6397ea;border:none">Search
+                                    style=" color:white;background-color:#6397ea;border:none">Search
                                 </button>
 
                             </div>
@@ -76,37 +70,35 @@
     </div>
 @endsection
 
-
 @section('content')
     <section id="gallery" class="section section-gallery scrollspy">
         <h4 class="center">
             <span class="teal-text">Địa điểm mới nhất</span>
         </h4>
-        @if(isset($user))
+        @if (isset($user))
             <div class="row">
                 @foreach ($DiaDiem as $diadiem)
                     <div class="col-4">
                         <div class="card">
-                            <a href="home/view/{{$diadiem->id}}/{{$diadiem->TacGia}}/{{$user->id}}">
+                            <a href="home/view/{{ $diadiem->id }}/{{ $diadiem->TacGia }}/{{ $user->id }}">
                                 <div class="card-image">
                                     <img class="post-img" style="height:200px"
-                                         src="upload/diadiem/{{$diadiem->HinhAnh}}"
-                                         alt="img">
-                                    <span class="card-title">{{$diadiem->TieuDe}}</span>
+                                        src="upload/diadiem/{{ $diadiem->HinhAnh }}" alt="img">
+                                    <span class="card-title">{{ $diadiem->TieuDe }}</span>
                                 </div>
                             </a>
                             <div class="card-content">
                                 <p style="display: block;
-                          display: -webkit-box;
-                          height: 38px;
-                          margin: 0 auto;
-                          font-size: 14px;
-                          line-height: 1.5;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                    ">{{$diadiem->TomTat}}</p>
+                              display: -webkit-box;
+                              height: 38px;
+                              margin: 0 auto;
+                              font-size: 14px;
+                              line-height: 1.5;
+                              -webkit-line-clamp: 2;
+                              -webkit-box-orient: vertical;
+                              overflow: hidden;
+                              text-overflow: ellipsis;
+                        ">{{ $diadiem->TomTat }}</p>
                             </div>
 
                         </div>
@@ -119,34 +111,29 @@
                     <div class="col-4 c-6">
 
                         <div class="card">
-                            <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
+                            <a href="home/view/{{ $ddiem->id }}/{{ $ddiem->TacGia }}">
                                 <div class="card-image">
-                                    <img class="post-img" style="height:200px" src="upload/diadiem/{{$ddiem->HinhAnh}}"
-                                         alt="img">
-                                    <span class="card-title">{{$ddiem->TieuDe}}</span>
+                                    <img class="post-img" style="height:200px"
+                                        src="upload/diadiem/{{ $ddiem->HinhAnh }}" alt="img">
+                                    <span class="card-title">{{ $ddiem->TieuDe }}</span>
                                 </div>
                             </a>
                             <div class="card-content">
                                 <p style="display: block;
-                          display: -webkit-box;
-                          height: 38px;
-                          margin: 0 auto;
-                          font-size: 14px;
-                          line-height: 1.5;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                    ">{{$ddiem->TomTat}}</p>
+                              display: -webkit-box;
+                              height: 38px;
+                              margin: 0 auto;
+                              font-size: 14px;
+                              line-height: 1.5;
+                              -webkit-line-clamp: 2;
+                              -webkit-box-orient: vertical;
+                              overflow: hidden;
+                              text-overflow: ellipsis;
+                        ">{{ $ddiem->TomTat }}</p>
                             </div>
-
                         </div>
-
-
                     </div>
-
                 @endforeach
-
             </div>
         @endif
     </section>
@@ -163,45 +150,26 @@
                     @foreach ($noibat as $ddiem)
                         <div class="col-4">
                             <div class="card">
-                                @if(isset($user))
-                                    <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}/{{$user->id}}">
-                                        @else
-                                            <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
-                                                @endif
-                                                <div class="card-image">
-                                                    <img class="post-img" style="height:200px"
-                                                         src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
-                                                    <span class="card-title">{{$ddiem->TieuDe}}</span>
-                                                </div>
-                                            </a>
-                                        <!-- <div class="card-content" >
-                  <p style="display: block;
-                                display: -webkit-box;
-                                height: 38px;
-                                margin: 0 auto;
-                                font-size: 14px;
-                                line-height: 1.5;
-                                -webkit-line-clamp: 2;
-                                -webkit-box-orient: vertical;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                          ">{{$ddiem->TomTat}}</p>
-                </div> -->
+                                @if (isset($user))
+                                    <a href="home/view/{{ $ddiem->id }}/{{ $ddiem->TacGia }}/{{ $user->id }}">
+                                @else
+                                    <a href="home/view/{{ $ddiem->id }}/{{ $ddiem->TacGia }}">
+                                @endif
+                                    <div class="card-image">
+                                        <img class="post-img" style="height:200px"
+                                            src="upload/diadiem/{{ $ddiem->HinhAnh }}" alt="img">
+                                        <span class="card-title">{{ $ddiem->TieuDe }}</span>
+                                    </div>
                                     </a>
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
         </div>
     </section>
-
-
 @endsection
-
 @section('script')
-
     <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
@@ -209,7 +177,6 @@
     <script href="admin_asset/js/homepage.js"></script>
     {{-- <script type="text/javascript" src="admin_asset/js/slider.js"></script> --}}
     <!-- <script type="text/javascript" src="admin_asset/js/admin.js"></script> -->
-
     <script>
         var showFiller = true;
 

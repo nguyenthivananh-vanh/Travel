@@ -39,10 +39,7 @@
                             <p></p>
                             <h3 class="mt-4 mb-4 text-center title" style="font-family:'Alice';sans-serif"> {{$DiaDiem->TieuDe}}</h3>
                         </div>
-                        <!-- <div class="alert alert-success">
-                                thông báo<br>
-                            </div> -->
-                            {{-- ava --}}
+
                         <div class="author row">
                             <div class="col-1 pr-0">
                                 <img src="upload/users/{{$userAuthor->Avatar}}" class="circle avatar-user" style='width:50px; height:50px' alt="Avatar User">
@@ -170,10 +167,7 @@
 
                                 @endforeach
                             </div>
-
-
                         </div>
-
                         <hr>
                     </div>
                     <div class="right-menu col-xl-4 col-l-4 l-4 m-6 c-12">
@@ -182,7 +176,6 @@
                                 <p>ĐỊA ĐIỂM LIÊN QUAN</p>
                             </div>
                             <hr>
-
                             <ul class="list-sub" >
                                 @foreach ($diadiemList as $row)
                                 @if(isset($user))
@@ -217,19 +210,15 @@
                                 @endif
                                 @endforeach
                             </ul>
-
                         </div>
-
-
                         <div class="sub-deyail-culinary">
-                            <div class="sub-title">
-                                <p>ĐẶC SẢN HẤP DẪN</p>
-                            </div>
-                            <hr>
-                            <ul class="list-sub" >
-                                @if(isset($monan))
+                            @if(isset($monan))
+                                <div class="sub-title">
+                                    <p>ĐẶC SẢN HẤP DẪN</p>
+                                </div>
+                                <hr>
+                                <ul class="list-sub" >                               
                                     @foreach ($monan as $monan)
-
                                     <li class="list-sub-item">
                                         <div class="row">
                                         <div class="col-4 item-img">
@@ -246,52 +235,46 @@
                                             </div>
                                         </div>
                                     </li>
+                                    @endforeach
+                                </ul>  
 
-                                     @endforeach
-                                @endif
-                                @if(isset($monanTinh))
+                            @endif   
+                            
+                            @if(isset($monanTinh))
                                 <div class="sub-title">
                                     <p>ĐẶC SẢN VÙNG MIỀN</p>
                                 </div>
+                                <ul class="list-sub" >
                                     @foreach ($monanTinh as $ma)
-
                                         <li class="list-sub-item">
                                             <div class="row">
                                                 <div class="col-4 item-img">
                                                     <img src="upload/monan/{{$ma->HinhAnh}}" alt="">
-                                                 </div>
+                                                </div>
                                                 <div class="col-8 item-text">
                                                     @if(isset($user))
                                                         <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}/{{$user->id}}">{{$ma->TenMonAn}}<br>
                                                     @else
-                                                         <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}">{{$ma->TenMonAn}}<br>
+                                                        <p> <a href="home/viewMonAn/{{$ma->id}}/{{$ma->idDiaDiem}}">{{$ma->TenMonAn}}<br>
                                                     @endif
-                                                     <span style="color: black; font-size: 14px">{{$ma->TieuDe}}</span></a></p>
+                                                    <span style="color: black; font-size: 14px">{{$ma->TieuDe}}</span></a></p>
                                                     <span>{{$ma->updated_at}}</span>
                                                 </div>
                                             </div>
                                         </li>
-
                                     @endforeach
-                                @endif
-                            </ul>
-
+                                </ul>
+                            @endif
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
-
-        </div>
-    </section>
-    <section>
-       <div class="post-related hide-post-related">
+   
+        <div class="post-related hide-post-related">
             <div class="destination">
                 <!-- <div class="destination-before"></div> -->
-                <span style="margin: 0 10px; margin-left:3%" class="destination-tittle" id="test1">Điểm đến liên quan</span>
+                <span style="margin: 0 10px; margin-left:3%" class="destination-tittle" id="test1">Điểm đến hấp dẫn</span>
                 <!-- <div class="destination-after"></div> -->
             </div>
             <div id="content-slider">
@@ -317,8 +300,6 @@
                                         </div>
                                     </a>
                                 @endif
-
-
                             </div>
                         </div>
                     @endforeach

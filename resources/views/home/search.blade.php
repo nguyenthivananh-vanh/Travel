@@ -7,16 +7,16 @@
             <div class="row mb-1">
                 <div class="col-12">
                     <div class="search-container">
-                        @if(isset($user))
-                            <form action="home/search/{{$user->id}}" method="GET" enctype="multipart/form-data">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        @if (isset($user))
+                            <form action="home/search/{{ $user->id }}" method="GET" enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input
                                     style="border: 1px solid #1976d2; border-radius: 3px;padding-left: 10px;margin-bottom:0px"
                                     type="text" placeholder="Search..." name="search">
                             </form>
                         @else
                             <form action="home/search" method="GET" enctype="multipart/form-data">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input
                                     style="border: 1px solid #1976d2; border-radius: 3px;padding-left: 10px;margin-bottom:0px"
                                     type="text" placeholder="Search..." name="search">
@@ -28,39 +28,41 @@
             <div class="row">
                 <div class="col-12">
                     <h6 class="center">
-                        <span class="teal-text">Kết quả tìm kiếm:</span>{{$key}} </h6>
+                        <span class="teal-text">Kết quả tìm kiếm:</span>{{ $key }}
+                    </h6>
                 </div>
             </div>
             <div class="container-fuild">
                 <div class="row">
                     <div class="col-12">
                         <h4 class="center">
-                            <span class="teal-text"></span> Địa điểm </h4>
+                            <span class="teal-text"></span> Địa điểm
+                        </h4>
                     </div>
                 </div>
-                @if(isset($user))
+                @if (isset($user))
                     <div class="row">
                         @foreach ($diadiem as $ddiem)
                             <div class="col-4">
                                 <div class="card">
-                                    <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}/{{$user->id}}">
+                                    <a href="home/view/{{ $ddiem->id }}/{{ $ddiem->TacGia }}/{{ $user->id }}">
                                         <div class="card-image">
                                             <img class="fit-img" style="height:200px"
-                                                 src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
-                                            <span class="card-title">{{$ddiem->TieuDe}}</span>
+                                                src="upload/diadiem/{{ $ddiem->HinhAnh }}" alt="img">
+                                            <span class="card-title">{{ $ddiem->TieuDe }}</span>
                                         </div>
                                     </a>
                                     <div class="card-content">
                                         <p style="display: block;
-                                                display: -webkit-box;
-                                                height: 38px;
-                                                margin: 0 auto;
-                                                font-size: 14px;
-                                                line-height: 1.5;
-                                                -webkit-line-clamp: 2;
-                                                -webkit-box-orient: vertical;
-                                                overflow: hidden;
-                                                text-overflow: ellipsis;">{{$ddiem->TomTat}}
+                                                    display: -webkit-box;
+                                                    height: 38px;
+                                                    margin: 0 auto;
+                                                    font-size: 14px;
+                                                    line-height: 1.5;
+                                                    -webkit-line-clamp: 2;
+                                                    -webkit-box-orient: vertical;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;">{{ $ddiem->TomTat }}
                                         </p>
                                     </div>
                                 </div>
@@ -72,28 +74,27 @@
                         @foreach ($diadiem as $ddiem)
                             <div class="col-4">
                                 <div class="card">
-                                    <a href="home/view/{{$ddiem->id}}/{{$ddiem->TacGia}}">
+                                    <a href="home/view/{{ $ddiem->id }}/{{ $ddiem->TacGia }}">
                                         <div class="card-image">
                                             <img class="fit-img" style="height:200px"
-                                                 src="upload/diadiem/{{$ddiem->HinhAnh}}" alt="img">
-                                            <span class="card-title">{{$ddiem->TieuDe}}</span>
+                                                src="upload/diadiem/{{ $ddiem->HinhAnh }}" alt="img">
+                                            <span class="card-title">{{ $ddiem->TieuDe }}</span>
                                         </div>
                                     </a>
                                     <div class="card-content">
                                         <p style="display: block;
-                                                display: -webkit-box;
-                                                height: 38px;
-                                                margin: 0 auto;
-                                                font-size: 14px;
-                                                line-height: 1.5;
-                                                -webkit-line-clamp: 2;
-                                                -webkit-box-orient: vertical;
-                                                overflow: hidden;
-                                                text-overflow: ellipsis;">{{$ddiem->TomTat}}
+                                                    display: -webkit-box;
+                                                    height: 38px;
+                                                    margin: 0 auto;
+                                                    font-size: 14px;
+                                                    line-height: 1.5;
+                                                    -webkit-line-clamp: 2;
+                                                    -webkit-box-orient: vertical;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;">{{ $ddiem->TomTat }}
                                         </p>
                                     </div>
                                 </div>
-
                             </div>
                         @endforeach
                     </div>
@@ -103,7 +104,7 @@
     </section>
     <div class="row">
         <div class="page">
-            {{$diadiem->links("pagination::bootstrap-4")}}
+            {{ $diadiem->links('pagination::bootstrap-4') }}
         </div>
     </div>
 
@@ -117,47 +118,47 @@
             @foreach ($MonAn as $monan)
                 <div class="col-4">
                     <div class="card">
-                        @if(isset($user))
-                            <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}/{{$user->id}}">
+                        @if (isset($user))
+                            <a href="home/viewMonAn/{{ $monan->id }}/{{ $monan->idDiaDiem }}/{{ $user->id }}">
                                 <div class="card-image">
                                     <img class="post-img" style="height:200px"
-                                         src="upload/monan/{{$monan->HinhAnh}}" alt="img">
-                                    <span class="card-title">{{$monan->TenMonAn}}</span>
+                                        src="upload/monan/{{ $monan->HinhAnh }}" alt="img">
+                                    <span class="card-title">{{ $monan->TenMonAn }}</span>
                                 </div>
                             </a>
                             <div class="card-content">
                                 <p style="display: block;
-                            display: -webkit-box;
-                            height: 38px;
-                            margin: 0 auto;
-                            font-size: 14px;
-                            line-height: 1.5;
-                            -webkit-line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                      ">{{$monan->TieuDe}}</p>
+                                display: -webkit-box;
+                                height: 38px;
+                                margin: 0 auto;
+                                font-size: 14px;
+                                line-height: 1.5;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                          ">{{ $monan->TieuDe }}</p>
                             </div>
                         @else
-                            <a href="home/viewMonAn/{{$monan->id}}/{{$monan->idDiaDiem}}">
+                            <a href="home/viewMonAn/{{ $monan->id }}/{{ $monan->idDiaDiem }}">
                                 <div class="card-image">
                                     <img class="post-img" style="height:200px"
-                                         src="upload/monan/{{$monan->HinhAnh}}" alt="img">
-                                    <span class="card-title">{{$monan->TenMonAn}}</span>
+                                        src="upload/monan/{{ $monan->HinhAnh }}" alt="img">
+                                    <span class="card-title">{{ $monan->TenMonAn }}</span>
                                 </div>
                             </a>
                             <div class="card-content">
                                 <p style="display: block;
-                              display: -webkit-box;
-                              height: 38px;
-                              margin: 0 auto;
-                              font-size: 14px;
-                              line-height: 1.5;
-                              -webkit-line-clamp: 2;
-                              -webkit-box-orient: vertical;
-                              overflow: hidden;
-                              text-overflow: ellipsis;
-                        ">{{$monan->TieuDe}}</p>
+                                  display: -webkit-box;
+                                  height: 38px;
+                                  margin: 0 auto;
+                                  font-size: 14px;
+                                  line-height: 1.5;
+                                  -webkit-line-clamp: 2;
+                                  -webkit-box-orient: vertical;
+                                  overflow: hidden;
+                                  text-overflow: ellipsis;
+                            ">{{ $monan->TieuDe }}</p>
                             </div>
                         @endif
                     </div>
@@ -165,24 +166,20 @@
             @endforeach
         </div>
     </section>
-    @if(isset($user))
+    @if (isset($user))
         <div class="row">
             <div class="page">
-                <a href="home/monan/all/{{$key}}/{{$user->id}}">Xem thêm</a>
+                <a href="home/monan/all/{{ $key }}/{{ $user->id }}">Xem thêm</a>
             </div>
         </div>
     @else
         <div class="row">
             <div class="page">
-                <a href="home/monan/all/{{$key}}">Xem thêm</a>
+                <a href="home/monan/all/{{ $key }}">Xem thêm</a>
             </div>
         </div>
     @endif
     <!-- Section: Gallery -->
-
-
-
-
 @endsection
 
 @section('script')
@@ -194,8 +191,6 @@
         function showNavbar() {
             this.showFiller = !this.showFiller;
         }
-
-
     </script>
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
