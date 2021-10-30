@@ -25,6 +25,7 @@
                                     {{session('thongbao')}}<br>
                                 </div>
                             @endif
+                         
                             <form action="home/reply/{{$user->id}}" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="form-group">
@@ -73,7 +74,7 @@
                                     <button class="btn btn-secondary green">Đăng bài</button>
                                     <button class="btn btn-secondary red">Xóa</button>
                                 </div>
-                            </form>   
+                            </form> 
                         
                         </div>
                     </div>

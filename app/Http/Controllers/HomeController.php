@@ -79,9 +79,12 @@ class HomeController extends Controller
     function DacDiemSearch($id)
     {
         $vungmien = VungMien::all();
-        $noibat = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('SoLuotXem', 'DESC')->take(6)->get();
-        $diadiem = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('id', 'DESC')->paginate(3);
-
+        $noibat = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('SoLuotXem', 'DESC')->take(6)->get();  
+        $idDiaDiem = array();
+        foreach($noibat as $row){
+            $idDiaDiem[]= $row->id;
+        }           
+        $diadiem = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('id', 'DESC')->whereNotIn('id',$idDiaDiem)->paginate(3);
         return view('home.dacdiem.search', ['noibat' => $noibat, 'vungmien' => $vungmien, 'diadiem' => $diadiem]);
     }
 
@@ -89,7 +92,11 @@ class HomeController extends Controller
     {
         $vungmien = VungMien::all();
         $noibat = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('SoLuotXem', 'DESC')->take(6)->get();
-        $diadiem = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('id', 'DESC')->paginate(3);
+        $idDiaDiem = array();
+        foreach($noibat as $row){
+            $idDiaDiem[]= $row->id;
+        }
+        $diadiem = DiaDiem::where('idDacDiem', $id)->where('TrangThai',1)->orderBy('id', 'DESC')->whereNotIn('id',$idDiaDiem)->paginate(3);
         $user = User::find($idUser);
 
         return view('home.dacdiem.search', ['noibat' => $noibat, 'vungmien' => $vungmien, 'diadiem' => $diadiem, 'user' => $user]);
