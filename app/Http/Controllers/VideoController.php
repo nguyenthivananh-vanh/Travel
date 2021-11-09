@@ -16,7 +16,7 @@ class VideoController extends Controller
     public function getList($idUser)
     {
         $user = User::find($idUser);
-        $video = Video::paginate(2);
+        $video = Video::orderBy('id','DESC')->paginate(2);
         $diadiem = DiaDiem::all();
         return view('admin.video.list', ['video' => $video,'diadiem' => $diadiem,'user'=>$user]);
     }

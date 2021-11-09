@@ -63,7 +63,6 @@
     </div>
 @endsection
 @section('script')
-
     <script>
         const isCKpassword = $('.check-is-changepassword input[type="checkbox"]')
         $('.check-is-changepassword').on('click', function() {

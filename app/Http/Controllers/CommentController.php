@@ -9,7 +9,7 @@ class CommentController extends Controller
 {
     public function getList($idUser){
         $user = User::find($idUser);
-        $comment = Comment::paginate(5);
+        $comment = Comment::orderBy('id','DESC')->paginate(5);
         return view('admin.comment.list',['comment'=>$comment,'user'=>$user]);
     }
     public function getDelete($id, $idUser){

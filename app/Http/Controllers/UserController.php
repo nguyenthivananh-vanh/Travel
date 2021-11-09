@@ -17,7 +17,7 @@ class UserController extends Controller
     public function getList($idUser)
     {
         $users = User::find($idUser);
-        $user = User::paginate(5);
+        $user = User::orderBy('id','DESC')->paginate(5);
         return view('admin.user.list', ['User' => $user,'user' => $users]);
     }
 

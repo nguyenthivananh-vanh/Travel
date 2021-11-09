@@ -13,7 +13,7 @@ class MonAnController extends Controller
     public function getList($idUser)
     {
         $user = User::find($idUser);      
-        $monan = MonAn::paginate(3);
+        $monan = MonAn::orderBy('id','DESC')->paginate(3);
         $diadiem = DiaDiem::all();
         return view('admin.monan.list', ['MonAn' => $monan, 'DiaDiem' => $diadiem,'user'=>$user]);
     }

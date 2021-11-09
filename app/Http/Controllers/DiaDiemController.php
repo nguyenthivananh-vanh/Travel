@@ -14,7 +14,7 @@ class DiaDiemController extends Controller
     
     public function getList($idUser)
     {
-        $diadiem = DiaDiem::where('TrangThai',1)->paginate(3);
+        $diadiem = DiaDiem::where('TrangThai',1)->orderBy('id','DESC')->paginate(3);
         $user = User::find($idUser);
         return view('admin.diadiem.list', ['DiaDiem' => $diadiem,'user'=>$user]);
     }
@@ -22,7 +22,7 @@ class DiaDiemController extends Controller
 
     public function getListDuyet($idUser)
     {
-        $diadiem = DiaDiem::where('TrangThai',0)->paginate(3);
+        $diadiem = DiaDiem::where('TrangThai',0)->orderBy('id','DESC')->paginate(3);
         $user = User::find($idUser);
         return view('admin.diadiem.listDuyet', ['DiaDiem' => $diadiem,'user'=>$user]);
     }
