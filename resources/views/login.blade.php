@@ -30,11 +30,18 @@
                         require>
                 </div>
                 <div>
-                    <a style="float: right;margin-bottom: 20px;" href="forgotPassWord">Quên mật khẩu ?</a>
+                    <a style="float: right;margin-bottom: 20px;" href="forgotPassWord">Quên mật khẩu</a>
                     {{-- <p style="float: right;margin-bottom: 20px; color: #1976d1" onClick="reset()"
                         class="mr-2">Reset</p> --}}
                 </div>
                 <br>
+                <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
+                <br />
+                @if ($errors->has('g-recaptcha-response'))
+                    <span class="invalid-feedback" style="display:block">
+                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                    </span>
+                @endif
                 <br>
                 <button type="submit">Đăng nhập</button>
                 <div class="mb-3 text-center" style="margin-top: 20px; ">
