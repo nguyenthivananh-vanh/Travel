@@ -131,21 +131,15 @@
                                                     style='width:50px; height:50px' alt="Avatar User">
                                             </div>
                                             <b class="user col-10 m-10 c-10 pl-2" style="padding:12px">{{$cmt->user->Ten}}
-
                                             </b>
 
                                         </div>
                                         <div class="replied_to">
                                             <p>{{$cmt->NoiDung}}</p>
-
                                             @if (isset($cmt->HinhAnh))
                                                 <img class="post-img" style="width:300px" src="upload/comment/{{$cmt->HinhAnh}}" alt="">
                                             @endif
-                                        </div>
-
-                                        <!-- Finally someone who actually gets it!
-                                        <div class="replied_to"><p><span class="user">Andrew Johnson:</span>That's exactly what I was thinking!</p></div>That's awesome!</p> -->
-
+                                        </div>                                   
                                     </div>
                                     <!-- comments toolbar -->
                                     <div class="comment_toolbar row" style="margin:0 20px">
@@ -212,7 +206,7 @@
                             </ul>
                         </div>
                         <div class="sub-deyail-culinary">
-                            @if(isset($monan))
+                            @if($count_ma > 0)
                                 <div class="sub-title">
                                     <p>ĐẶC SẢN HẤP DẪN</p>
                                 </div>
@@ -240,7 +234,7 @@
 
                             @endif   
                             
-                            @if(isset($monanTinh))
+                            @if($count_mat > 0)
                                 <div class="sub-title">
                                     <p>ĐẶC SẢN VÙNG MIỀN</p>
                                 </div>

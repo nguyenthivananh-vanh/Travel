@@ -172,25 +172,23 @@ class UserController extends Controller
             [
                 'ten' => 'required|min:3',
                 'email' => 'required|email',
-                'pass' => 'required|min:6',
-                'confirm' => 'required|same:pass',
             ],
             [
                 'ten.required' => 'Bạn chưa nhập tên người dùng',
                 'ten.min' => 'Tên người dùng phải có ít nhất 3 kí tự',
                 'email.required' => 'Bạn chưa nhập email',
                 'email.email' => 'Bạn phải nhập đúng định dạng email',
-                'pass.required' => 'Bạn chưa nhập mật khẩu',
                 'pass.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
-                'confirm.required' => 'Bạn chưa nhập lại mật khẩu',
                 'confirm.same' => 'Mật khẩu nhập lại chưa khớp'
             ]);
         $user = User::find($id);
         $user->Ten = $request->ten;
         $user->email = $request->email;
         $user->PhanQuyen = $user->PhanQuyen;
-        if ($user->password !== $request->pass) {
-            $user->password = bcrypt($request->pass);
+        if($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        } else {
+            $user->password = $user->password;
         }
 
         if ($request->hasFile('hinhanh')) {

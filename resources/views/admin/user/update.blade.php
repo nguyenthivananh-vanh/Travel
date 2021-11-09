@@ -40,13 +40,13 @@
                             <div class="change-password display-none">
                                 <div class="mb-3">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" id="password" name="pass"
-                                        value="{{ $user->password }}" placeholder="Password" require>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                       placeholder="Password" require>
                                 </div>
                                 <div class="mb-3">
                                     <label>Password Repeat</label>
                                     <input type="password" class="form-control" id="password_rp" name="confirm"
-                                        value="{{ $user->password }}" placeholder="Repeat Password" require>
+                                         placeholder="Repeat Password" require>
                                 </div>
                             </div>
                             <div class="mb-3">

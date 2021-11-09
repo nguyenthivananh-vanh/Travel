@@ -14,9 +14,9 @@
                     @endforeach
                 </div>
             @endif
-            @if (session('thongbao'))
-                <div class="alert alert-success">
-                    {{ session('thongbao') }}
+            @if (session('thongbaoloi'))
+                <div class="alert alert-danger">
+                    {{ session('thongbaoloi') }}
                 </div>
             @endif
             <form action="login" method="POST" enctype="multipart/form-data" id="myForm">
