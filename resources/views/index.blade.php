@@ -30,10 +30,8 @@
 
     @yield('content')
     <script src="admin_asset/bower_components/jquery/dist/jquery.min.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="admin_asset/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
     <!-- Metis Menu Plugin JavaScript -->
     <script src="admin_asset/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
@@ -47,6 +45,8 @@
     </script>
     <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         CKEDITOR.replace('ckeditor');
         CKEDITOR.config.height = '100vh';

@@ -31,37 +31,48 @@
                 </div>
                 <div>
                     <a style="float: right;margin-bottom: 20px;" href="forgotPassWord">Quên mật khẩu ?</a>
-                    <p style="float: right;margin-bottom: 20px; color: #1976d1" onClick="reset()"
-                        class="mr-2">Reset</p>
-
+                    {{-- <p style="float: right;margin-bottom: 20px; color: #1976d1" onClick="reset()"
+                        class="mr-2">Reset</p> --}}
                 </div>
                 <br>
                 <br>
                 <button type="submit">Đăng nhập</button>
+                <div class="mb-3 text-center" style="margin-top: 20px; ">
+                    <p class="text-align: center">Bạn chưa có tài khoản ?<a href="register" class="hover:no-underline">Đăng kí</a></p>
+                </div> 
             </form>
         </div>
     </div>
 
 </div>
-<script type="text/javascript">
-    function validateForm() {
-        var email = document.getElementById('email').value;
-        var pw = document.getElementById('password').value;
-
-        if (email == null || email == "") {
-            alert("Bạn chưa nhập Email");
-            return false;
-        } else if (pw == null || pw == "") {
-            alert("Bạn chưa nhập Password");
-            return false;
+<script>
+    $().ready(function() {
+      $("#myForm").validate({
+        rules: {
+         
+          "password": {
+            required: true,
+            minlength: 6
+          },
+         
+          "email":{
+            required:true,
+            email:true,
+          }
+        },
+        messages:{
+          
+          "password": {
+            required: "Vui lòng nhập tên mật khẩu",
+            minlength: "Phải nhập 6 kí tự trở lên"
+          },
+          
+          "email":{
+            required:"Vui lòng nhập email",
+            email:"Không đúng định dạng email",
+          }
         }
-        if (pw.length < 3 || pw.length > 32) {
-            alert("Password phải lớn hơn 3 kí tự và nhỏ hơn 32 kí tự")
-            return false;
-        }
-    }
-
-    function reset() {
-        document.getElementById("myForm").reset();
-    }
+      });
+    });
 </script>
+

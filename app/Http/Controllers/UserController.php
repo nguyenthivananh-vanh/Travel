@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Rules\Captcha;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+Use Redirect;
+use Input;
 
 class UserController extends Controller
 {
@@ -110,18 +113,6 @@ class UserController extends Controller
 
     public function postLogin(Request $request)
     {
-        $this->validate($request,
-            [
-                'email' => 'required',
-                'password' => 'required|min:6|max:20',
-                'g-recaptcha-response' => new Captcha(),
-            ],
-            [
-                'email.required' => 'Bạn chưa nhập email',
-                'password.required' => 'Bạn chưa nhập mật khẩu',
-                'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
-                'password.max' => 'Mật khẩu chỉ được tối đa 20 kí tự',
-            ]);
         $user = User::where('email', $request->email)->first();
         $diadiem = DiaDiem::orderBy('SoLuotXem', 'DESC')->take(6)->get();
         $vungmien = VungMien::all();
@@ -130,13 +121,13 @@ class UserController extends Controller
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
                 return redirect('home/home/' . $user->id);
             } else {
-                return redirect('login')->with('thongbao', 'Mật khẩu hoặc tên tài khoản không đúng');
+                return Redirect::back()->withInput()->with('thongbaoloi', 'Mật khẩu hoặc tài khoản không đúng');
             }
         } else {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
                 return redirect('home/home/' . $user->id);
             } else {
-                return redirect('login')->with('thongbao', 'Mật khẩu hoặc tên tài khoản không đúng');
+                return Redirect::back()->withInput()->with('thongbaoloi', 'Mật khẩu hoặc tài khoản không đúng');
             }
         }
 
@@ -150,26 +141,15 @@ class UserController extends Controller
 
     public function postRegister(Request $request)
     {
-        $this->validate($request,
-            [
-                'ten' => 'required|min:3',
-                'email' => 'required|email|unique:users,email',
-                'pass' => 'required|min:6|max:20',
-                'confirm' => 'required|same:pass',
-                'g-recaptcha-response' => new Captcha(),
-            ],
-            [
-                'ten.required' => 'Bạn chưa nhập tên người dùng',
-                'ten.min' => 'Ten người dùng phải có ít nhất 3 kí tự',
-                'email.required' => 'Bạn chưa nhập email',
-                'email.email' => 'Bạn phải nhập đúng định dạng email',
-                'email.unique' => 'Email đã tồn tại',
-                'pass.required' => 'Bạn chưa nhập mật khẩu',
-                'pass.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
-                'pass.max' => 'Mật khẩu chỉ được tối đa 20 kí tự',
-                'confirm.required' => 'Bạn chưa nhập lại mật khẩu',
-                'confirm.same' => 'Mật khẩu nhập lại chưa khớp'
-            ]);
+        $validator = [  
+            'ten.unique'   => 'Tên người dùng đã tồn tại',  
+            'email.unique' => 'Email đã tồn tại',
+        ];
+        
+        $this->validate($request,[
+            'ten' => 'unique:users',
+            'email' => 'unique:users',
+        ], $validator);
         $user = new User();
         $user->Ten = $request->ten;
         $user->email = $request->email;
@@ -298,15 +278,9 @@ class UserController extends Controller
     {
         $this->validate($request,
             [
-//                'password' => 'required|min:6',
-//                'password1' => 'required|same:password',
                 'otp' => 'required',
             ],
             [
-//                'password.required' => 'Bạn chưa nhập mật khẩu',
-//                'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
-//                'password1.required' => 'Bạn chưa nhập lại mật khẩu',
-//                'password1.same' => 'Mật khẩu nhập lại chưa khớp',
                 'otp.required' => 'Bạn chưa nhập email'
             ]);
 
